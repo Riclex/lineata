@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angola Project Intelligence — Find out what happened to every major investment announced in Angola</title>
+  <meta name="description" content="A database that answers: Who actually delivers in Angola? Track every major investment announcement from FILDA, AIPEX, and government sources — and see what actually happened.">
+  <style>
+    :root {
+      --bg: #0a0e14;
+      --surface: #131820;
+      --surface2: #1a212c;
+      --border: #2a3442;
+      --text: #e2e8f0;
+      --text-dim: #8896a6;
+      --accent: #e8a838;
+      --accent-dim: #b8862a;
+      --green: #4ade80;
+      --red: #f87171;
+      --yellow: #fbbf24;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 .highlight { color: var(--accent); }
+    .hero p {
+      font-size: 19px;
+      color: var(--text-dim);
+      max-width: 620px;
+      margin: 0 auto 36px;
+    }
+
+    /* CTA */
+    .cta-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0e14;
+    }
+    .btn-primary:hover { background: #f0b842; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--text-dim); }
+
+    /* Sample metrics */
+    .metrics {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .metrics h2 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+    .metric-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .metric-value {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .metric-value.green { color: var(--green); }
+    .metric-value.yellow { color: var(--yellow); }
+    .metric-value.red { color: var(--red); }
+    .metric-value.accent { color: var(--accent); }
+    .metric-label {
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+    .metrics-note {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+    /* Example timeline */
+    .example {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .example h2 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .example p.intro {
+      text-align: center;
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .timeline {
+      max-width: 540px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .timeline-item.green .timeline-dot { background: var(--green); }
+    .timeline-item.red .timeline-dot { background: var(--red); }
+    .timeline-item.yellow .timeline-dot { background: var(--yellow); }
+    .timeline-year {
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-bottom: 2px;
+    }
+    .timeline-event {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .timeline-project {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* Audience */
+    .audience {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .audience h2 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .audience-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .audience-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .audience-card p {
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+    /* Question section */
+    .question {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .question h2 {
+      font-size: 26px;
+      font-weight: 700;
+      max-width: 640px;
+      margin: 0 auto 20px;
+      line-height: 1.4;
+    }
+    .question p {
+      color: var(--text-dim);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+
+    /* Form */
+    .signup {
+      padding: 60px 0 80px;
+      text-align: center;
+    }
+    .signup h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .signup p {
+      color: var(--text-dim);
+      margin-bottom: 32px;
+    }
+    .signup-form {
+      max-width: 440px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .signup-form input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 15px;
+    }
+    .signup-form input[type="email"]::placeholder { color: var(--text-dim); }
+    .signup-form input[type="email"]:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .signup-form button {
+      padding: 14px 24px;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent);
+      color: #0a0e14;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .signup-form button:hover { background: #f0b842; }
+    .signup-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .signup-success {
+      display: none;
+      color: var(--green);
+      font-size: 16px;
+      margin-top: 16px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+    footer a {
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--text); }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 30px; }
+      .hero p { font-size: 17px; }
+      .metrics h2, .example h2, .audience h2, .signup h2 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">COMING SOON</span>
+      <h1>Find out what happened to every major <span class="highlight">investment announced in Angola</span> since 2005.</h1>
+      <p>Every FILDA announcement. Every AIPEX commitment. Every government project. Traced from announcement to operation — or to silence.</p>
+      <div class="cta-row">
+        <a href="#notify" class="btn btn-primary">Get Early Access</a>
+        <a href="#example" class="btn btn-secondary">See an Example</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE METRICS -->
+  <section class="metrics" id="metrics">
+    <div class="container">
+      <h2>What you'll be able to ask</h2>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value accent" id="m-announcements">1,200+</div>
+          <div class="metric-label">Tracked announcements</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value green" id="m-completed">—</div>
+          <div class="metric-label">Completed</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value yellow" id="m-delayed">—</div>
+          <div class="metric-label">Delayed</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value red" id="m-cancelled">—</div>
+          <div class="metric-label">Cancelled</div>
+        </div>
+      </div>
+      <p class="metrics-note">Metrics updated as data collection progresses. Phase 0 (FILDA 2023) in progress.</p>
+    </div>
+  </section>
+
+  <!-- EXAMPLE TIMELINE -->
+  <section class="example" id="example">
+    <div class="container">
+      <h2>Every project becomes a timeline</h2>
+      <p class="intro">Not just "what was announced" — but what actually happened. Here's a sample project profile:</p>
+      <div class="timeline-project">Luanda Glass Factory</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2012</div>
+          <div class="timeline-event">Announced at FILDA</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2013</div>
+          <div class="timeline-event">MoU signed</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2014</div>
+          <div class="timeline-event">Construction started</div>
+        </div>
+        <div class="timeline-item red">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2015</div>
+          <div class="timeline-event">Funding suspended</div>
+        </div>
+        <div class="timeline-item red">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2018</div>
+          <div class="timeline-event">Chinese partner exited</div>
+        </div>
+        <div class="timeline-item yellow">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2021</div>
+          <div class="timeline-event">Project restarted</div>
+        </div>
+        <div class="timeline-item green">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2025</div>
+          <div class="timeline-event">Operating at 35% capacity</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="audience">
+    <div class="container">
+      <h2>Who needs this?</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>Foreign Investors</h3>
+          <p>Before investing, know if your local partner has delivered before. Which sectors actually execute. Which provinces have the highest completion rates.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Consulting Firms</h3>
+          <p>EY, Deloitte, KPMG, PwC, and local advisors produce Angola market reports. This database shortens research from weeks to minutes.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Banks & Lenders</h3>
+          <p>Credit intelligence: "Show every $20M+ manufacturing project announced since 2010 and whether it was completed."</p>
+        </div>
+        <div class="audience-card">
+          <h3>Export Agencies</h3>
+          <p>Trade missions from Portugal, Brazil, Turkey, China, South Africa want to know which sectors turn announcements into operations.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Journalists</h3>
+          <p>Every FILDA produces "$300 million announced" headlines. Few revisit those claims. This is a fact-checking resource.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Researchers</h3>
+          <p>Development economists study why projects succeed or fail. Surprisingly little structured data exists for Angola.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY QUESTION -->
+  <section class="question">
+    <div class="container">
+      <h2>"If this database existed today, would it save you research time or improve your due diligence?"</h2>
+      <p>If the answer is yes, leave your email. You'll be first to know when it's live.</p>
+      <div class="cta-row">
+        <a href="#notify" class="btn btn-primary">Yes, Notify Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP FORM -->
+  <section class="signup" id="notify">
+    <div class="container">
+      <h2>Get Early Access</h2>
+      <p>We'll email you when the database launches. No spam, just updates.</p>
+      <form class="signup-form" id="signup-form">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <button type="submit">Notify Me</button>
+      </form>
+      <div class="signup-note">You can unsubscribe at any time.</div>
+      <div class="signup-success" id="signup-success">✓ Thanks! We'll be in touch.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>Angola Project Intelligence · Investment Execution Database · <a href="#">Contact</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple form handler (no backend yet — just visual feedback)
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = this.querySelector('input[type="email"]').value;
+      // Store locally for now — will wire to backend later
+      var leads = JSON.parse(localStorage.getItem('api_leads') || '[]');
+      leads.push({ email: email, date: new Date().toISOString() });
+      localStorage.setItem('api_leads', JSON.stringify(leads));
+      document.getElementById('signup-success').style.display = 'block';
+      this.querySelector('input[type="email"]').value = '';
+    });
+
+    // Placeholder metrics — will be replaced with real data as collection progresses
+    // m-announcements, m-completed, m-delayed, m-cancelled
+  </script>
+
+</body>
+</html>

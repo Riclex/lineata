@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {"url":"https://turquia.mirex.gov.ao/web/noticias/angola-pretende-ser-o-maior-produtor-de-gr-os-em--frica","title":"Angola pretende ser o maior produtor de grãos em África","date":"2022-07-16","publisher":"MIREX Angola / Embassy of Angola in Türkiye","confidence":"high"},
+    {"url":"https://www.gov.za/news/media-statements/south-african-companies-urged-invest-angola-15-jul-2022","title":"South African companies urged to invest in Angola","date":"2022-07-15","publisher":"South African Government / the dtic","confidence":"high"},
+    {"url":"https://correiodigital.net/portugal-mobiliza-30-empresas-para-filda-2022/","title":"Portugal mobiliza 30 empresas para FILDA/2022","date":"2022-07-10","publisher":"Correio Digital","confidence":"medium"},
+    {"url":"https://www.embassyangolatr.org/pt/sala-de-imprensa/actualidade-informativa/filda-2022-huambo-quer-captar-investimentos-para-agricultura-e-turismo","title":"FILDA 2022: Huambo quer captar investimentos para Agricultura e Turismo","date":"2022-07-17","publisher":"Embaixada da República de Angola na Türkiye","confidence":"high"},
+    {"url":"https://www.menosfios.com/startup-summit-e-destaque-na-filda-2022-que-arranca-amanha/","title":"Startup Summit é destaque na FILDA 2022 que arranca amanhã","date":"2022-07-15","publisher":"Menos Fios","confidence":"medium"},
+    {"url":"https://www.menosfios.com/filda-2022-evento-adiado-para-16-a-20-de-julho/","title":"FILDA 2022: Evento adiado para 16 à 20 de Julho","date":"2022-07-12","publisher":"Menos Fios","confidence":"medium"},
+    {"url":"https://www.isptec.co.ao/noticia/destacado-na-filda-2022-projecto-de-impacto-social---prosil","title":"DESTACADO NA FILDA 2022 PROJECTO DE IMPACTO SOCIAL - PROSIL","date":"2022-08-02","publisher":"ISPTEC","confidence":"high"},
+    {"url":"https://www.cefa.co.ao/Noticias/Id/350/1","title":"CEFA news article (Feito em Angola)","date":"2022-07","publisher":"CEFA","confidence":"medium"},
+    {"url":"https://www.novagazeta.co.ao/artigo/vidas-zap-reafirma-responsabilidade-social-da-zap-na-lunda-norte-e-em-luanda","title":"Vidas ZAP reafirma responsabilidade social da ZAP na Lunda Norte e em Luanda","date":"2022-07","publisher":"Nova Gazeta","confidence":"medium"},
+    {"url":"https://www.facebook.com/EssoAngola/posts/a-exxonmobil-participou-na-37-edicao-da-filda-que-decorreu-de-16-a-20-de-julho-/1494175937685687/","title":"ExxonMobil participated in 37th FILDA (Esso Angola Facebook)","date":"2022-07","publisher":"Esso Angola (Facebook)","confidence":"low"},
+    {"url":"https://jornal24horas.ao/economia/filda-2022porto-do-lobito-vence-premio-de-melhor-participacao-dos-transportes-e-logistica/","title":"FILDA 2022: Porto do Lobito vence prémio de melhor participação dos transportes e logística","date":"2022-07-21","publisher":"Jornal 24 Horas","confidence":"medium"},
+    {"url":"https://www.facebook.com/eventosarena.angola/photos/durante-a-cerimonia-de-premios-filda-2022-a-sonangol-destacou-se-como-melhor-par/1870072219852414/","title":"Eventos Arena — Sonangol best participation FILDA 2022 (Facebook)","date":"2022-07-20","publisher":"Eventos Arena (Facebook)","confidence":"low"}
+  ],
+  "mappings": [
+    {"event_id":39,"url":"https://turquia.mirex.gov.ao/web/noticias/angola-pretende-ser-o-maior-produtor-de-gr-os-em--frica"},
+    {"event_id":40,"url":"https://www.gov.za/news/media-statements/south-african-companies-urged-invest-angola-15-jul-2022"},
+    {"event_id":41,"url":"https://correiodigital.net/portugal-mobiliza-30-empresas-para-filda-2022/"},
+    {"event_id":42,"url":"https://correiodigital.net/portugal-mobiliza-30-empresas-para-filda-2022/"},
+    {"event_id":43,"url":"https://www.embassyangolatr.org/pt/sala-de-imprensa/actualidade-informativa/filda-2022-huambo-quer-captar-investimentos-para-agricultura-e-turismo"},
+    {"event_id":44,"url":"https://www.menosfios.com/startup-summit-e-destaque-na-filda-2022-que-arranca-amanha/"},
+    {"event_id":45,"url":"https://www.isptec.co.ao/noticia/destacado-na-filda-2022-projecto-de-impacto-social---prosil"},
+    {"event_id":47,"url":"https://www.isptec.co.ao/noticia/destacado-na-filda-2022-projecto-de-impacto-social---prosil"},
+    {"event_id":48,"url":"https://www.cefa.co.ao/Noticias/Id/350/1"},
+    {"event_id":49,"url":"https://www.cefa.co.ao/Noticias/Id/350/1"},
+    {"event_id":50,"url":"https://www.novagazeta.co.ao/artigo/vidas-zap-reafirma-responsabilidade-social-da-zap-na-lunda-norte-e-em-luanda"},
+    {"event_id":51,"url":"https://www.facebook.com/EssoAngola/posts/a-exxonmobil-participou-na-37-edicao-da-filda-que-decorreu-de-16-a-20-de-julho-/1494175937685687/"},
+    {"event_id":52,"url":"https://jornal24horas.ao/economia/filda-2022porto-do-lobito-vence-premio-de-melhor-participacao-dos-transportes-e-logistica/"},
+    {"event_id":53,"url":"https://jornal24horas.ao/economia/filda-2022porto-do-lobito-vence-premio-de-melhor-participacao-dos-transportes-e-logistica/"},
+    {"event_id":54,"url":"https://www.facebook.com/eventosarena.angola/photos/durante-a-cerimonia-de-premios-filda-2022-a-sonangol-destacou-se-como-melhor-par/1870072219852414/"},
+    {"event_id":55,"url":"https://www.facebook.com/eventosarena.angola/photos/durante-a-cerimonia-de-premios-filda-2022-a-sonangol-destacou-se-como-melhor-par/1870072219852414/"}
+  ]
+}

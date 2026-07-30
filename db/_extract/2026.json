@@ -1,0 +1,32 @@
+{
+  "sources": [
+    {"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm","title":"Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards","date":"2026-07-17","publisher":"VerAngola","confidence":"medium"},
+    {"url":"https://www.verangola.net/va/pt/072026/Economia/49499/Associacao-Empresarial-de-Portugal-garante-20-empresas-lusas-na-41-edicao-da-FILDA.htm","title":"Associação Empresarial de Portugal garante 20 empresas lusas na 41.ª edição da FILDA","date":"2026-07-17","publisher":"VerAngola (LUSA)","confidence":"medium"},
+    {"url":"https://www.verangola.net/va/pt/072026/Transportes/49563/Debate-Mobilidade-Angola-estreia-se-na-FILDA-com-conversa-centrada-na-evolucao-das-marcas-chinesas.htm","title":"Debate Mobilidade Angola estreia-se na FILDA (marcas chinesas)","date":"2026-07-22","publisher":"VerAngola","confidence":"medium"},
+    {"url":"https://www.verangola.net/va/pt/072026/Sociedade/49545/Sector-privado-responsavel-por-95-por-cento-dos-774000-empregos-criados-nos-ultimos-tres-anos.htm","title":"Sector privado responsável por 95% dos 774.000 empregos criados","date":"2026-07-21","publisher":"VerAngola (LUSA)","confidence":"medium"},
+    {"url":"https://www.verangola.net/va/pt/052026/Economia/48725/Filda-regressa-em-Julho-com-atencoes-viradas-para-provincia-da-Huila.htm","title":"Filda regressa em Julho com atenções viradas para província da Huíla","date":"2026-05-07","publisher":"VerAngola","confidence":"medium"},
+    {"url":"https://www.verangola.net/va/pt/052026/Industria/48879/Abertas-candidaturas-aos-premios-AIPEX-Awards-2026-que-vao-reconhecer-contributo-para-a-economia.htm","title":"Abertas candidaturas aos prémios AIPEX Awards 2026","date":"2026-05-20","publisher":"VerAngola","confidence":"medium"},
+    {"url":"https://www.verangola.net/va/pt/072026/Economia/49546/","title":"Abertura da FILDA 2026 marcada por mensagem de incentivo do PR aos mais de 2300 expositores","date":"2026-07-21","publisher":"VerAngola","confidence":"medium"},
+    {"url":"https://www.verangola.net/va/pt/072026/opiniao/49503/","title":"FILDA 2026: a montra da nova economia angolana (opinião Arsénio Bumba)","date":"2026-07-17","publisher":"VerAngola","confidence":"low"},
+    {"url":"https://www.verangola.net/va/pt/062026/eventos/49310/","title":"41.ª edição da FILDA (Event listing)","date":"","publisher":"VerAngola","confidence":"low"},
+    {"url":"https://www.verangola.net/va/pt/062026/eventos/49253/","title":"Gala AIPEX Awards 2026 (Event listing)","date":"","publisher":"VerAngola","confidence":"low"}
+  ],
+  "mappings": [
+    {"event_id":86,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":87,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":89,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":90,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":91,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":92,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":93,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":94,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":95,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":96,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":97,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":98,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":99,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":100,"url":"https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"},
+    {"event_id":101,"url":"https://www.verangola.net/va/pt/072026/Economia/49499/Associacao-Empresarial-de-Portugal-garante-20-empresas-lusas-na-41-edicao-da-FILDA.htm"},
+    {"event_id":102,"url":"https://www.verangola.net/va/pt/072026/Economia/49499/Associacao-Empresarial-de-Portugal-garante-20-empresas-lusas-na-41-edicao-da-FILDA.htm"}
+  ]
+}

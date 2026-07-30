@@ -1,0 +1,212 @@
+#!/usr/bin/env python3
+"""
+Read-only query CLI for the Angola Investment Execution Database.
+
+A thin, dependency-free access layer over the SQLite database: filter projects
+by sector / province / organization / FILDA edition / status / score range and
+get JSON back. This is the embryo of the "workflow integration" leg of the
+goal's framework (Unique Data + Decision Logic + Workflow Integration = Value)
+— the data is only useful if something can query it.
+
+Read-only: opens the DB in immutable mode and never writes.
+
+Examples:
+    python db/query.py                                   # all scored projects
+    python db/query.py --sector Energy                   # one sector
+    python db/query.py --province Bengo --min-score 60  # high-scoring Bengo
+    python db/query.py --org Sonangol                    # everything Sonangol touches
+    python db/query.py --edition 2024 --summary          # aggregate stats for 2024
+    python db/query.py --project chicomba-water-dam      # full detail + timeline
+    python db/query.py --facets                           # sector/province/edition browse counts
+
+By default only scored projects (evidence_complete = 1) are returned, matching
+the published figures. Pass --include-unscored to also return tracked-but-
+unscored entries (e.g. Banco Sol).
+"""
+
+import argparse
+import json
+import os
+import sqlite3
+import sys
+
+DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       "investment_tracker.db")
+
+# Fields selected for a project listing. Kept flat + JSON-friendly.
+PROJECT_SELECT = """
+    p.id, p.title, p.sector, p.subsector, p.province, p.municipality,
+    p.status, p.execution_score, p.announced_value, p.currency,
+    p.estimated_jobs, p.actual_completion, p.filda_edition,
+    p.evidence_complete, p.last_verified
+"""
+
+
+def connect():
+    if not os.path.exists(DB_path):
+        raise SystemExit(f"Database not found at {DB_path}. Run `python db/load.py`.")
+    # Read-only + immutable: the query layer must never mutate the asset.
+    return sqlite3.connect(f"file:{DB_path}?mode=ro", uri=True)
+
+
+def project_row(row):
+    return {
+        "id": row["id"], "title": row["title"], "sector": row["sector"],
+        "subsector": row["subsector"], "province": row["province"],
+        "municipality": row["municipality"], "status": row["status"],
+        "execution_score": row["execution_score"],
+        "announced_value": row["announced_value"], "currency": row["currency"],
+        "estimated_jobs": row["estimated_jobs"],
+        "actual_completion": row["actual_completion"],
+        "filda_edition": row["filda_edition"],
+        "evidence_complete": row["evidence_complete"],
+        "last_verified": row["last_verified"],
+    }
+
+
+def build_where(args):
+    """Return (where_sql, params, joins) from the filter args."""
+    clauses = []
+    params = []
+    joins = ""
+    if not args.include_unscored:
+        clauses.append("p.evidence_complete = 1")
+    if args.sector:
+        clauses.append("p.sector = ?")
+        params.append(args.sector)
+    if args.province:
+        clauses.append("p.province = ?")
+        params.append(args.province)
+    if args.status:
+        clauses.append("p.status = ?")
+        params.append(args.status)
+    if args.edition:
+        clauses.append("p.filda_edition = ?")
+        params.append(str(args.edition))
+    if args.min_score is not None:
+        clauses.append("p.execution_score >= ?")
+        params.append(args.min_score)
+    if args.max_score is not None:
+        clauses.append("p.execution_score <= ?")
+        params.append(args.max_score)
+    if args.org:
+        joins = (" JOIN project_organizations po ON po.project_id = p.id"
+                 " JOIN organizations o ON o.id = po.organization_id")
+        clauses.append("(o.name = ? OR o.id = ?)")
+        params += [args.org, args.org]
+    where = (" WHERE " + " AND ".join(clauses)) if clauses else ""
+    return where, params, joins
+
+
+def query_projects(conn, args):
+    where, params, joins = build_where(args)
+    sql = (f"SELECT {PROJECT_SELECT} FROM projects p{joins}{where}"
+           " GROUP BY p.id ORDER BY p.execution_score DESC, p.title")
+    rows = conn.execute(sql, params).fetchall()
+    return [project_row(r) for r in rows]
+
+
+def summary(conn, args):
+    where, params, joins = build_where(args)
+    base = f"FROM projects p{joins}{where}"
+    n = conn.execute(f"SELECT COUNT(*) {base}", params).fetchone()[0]
+    if n == 0:
+        return {"count": 0, "average_score": None, "distribution": {},
+                "by_status": {}}
+    avg = conn.execute(
+        f"SELECT ROUND(AVG(execution_score), 2) {base}", params).fetchone()[0]
+    dist = {"0-20": 0, "21-40": 0, "41-60": 0, "61-80": 0, "81-100": 0}
+    for s, in conn.execute(f"SELECT execution_score {base}", params):
+        if s <= 20: dist["0-20"] += 1
+        elif s <= 40: dist["21-40"] += 1
+        elif s <= 60: dist["41-60"] += 1
+        elif s <= 80: dist["61-80"] += 1
+        else: dist["81-100"] += 1
+    by_status = {r[0]: r[1] for r in conn.execute(
+        f"SELECT status, COUNT(*) {base} GROUP BY status ORDER BY 2 DESC", params)}
+    return {"count": n, "average_score": avg, "distribution": dist,
+            "by_status": by_status}
+
+
+def project_detail(conn, pid):
+    p = conn.execute(f"SELECT {PROJECT_SELECT}, p.description FROM projects p "
+                     "WHERE p.id = ?", (pid,)).fetchone()
+    if p is None:
+        raise SystemExit(f"No project with id {pid!r}.")
+    d = project_row(p)
+    d["description"] = p["description"]
+    d["organizations"] = [
+        {"name": r["name"], "type": r["type"], "country": r["country"],
+         "role": r["role"]}
+        for r in conn.execute(
+            "SELECT o.name, o.type, o.country, po.role "
+            "FROM project_organizations po JOIN organizations o ON o.id = po.organization_id "
+            "WHERE po.project_id = ? ORDER BY po.role", (pid,))
+    ]
+    d["events"] = [
+        {"id": r["id"], "event_type": r["event_type"],
+         "event_date": r["event_date"], "description": r["description"],
+         "source_id": r["source_id"]}
+        for r in conn.execute(
+            "SELECT id, event_type, event_date, description, source_id "
+            "FROM events WHERE project_id = ? ORDER BY event_date", (pid,))
+    ]
+    d["field_evidence"] = [
+        {"field": r["field"], "value": r["value"], "source_id": r["source_id"],
+         "observed_at": r["observed_at"]}
+        for r in conn.execute(
+            "SELECT field, value, source_id, observed_at FROM project_evidence "
+            "WHERE project_id = ? ORDER BY id", (pid,))
+    ]
+    return d
+
+
+def facets(conn):
+    out = {}
+    for dim in ("sector", "province", "filda_edition", "status"):
+        rows = conn.execute(
+            f"SELECT {dim} AS k, COUNT(*) AS n FROM projects "
+            "WHERE evidence_complete = 1 AND {0} IS NOT NULL "
+            "GROUP BY {0} ORDER BY n DESC".format(dim)
+        ).fetchall()
+        out[dim] = [{"value": r["k"], "count": r["n"]} for r in rows]
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser(
+        description="Read-only JSON query API over the Angola Investment Execution Database.")
+    ap.add_argument("--sector")
+    ap.add_argument("--province")
+    ap.add_argument("--status")
+    ap.add_argument("--edition", type=int)
+    ap.add_argument("--org", help="organization name or id (any role)")
+    ap.add_argument("--min-score", type=int, dest="min_score")
+    ap.add_argument("--max-score", type=int, dest="max_score")
+    ap.add_argument("--include-unscored", action="store_true",
+                    help="also return tracked-but-unscored entries (default: scored only)")
+    ap.add_argument("--summary", action="store_true",
+                    help="return aggregate stats over the filtered set instead of listing")
+    ap.add_argument("--project", metavar="ID", help="return full detail for one project")
+    ap.add_argument("--facets", action="store_true",
+                    help="return browse counts by sector/province/edition/status")
+    args = ap.parse_args()
+
+    conn = connect()
+    conn.row_factory = sqlite3.Row
+
+    if args.facets:
+        result = facets(conn)
+    elif args.project:
+        result = project_detail(conn, args.project)
+    elif args.summary:
+        result = summary(conn, args)
+    else:
+        result = query_projects(conn, args)
+
+    json.dump(result, sys.stdout, ensure_ascii=False, indent=2)
+    print()
+
+
+if __name__ == "__main__":
+    main()

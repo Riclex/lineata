@@ -1,0 +1,11 @@
+# The SQLite database is a BUILD ARTIFACT — rebuilt from data/*.csv by
+# `python db/load.py`. The CSV checkpoints are the source of truth; do not
+# version-control the binary DB (it would churn on every mutation and bloat
+# the repo). Run `python db/load.py` after a fresh clone to rebuild it.
+db/investment_tracker.db
+db/investment_tracker.db-wal
+db/investment_tracker.db-shm
+
+# Python bytecode caches
+__pycache__/
+*.pyc

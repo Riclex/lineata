@@ -1,0 +1,38 @@
+{
+  "sources": [
+    {"url":"https://allafrica.com/stories/202307190023.html","title":"Angola: Filda 2023 - Angola Backs Promotion of International Events to Boost Infrastructure","date":"2023-07-18","publisher":"AllAfrica / ANGOP","confidence":"medium"},
+    {"url":"https://www.istoenoticia.info/filda-2023-joao-lourenco-defende-substituicao-das-importacoes-como-elemento-chave-para-novas-oportunidades-de-negocios-no-pais/","title":"FILDA 2023. João Lourenço defende substituição das importações","date":"2023-07-18","publisher":"Isto É Notícia","confidence":"medium"},
+    {"url":"https://cipra.gov.ao/noticias/838/governo/filda-2023/a-maior-bolsa-de-negocios-gera-mais-de-mil-empregos-para-jovens","title":"A maior bolsa de negócios gera mais de mil empregos para jovens","date":"2023-07-19","publisher":"CIPRA","confidence":"high"},
+    {"url":"https://www.cipra.gov.ao/noticias/834/governo/economia-digital-na-filda-2023/angola-vai-continuar-a-investir-em-infra-estruturas-digitais","title":"Angola vai continuar a investir em infra-estruturas digitais","date":"2023-07-18","publisher":"CIPRA","confidence":"high"},
+    {"url":"https://correiodigital.net/filda-2023-arranca-hoje-a-maior-bolsa-de-negocios-do-pais/","title":"FILDA 2023: Arranca hoje a maior bolsa de negócios do país","date":"2023-07-18","publisher":"Correio Digital","confidence":"medium"},
+    {"url":"https://www.rfi.fr/pt/angola/20230718-38-edicao-da-filda-arrancou-nesta-terca-feira-em-luanda","title":"38ª edição da FILDA arrancou nesta terça-feira em Luanda","date":"2023-07-18","publisher":"RFI","confidence":"medium"},
+    {"url":"https://www.sonangol.co.ao/filda-2023-sonangol-encerra-participacao-arrebatando-2-premios/","title":"FILDA 2023 | Sonangol encerra participação arrebatando 2 prémios","date":"2023-07-25","publisher":"Sonangol","confidence":"high"},
+    {"url":"https://anpg.co.ao/noticias/anpg-e-parceiros-conquistam-grande-premio-leao-de-ouro-filda-2023/","title":"ANPG E PARCEIROS CONQUISTAM GRANDE PRÉMIO LEÃO DE OURO FILDA 2023","date":"2023-07-25","publisher":"ANPG","confidence":"high"},
+    {"url":"https://www.bfa.ao/pt/o-bfa/actualidade/noticias/filda-2023/","title":"Filda 2023 — 38.ª Edição da Feira Internacional de Luanda","date":"2023-07-17","publisher":"BFA","confidence":"high"},
+    {"url":"https://www.menosfios.com/filda-2023-arranca-hoje-com-economia-digital-em-destaque/","title":"FILDA 2023 arranca hoje com 'economia digital' em destaque","date":"2023-07-18","publisher":"Menos Fios","confidence":"medium"},
+    {"url":"https://www.giranoticias.com/economia/2023/07/16115-angola-cria-linha-verde-para-facilitar-vistos-de-investidores.html","title":"Angola cria 'Linha Verde' para facilitar vistos de investidores","date":"2023-07-18","publisher":"Giranoticias","confidence":"medium"},
+    {"url":"https://correiodigital.net/huila-vence-ii-edicao-do-angola-startup-summit-2023/","title":"Huíla vence II edição do Angola Startup Summit 2023","date":"2023-05-01","publisher":"Correio Digital","confidence":"medium"},
+    {"url":"https://jornaleconomico.sapo.pt/noticias/angola-encaixou-dividendos-de-64-milhoes-em-2023-mas-desembolsou-2048-milhoes/","title":"FILDA 2023 prevê realizar negócios acima dos dois mil milhões de euros","date":"2023-07-18","publisher":"Jornal Económico","confidence":"medium"},
+    {"url":"https://cip.org.pt/cip-reforca-cooperacao-economica-entre-portugal-e-angola/","title":"CIP Reforça Cooperação Económica Portugal-Angola","date":"2023-07-18","publisher":"CIP","confidence":"medium"}
+  ],
+  "mappings": [
+    {"event_id":1,"url":"https://www.giranoticias.com/economia/2023/07/16115-angola-cria-linha-verde-para-facilitar-vistos-de-investidores.html"},
+    {"event_id":2,"url":"https://www.giranoticias.com/economia/2023/07/16115-angola-cria-linha-verde-para-facilitar-vistos-de-investidores.html"},
+    {"event_id":3,"url":"https://www.cipra.gov.ao/noticias/834/governo/economia-digital-na-filda-2023/angola-vai-continuar-a-investir-em-infra-estruturas-digitais"},
+    {"event_id":4,"url":"https://www.sonangol.co.ao/filda-2023-sonangol-encerra-participacao-arrebatando-2-premios/"},
+    {"event_id":5,"url":"https://www.sonangol.co.ao/filda-2023-sonangol-encerra-participacao-arrebatando-2-premios/"},
+    {"event_id":6,"url":"https://anpg.co.ao/noticias/anpg-e-parceiros-conquistam-grande-premio-leao-de-ouro-filda-2023/"},
+    {"event_id":7,"url":"https://anpg.co.ao/noticias/anpg-e-parceiros-conquistam-grande-premio-leao-de-ouro-filda-2023/"},
+    {"event_id":8,"url":"https://allafrica.com/stories/202307190023.html"},
+    {"event_id":9,"url":"https://www.giranoticias.com/economia/2023/07/16115-angola-cria-linha-verde-para-facilitar-vistos-de-investidores.html"},
+    {"event_id":10,"url":"https://www.giranoticias.com/economia/2023/07/16115-angola-cria-linha-verde-para-facilitar-vistos-de-investidores.html"},
+    {"event_id":12,"url":"https://correiodigital.net/huila-vence-ii-edicao-do-angola-startup-summit-2023/"},
+    {"event_id":13,"url":"https://www.bfa.ao/pt/o-bfa/actualidade/noticias/filda-2023/"},
+    {"event_id":14,"url":"https://www.giranoticias.com/economia/2023/07/16115-angola-cria-linha-verde-para-facilitar-vistos-de-investidores.html"},
+    {"event_id":16,"url":"https://cipra.gov.ao/noticias/838/governo/filda-2023/a-maior-bolsa-de-negocios-gera-mais-de-mil-empregos-para-jovens"},
+    {"event_id":17,"url":"https://correiodigital.net/filda-2023-arranca-hoje-a-maior-bolsa-de-negocios-do-pais/"},
+    {"event_id":18,"url":"https://cip.org.pt/cip-reforca-cooperacao-economica-entre-portugal-e-angola/"},
+    {"event_id":19,"url":"https://www.cipra.gov.ao/noticias/834/governo/economia-digital-na-filda-2023/angola-vai-continuar-a-investir-em-infra-estruturas-digitais"},
+    {"event_id":46,"url":"https://correiodigital.net/huila-vence-ii-edicao-do-angola-startup-summit-2023/"}
+  ]
+}

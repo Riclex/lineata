@@ -1,0 +1,33 @@
+{
+  "sources": [
+    {"url":"https://www.angonoticias.com/Artigos/item/82396/investimento-portugues-na-zee-atinge-usd-330-milhoes","title":"Investimento português na ZEE atinge USD 330 milhões","date":"2026-07-22","publisher":"Angonoticias/Angop","confidence":"medium"},
+    {"url":"https://www.investmentmonitor.ai/interviews/angolas-economic-rebound-and-the-impact-of-the-zee-free-trade-zone/","title":"Angola's economic rebound and the impact of the ZEE free trade zone","date":"2023-07-14","publisher":"Investment Monitor","confidence":"medium"},
+    {"url":"https://eco.sapo.pt/2026/07/18/angola-ja-investe-quase-o-dobro-do-que-portugal-em-angola/","title":"Angola já investe quase o dobro do que Portugal em Angola","date":"2026-07-18","publisher":"ECO/Lusa","confidence":"medium"},
+    {"url":"https://www.dn.pt/empresas/aep-leva-20-empresas-nacionais-maior-feira-de-negcios-de-angola","title":"AEP leva 20 empresas nacionais à maior feira de negócios de Angola","date":"2026-07-17","publisher":"DN/Dinheiro Vivo","confidence":"medium"},
+    {"url":"https://angop.ao/noticias/economia/filda-2025-inicia-terca-feira-com-preco-do-ingresso-a-quatro-mil-kwanzas/","title":"FILDA 2025 inicia terça-feira com preço do ingresso a quatro mil kwanzas","date":"2025-07","publisher":"Angop","confidence":"high"},
+    {"url":"https://maisafrika.com/outros/mulheres/40-a-edicao-da-filda-em-2025-com-novo-nome/","title":"40ª edição da FILDA em 2025 com novo nome","date":"2025-06-27","publisher":"Mais Afrika","confidence":"medium"},
+    {"url":"https://rna.ao/rna.ao/2023/07/18/filda-abre-hoje-com-a-previsao-de-arrecadar-dois-bilhoes-de-kwanzas-em-negocios/","title":"FILDA abre hoje com previsão de arrecadar dois bilhões de kwanzas em negócios","date":"2023-07-18","publisher":"RNA","confidence":"medium"},
+    {"url":"https://apexbrasil.com.br/br/pt/conteudo/noticias/filda-2024-movimentou-mais-de-us-30-mil-em-negocios-in-loco-par.html","title":"FILDA 2024 movimentou negócios in loco (ApexBrasil delegation)","date":"2024","publisher":"ApexBrasil","confidence":"high"},
+    {"url":"https://forbesafricalusofona.com/empresas-brasileiras-estreiam-se-na-angola-startup-summit-2024/","title":"Empresas brasileiras estreiam-se na Angola Startup Summit 2024","date":"2024-05-17","publisher":"Forbes África Lusófona","confidence":"medium"},
+    {"url":"https://www.menosfios.com/angola-startup-summit-edicao-2024-arranca-hoje-com-125-startups/","title":"Angola Startup Summit edição 2024 arranca hoje com 125 startups","date":"2024-05-16","publisher":"Menos Fios","confidence":"medium"},
+    {"url":"https://pti.ao/angola-startup-summit-regressa-em-maio/","title":"Angola Startup Summit regressa em maio","date":"2024-04-09","publisher":"PTI.ao","confidence":"medium"},
+    {"url":"https://www.opais.ao/economia/inapem-quer-levar-100-empreendedores-da-huila-para-o-angola-startup-summit-2025/","title":"INAPEM quer levar 100 empreendedores da Huíla para o Angola Startup Summit 2025","date":"2025-01-14","publisher":"OPaís","confidence":"medium"},
+    {"url":"https://angop.ao/en/noticias/economia/startup-angola-2024-com-mais-de-120-inscricoes/","title":"Startup Angola 2024 com mais de 120 inscrições","date":"2024","publisher":"Angop","confidence":"high"},
+    {"url":"https://www.startupsummit.gov.ao/","title":"Angola Startup Summit official site","date":"","publisher":"startupsummit.gov.ao","confidence":"high"},
+    {"url":"https://noticiaslusofonas.com/2025/06/26/filda-sai-de-luanda-mas-mantem-o-nome/","title":"FILDA sai de Luanda mas mantém o nome","date":"2025-06-26","publisher":"Notícias Lusófonas","confidence":"medium"},
+    {"url":"https://forbesafricalusofona.com/organizacao-da-filda-2026-contabiliza-2-348-participacoes-directas-e-indirectas/","title":"Organização da FILDA 2026 contabiliza 2.348 participações directas e indirectas","date":"","publisher":"Forbes África Lusófona","confidence":"medium"},
+    {"url":"https://www.menosfios.com/filda-2026-arranca-com-foco-na-inovacao-tecnologia-e-producao-nacional/","title":"FILDA 2026 arranca com foco na inovação tecnologia e produção nacional","date":"","publisher":"Menos Fios","confidence":"medium"},
+    {"url":"https://www.rfi.fr/pt/africa-lusofona/20260722-filda-2026-angola-quer-apostar-na-producao-nacional-para-conquistar-novos-mercados","title":"FILDA 2026: Angola quer apostar na produção nacional para conquistar novos mercados","date":"2026-07-22","publisher":"RFI","confidence":"medium"},
+    {"url":"https://portugalglobal.pt/noticias/2026/marco/41-edicao-da-filda-feira-internacional-de-luanda-inscreva-se/","title":"41ª edição da FILDA — inscreva-se","date":"2026-03","publisher":"PortugalGlobal/AICEP","confidence":"high"},
+    {"url":"https://www.mondaq.com/pressrelease/147760/filda-luanda-international-trade-fair-2024","title":"FILDA Luanda International Trade Fair 2024","date":"","publisher":"Mondaq/Inventa","confidence":"medium"},
+    {"url":"https://mindcom.gov.ao/web/noticias/luanda-acolhe-lancamento-oficial-da-filda-2026","title":"Luanda acolhe lançamento oficial da FILDA 2026","date":"","publisher":"Mindcom","confidence":"high"},
+    {"url":"https://www.economiaemercado.com/artigo/filda-2026-esta-as-portas-e-deve-movimentar-mais-de-2-mil-participacoes-nacionais-e-internacionais","title":"FILDA 2026 está às portas e deve movimentar mais de 2 mil participações","date":"","publisher":"Economia e Mercado","confidence":"medium"}
+  ],
+  "mappings": [
+    {"event_id":15,"url":"https://rna.ao/rna.ao/2023/07/18/filda-abre-hoje-com-a-previsao-de-arrecadar-dois-bilhoes-de-kwanzas-em-negocios/"},
+    {"event_id":33,"url":"https://www.angonoticias.com/Artigos/item/82396/investimento-portugues-na-zee-atinge-usd-330-milhoes"},
+    {"event_id":34,"url":"https://apexbrasil.com.br/br/pt/conteudo/noticias/filda-2024-movimentou-mais-de-us-30-mil-em-negocios-in-loco-par.html"},
+    {"event_id":37,"url":"https://www.menosfios.com/angola-startup-summit-edicao-2024-arranca-hoje-com-125-startups/"},
+    {"event_id":38,"url":"https://rna.ao/rna.ao/2023/07/18/filda-abre-hoje-com-a-previsao-de-arrecadar-dois-bilhoes-de-kwanzas-em-negocios/"}
+  ]
+}
