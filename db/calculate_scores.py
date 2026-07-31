@@ -27,7 +27,7 @@ from datetime import datetime
 # become unreproducible after a weight change (see limitation #14 in the
 # methodology doc). load.py stamps this into db_meta.score_version on every
 # rebuild, and verify.py asserts the DB row matches this constant.
-SCORE_VERSION = "v1-2026-07"
+SCORE_VERSION = "v2-2026-07"
 
 BASE_SCORES = {
     'completed': 70,
@@ -114,36 +114,80 @@ def calculate_event_points(conn, project_id):
     return min(total, MAX_EVENT_POINTS)
 
 
+# Confidence multiplier for the evidence bonus (methodology § Evidence Bonus).
+# high = full credit, medium = half, low/NULL/missing = 0 (no credit without a
+# trustworthy source). Operationalises the goal's "don't score without
+# click-through evidence" at the signal level.
+CONFIDENCE_MULT = {'high': 1.0, 'medium': 0.5, 'low': 0.0}
+
+
+def _source_confidence(conn, source_id):
+    """Confidence of a source_id, or 0.0 if NULL/missing/unknown."""
+    if source_id is None:
+        return 0.0
+    row = conn.execute(
+        "SELECT confidence FROM sources WHERE id = ?", (source_id,)).fetchone()
+    if row is None:
+        return 0.0
+    return CONFIDENCE_MULT.get(row[0], 0.0)
+
+
+def _max_confidence_among(conn, project_id, event_types):
+    """Max backing-source confidence among the project's events of the given
+    types (0.0 if none or all unsourced). Credits a signal if at least one
+    strong source backs the category."""
+    rows = conn.execute(
+        "SELECT source_id FROM events WHERE project_id = ? AND event_type IN "
+        f"({','.join('?' * len(event_types))})",
+        (project_id, *event_types)).fetchall()
+    if not rows:
+        return 0.0
+    return max((_source_confidence(conn, r[0]) for r in rows), default=0.0)
+
+
 def calculate_evidence_bonus(conn, project):
-    """Calculate evidence bonus based on concrete proof of delivery."""
-    project_id = project['id']
-    bonus = 0
-    
-    # Jobs created (verified number in project record)
-    if project['estimated_jobs'] and project['estimated_jobs'] > 0:
-        bonus += 3
-    
-    # Actual completion recorded
+    """Confidence-weighted evidence bonus (v2), capped at 10.
+
+    Each signal is scaled by its backing source's confidence (high=1.0,
+    medium=0.5, low/NULL=0.0):
+      jobs         +3  <- project_evidence(estimated_jobs).source confidence
+      completion   +3  <- project_evidence(actual_completion).source confidence
+      production   +2  <- max confidence among completion/construction/
+                         groundbreaking event sources
+      expansion    +2  <- max confidence among expansion event sources
+    Rounded half-up to an int, clamped to [0, 10].
+    """
+    pid = project['id']
+    detail = {}
+
+    # jobs signal
+    m_jobs = 0.0
+    jr = conn.execute(
+        "SELECT source_id FROM project_evidence WHERE project_id=? AND field='estimated_jobs'",
+        (pid,)).fetchone()
+    if jr and project['estimated_jobs'] and project['estimated_jobs'] > 0:
+        m_jobs = _source_confidence(conn, jr[0])
+    detail['jobs'] = int(3 * m_jobs + 0.5)
+
+    # actual_completion signal
+    m_ac = 0.0
     if project['actual_completion'] and project['actual_completion'].strip():
-        bonus += 3
-    
-    # Production-related events (construction, groundbreaking, completion)
-    prod_events = conn.execute(
-        "SELECT COUNT(*) FROM events WHERE project_id = ? AND event_type IN ('completion', 'construction', 'groundbreaking')",
-        (project_id,)
-    ).fetchone()[0]
-    if prod_events > 0:
-        bonus += 2
-    
-    # Awards won (expansion events can indicate awards/recognition)
-    award_events = conn.execute(
-        "SELECT COUNT(*) FROM events WHERE project_id = ? AND event_type = 'expansion'",
-        (project_id,)
-    ).fetchone()[0]
-    if award_events > 0:
-        bonus += 2
-    
-    return min(bonus, 10)
+        ar = conn.execute(
+            "SELECT source_id FROM project_evidence WHERE project_id=? AND field='actual_completion'",
+            (pid,)).fetchone()
+        m_ac = _source_confidence(conn, ar[0]) if ar else 0.0
+    detail['actual_completion'] = int(3 * m_ac + 0.5)
+
+    # production-event signal
+    m_prod = _max_confidence_among(conn, pid, ('completion', 'construction', 'groundbreaking'))
+    detail['production'] = int(2 * m_prod + 0.5)
+
+    # expansion-event signal
+    m_exp = _max_confidence_among(conn, pid, ('expansion',))
+    detail['expansion'] = int(2 * m_exp + 0.5)
+
+    bonus = detail['jobs'] + detail['actual_completion'] + detail['production'] + detail['expansion']
+    return min(bonus, 10), detail
 
 
 def calculate_delay_penalty(conn, project):
@@ -205,35 +249,36 @@ def calculate_score(conn, project):
     if ec == 0:
         return 0, {'base': 0, 'events': 0, 'evidence': 0, 'delay': 0,
                    'status_penalty': 0, 'only_announce': 0, 'unscored': True,
-                   'version': SCORE_VERSION}
+                   'evidence_detail': {}, 'version': SCORE_VERSION}
     status = project['status'] or 'unknown'
-    
+
     # 1. Base score from status
     base = BASE_SCORES.get(status, 10)
-    
+
     # 2. Event points
     event_pts = calculate_event_points(conn, pid)
-    
-    # 3. Evidence bonus
-    evidence = calculate_evidence_bonus(conn, project)
-    
+
+    # 3. Evidence bonus (confidence-weighted)
+    evidence, evidence_detail = calculate_evidence_bonus(conn, project)
+
     # 4. Delay penalty
     delay = calculate_delay_penalty(conn, project)
-    
+
     # 5. Status penalty
     status_penalty = STATUS_PENALTIES.get(status, 0)
-    
+
     # 6. Only-announcement penalty
     only_announce = calculate_only_announcement_penalty(conn, pid)
-    
+
     # Total
     score = base + event_pts + evidence + delay + status_penalty + only_announce
     score = max(0, min(100, score))
-    
+
     return score, {
         'base': base,
         'events': event_pts,
         'evidence': evidence,
+        'evidence_detail': evidence_detail,
         'delay': delay,
         'status_penalty': status_penalty,
         'only_announce': only_announce,

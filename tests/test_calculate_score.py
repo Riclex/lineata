@@ -50,10 +50,36 @@ def add_project(conn, pid, status="announced", evidence_complete=1,
     conn.commit()
 
 
-def add_event(conn, pid, event_type, date="2024-01-01"):
+_source_counter = [0]
+
+
+def add_source(conn, confidence="medium"):
+    """Insert a source and return its id. Confidence defaults to medium.
+
+    The URL is made unique per call via a counter so multiple sources with the
+    same confidence can coexist (sources.url has a UNIQUE index on non-empty
+    values). The brief's helper produced a constant URL per confidence, which
+    collided when a test needed two medium-confidence sources.
+    """
+    _source_counter[0] += 1
+    n = _source_counter[0]
+    cur = conn.execute(
+        "INSERT INTO sources (title, url, confidence) VALUES (?, ?, ?)",
+        (f"src-{confidence}-{n}", f"https://example.test/{confidence}/{n}", confidence))
+    return cur.lastrowid
+
+
+def add_event(conn, pid, event_type, date="2024-01-01", source_id=None):
     conn.execute(
-        "INSERT INTO events (project_id, event_type, event_date) "
-        "VALUES (?, ?, ?)", (pid, event_type, date))
+        "INSERT INTO events (project_id, event_type, event_date, source_id) "
+        "VALUES (?, ?, ?, ?)", (pid, event_type, date, source_id))
+    conn.commit()
+
+
+def add_evidence(conn, pid, field, source_id, observed_at="2024-01-01"):
+    conn.execute(
+        "INSERT INTO project_evidence (project_id, field, value, source_id, observed_at) "
+        "VALUES (?, ?, ?, ?, ?)", (pid, field, "v", source_id, observed_at))
     conn.commit()
 
 
@@ -137,47 +163,62 @@ class EvidenceBonusTests(unittest.TestCase):
     def _bonus(self, conn, pid):
         return score(conn, pid)[1]["evidence"]
 
-    def test_jobs_signal_adds_3(self):
+    def test_jobs_signal_high_confidence_full(self):
         conn = make_conn()
+        sid = add_source(conn, "high")
         add_project(conn, "p", status="announced", jobs=100)
-        add_event(conn, "p", "announcement", "2024-01-01")
-        self.assertEqual(self._bonus(conn, "p"), 3)
+        add_evidence(conn, "p", "estimated_jobs", sid)
+        add_event(conn, "p", "announcement", "2024-01-01", source_id=conn.execute(
+            "INSERT INTO sources (title,url,confidence) VALUES (?,?,?)",
+            ("a","https://x.test/a","high")).lastrowid)
+        self.assertEqual(self._bonus(conn, "p"), 3)  # 3 * 1.0
 
-    def test_actual_completion_signal_adds_3(self):
+    def test_jobs_signal_medium_confidence_half(self):
         conn = make_conn()
-        add_project(conn, "p", status="operational", actual_completion="2026")
-        add_event(conn, "p", "announcement", "2024-01-01")
-        add_event(conn, "p", "mou", "2024-06-01")  # non-announcement so only-announce is clear
-        # +3 (actual_completion) + 0 (no production/expansion event) = 3
-        self.assertEqual(self._bonus(conn, "p"), 3)
+        sid = add_source(conn, "medium")
+        add_project(conn, "p", status="announced", jobs=100)
+        add_evidence(conn, "p", "estimated_jobs", sid)
+        add_event(conn, "p", "announcement", "2024-01-01",
+                  source_id=add_source(conn, "medium"))
+        self.assertEqual(self._bonus(conn, "p"), 2)  # int(3*0.5 + 0.5) = 2
 
-    def test_production_event_signal_adds_2(self):
+    def test_jobs_signal_low_confidence_zero(self):
+        conn = make_conn()
+        sid = add_source(conn, "low")
+        add_project(conn, "p", status="announced", jobs=100)
+        add_evidence(conn, "p", "estimated_jobs", sid)
+        add_event(conn, "p", "announcement", "2024-01-01",
+                  source_id=add_source(conn, "medium"))
+        self.assertEqual(self._bonus(conn, "p"), 0)  # 3 * 0.0
+
+    def test_production_signal_uses_max_confidence(self):
+        # one high + one medium completion event -> max = high -> 2*1.0 = 2
         conn = make_conn()
         add_project(conn, "p", status="under_construction")
-        add_event(conn, "p", "announcement", "2024-01-01")
-        add_event(conn, "p", "construction", "2024-06-01")  # production event
-        # +2 (production event), no jobs/actual_completion/expansion = 2
+        sh = add_source(conn, "high"); sm = add_source(conn, "medium")
+        add_event(conn, "p", "announcement", "2024-01-01", source_id=sm)
+        add_event(conn, "p", "completion", "2024-06-01", source_id=sm)
+        add_event(conn, "p", "completion", "2025-01-01", source_id=sh)
         self.assertEqual(self._bonus(conn, "p"), 2)
 
-    def test_expansion_event_signal_adds_2(self):
-        """The 'expansion' branch — the awards/recognition/new-milestone proxy.
-        This is the branch that moved Huatong 83 → 85 when its Apr-2026 first
-        export was added as an expansion event."""
+    def test_signal_no_source_zero(self):
+        # production event with NULL source -> 0
         conn = make_conn()
-        add_project(conn, "p", status="operational")
-        add_event(conn, "p", "announcement", "2024-01-01")
-        add_event(conn, "p", "expansion", "2026-04-10")  # the milestone event
-        # +2 (expansion) = 2
-        self.assertEqual(self._bonus(conn, "p"), 2)
+        add_project(conn, "p", status="under_construction")
+        add_event(conn, "p", "announcement", "2024-01-01",
+                  source_id=add_source(conn, "medium"))
+        add_event(conn, "p", "completion", "2024-06-01", source_id=None)
+        self.assertEqual(self._bonus(conn, "p"), 0)
 
     def test_evidence_bonus_capped_at_10(self):
-        """All four signals = 3+3+2+2 = 10, the cap."""
         conn = make_conn()
-        add_project(conn, "p", status="completed",
-                    jobs=500, actual_completion="2026")
-        add_event(conn, "p", "announcement", "2024-01-01")
-        add_event(conn, "p", "completion", "2026-01-01")   # production event
-        add_event(conn, "p", "expansion", "2026-06-01")     # expansion event
+        sh = add_source(conn, "high")
+        add_project(conn, "p", status="completed", jobs=500, actual_completion="2026")
+        add_evidence(conn, "p", "estimated_jobs", sh)
+        add_evidence(conn, "p", "actual_completion", sh)
+        add_event(conn, "p", "announcement", "2024-01-01", source_id=sh)
+        add_event(conn, "p", "completion", "2026-01-01", source_id=sh)
+        add_event(conn, "p", "expansion", "2026-06-01", source_id=sh)
         self.assertEqual(self._bonus(conn, "p"), 10)
 
 
@@ -242,16 +283,19 @@ class StatusPenaltyTests(unittest.TestCase):
 
 class ClampAndVersionTests(unittest.TestCase):
     def test_score_clamped_to_100(self):
-        """completed(70) + capped events(30) + capped evidence(10) = 110 → 100."""
+        """completed(70) + capped events(30) + capped evidence(10) = 110 → 100.
+        v2: evidence signals backed by high-confidence sources so the
+        confidence-weighted bonus stays 10."""
         conn = make_conn()
+        sh = add_source(conn, "high")
         add_project(conn, "p", status="completed",
                     jobs=500, actual_completion="2026")
-        add_event(conn, "p", "announcement", "2024-01-01")
-        add_event(conn, "p", "completion", "2026-01-01")
-        add_event(conn, "p", "completion", "2026-02-01")  # push events to cap
-        add_event(conn, "p", "completion", "2026-03-01")
-        add_event(conn, "p", "expansion", "2026-06-01")
-        add_event(conn, "p", "groundbreaking", "2026-04-01")  # v2: distinct set {announcement,completion,expansion,groundbreaking}=36 -> cap 30
+        add_evidence(conn, "p", "estimated_jobs", sh)
+        add_evidence(conn, "p", "actual_completion", sh)
+        add_event(conn, "p", "announcement", "2024-01-01", source_id=sh)
+        add_event(conn, "p", "completion", "2026-01-01", source_id=sh)
+        add_event(conn, "p", "expansion", "2026-06-01", source_id=sh)
+        add_event(conn, "p", "groundbreaking", "2026-04-01", source_id=sh)
         s, _ = score(conn, "p")
         self.assertEqual(s, 100)
 
