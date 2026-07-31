@@ -5,9 +5,9 @@ One-command consistency gate for the Angola Investment Execution Database.
 Runs the integrity chain in order and exits non-zero on the first failure, so
 it can gate a publish, a scheduled run, or a git pre-commit hook:
 
-    tests  →  load.py (round-trip rebuild)  →  verify.py  →  verify_sources.py  →  verify_docs.py
+    tests  →  load.py (round-trip rebuild)  →  verify_invariants.py  →  verify_snapshot.py  →  verify_sources.py  →  verify_docs.py
 
-The --fast mode (for the pre-commit hook) runs only tests + verify.py: no
+The --fast mode (for the pre-commit hook) runs only tests + verify_invariants.py: no
 rebuild, no network, no doc sweep — a code edit shouldn't be blocked by a
 data-checkpoint lag, a transient network failure, or a stale doc figure.
 
@@ -15,12 +15,12 @@ Each stage is a subprocess; a failing stage prints the tail of its stderr so
 the cause is visible without a re-run.
 
 Modes:
-    python db/health.py            # full gate (default): tests + load + verify + URL liveness
-    python db/health.py --fast      # tests + verify.py only — no rebuild, no network.
+    python db/health.py            # full gate (default): tests + load + invariants + snapshot + URL liveness + docs
+    python db/health.py --fast      # tests + verify_invariants.py only — no rebuild, no network.
                                     # Use this in the pre-commit hook so a code edit
                                     # isn't blocked by an unrelated data-checkpoint lag
                                     # or a transient network failure.
-    python db/health.py --no-network  # tests + load + verify, skip URL liveness
+    python db/health.py --no-network  # tests + load + invariants + snapshot, skip URL liveness
 
 Why --fast for the hook: load.py's round-trip rebuild refuses if the live DB
 has uncheckpointed change_log mutations (the staleness guard). That is the
@@ -60,7 +60,7 @@ def run_stage(label, cmd, cwd=BASE_dir):
 def main():
     parser = argparse.ArgumentParser(description="Run the full consistency gate.")
     parser.add_argument("--fast", action="store_true",
-                        help="tests + verify.py only (no rebuild, no network) — for the pre-commit hook")
+                        help="tests + verify_invariants.py only (no rebuild, no network) — for the pre-commit hook")
     parser.add_argument("--no-network", action="store_true",
                         help="skip verify_sources.py URL liveness")
     args = parser.parse_args()
@@ -68,13 +68,17 @@ def main():
     if args.fast:
         stages = [
             ("unit tests", [PY, "-m", "unittest", "discover", "tests"]),
-            ("article↔DB contract (verify.py)", [PY, os.path.join("db", "verify.py")]),
+            ("structural invariants (verify_invariants.py)",
+             [PY, os.path.join("db", "verify_invariants.py")]),
         ]
     else:
         stages = [
             ("unit tests", [PY, "-m", "unittest", "discover", "tests"]),
             ("round-trip rebuild (load.py)", [PY, os.path.join("db", "load.py")]),
-            ("article↔DB contract (verify.py)", [PY, os.path.join("db", "verify.py")]),
+            ("structural invariants (verify_invariants.py)",
+             [PY, os.path.join("db", "verify_invariants.py")]),
+            ("snapshot + article pin (verify_snapshot.py)",
+             [PY, os.path.join("db", "verify_snapshot.py")]),
         ]
         if not args.no_network:
             stages.append(

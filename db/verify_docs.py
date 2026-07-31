@@ -2,16 +2,19 @@
 """
 Doc-figure drift detector for the Angola Investment Execution Database.
 
-db/verify.py pins the *article* figures to DB queries, but the *docs* and
-README cite the same kind of numbers by hand — and that is how a worked example
-goes stale (e.g. scoring-methodology.md's Huatong example read 83 for a week
-after the score moved to 85). This script scans docs/*.md + README.md for cited
-numbers and compares them to the DB (and, for the verify.py check count, to
-verify.py's own reported output). It is a best-effort regex sweep, not a full
-contract — a FAIL means a doc cites a number the DB contradicts.
+db/verify_invariants.py pins the *structural* contract and db/verify_snapshot.py
+pins the *article* figures to the DB snapshot, but the *docs* and README cite
+the same kind of numbers by hand — and that is how a worked example goes stale
+(e.g. scoring-methodology.md's Huatong example read 83 for a week after the
+score moved to 85). This script scans docs/*.md + README.md for cited numbers
+and compares them to the DB (and, for the contract check count, to the
+verify_invariants.py + verify_snapshot.py reported summaries). It is a best-effort
+regex sweep, not a full contract — a FAIL means a doc cites a number the DB
+contradicts.
 
-Read-only; runs db/verify.py as a subprocess to get the authoritative check
-count (it does not parse verify.py's source, which is loop-driven).
+Read-only; runs db/verify_invariants.py and db/verify_snapshot.py as subprocesses
+to get the authoritative check count (it does not parse their source, which is
+loop-driven).
 
 Usage:
     python db/verify_docs.py
@@ -54,12 +57,19 @@ def first_float(text, pattern):
 
 
 def verify_check_count():
-    """Run db/verify.py and parse 'NN checks' from its summary line."""
-    r = subprocess.run([PY, os.path.join("db", "verify.py")], cwd=BASE_dir,
-                       capture_output=True, text=True, encoding="utf-8",
-                       errors="replace")
-    m = re.search(r"(\d+) checks,\s+\d+ passed", r.stdout + r.stderr)
-    return int(m.group(1)) if m else None
+    """Run db/verify_invariants.py + db/verify_snapshot.py and sum their
+    'NN checks' / passed summary lines into one total check count."""
+    total = 0
+    for script in ("verify_invariants.py", "verify_snapshot.py"):
+        r = subprocess.run([PY, os.path.join("db", script)], cwd=BASE_dir,
+                           capture_output=True, text=True, encoding="utf-8",
+                           errors="replace")
+        # verify_invariants prints "NN checks, ..."; verify_snapshot prints
+        # "[OK] ..." (no check count) — count its drifts as 0 on success.
+        m = re.search(r"(\d+) checks,\s+\d+ passed", r.stdout + r.stderr)
+        if m:
+            total += int(m.group(1))
+    return total if total else None
 
 
 def main():
