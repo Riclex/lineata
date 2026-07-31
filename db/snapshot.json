@@ -1,0 +1,97 @@
+{
+  "counts": {
+    "projects": 51,
+    "scored": 50,
+    "unscored": 1,
+    "unscored_ids": [
+      "banco-sol-mc-empresas-2025"
+    ],
+    "sources": 130,
+    "events": 105,
+    "events_linked": 104,
+    "events_null": 1,
+    "null_event_ids": [
+      80
+    ]
+  },
+  "aggregate": {
+    "avg_precise": 60.68,
+    "avg_rounded": 61,
+    "distribution": {
+      "0-20": 10,
+      "21-40": 1,
+      "41-60": 7,
+      "61-80": 20,
+      "81-100": 12
+    }
+  },
+  "sectors": {
+    "Agriculture": {
+      "count": 5,
+      "avg": 34.8
+    },
+    "Digital": {
+      "count": 1,
+      "avg": 83.0
+    },
+    "Education": {
+      "count": 1,
+      "avg": 8.0
+    },
+    "Energy": {
+      "count": 7,
+      "avg": 70.0
+    },
+    "Finance": {
+      "count": 6,
+      "avg": 44.0
+    },
+    "Government": {
+      "count": 3,
+      "avg": 54.3
+    },
+    "Infrastructure": {
+      "count": 3,
+      "avg": 69.0
+    },
+    "Logistics": {
+      "count": 1,
+      "avg": 72.0
+    },
+    "Manufacturing": {
+      "count": 4,
+      "avg": 82.0
+    },
+    "Multi-sector": {
+      "count": 8,
+      "avg": 58.0
+    },
+    "Technology": {
+      "count": 4,
+      "avg": 67.0
+    },
+    "Telecom": {
+      "count": 4,
+      "avg": 70.3
+    },
+    "Trade": {
+      "count": 3,
+      "avg": 77.3
+    }
+  },
+  "gov_vs_private": {
+    "gov_count": 3,
+    "private_count": 47,
+    "gov_avg": 54.3,
+    "private_avg": 61.1
+  },
+  "case_studies": {
+    "huatong-angola-industry-awards": 85,
+    "linha-verde-investor-visas": 3,
+    "pt-ao-credit-line-2-5b": 70,
+    "pt-ao-credit-line-3-25b": 53,
+    "chicomba-water-dam": 57,
+    "investment-portal-georeferenced": 83,
+    "etu-energias-leao-ouro-2025": 75
+  }
+}
