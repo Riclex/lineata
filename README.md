@@ -101,7 +101,7 @@ FILDA Investment Tracker/
 │   ├── calculate_scores.py    # Execution-score calculator (--update-csv syncs projects.csv)
 │   ├── update.py              # Incremental append-only mutator (add-event/source/evidence, set-status, relink, reverify)
 │   ├── export_csv.py          # DB → CSV checkpointer (stamps db_meta watermark; recomputes scores)
-│   ├── verify.py              # Article↔DB contract verifier (81 checks; exit non-zero on drift)
+│   ├── verify.py              # Article↔DB contract verifier (82 checks; exit non-zero on drift)
 │   ├── verify_sources.py      # Source URL liveness checker (--apply stamps last_verified + url_status)
 │   ├── verify_docs.py         # Doc-figure drift detector (scans docs/*.md + README for stale cited numbers)
 │   ├── health.py              # One-command consistency gate (tests → load → verify → verify_sources → verify_docs); --fast for pre-commit

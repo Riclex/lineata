@@ -141,14 +141,14 @@ Four controls were added so the integrity checks that were once run manually now
 1. **`foreign_key_check` is now an automated gate in `db/load.py`.** After the bulk insert and FK re-enable, the loader runs `PRAGMA foreign_key_check` and fails the load (non-zero exit, violations printed) if any row references a missing parent. The CSV bugs above are the class of defect this now catches on every rebuild, not just once.
 2. **Score-consistency gate in `db/load.py`.** `execution_score` is loaded from `projects.csv` (a snapshot), then recomputed from the loaded data via `calculate_scores.compute_scores` and asserted equal. A stale snapshot fails the load with a per-project diff. This caught a real, broad staleness on first run — 37 score cells in `projects.csv` had drifted from the formula (the CSV had never been refreshed after past `calculate_scores.py` runs) — and they were synced (see #3). The DB now ships only formula-verified scores.
 3. **`db/calculate_scores.py --update-csv`** recomputes scores and rewrites the `execution_score` column in `data/projects.csv`, so the snapshot can be refreshed in one command after any data edit (instead of drifting silently).
-4. **`db/verify.py`** is an article↔DB contract verifier: 81 checks (after the 2026-07-27 incremental layer and the 2026-07-30 Huatong export event) pin the published figures (51 tracked / 50 scored counts, source/event counts, avg 62.4 over the 50 scored, distribution 10/1/7/20/12, all 13 sector averages, private/gov 62,9 vs 54,3, the seven case-study scores, the Chicomba 2026-06-13 date, 104 linked / 1 NULL) to concrete DB queries, and surfaces known open issues as warnings. Exits non-zero on any drift, so the article/DB reconciliation does not need to be repeated by hand.
+4. **`db/verify.py`** is an article↔DB contract verifier: 82 checks (after the 2026-07-27 incremental layer, the 2026-07-30 Huatong export event, and the 2026-07-31 award-completion re-type) pin the published figures (51 tracked / 50 scored counts, source/event counts, avg 60.7 over the 50 scored, distribution 10/1/7/20/12, all 13 sector averages, private/gov 61,1 vs 54,3, the seven case-study scores, the Chicomba 2026-06-13 date, 104 linked / 1 NULL) to concrete DB queries, and surfaces known open issues as warnings. Exits non-zero on any drift, so the article/DB reconciliation does not need to be repeated by hand.
 
 The scoring methodology docs were also reconciled to the code: `docs/scoring-methodology.md` now documents the *actual* evidence-bonus rule (and notes that the previously documented `sources.confidence` weighting is **not** implemented), its worked examples reproduce against the script (83 / 3 / 83), and the stale formula in `docs/data-model.md` was replaced with a pointer to the methodology doc.
 
 Reproduce with:
 ```
 python db/load.py                 # rebuild + foreign_key_check + score-consistency gate
-python db/calculate_scores.py     # score report (avg 62.36 over 50 scored, 10/1/7/20/12)
+python db/calculate_scores.py     # score report (avg 60.68 over 50 scored, 10/1/7/20/12)
 python db/verify.py               # 81 article↔DB contract checks (69 at this pass → 77 after 2026-07-27 → 81 after 2026-07-30; + known-open-issue warnings)
 python db/query.py --summary      # read-only JSON access layer (workflow-integration leg)
 ```
@@ -318,6 +318,18 @@ Unlike the 2026-07-30 mis-link fix (which held the score at 83 because `source_i
 
 A score change on a published case study is a cascade: the article↔DB contract required coordinated updates, done together — the Substack, EN, and PT articles (Huatong case-study score 83 → 85; Substack + PT Manufacturing sector average 84.5 / 84,5 → 85.0 / 85,0; Substack April-export sentence now hyperlinks OPaís with the corrected attribution), the LinkedIn post (83/100 → 85/100), and `verify.py` expectations (case-study 83 → 85; avg 62.36 → 62.4; Manufacturing 84.5 → 85.0; source count 129 → 130; event count 104 → 105; linked 103 → 104). The overall average (62.4), private average (62.9), government average (54.3), and the distribution buckets (10/1/7/20/12) are unchanged — Huatong stays in the 81–100 band and the +2 is too small to move the one-decimal private average. EN and PT gained a new footnote ([24] / [27]) for the OPaís first-export source so the April export claim is traceable to its grounding article, not to the January production-start article it previously cited.
 
+### Award-completion re-type applied 2026-07-31
+
+Integrity audit found 18 `completion` events that were actually awards (AIPEX 2026, Leão de Ouro 2022/2024/2025, BCI Challenge, Sonangol/SONILS). `completion` is the highest-weighted event (+15 vs `expansion` +10) and feeds `v_execution_by_sector.completion_rate`, so this inflated ~16 projects' scores 5–7 points and let award articles stand as completion evidence — violating "don't score unless someone can click through to completion evidence." All 18 re-typed `completion` -> `expansion` via the new audited `db/update.py retype-event` command (18 `change_log` rows; `--source-url` defaults to each event's own backing source, so the audit row always traces to a real URL).
+
+One project (`angola-startup-summit-2023`, II Edition) was `status='completed'` backed only by the BCI Challenge award (event 12). With the award re-typed, the completed flag had no genuine completion evidence, so per the "only completed projects get the completed flag" rule it was downgraded to `operational` via `set-status` (score 98 -> 88; the summit series is ongoing — III edition held May 2024 — so `operational` is the correct status, sourced to the 2024 article).
+
+Average 62.4 -> 60.7 (precise 60.68); distribution unchanged (10/1/7/20/12); private 62.9 -> 61.1 (government 54.3 unchanged). Sector averages that moved: Agriculture 36.8 -> 34.8, Energy 73.1 -> 70.0, Infrastructure 72.3 -> 69.0, Logistics 77.0 -> 72.0, Manufacturing 85.0 -> 82.0, Technology 71.3 -> 67.0, Telecom 72.8 -> 70.3. Only case study that moved: ETU 80 -> 75 (Huatong stayed 85 — at the 30-point event cap, so its two re-typed awards did not move it).
+
+`verify.py` gained three checks: (A) hard-fail no `completion` event is an award (root-cause guard, via `constants.looks_like_award`); (B) hard-fail `completed`/`under_construction` backed by a genuine progress event (completion-non-award / construction / groundbreaking / financing); (C) warning `operational` without a genuine progress event — 22 operational projects are now tracked as known-open (15 exposed by this re-type — the award-only operational projects — plus 7 pre-existing operational-with-announcement-only), pending operational evidence or a status downgrade. The check count rose 81 -> 82. `retype-event` was added to `MUTATION_OPS` and the `change_log` orphan check. Articles, charts, README, and this lineage entry updated together per the score-cascade discipline.
+
+Known follow-up (out of scope): the 22 Check C operational projects need either genuine operational evidence or a status downgrade — a separate research effort. The ~6 `completion` events that are conference/delegation/event completions (AEP delegations, Portugal-30-companies, etc.) are genuine completions of non-physical projects and are intentionally left as `completion`.
+
 ---
 
 ## Scoring Layer: Formula Application
@@ -365,11 +377,11 @@ The article carries its own curated footnote bibliography (`[1]`–`[27]` in `ar
 |---------------|------------|----------|------------------|------------------------------|------------|
 | 630 participations (2022) | Correio Digital + Menos Fios | research file | [1] | — (research-file claim, no single DB row) | medium |
 | 2,348 participations (2026) | VerAngola | research file | [2] | — (research-file claim) | high |
-| Average score 62 (50 scored) | calculated | projects.execution_score | n/a | n/a | formula-derived (DB avg 62.36; Banco Sol unscored) |
+| Average score 61 (50 scored) | calculated | projects.execution_score | n/a | n/a | formula-derived (DB avg 60.68; Banco Sol unscored) |
 | 51 projects tracked (50 scored) | count | projects | n/a | n/a | direct count (evidence_complete) |
 | Distribution table (10/1/7/20/12) | calculated | projects grouped by score | n/a | n/a | formula-derived, 50 scored |
-| Sector table | calculated | projects grouped by sector | n/a | n/a | formula-derived (Energy 73,1; Finance 6 @ 44,0) |
-| Private vs gov (62,9 vs 54,3) | calculated | projects by sector | n/a | n/a | derived from 50 scored obs (government = `Government` sector, 3 projects; private = other 47) |
+| Sector table | calculated | projects grouped by sector | n/a | n/a | formula-derived (Energy 70,0; Finance 6 @ 44,0) |
+| Private vs gov (61,1 vs 54,3) | calculated | projects by sector | n/a | n/a | derived from 50 scored obs (government = `Government` sector, 3 projects; private = other 47) |
 | Huatong score 85 | calculated | projects + events + sources | [13,14,15,26,27] | 15, 54, 125, 130, 131 (16 removed 2026-07-30; event 30 grounded via 130; event 105 Apr-2026 first export grounded via 131 — see Huatong April export) | high |
 | Linha Verde score 3 | calculated | projects + events + sources | [19,20] | 1, 67 | high |
 | Credit line 2.5B score 70 (and successor 3.25B score 53) | calculated | projects + events + sources | [21,22] | 36, 91 (3.25B: 91) | high (timeline now grounded) |

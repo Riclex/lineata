@@ -1,0 +1,4843 @@
+{
+  "projects": [
+    {
+      "id": "angola-startup-summit-2022",
+      "title": "Angola Startup Summit 2022 (First Edition)",
+      "sector": "Technology",
+      "subsector": "Startups",
+      "description": "First entrepreneurship digital summit in Angola, held parallel to FILDA 2022. 70% fee reduction for startups",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "completed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 97,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "vi-encontro-empresarial-pt-ao",
+      "title": "VI Encontro Empresarial Portugal/Angola",
+      "sector": "Trade",
+      "subsector": "Partnership",
+      "description": "6th edition. Continued to IX edition (Jul 2026) with 500 participants, 6 European chambers — 5x growth",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "completed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "2023",
+      "actual_completion": "2026",
+      "execution_score": 97,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "aep-delegation-filda2025",
+      "title": "AEP Portuguese Delegation FILDA 2025",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "AEP organized Portuguese company delegation to FILDA 2025",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "completed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 90,
+      "filda_edition": "2025",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "aep-delegation-filda2026",
+      "title": "AEP Portuguese Delegation FILDA 2026",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "AEP organized 20 Portuguese companies delegation to FILDA 2026",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "completed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 90,
+      "filda_edition": "2026",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "montenegro-company-visits",
+      "title": "PM Montenegro Company Visits",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "Portuguese PM visited Powergol, Refriango, Central Solar do Biopio, Porto do Lobito, Lobito Atlantic Railway",
+      "country": "Angola",
+      "province": "Benguela",
+      "municipality": "",
+      "coordinates": "",
+      "status": "completed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 90,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "portugal-30-companies-2022",
+      "title": "Portugal 30-Company Delegation FILDA 2022",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "30 Portuguese companies including Petrotec, Quinta dos Jugais, Novabase, Primavera. 14 first-time participants",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "completed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 90,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "angola-startup-summit-2023",
+      "title": "Angola Startup Summit 2023 (II Edition)",
+      "sector": "Technology",
+      "subsector": "Startups",
+      "description": "SIA from Huila won. III edition held May 2024 (125+ startups). IV edition (2025) planned",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 10000000.0,
+      "currency": "AOA",
+      "estimated_jobs": "",
+      "expected_completion": "2023",
+      "actual_completion": "2024",
+      "execution_score": 88,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:56:39"
+    },
+    {
+      "id": "huatong-aipex-awards-2026",
+      "title": "Huatong AIPEX Awards 2026 (3 Awards)",
+      "sector": "Manufacturing",
+      "subsector": "Aluminum",
+      "description": "Huatong won Manufacturing & Industrialization, Export Champion, Investor of the Year at first AIPEX Awards",
+      "country": "Angola",
+      "province": "Bengo",
+      "municipality": "Barra do Dande",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 900000000.0,
+      "currency": "USD",
+      "estimated_jobs": 2000,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 88,
+      "filda_edition": "2026",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:43"
+    },
+    {
+      "id": "huatong-angola-industry-awards",
+      "title": "Huatong Angola Industry Awards",
+      "sector": "Manufacturing",
+      "subsector": "Aluminum",
+      "description": "Won 3 prizes. Massive expansion: aluminum production started Jan 2026, $900M port terminal, 2,000 jobs, 3 more AIPEX awards 2026",
+      "country": "Angola",
+      "province": "Bengo",
+      "municipality": "Barra do Dande",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 900000000.0,
+      "currency": "USD",
+      "estimated_jobs": 2000,
+      "expected_completion": "",
+      "actual_completion": "2029",
+      "execution_score": 85,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:42"
+    },
+    {
+      "id": "investment-portal-georeferenced",
+      "title": "Investment Attraction Portal",
+      "sector": "Digital",
+      "subsector": "Government",
+      "description": "Portal with georeferenced Angolan projects ready for private investment. Fully implemented — investinangola.ao live since Jul 2024 with 84 opportunities",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "2024",
+      "actual_completion": "2024",
+      "execution_score": 83,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "anpg-oil-sector-grand-prize",
+      "title": "ANPG & Oil Sector Partners Grand Prize Leao de Ouro",
+      "sector": "Energy",
+      "subsector": "Oil & Gas",
+      "description": "ANPG and partners won Grand Prize. Sector expanded: $100B pipeline, new projects, licenses extended. Etu Energias IPO-bound",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 82,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:41"
+    },
+    {
+      "id": "cip-cooperation-pt-ao",
+      "title": "CIP Portugal-Angola Economic Cooperation",
+      "sector": "Trade",
+      "subsector": "Cooperation",
+      "description": "CIP cooperation formalized: Declaration of Economic Cooperation signed Jul 2025. AIPEX MoUs with AICEP",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 82,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "bfa-mashreq-partnership",
+      "title": "BFA-Mashreq Bank Strategic Partnership",
+      "sector": "Finance",
+      "subsector": "Banking",
+      "description": "BFA announced strategic partnership with Mashreq Bank reinforcing USD correspondent banking capacity",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 80,
+      "filda_edition": "2025",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "feito-em-angola-relaunch-2022",
+      "title": "Feito em Angola Certification Relaunch",
+      "sector": "Government",
+      "subsector": "Certification",
+      "description": "Made in Angola certification service restructured and relaunched at FILDA 2022 to promote national products",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 80,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "iveco-tway-launch",
+      "title": "IVECO T-Way Heavy Truck Launch",
+      "sector": "Manufacturing",
+      "subsector": "Automotive",
+      "description": "IVECO/Vecauto launched new T-Way heavy truck at FILDA 2024",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 80,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "pt-ao-bilateral-2024",
+      "title": "Portugal-Angola 12 Bilateral Agreements",
+      "sector": "Government",
+      "subsector": "Policy",
+      "description": "12 bilateral instruments signed: PPP, debt management, labour 2024-2027, police, fisheries, health, tourism/Revive, education/Camoes",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 80,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "digital-infrastructure-pledge",
+      "title": "Digital Infrastructure Investment Pledge",
+      "sector": "Telecom",
+      "subsector": "Infrastructure",
+      "description": "Continued investment in broadband, fiber optic, Angosat-2, internet access. Implemented — Angosat-2 operational, 30,000km fiber, Conecta Angola launched",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 78,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "africell-aipex-2026",
+      "title": "Africell AIPEX Digital Economy Award",
+      "sector": "Telecom",
+      "subsector": "Digital",
+      "description": "Africell won AIPEX Digital Economy award at FILDA 2026",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2026",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:43"
+    },
+    {
+      "id": "brazil-returns-to-filda",
+      "title": "Brazil Returns to FILDA",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "Brazil returned in 2023. Sustained presence at FILDA 2024/2025/2026 via ApexBrasil/SEBRAE, expanded to startup ecosystem",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 19:31:09"
+    },
+    {
+      "id": "etu-energias-leao-ouro-2025",
+      "title": "ETU Energias Leao de Ouro 2025 + 25 Years",
+      "sector": "Energy",
+      "subsector": "Oil & Gas",
+      "description": "ETU Energias won Leao de Ouro at FILDA 2025 celebrating 25 years. Record profits, IPO-bound",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2025",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:43"
+    },
+    {
+      "id": "fabrimetal-aipex-2026",
+      "title": "Fabrimetal AIPEX Job Creation Award",
+      "sector": "Manufacturing",
+      "subsector": "Steel",
+      "description": "Fabrimetal won AIPEX Job Creation award at FILDA 2026",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2026",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:43"
+    },
+    {
+      "id": "jardins-yoba-aipex-2026",
+      "title": "Jardins da Yoba AIPEX Agribusiness Award",
+      "sector": "Agriculture",
+      "subsector": "Agribusiness",
+      "description": "Jardins da Yoba won AIPEX Agribusiness award at FILDA 2026",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2026",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:44"
+    },
+    {
+      "id": "lobito-atlantic-railway-aipex",
+      "title": "Lobito Atlantic Railway AIPEX Regional Development",
+      "sector": "Infrastructure",
+      "subsector": "Railway",
+      "description": "Lobito Atlantic Railway won AIPEX Regional Development award at FILDA 2026",
+      "country": "Angola",
+      "province": "Benguela",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2026",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:43"
+    },
+    {
+      "id": "omataplo-aipex-2026",
+      "title": "Omataplo AIPEX Green Investment Award",
+      "sector": "Agriculture",
+      "subsector": "Green Investment",
+      "description": "Omataplo won AIPEX Green Investment award at FILDA 2026",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2026",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:43"
+    },
+    {
+      "id": "pay4all-leao-ouro-2024",
+      "title": "Pay4all Leao de Ouro Digital Economy 2024",
+      "sector": "Technology",
+      "subsector": "Fintech",
+      "description": "Pay4all won Leao de Ouro digital economy category at FILDA 2024",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:42"
+    },
+    {
+      "id": "porto-lobito-leao-ouro-2022",
+      "title": "Porto do Lobito Leao de Ouro Transport 2022",
+      "sector": "Infrastructure",
+      "subsector": "Port",
+      "description": "Empresa Portuaria do Lobito won Leao de Ouro for best Transport & Logistics participation",
+      "country": "Angola",
+      "province": "Benguela",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:42"
+    },
+    {
+      "id": "sonangol-leao-ouro-2024",
+      "title": "Sonangol Grande Premio Leao de Ouro 2024",
+      "sector": "Energy",
+      "subsector": "Oil & Gas",
+      "description": "Sonangol won Grand Prize Leao de Ouro at FILDA 2024 with energy transition projects",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:42"
+    },
+    {
+      "id": "sonangol-leao-ouro-2025",
+      "title": "Sonangol Grande Premio Leao de Ouro 2025",
+      "sector": "Energy",
+      "subsector": "Oil & Gas",
+      "description": "Sonangol won Grand Prize Leao de Ouro at FILDA 2025 with 100% solar-powered stand",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2025",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:43"
+    },
+    {
+      "id": "sonangol-leao-ouro-2022",
+      "title": "Sonangol Leao de Ouro Oil & Gas 2022",
+      "sector": "Energy",
+      "subsector": "Oil & Gas",
+      "description": "Sonangol won best participation in Oil & Gas sector at FILDA 2022",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:42"
+    },
+    {
+      "id": "unitel-leao-ouro-2024",
+      "title": "Unitel Leao de Ouro Telecom 2024",
+      "sector": "Telecom",
+      "subsector": "Digital",
+      "description": "Unitel won Leao de Ouro telecom category for digital transformation at FILDA 2024",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 75,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:42"
+    },
+    {
+      "id": "sonangol-sonils-filda2023",
+      "title": "Sonangol/SONILS FILDA 2023 Participation",
+      "sector": "Logistics",
+      "subsector": "Oil & Gas",
+      "description": "SONILS first participation in FILDA. Sonangol won 2 awards. SONILS contract renewed, operational. Sonangol privatization delayed, $4.8B China loan sought",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 72,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-31 12:52:41"
+    },
+    {
+      "id": "pt-ao-credit-line-2-5b",
+      "title": "Portugal-Angola Credit Line EUR 2.5B",
+      "sector": "Finance",
+      "subsector": "Trade",
+      "description": "Portugal-Angola credit line raised from EUR 2B to EUR 2.5B (+EUR 500M)",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 2500000000.0,
+      "currency": "EUR",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 70,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "chicomba-water-dam",
+      "title": "Chicomba Water Dam Financing",
+      "sector": "Infrastructure",
+      "subsector": "Water",
+      "description": "Construction launched July 2026. Dam on river Cuvunji, 10.1 hm3 capacity. 36-month duration. Irrigates 2500 hectares phase 1, expandable to 5000. Includes photovoltaic plant, road rehab, agro-industry.",
+      "country": "Angola",
+      "province": "Huila",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 67248177.95,
+      "currency": "EUR",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 57,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "cabinda-refinery-aipex-2026",
+      "title": "Cabinda Refinery AIPEX Energy Award",
+      "sector": "Energy",
+      "subsector": "Refining",
+      "description": "Cabinda Refinery / Imbono Gemcorp won AIPEX Energy award at FILDA 2026",
+      "country": "Angola",
+      "province": "Cabinda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 55,
+      "filda_edition": "2026",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "bfa-30th-anniversary-filda",
+      "title": "BFA 30th Anniversary at FILDA",
+      "sector": "Finance",
+      "subsector": "Banking",
+      "description": "BFA celebrated 30th anniversary. Continues as major Angolan bank",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 53,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "esso-angola-filda2022",
+      "title": "ExxonMobil/Esso Angola Participation",
+      "sector": "Energy",
+      "subsector": "Oil & Gas",
+      "description": "ExxonMobil participated in FILDA 2022 with a stand representing ongoing operations",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 53,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "mou-aia-cip-2024",
+      "title": "MoU AIA-CIP Industrial Cooperation",
+      "sector": "Trade",
+      "subsector": "Cooperation",
+      "description": "MoU between Associacao Industrial de Angola and Confederacao Empresarial de Portugal",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 53,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "pt-ao-credit-line-3-25b",
+      "title": "Portugal-Angola Credit Line EUR 3.25B",
+      "sector": "Finance",
+      "subsector": "Trade",
+      "description": "Portugal-Angola credit line increased from EUR 2.5B to EUR 3.25B announced during FILDA week",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 3250000000.0,
+      "currency": "EUR",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 53,
+      "filda_edition": "2025",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "zap-empresas-filda2022",
+      "title": "ZAP Empresas Product Promotion",
+      "sector": "Telecom",
+      "subsector": "Corporate",
+      "description": "ZAP promoted ZAP Empresas corporate connectivity with ZAP FIBRA ON. ~10000 visitors to stand",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 53,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "filda-2023-2-billion-business",
+      "title": "FILDA 2023 Expected Business Volume",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "Originally reported as EUR 2B — likely Kz 2 billion (~$4M). Actual FILDA 2024: ~54B Kz. FILDA 2025: ~$60M",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 2000000000.0,
+      "currency": "EUR",
+      "estimated_jobs": 1000,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 21,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "grain-production-ambition-2022",
+      "title": "Angola Grain Production Ambition",
+      "sector": "Agriculture",
+      "subsector": "Grain",
+      "description": "Government announced ambition to become largest grain producer in Africa, seeking foreign investors with know-how and technology",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "bda-financing-filda2025",
+      "title": "BDA New Financing Solutions",
+      "sector": "Finance",
+      "subsector": "Development",
+      "description": "Banco de Desenvolvimento de Angola presented new financing solutions at FILDA 2025",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "2025",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "huambo-investment-promotion-2022",
+      "title": "Huambo Province Investment Promotion",
+      "sector": "Agriculture",
+      "subsector": "Multi-sector",
+      "description": "Huambo sought investment in agriculture, industry, mining, tourism. Polo Industrial do Caala with 1000 hectares",
+      "country": "Angola",
+      "province": "Huambo",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "prosil-isptec-2022",
+      "title": "ISPTEC PROSIL Startup Project",
+      "sector": "Agriculture",
+      "subsector": "Agro-processing",
+      "description": "ISPTEC project producing animal feed from fish waste. Highlighted at Startup Summit. Aims to reduce egg prices and pollution",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "mou-idii-ualgarve",
+      "title": "MoU IDIIA-Universidade do Algarve",
+      "sector": "Education",
+      "subsector": "Innovation",
+      "description": "Industrial innovation cooperation between IDIIA and Universidade do Algarve",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "sa-angola-investment-2022",
+      "title": "South Africa-Angola Investment Promotion",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "19 SA companies via dtic/Wesgro at FILDA 2022. Only 5 SA projects worth $19M registered since 2018",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 19000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "2022",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "ucall-ai-launch",
+      "title": "Ucall AI Chatbot Launch",
+      "sector": "Technology",
+      "subsector": "AI",
+      "description": "Ucall launched AI-powered chatbot and speech analytics at FILDA 2024",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "2024",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "linha-verde-investor-visas",
+      "title": "Linha Verde for Investor Visas",
+      "sector": "Government",
+      "subsector": "Policy",
+      "description": "Simplified mechanism for foreign investors to obtain visas to Angola. Partially implemented — absorbed into JUI digital portal and visto de privilegiado framework",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "delayed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "2023",
+      "actual_completion": "",
+      "execution_score": 3,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "banco-sol-virtual-assistant",
+      "title": "Banco Sol Virtual Assistant",
+      "sector": "Finance",
+      "subsector": "Technology",
+      "description": "Banco Sol presented a virtual assistant at FILDA 2023. No post-2023 updates found",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "unknown",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "2023",
+      "actual_completion": "",
+      "execution_score": 0,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    },
+    {
+      "id": "portuguese-investment-zee-330m",
+      "title": "Portuguese Investment in ZEE",
+      "sector": "Multi-sector",
+      "subsector": "Investment",
+      "description": "Portuguese investment in ZEE reached USD 330M. Figure unchanged since 2023, restated at FILDA 2026. No new growth",
+      "country": "Angola",
+      "province": "Luanda-Bengo",
+      "municipality": "",
+      "coordinates": "",
+      "status": "delayed",
+      "announced_value": 330000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 0,
+      "filda_edition": "2023",
+      "last_verified": "2026-07-25",
+      "evidence_complete": 1,
+      "created_at": "2026-07-23",
+      "updated_at": "2026-07-30 15:59:38"
+    }
+  ],
+  "events": {
+    "aep-delegation-filda2025": [
+      {
+        "id": 84,
+        "project_id": "aep-delegation-filda2025",
+        "event_type": "announcement",
+        "event_date": "2025-07-22",
+        "description": "AEP organized Portuguese company delegation to FILDA 2025",
+        "source_id": 127,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "AEP regressa a Luanda com 15 empresas nacionais (FILDA 2025 delegation)",
+        "src_pub": "Portugal Global/AICEP",
+        "src_url": "https://portugalglobal.pt/pt/noticias/2025/julho/aep-regressa-a-luanda-com-15-empresas-nacionais/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 85,
+        "project_id": "aep-delegation-filda2025",
+        "event_type": "completion",
+        "event_date": "2025-07-27",
+        "description": "AEP delegation completed participation at FILDA 2025",
+        "source_id": 127,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "AEP regressa a Luanda com 15 empresas nacionais (FILDA 2025 delegation)",
+        "src_pub": "Portugal Global/AICEP",
+        "src_url": "https://portugalglobal.pt/pt/noticias/2025/julho/aep-regressa-a-luanda-com-15-empresas-nacionais/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "aep-delegation-filda2026": [
+      {
+        "id": 101,
+        "project_id": "aep-delegation-filda2026",
+        "event_type": "announcement",
+        "event_date": "2026-07-21",
+        "description": "AEP organized 20 Portuguese companies delegation to FILDA 2026",
+        "source_id": 55,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Associação Empresarial de Portugal garante 20 empresas lusas na 41.ª edição da FILDA",
+        "src_pub": "VerAngola (LUSA)",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49499/Associacao-Empresarial-de-Portugal-garante-20-empresas-lusas-na-41-edicao-da-FILDA.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 102,
+        "project_id": "aep-delegation-filda2026",
+        "event_type": "completion",
+        "event_date": "2026-07-26",
+        "description": "AEP delegation completed participation at FILDA 2026",
+        "source_id": 55,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Associação Empresarial de Portugal garante 20 empresas lusas na 41.ª edição da FILDA",
+        "src_pub": "VerAngola (LUSA)",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49499/Associacao-Empresarial-de-Portugal-garante-20-empresas-lusas-na-41-edicao-da-FILDA.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "africell-aipex-2026": [
+      {
+        "id": 96,
+        "project_id": "africell-aipex-2026",
+        "event_type": "expansion",
+        "event_date": "2026-07-17",
+        "description": "Africell won AIPEX Digital Economy award at FILDA 2026",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 95,
+        "project_id": "africell-aipex-2026",
+        "event_type": "announcement",
+        "event_date": "2026-07-21",
+        "description": "Africell participated in FILDA 2026 AIPEX Awards",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "angola-startup-summit-2022": [
+      {
+        "id": 44,
+        "project_id": "angola-startup-summit-2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-15",
+        "description": "First Angola Startup Summit announced as parallel event to FILDA 2022. 70% fee reduction for startups",
+        "source_id": 21,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Startup Summit é destaque na FILDA 2022 que arranca amanhã",
+        "src_pub": "Menos Fios",
+        "src_url": "https://www.menosfios.com/startup-summit-e-destaque-na-filda-2022-que-arranca-amanha/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 45,
+        "project_id": "angola-startup-summit-2022",
+        "event_type": "completion",
+        "event_date": "2022-07-20",
+        "description": "First edition completed. ISPTEC presented 8 projects including PROSIL",
+        "source_id": 23,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "DESTACADO NA FILDA 2022 PROJECTO DE IMPACTO SOCIAL - PROSIL",
+        "src_pub": "ISPTEC",
+        "src_url": "https://www.isptec.co.ao/noticia/destacado-na-filda-2022-projecto-de-impacto-social---prosil",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 46,
+        "project_id": "angola-startup-summit-2022",
+        "event_type": "expansion",
+        "event_date": "2023-07-22",
+        "description": "Second edition held at FILDA 2023 with SIA from Huila winning BCI Challenge",
+        "source_id": 7,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huila vence II edicao do Angola Startup Summit 2023",
+        "src_pub": "Correio Digital",
+        "src_url": "https://correiodigital.net/huila-vence-ii-edicao-do-angola-startup-summit-2023/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "angola-startup-summit-2023": [
+      {
+        "id": 11,
+        "project_id": "angola-startup-summit-2023",
+        "event_type": "announcement",
+        "event_date": "2023-05-01",
+        "description": "Angola Startup Summit II Edition announced under FILDA",
+        "source_id": 7,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huila vence II edicao do Angola Startup Summit 2023",
+        "src_pub": "Correio Digital",
+        "src_url": "https://correiodigital.net/huila-vence-ii-edicao-do-angola-startup-summit-2023/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 12,
+        "project_id": "angola-startup-summit-2023",
+        "event_type": "expansion",
+        "event_date": "2023-07-22",
+        "description": "SIA from Huila won BCI Challenge with 10M Kwanza prize",
+        "source_id": 7,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huila vence II edicao do Angola Startup Summit 2023",
+        "src_pub": "Correio Digital",
+        "src_url": "https://correiodigital.net/huila-vence-ii-edicao-do-angola-startup-summit-2023/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 37,
+        "project_id": "angola-startup-summit-2023",
+        "event_type": "expansion",
+        "event_date": "2024-05-01",
+        "description": "III edition held with 125+ startups. UNITEL sponsorship. Brazilian debut via SEBRAE",
+        "source_id": 106,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola Startup Summit edição 2024 arranca hoje com 125 startups",
+        "src_pub": "Menos Fios",
+        "src_url": "https://www.menosfios.com/angola-startup-summit-edicao-2024-arranca-hoje-com-125-startups/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "anpg-oil-sector-grand-prize": [
+      {
+        "id": 6,
+        "project_id": "anpg-oil-sector-grand-prize",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "ANPG and partners participated in FILDA 2023 oil sector corridor",
+        "source_id": 5,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "ANPG E PARCEIROS CONQUISTAM GRANDE PREMIO LEAO DE OURO FILDA 2023",
+        "src_pub": "ANPG",
+        "src_url": "https://anpg.co.ao/noticias/anpg-e-parceiros-conquistam-grande-premio-leao-de-ouro-filda-2023/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 7,
+        "project_id": "anpg-oil-sector-grand-prize",
+        "event_type": "expansion",
+        "event_date": "2023-07-22",
+        "description": "ANPG won Grand Prize Leao de Ouro for second time in four participations",
+        "source_id": 5,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "ANPG E PARCEIROS CONQUISTAM GRANDE PREMIO LEAO DE OURO FILDA 2023",
+        "src_pub": "ANPG",
+        "src_url": "https://anpg.co.ao/noticias/anpg-e-parceiros-conquistam-grande-premio-leao-de-ouro-filda-2023/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 28,
+        "project_id": "anpg-oil-sector-grand-prize",
+        "event_type": "expansion",
+        "event_date": "2025-09-01",
+        "description": "Block 33/24 development agreement signed. New projects announced to sustain production",
+        "source_id": 121,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angolan Mining Oil & Gas — publisher cited, article URL not pinned",
+        "src_pub": "Angolan Mining Oil & Gas",
+        "src_url": "",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "n/a"
+      },
+      {
+        "id": 29,
+        "project_id": "anpg-oil-sector-grand-prize",
+        "event_type": "expansion",
+        "event_date": "2026-04-01",
+        "description": "$100 billion investment pipeline reported. Oil revenue rose to $7.16B in Q1 2026",
+        "source_id": 121,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angolan Mining Oil & Gas — publisher cited, article URL not pinned",
+        "src_pub": "Angolan Mining Oil & Gas",
+        "src_url": "",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "n/a"
+      }
+    ],
+    "banco-sol-mc-empresas-2025": [
+      {
+        "id": 80,
+        "project_id": "banco-sol-mc-empresas-2025",
+        "event_type": "announcement",
+        "event_date": "2025-07-22",
+        "description": "Banco Sol launched Cartao Multicaixa Empresas and QR Code payment solutions at FILDA 2025",
+        "source_id": "",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "",
+        "src_conf": "",
+        "src_archived_url": "",
+        "src_url_status": ""
+      }
+    ],
+    "banco-sol-virtual-assistant": [
+      {
+        "id": 14,
+        "project_id": "banco-sol-virtual-assistant",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "Banco Sol presented a virtual assistant at FILDA 2023",
+        "source_id": 9,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Banco Sol apresenta na FILDA assistente virtual",
+        "src_pub": "Giranoticias",
+        "src_url": "",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "n/a"
+      }
+    ],
+    "bda-financing-filda2025": [
+      {
+        "id": 81,
+        "project_id": "bda-financing-filda2025",
+        "event_type": "announcement",
+        "event_date": "2025-07-22",
+        "description": "BDA presented new financing solutions at FILDA 2025",
+        "source_id": 126,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Vice-Presidente conhece novas soluções financeiras do BDA na FILDA",
+        "src_pub": "Correio da Kianda",
+        "src_url": "https://correiokianda.info/vice-presidente-conhece-novas-solucoes-financeiras-do-bda-na-filda/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "bfa-30th-anniversary-filda": [
+      {
+        "id": 13,
+        "project_id": "bfa-30th-anniversary-filda",
+        "event_type": "announcement",
+        "event_date": "2023-07-17",
+        "description": "BFA announced presence at FILDA celebrating 30th anniversary",
+        "source_id": 8,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Filda 2023 - 38 Edicao da Feira Internacional de Luanda",
+        "src_pub": "BFA",
+        "src_url": "https://www.bfa.ao/pt/o-bfa/actualidade/noticias/filda-2023/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "bfa-mashreq-partnership": [
+      {
+        "id": 82,
+        "project_id": "bfa-mashreq-partnership",
+        "event_type": "announcement",
+        "event_date": "2025-07-16",
+        "description": "BFA announced strategic partnership with Mashreq Bank reinforcing USD correspondent banking capacity",
+        "source_id": 124,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Parceria Estratégica BFA e Mashreq Bank (USD correspondent banking)",
+        "src_pub": "BFA",
+        "src_url": "https://www.bfa.ao/pt/o-bfa/actualidade/noticias/parceria-estrategica-bfa-e-mashreq-bank/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 83,
+        "project_id": "bfa-mashreq-partnership",
+        "event_type": "completion",
+        "event_date": "2025-07-27",
+        "description": "BFA-Mashreq partnership operational during FILDA 2025",
+        "source_id": 124,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Parceria Estratégica BFA e Mashreq Bank (USD correspondent banking)",
+        "src_pub": "BFA",
+        "src_url": "https://www.bfa.ao/pt/o-bfa/actualidade/noticias/parceria-estrategica-bfa-e-mashreq-bank/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "brazil-returns-to-filda": [
+      {
+        "id": 17,
+        "project_id": "brazil-returns-to-filda",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "Brazil returned to FILDA after absence",
+        "source_id": 29,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "38ª edição da FILDA arrancou nesta terça-feira em Luanda",
+        "src_pub": "RFI",
+        "src_url": "https://www.rfi.fr/pt/angola/20230718-38-edicao-da-filda-arrancou-nesta-terca-feira-em-luanda",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "blocked"
+      },
+      {
+        "id": 34,
+        "project_id": "brazil-returns-to-filda",
+        "event_type": "expansion",
+        "event_date": "2024-07-01",
+        "description": "4 Brazilian companies via ApexBrasil at FILDA 2024. Expanded to Angola Startup Summit with SEBRAE",
+        "source_id": 104,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2024 movimentou negócios in loco (ApexBrasil delegation)",
+        "src_pub": "ApexBrasil",
+        "src_url": "https://apexbrasil.com.br/br/pt/conteudo/noticias/filda-2024-movimentou-mais-de-us-30-mil-em-negocios-in-loco-par.html",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "dead"
+      }
+    ],
+    "cabinda-refinery-aipex-2026": [
+      {
+        "id": 98,
+        "project_id": "cabinda-refinery-aipex-2026",
+        "event_type": "expansion",
+        "event_date": "2026-07-17",
+        "description": "Cabinda Refinery won AIPEX Energy award at FILDA 2026",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 97,
+        "project_id": "cabinda-refinery-aipex-2026",
+        "event_type": "announcement",
+        "event_date": "2026-07-21",
+        "description": "Cabinda Refinery / Imbono Gemcorp participated in FILDA 2026",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "chicomba-water-dam": [
+      {
+        "id": 103,
+        "project_id": "chicomba-water-dam",
+        "event_type": "financing",
+        "event_date": "2024-01-01",
+        "description": "Financing authorized by Presidential decree. EUR 67.2M syndicated loan from BAI Europa and BCP, covered by Portuguese export credit agency",
+        "source_id": 128,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Portuguese banking union finances 66ME water project in Angola's Huíla (Chicomba dam)",
+        "src_pub": "Medafrica Times",
+        "src_url": "https://medafricatimes.com/33963-portuguese-banking-union-finances-66me-water-project-in-angolas-hula.html",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 58,
+        "project_id": "chicomba-water-dam",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "EUR 65M financing for Chicomba water dam in Huila province announced. BAI Europa as agent bank",
+        "source_id": 38,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "BAI Europa FILDA 2024 (Chicomba dam agent bank)",
+        "src_pub": "BAI Europa",
+        "src_url": "https://www.bancobaieuropa.pt/pt/institucional/noticias/todas/filda-2024/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 59,
+        "project_id": "chicomba-water-dam",
+        "event_type": "financing",
+        "event_date": "2024-07-23",
+        "description": "BAI Europa confirmed as agent bank for EUR 65M Chicomba water dam financing",
+        "source_id": 38,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "BAI Europa FILDA 2024 (Chicomba dam agent bank)",
+        "src_pub": "BAI Europa",
+        "src_url": "https://www.bancobaieuropa.pt/pt/institucional/noticias/todas/filda-2024/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 104,
+        "project_id": "chicomba-water-dam",
+        "event_type": "groundbreaking",
+        "event_date": "2026-06-13",
+        "description": "Construction launched. 36-month duration. Dam on river Cuvunji, 10.1 hm3 capacity, irrigates 2500 hectares phase 1",
+        "source_id": 129,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Obras da represa de Chicomba lançadas (construction start, Cuvunji river)",
+        "src_pub": "Angop",
+        "src_url": "https://angop.ao/noticias/economia/obras-da-represa-de-chicomba-lancadas-no-neste-sabado/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "cip-cooperation-pt-ao": [
+      {
+        "id": 18,
+        "project_id": "cip-cooperation-pt-ao",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "CIP reinforced economic cooperation between Portugal and Angola",
+        "source_id": 13,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "CIP reforca cooperacao economica entre Portugal e Angola",
+        "src_pub": "CIP",
+        "src_url": "https://cip.org.pt/cip-reforca-cooperacao-economica-entre-portugal-e-angola/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 35,
+        "project_id": "cip-cooperation-pt-ao",
+        "event_type": "completion",
+        "event_date": "2025-07-25",
+        "description": "Declaration of Economic Cooperation signed during President Lourenco State Visit to Portugal",
+        "source_id": 13,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "CIP reforca cooperacao economica entre Portugal e Angola",
+        "src_pub": "CIP",
+        "src_url": "https://cip.org.pt/cip-reforca-cooperacao-economica-entre-portugal-e-angola/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 36,
+        "project_id": "cip-cooperation-pt-ao",
+        "event_type": "expansion",
+        "event_date": "2025-07-25",
+        "description": "AIPEX signed MoUs with AICEP Global Parques and Porto Business School. 4 priority axes defined",
+        "source_id": 90,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "AIPEX assina três acordos de cooperação com entidades portuguesas",
+        "src_pub": "Forbes África Lusófona",
+        "src_url": "https://forbesafricalusofona.com/agencia-de-investimento-privado-e-promocao-das-exportacoes-de-angola-assina-tres-acordos-de-cooperacao-com-entidades-portuguesas/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "digital-infrastructure-pledge": [
+      {
+        "id": 3,
+        "project_id": "digital-infrastructure-pledge",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "President Lourenco pledged continued investment in digital infrastructure at FILDA opening",
+        "source_id": 14,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola vai continuar a investir em infra-estruturas digitais",
+        "src_pub": "CIPRA",
+        "src_url": "https://www.cipra.gov.ao/noticias/834/governo/economia-digital-na-filda-2023/angola-vai-continuar-a-investir-em-infra-estruturas-digitais",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 19,
+        "project_id": "digital-infrastructure-pledge",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "Angola to invest in broadband fiber optic Angosat-2 internet expansion",
+        "source_id": 14,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola vai continuar a investir em infra-estruturas digitais",
+        "src_pub": "CIPRA",
+        "src_url": "https://www.cipra.gov.ao/noticias/834/governo/economia-digital-na-filda-2023/angola-vai-continuar-a-investir-em-infra-estruturas-digitais",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 22,
+        "project_id": "digital-infrastructure-pledge",
+        "event_type": "construction",
+        "event_date": "2024-06-01",
+        "description": "Angosat-2 operational with 80%+ C-band capacity sold. 30000km fiber optic laid",
+        "source_id": 74,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Transformar Angola num operador e produtor de tecnologia espacial",
+        "src_pub": "INACOM",
+        "src_url": "https://inacom.gov.ao/2025/04/19/transformar-angola-em-um-operador-e-produtor-de-tecnologia-espacial/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 23,
+        "project_id": "digital-infrastructure-pledge",
+        "event_type": "expansion",
+        "event_date": "2026-07-01",
+        "description": "Conecta Angola TVWS program launched using satellite and TV White Space technology. 366000+ people reached",
+        "source_id": 76,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola expands rural broadband using Angosat-2 and TV White Space",
+        "src_pub": "Ecofin Agency",
+        "src_url": "https://www.ecofinagency.com/news-digital/1707-57482-angola-expands-rural-broadband-using-angosat-2-and-t-v-white-space",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "esso-angola-filda2022": [
+      {
+        "id": 51,
+        "project_id": "esso-angola-filda2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-16",
+        "description": "ExxonMobil participated in FILDA 2022 with a stand representing ongoing operations",
+        "source_id": 26,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "ExxonMobil participated in 37th FILDA (Esso Angola Facebook)",
+        "src_pub": "Esso Angola (Facebook)",
+        "src_url": "https://www.facebook.com/EssoAngola/posts/a-exxonmobil-participou-na-37-edicao-da-filda-que-decorreu-de-16-a-20-de-julho-/1494175937685687/",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "etu-energias-leao-ouro-2025": [
+      {
+        "id": 77,
+        "project_id": "etu-energias-leao-ouro-2025",
+        "event_type": "announcement",
+        "event_date": "2025-07-22",
+        "description": "ETU Energias participated in FILDA 2025 celebrating 25 years",
+        "source_id": 123,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "ETU Energias recebe Leão de Ouro na FILDA 2025 e menção honrosa (25 anos)",
+        "src_pub": "ETU Energias",
+        "src_url": "https://etuenergias.co.ao/noticias/etu-energias-recebe-leao-de-ouro-na-filda-2025-e-mencao-honrosa-pela-sua-trajectoria-de-excellencia-no-sector-petrolifero/178",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 78,
+        "project_id": "etu-energias-leao-ouro-2025",
+        "event_type": "expansion",
+        "event_date": "2025-07-27",
+        "description": "ETU Energias won Leao de Ouro at FILDA 2025",
+        "source_id": 123,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "ETU Energias recebe Leão de Ouro na FILDA 2025 e menção honrosa (25 anos)",
+        "src_pub": "ETU Energias",
+        "src_url": "https://etuenergias.co.ao/noticias/etu-energias-recebe-leao-de-ouro-na-filda-2025-e-mencao-honrosa-pela-sua-trajectoria-de-excellencia-no-sector-petrolifero/178",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "fabrimetal-aipex-2026": [
+      {
+        "id": 94,
+        "project_id": "fabrimetal-aipex-2026",
+        "event_type": "expansion",
+        "event_date": "2026-07-17",
+        "description": "Fabrimetal won AIPEX Job Creation award at FILDA 2026",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 93,
+        "project_id": "fabrimetal-aipex-2026",
+        "event_type": "announcement",
+        "event_date": "2026-07-21",
+        "description": "Fabrimetal participated in FILDA 2026 AIPEX Awards",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "feito-em-angola-relaunch-2022": [
+      {
+        "id": 48,
+        "project_id": "feito-em-angola-relaunch-2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-16",
+        "description": "Feito em Angola certification service restructured and relaunched at FILDA 2022 by Minister Mario Caetano Joao",
+        "source_id": 24,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "CEFA news article (Feito em Angola)",
+        "src_pub": "CEFA",
+        "src_url": "https://www.cefa.co.ao/Noticias/Id/350/1",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 49,
+        "project_id": "feito-em-angola-relaunch-2022",
+        "event_type": "completion",
+        "event_date": "2022-07-20",
+        "description": "Certification service available at FILDA 2022",
+        "source_id": 24,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "CEFA news article (Feito em Angola)",
+        "src_pub": "CEFA",
+        "src_url": "https://www.cefa.co.ao/Noticias/Id/350/1",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "filda-2023-2-billion-business": [
+      {
+        "id": 15,
+        "project_id": "filda-2023-2-billion-business",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "FILDA 2023 projected to generate above 2 billion in business (currency unclear)",
+        "source_id": 103,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA abre hoje com previsão de arrecadar dois bilhões de kwanzas em negócios",
+        "src_pub": "RNA",
+        "src_url": "https://rna.ao/rna.ao/2023/07/18/filda-abre-hoje-com-a-previsao-de-arrecadar-dois-bilhoes-de-kwanzas-em-negocios/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 38,
+        "project_id": "filda-2023-2-billion-business",
+        "event_type": "delay",
+        "event_date": "2024-07-01",
+        "description": "Data correction: original source likely says 2 billion Kwanzas not EUR. Actual FILDA 2024: ~54B Kz",
+        "source_id": 103,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA abre hoje com previsão de arrecadar dois bilhões de kwanzas em negócios",
+        "src_pub": "RNA",
+        "src_url": "https://rna.ao/rna.ao/2023/07/18/filda-abre-hoje-com-a-previsao-de-arrecadar-dois-bilhoes-de-kwanzas-em-negocios/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "grain-production-ambition-2022": [
+      {
+        "id": 39,
+        "project_id": "grain-production-ambition-2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-16",
+        "description": "Manuel Nunes Junior announced Angola's ambition to become largest grain producer in Africa at FILDA 2022 opening",
+        "source_id": 17,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola pretende ser o maior produtor de grãos em África",
+        "src_pub": "MIREX Angola / Embassy of Angola in Türkiye",
+        "src_url": "https://turquia.mirex.gov.ao/web/noticias/angola-pretende-ser-o-maior-produtor-de-gr-os-em--frica",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "huambo-investment-promotion-2022": [
+      {
+        "id": 43,
+        "project_id": "huambo-investment-promotion-2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-17",
+        "description": "Huambo province promoted investment in agriculture, industry, mining, tourism. Polo Industrial do Caala with 1000 hectares",
+        "source_id": 20,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2022: Huambo quer captar investimentos para Agricultura e Turismo",
+        "src_pub": "Embaixada da República de Angola na Türkiye",
+        "src_url": "https://www.embassyangolatr.org/pt/sala-de-imprensa/actualidade-informativa/filda-2022-huambo-quer-captar-investimentos-para-agricultura-e-turismo",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "huatong-aipex-awards-2026": [
+      {
+        "id": 87,
+        "project_id": "huatong-aipex-awards-2026",
+        "event_type": "expansion",
+        "event_date": "2026-07-17",
+        "description": "Huatong won 3 AIPEX Awards: Manufacturing and Industrialization, Export Champion, Investor of the Year",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 88,
+        "project_id": "huatong-aipex-awards-2026",
+        "event_type": "expansion",
+        "event_date": "2026-07-20",
+        "description": "Huatong signed $900M protocol for Barra do Dande port terminal. 25-year concession. Completion 2029-2030",
+        "source_id": 125,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola to Invest $900 Million in Barra do Dande Port Terminal",
+        "src_pub": "360 Angola",
+        "src_url": "https://360angola.com/business/infrastructure/huatong-angola-to-invest-900-million-in-barra-do-dande-port-terminal/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 86,
+        "project_id": "huatong-aipex-awards-2026",
+        "event_type": "announcement",
+        "event_date": "2026-07-21",
+        "description": "Huatong Angola Industry participated in FILDA 2026 / AIPEX Awards",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "huatong-angola-industry-awards": [
+      {
+        "id": 16,
+        "project_id": "huatong-angola-industry-awards",
+        "event_type": "expansion",
+        "event_date": "2023-07-22",
+        "description": "Huatong Angola Industry won 3 prizes at FILDA 2023",
+        "source_id": 15,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "A maior bolsa de negocios gera mais de mil empregos para jovens",
+        "src_pub": "CIPRA",
+        "src_url": "https://cipra.gov.ao/noticias/838/governo/filda-2023/a-maior-bolsa-de-negocios-gera-mais-de-mil-empregos-para-jovens",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 30,
+        "project_id": "huatong-angola-industry-awards",
+        "event_type": "construction",
+        "event_date": "2026-01-01",
+        "description": "Aluminum production started in Barra do Dande ZEE. 1200 direct + 800 indirect jobs. First 1000 tons exported to Netherlands",
+        "source_id": 130,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Presidente inaugura fábrica de alumínio de investimento chinês de 250 milhões de dólares",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/012026/Industria/47424/Presidente-inaugura-f%C3%A1brica-de-alum%C3%ADnio-de-investimento-chin%C3%AAs-de-250-milh%C3%B5es-de-d%C3%B3lares.htm",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 105,
+        "project_id": "huatong-angola-industry-awards",
+        "event_type": "expansion",
+        "event_date": "2026-04-10",
+        "description": "First 1,000 tons exported to the Netherlands",
+        "source_id": 131,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "First 1,000 tons exported to the Netherlands",
+        "src_pub": "",
+        "src_url": "https://www.opais.ao/economia/bengo-inicia-hoje-primeira-exportacao-de-aluminio-produzido-no-parque-industrial-huatong-angola/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 32,
+        "project_id": "huatong-angola-industry-awards",
+        "event_type": "expansion",
+        "event_date": "2026-07-17",
+        "description": "Won 3 AIPEX Awards 2026: Manufacturing & Industrialization, Export Champion, Investor of the Year",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 31,
+        "project_id": "huatong-angola-industry-awards",
+        "event_type": "financing",
+        "event_date": "2026-07-20",
+        "description": "$900M port terminal investment signed. 25-year subconcession. Completion by 2029/2030",
+        "source_id": 125,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola to Invest $900 Million in Barra do Dande Port Terminal",
+        "src_pub": "360 Angola",
+        "src_url": "https://360angola.com/business/infrastructure/huatong-angola-to-invest-900-million-in-barra-do-dande-port-terminal/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "investment-portal-georeferenced": [
+      {
+        "id": 2,
+        "project_id": "investment-portal-georeferenced",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "Investment attraction portal with georeferenced projects announced",
+        "source_id": 1,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola cria Linha Verde para facilitar vistos de investidores",
+        "src_pub": "Giranoticias",
+        "src_url": "https://www.giranoticias.com/economia/2023/07/16115-angola-cria-linha-verde-para-facilitar-vistos-de-investidores.html",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 21,
+        "project_id": "investment-portal-georeferenced",
+        "event_type": "completion",
+        "event_date": "2024-07-01",
+        "description": "investinangola.ao launched with 84 investment opportunities across 9 sectors and 539 Made in Angola products",
+        "source_id": 70,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "AIPEX launches Invest in Angola platform",
+        "src_pub": "CNBC Africa",
+        "src_url": "https://www.cnbcafrica.com/2024/aipex-launches-invest-in-angola-platform-a-new-era-for-investment-in-angola",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "iveco-tway-launch": [
+      {
+        "id": 70,
+        "project_id": "iveco-tway-launch",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "IVECO/Vecauto launched new T-Way heavy truck at FILDA 2024",
+        "source_id": 49,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Marcas em Acção na FILDA 2024 (IVECO/Ucall launches)",
+        "src_pub": "Marcas em Acção",
+        "src_url": "https://marcasemaccao.com/2024/07/26/marcas-em-accao-na-filda-2024/",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 71,
+        "project_id": "iveco-tway-launch",
+        "event_type": "completion",
+        "event_date": "2024-07-28",
+        "description": "T-Way heavy truck launch completed at FILDA 2024",
+        "source_id": 49,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Marcas em Acção na FILDA 2024 (IVECO/Ucall launches)",
+        "src_pub": "Marcas em Acção",
+        "src_url": "https://marcasemaccao.com/2024/07/26/marcas-em-accao-na-filda-2024/",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "jardins-yoba-aipex-2026": [
+      {
+        "id": 100,
+        "project_id": "jardins-yoba-aipex-2026",
+        "event_type": "expansion",
+        "event_date": "2026-07-17",
+        "description": "Jardins da Yoba won AIPEX Agribusiness award at FILDA 2026",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 99,
+        "project_id": "jardins-yoba-aipex-2026",
+        "event_type": "announcement",
+        "event_date": "2026-07-21",
+        "description": "Jardins da Yoba participated in FILDA 2026 AIPEX Awards",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "linha-verde-investor-visas": [
+      {
+        "id": 1,
+        "project_id": "linha-verde-investor-visas",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "Linha Verde for investor visas announced by Secretary of State Ivan dos Santos at VI Encontro Empresarial Portugal/Angola",
+        "source_id": 1,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola cria Linha Verde para facilitar vistos de investidores",
+        "src_pub": "Giranoticias",
+        "src_url": "https://www.giranoticias.com/economia/2023/07/16115-angola-cria-linha-verde-para-facilitar-vistos-de-investidores.html",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 20,
+        "project_id": "linha-verde-investor-visas",
+        "event_type": "delay",
+        "event_date": "2024-01-01",
+        "description": "No distinct Linha Verde branded product launched. Concept absorbed into JUI digital portal and visto de privilegiado framework",
+        "source_id": 67,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Janela Única do Investimento (JUI) Portal",
+        "src_pub": "AIPEX",
+        "src_url": "https://jui.aipex.gov.ao/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "lobito-atlantic-railway-aipex": [
+      {
+        "id": 92,
+        "project_id": "lobito-atlantic-railway-aipex",
+        "event_type": "expansion",
+        "event_date": "2026-07-17",
+        "description": "LAR won AIPEX Regional Development award at FILDA 2026",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 91,
+        "project_id": "lobito-atlantic-railway-aipex",
+        "event_type": "announcement",
+        "event_date": "2026-07-21",
+        "description": "Lobito Atlantic Railway participated in FILDA 2026",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "montenegro-company-visits": [
+      {
+        "id": 73,
+        "project_id": "montenegro-company-visits",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "PM Montenegro visited Powergol, Refriango, Central Solar do Biopio, Porto do Lobito, Lobito Atlantic Railway",
+        "source_id": 40,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Visita oficial do Primeiro-Ministro a Angola (23-25 julho 2024)",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/comunicados/visita-oficial-do-primeiro-ministro-a-angola-23-24-e-25-de-julho-de-2024",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 74,
+        "project_id": "montenegro-company-visits",
+        "event_type": "completion",
+        "event_date": "2024-07-25",
+        "description": "Montenegro company visits completed during official visit 23-25 July 2024",
+        "source_id": 40,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Visita oficial do Primeiro-Ministro a Angola (23-25 julho 2024)",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/comunicados/visita-oficial-do-primeiro-ministro-a-angola-23-24-e-25-de-julho-de-2024",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "mou-aia-cip-2024": [
+      {
+        "id": 62,
+        "project_id": "mou-aia-cip-2024",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "MoU signed between AIA and CIP for industrial cooperation",
+        "source_id": 36,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Governo vai dar um novo impulso à relação com Angola",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/noticias/governo-vai-dar-um-novo-impulso-a-relacao-com-angola",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "mou-idii-ualgarve": [
+      {
+        "id": 63,
+        "project_id": "mou-idii-ualgarve",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "MoU signed between IDIIA and Universidade do Algarve for industrial innovation cooperation",
+        "source_id": 36,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Governo vai dar um novo impulso à relação com Angola",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/noticias/governo-vai-dar-um-novo-impulso-a-relacao-com-angola",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "omataplo-aipex-2026": [
+      {
+        "id": 90,
+        "project_id": "omataplo-aipex-2026",
+        "event_type": "expansion",
+        "event_date": "2026-07-17",
+        "description": "Omataplo won AIPEX Green Investment award at FILDA 2026",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 89,
+        "project_id": "omataplo-aipex-2026",
+        "event_type": "announcement",
+        "event_date": "2026-07-21",
+        "description": "Omataplo participated in FILDA 2026 AIPEX Awards",
+        "source_id": 54,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "pay4all-leao-ouro-2024": [
+      {
+        "id": 68,
+        "project_id": "pay4all-leao-ouro-2024",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "Pay4all participated in FILDA 2024",
+        "source_id": 48,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Pay4all vence Prémio Leão de Ouro Economia Digital FILDA 2024",
+        "src_pub": "Pay4all",
+        "src_url": "https://pay4all.ao/pay4all-vence-premio-leao-de-ouro-para-melhor-participacao-na-filda-2024-na-categoria-economia-digital/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 69,
+        "project_id": "pay4all-leao-ouro-2024",
+        "event_type": "expansion",
+        "event_date": "2024-07-28",
+        "description": "Pay4all won Leao de Ouro digital economy category at FILDA 2024",
+        "source_id": 48,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Pay4all vence Prémio Leão de Ouro Economia Digital FILDA 2024",
+        "src_pub": "Pay4all",
+        "src_url": "https://pay4all.ao/pay4all-vence-premio-leao-de-ouro-para-melhor-participacao-na-filda-2024-na-categoria-economia-digital/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "porto-lobito-leao-ouro-2022": [
+      {
+        "id": 52,
+        "project_id": "porto-lobito-leao-ouro-2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-16",
+        "description": "Empresa Portuaria do Lobito participated in FILDA 2022",
+        "source_id": 27,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2022: Porto do Lobito vence prémio de melhor participação dos transportes e logística",
+        "src_pub": "Jornal 24 Horas",
+        "src_url": "https://jornal24horas.ao/economia/filda-2022porto-do-lobito-vence-premio-de-melhor-participacao-dos-transportes-e-logistica/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 53,
+        "project_id": "porto-lobito-leao-ouro-2022",
+        "event_type": "expansion",
+        "event_date": "2022-07-20",
+        "description": "Porto do Lobito won Leao de Ouro for best Transport and Logistics participation",
+        "source_id": 27,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2022: Porto do Lobito vence prémio de melhor participação dos transportes e logística",
+        "src_pub": "Jornal 24 Horas",
+        "src_url": "https://jornal24horas.ao/economia/filda-2022porto-do-lobito-vence-premio-de-melhor-participacao-dos-transportes-e-logistica/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "portugal-30-companies-2022": [
+      {
+        "id": 41,
+        "project_id": "portugal-30-companies-2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-10",
+        "description": "30 Portuguese companies mobilized for FILDA 2022 including Petrotec, Quinta dos Jugais, Novabase, Primavera. 14 first-time participants",
+        "source_id": 19,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Portugal mobiliza 30 empresas para FILDA/2022",
+        "src_pub": "Correio Digital",
+        "src_url": "https://correiodigital.net/portugal-mobiliza-30-empresas-para-filda-2022/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 42,
+        "project_id": "portugal-30-companies-2022",
+        "event_type": "completion",
+        "event_date": "2022-07-20",
+        "description": "Portuguese delegation completed participation. Bilateral trade exceeded EUR 1 billion in 2021",
+        "source_id": 19,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Portugal mobiliza 30 empresas para FILDA/2022",
+        "src_pub": "Correio Digital",
+        "src_url": "https://correiodigital.net/portugal-mobiliza-30-empresas-para-filda-2022/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "portuguese-investment-zee-330m": [
+      {
+        "id": 8,
+        "project_id": "portuguese-investment-zee-330m",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "Portuguese investment in ZEE reaches USD 330M highlighted at FILDA",
+        "source_id": 6,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola: Portuguese Investment in Zee Reaches USD 330 Million",
+        "src_pub": "AllAfrica/ANGOP",
+        "src_url": "https://allafrica.com/stories/202307190023.html",
+        "src_conf": "medium",
+        "src_archived_url": "http://web.archive.org/web/20230816182531/https://allafrica.com/stories/202307190023.html",
+        "src_url_status": "blocked"
+      },
+      {
+        "id": 33,
+        "project_id": "portuguese-investment-zee-330m",
+        "event_type": "delay",
+        "event_date": "2026-07-01",
+        "description": "Figure unchanged since 2023. Restated at FILDA 2026 by ZEE Chairman. No new aggregate published",
+        "source_id": 97,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Investimento português na ZEE atinge USD 330 milhões",
+        "src_pub": "Angonoticias/Angop",
+        "src_url": "https://www.angonoticias.com/Artigos/item/82396/investimento-portugues-na-zee-atinge-usd-330-milhoes",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "prosil-isptec-2022": [
+      {
+        "id": 47,
+        "project_id": "prosil-isptec-2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-20",
+        "description": "ISPTEC PROSIL project highlighted at Startup Summit. Animal feed from fish waste",
+        "source_id": 23,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "DESTACADO NA FILDA 2022 PROJECTO DE IMPACTO SOCIAL - PROSIL",
+        "src_pub": "ISPTEC",
+        "src_url": "https://www.isptec.co.ao/noticia/destacado-na-filda-2022-projecto-de-impacto-social---prosil",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "pt-ao-bilateral-2024": [
+      {
+        "id": 56,
+        "project_id": "pt-ao-bilateral-2024",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "12 bilateral instruments signed between Portugal and Angola at FILDA 2024 covering PPP, debt management, labour, fisheries, health, tourism, education",
+        "source_id": 36,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Governo vai dar um novo impulso à relação com Angola",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/noticias/governo-vai-dar-um-novo-impulso-a-relacao-com-angola",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 57,
+        "project_id": "pt-ao-bilateral-2024",
+        "event_type": "completion",
+        "event_date": "2024-07-28",
+        "description": "FILDA 2024 closed with 1771 participations and 54.175 billion Kz business volume",
+        "source_id": 30,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2024 alcança volume de negócios de mais de 4 mil milhões de Kwanzas",
+        "src_pub": "Ministério da Indústria e Comércio de Angola (via Angop)",
+        "src_url": "https://scm.gov.ao/web/noticias/filda-2024-alcanca-volume-de-negocios-de-mais-de-4-mil-milhoes-de-kwanzas",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "pt-ao-credit-line-2-5b": [
+      {
+        "id": 60,
+        "project_id": "pt-ao-credit-line-2-5b",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "Portugal-Angola credit line increased from EUR 2B to EUR 2.5B during PM Montenegro visit",
+        "source_id": 36,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Governo vai dar um novo impulso à relação com Angola",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/noticias/governo-vai-dar-um-novo-impulso-a-relacao-com-angola",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 61,
+        "project_id": "pt-ao-credit-line-2-5b",
+        "event_type": "expansion",
+        "event_date": "2025-07-25",
+        "description": "Credit line further increased to EUR 3.25B at FILDA 2025",
+        "source_id": 91,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Portugal assinou 23 instrumentos de cooperação com Angola",
+        "src_pub": "Jornal de Negócios",
+        "src_url": "https://www.jornaldenegocios.pt/economia/mundo/africa/angola/detalhe/portugal-assinou-23-instrumentos-de-cooperacao-com-angola-e-reforcou-credito-em-62-desde-julho-2024",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "pt-ao-credit-line-3-25b": [
+      {
+        "id": 79,
+        "project_id": "pt-ao-credit-line-3-25b",
+        "event_type": "announcement",
+        "event_date": "2025-07-25",
+        "description": "Portugal-Angola credit line increased from EUR 2.5B to EUR 3.25B announced during FILDA week",
+        "source_id": 91,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Portugal assinou 23 instrumentos de cooperação com Angola",
+        "src_pub": "Jornal de Negócios",
+        "src_url": "https://www.jornaldenegocios.pt/economia/mundo/africa/angola/detalhe/portugal-assinou-23-instrumentos-de-cooperacao-com-angola-e-reforcou-credito-em-62-desde-julho-2024",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "sa-angola-investment-2022": [
+      {
+        "id": 40,
+        "project_id": "sa-angola-investment-2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-15",
+        "description": "South Africa-Angola investment promotion seminar with dtic and Wesgro. 19 SA companies at FILDA. Only 5 SA projects worth $19M registered since 2018",
+        "source_id": 18,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "South African companies urged to invest in Angola",
+        "src_pub": "South African Government / the dtic",
+        "src_url": "https://www.gov.za/news/media-statements/south-african-companies-urged-invest-angola-15-jul-2022",
+        "src_conf": "high",
+        "src_archived_url": "http://web.archive.org/web/20260623040035/https://www.gov.za/news/media-statements/south-african-companies-urged-invest-angola-15-jul-2022",
+        "src_url_status": "dead"
+      }
+    ],
+    "sonangol-leao-ouro-2022": [
+      {
+        "id": 54,
+        "project_id": "sonangol-leao-ouro-2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-16",
+        "description": "Sonangol participated in FILDA 2022",
+        "source_id": 28,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Eventos Arena — Sonangol best participation FILDA 2022 (Facebook)",
+        "src_pub": "Eventos Arena (Facebook)",
+        "src_url": "https://www.facebook.com/eventosarena.angola/photos/durante-a-cerimonia-de-premios-filda-2022-a-sonangol-destacou-se-como-melhor-par/1870072219852414/",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 55,
+        "project_id": "sonangol-leao-ouro-2022",
+        "event_type": "expansion",
+        "event_date": "2022-07-20",
+        "description": "Sonangol won best participation in Oil and Gas sector at FILDA 2022",
+        "source_id": 28,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Eventos Arena — Sonangol best participation FILDA 2022 (Facebook)",
+        "src_pub": "Eventos Arena (Facebook)",
+        "src_url": "https://www.facebook.com/eventosarena.angola/photos/durante-a-cerimonia-de-premios-filda-2022-a-sonangol-destacou-se-como-melhor-par/1870072219852414/",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "sonangol-leao-ouro-2024": [
+      {
+        "id": 64,
+        "project_id": "sonangol-leao-ouro-2024",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "Sonangol participated in FILDA 2024 with energy transition projects",
+        "source_id": 45,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Sonangol leva projectos de transição energética na FILDA",
+        "src_pub": "Angop",
+        "src_url": "https://www.angop.ao/noticias/economia/sonangol-leva-projectos-de-transicao-energetica-na-filda/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 65,
+        "project_id": "sonangol-leao-ouro-2024",
+        "event_type": "expansion",
+        "event_date": "2024-07-28",
+        "description": "Sonangol won Grande Premio Leao de Ouro at FILDA 2024",
+        "source_id": 44,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2024: Leão de Ouro volta à galeria da Sonangol",
+        "src_pub": "Sonangol",
+        "src_url": "https://www.sonangol.co.ao/filda-2024-leao-de-ouro-volta-a-galeria-da-sonangol/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "sonangol-leao-ouro-2025": [
+      {
+        "id": 75,
+        "project_id": "sonangol-leao-ouro-2025",
+        "event_type": "announcement",
+        "event_date": "2025-07-22",
+        "description": "Sonangol participated in FILDA 2025 with 100% solar-powered stand",
+        "source_id": 122,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2025: Leão de Ouro Permanece na Galeria da Sonangol",
+        "src_pub": "Sonangol",
+        "src_url": "https://www.sonangol.co.ao/filda-2025-i-leao-de-ouro-permanece-na-galeria-da-sonangol/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 76,
+        "project_id": "sonangol-leao-ouro-2025",
+        "event_type": "expansion",
+        "event_date": "2025-07-27",
+        "description": "Sonangol won Grande Premio Leao de Ouro at FILDA 2025",
+        "source_id": 122,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2025: Leão de Ouro Permanece na Galeria da Sonangol",
+        "src_pub": "Sonangol",
+        "src_url": "https://www.sonangol.co.ao/filda-2025-i-leao-de-ouro-permanece-na-galeria-da-sonangol/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "sonangol-sonils-filda2023": [
+      {
+        "id": 4,
+        "project_id": "sonangol-sonils-filda2023",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "SONILS first participation in FILDA",
+        "source_id": 4,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2023 | Sonangol encerra participacao arrebatando 2 premios",
+        "src_pub": "Sonangol",
+        "src_url": "https://www.sonangol.co.ao/filda-2023-sonangol-encerra-participacao-arrebatando-2-premios/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 5,
+        "project_id": "sonangol-sonils-filda2023",
+        "event_type": "expansion",
+        "event_date": "2023-07-22",
+        "description": "Sonangol won 2 awards: Best Oil & Gas Participation and Sustainability",
+        "source_id": 4,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2023 | Sonangol encerra participacao arrebatando 2 premios",
+        "src_pub": "Sonangol",
+        "src_url": "https://www.sonangol.co.ao/filda-2023-sonangol-encerra-participacao-arrebatando-2-premios/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 26,
+        "project_id": "sonangol-sonils-filda2023",
+        "event_type": "delay",
+        "event_date": "2025-03-01",
+        "description": "Sonangol privatization delayed. Chairman targets 30% IPO cautiously. Profits fell 11% in 2025",
+        "source_id": 119,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Jornal de Negócios — publisher cited, article URL not pinned",
+        "src_pub": "Jornal de Negócios",
+        "src_url": "",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "n/a"
+      },
+      {
+        "id": 27,
+        "project_id": "sonangol-sonils-filda2023",
+        "event_type": "financing",
+        "event_date": "2026-02-01",
+        "description": "Sonangol seeking $4.8 billion loan from Chinese financial institutions per Reuters",
+        "source_id": 120,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Reuters — publisher cited, article URL not pinned",
+        "src_pub": "Reuters",
+        "src_url": "",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "n/a"
+      }
+    ],
+    "ucall-ai-launch": [
+      {
+        "id": 72,
+        "project_id": "ucall-ai-launch",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "Ucall launched AI-powered chatbot and speech analytics at FILDA 2024",
+        "source_id": 49,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Marcas em Acção na FILDA 2024 (IVECO/Ucall launches)",
+        "src_pub": "Marcas em Acção",
+        "src_url": "https://marcasemaccao.com/2024/07/26/marcas-em-accao-na-filda-2024/",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "unitel-leao-ouro-2024": [
+      {
+        "id": 66,
+        "project_id": "unitel-leao-ouro-2024",
+        "event_type": "announcement",
+        "event_date": "2024-07-23",
+        "description": "Unitel participated in FILDA 2024 with digital transformation showcase",
+        "source_id": 47,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Entrevistas FILDA 2024: UNITEL e a Transformação Digital",
+        "src_pub": "Marcas em Acção",
+        "src_url": "https://marcasemaccao.com/2024/07/26/unitel-e-a-transformacao-digital/",
+        "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 67,
+        "project_id": "unitel-leao-ouro-2024",
+        "event_type": "expansion",
+        "event_date": "2024-07-28",
+        "description": "Unitel won Leao de Ouro telecom category at FILDA 2024",
+        "source_id": 46,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Unitel — Leão de Ouro telecom (Facebook)",
+        "src_pub": "Unitel (Facebook)",
+        "src_url": "https://www.facebook.com/unitel.ao/posts/915796813924630/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "vi-encontro-empresarial-pt-ao": [
+      {
+        "id": 9,
+        "project_id": "vi-encontro-empresarial-pt-ao",
+        "event_type": "announcement",
+        "event_date": "2023-07-18",
+        "description": "VI Encontro Empresarial Portugal/Angola organized by CCIPA",
+        "source_id": 83,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "VI Encontro Angola-Portugal Business Networking CCIPA 2023",
+        "src_pub": "Embaixada de Portugal em Luanda (MNE)",
+        "src_url": "https://luanda.embaixadaportugal.mne.gov.pt/pt/a-embaixada/noticias/vi-encontro-angola-portugal-business-networking-ccipa-2023",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "blocked"
+      },
+      {
+        "id": 10,
+        "project_id": "vi-encontro-empresarial-pt-ao",
+        "event_type": "completion",
+        "event_date": "2023-07-18",
+        "description": "Event completed with ~100 Portuguese and Angolan entrepreneurs",
+        "source_id": 83,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "VI Encontro Angola-Portugal Business Networking CCIPA 2023",
+        "src_pub": "Embaixada de Portugal em Luanda (MNE)",
+        "src_url": "https://luanda.embaixadaportugal.mne.gov.pt/pt/a-embaixada/noticias/vi-encontro-angola-portugal-business-networking-ccipa-2023",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "blocked"
+      },
+      {
+        "id": 24,
+        "project_id": "vi-encontro-empresarial-pt-ao",
+        "event_type": "expansion",
+        "event_date": "2024-07-01",
+        "description": "VII edition held July 2024 expanding format",
+        "source_id": 85,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "VII Encontro Angola-Portugal",
+        "src_pub": "CCIPA",
+        "src_url": "https://www.cciportugal-angola.pt/vii-encontro-angola-portugal",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 25,
+        "project_id": "vi-encontro-empresarial-pt-ao",
+        "event_type": "expansion",
+        "event_date": "2026-07-20",
+        "description": "IX edition held with 500 participants and 6 European chambers. 5x growth from 2023",
+        "source_id": 87,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "IX Business Networking Angola-Portugal Conferências",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/eventos/49519/IX-Business-Networking-Angola-Portugal-Conferencias.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "zap-empresas-filda2022": [
+      {
+        "id": 50,
+        "project_id": "zap-empresas-filda2022",
+        "event_type": "announcement",
+        "event_date": "2022-07-16",
+        "description": "ZAP promoted ZAP Empresas corporate connectivity at FILDA 2022. ~10000 visitors to stand",
+        "source_id": 25,
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Vidas ZAP reafirma responsabilidade social da ZAP na Lunda Norte e em Luanda",
+        "src_pub": "Nova Gazeta",
+        "src_url": "https://www.novagazeta.co.ao/artigo/vidas-zap-reafirma-responsabilidade-social-da-zap-na-lunda-norte-e-em-luanda",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ]
+  },
+  "orgs": {
+    "aep-delegation-filda2025": [
+      {
+        "project_id": "aep-delegation-filda2025",
+        "role": "promoter",
+        "name": "AEP - Associacao Empresarial de Portugal",
+        "type": "company",
+        "country": "Portugal"
+      }
+    ],
+    "aep-delegation-filda2026": [
+      {
+        "project_id": "aep-delegation-filda2026",
+        "role": "promoter",
+        "name": "AEP - Associacao Empresarial de Portugal",
+        "type": "company",
+        "country": "Portugal"
+      }
+    ],
+    "africell-aipex-2026": [
+      {
+        "project_id": "africell-aipex-2026",
+        "role": "promoter",
+        "name": "Africell",
+        "type": "foreign_investor",
+        "country": "USA"
+      }
+    ],
+    "angola-startup-summit-2022": [
+      {
+        "project_id": "angola-startup-summit-2022",
+        "role": "operator",
+        "name": "Grupo Arena",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "angola-startup-summit-2022",
+        "role": "partner",
+        "name": "Ministry of Economy and Planning",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "angola-startup-summit-2023": [
+      {
+        "project_id": "angola-startup-summit-2023",
+        "role": "partner",
+        "name": "Ministry of Economy and Planning",
+        "type": "government",
+        "country": "Angola"
+      },
+      {
+        "project_id": "angola-startup-summit-2023",
+        "role": "promoter",
+        "name": "SIA - Sistema de Investimento para o Agronegocio",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "anpg-oil-sector-grand-prize": [
+      {
+        "project_id": "anpg-oil-sector-grand-prize",
+        "role": "partner",
+        "name": "AECIPA",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "anpg-oil-sector-grand-prize",
+        "role": "partner",
+        "name": "Azule Energy",
+        "type": "foreign_investor",
+        "country": "Italy"
+      },
+      {
+        "project_id": "anpg-oil-sector-grand-prize",
+        "role": "partner",
+        "name": "Chevron",
+        "type": "foreign_investor",
+        "country": "USA"
+      },
+      {
+        "project_id": "anpg-oil-sector-grand-prize",
+        "role": "partner",
+        "name": "Equinor",
+        "type": "foreign_investor",
+        "country": "Norway"
+      },
+      {
+        "project_id": "anpg-oil-sector-grand-prize",
+        "role": "partner",
+        "name": "Etu Energias",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "anpg-oil-sector-grand-prize",
+        "role": "partner",
+        "name": "ExxonMobil",
+        "type": "foreign_investor",
+        "country": "USA"
+      },
+      {
+        "project_id": "anpg-oil-sector-grand-prize",
+        "role": "partner",
+        "name": "Sonangol",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      },
+      {
+        "project_id": "anpg-oil-sector-grand-prize",
+        "role": "partner",
+        "name": "TotalEnergies",
+        "type": "foreign_investor",
+        "country": "France"
+      },
+      {
+        "project_id": "anpg-oil-sector-grand-prize",
+        "role": "promoter",
+        "name": "ANPG - Agencia Nacional de Petroleo Gas e Biocombustiveis",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "banco-sol-mc-empresas-2025": [
+      {
+        "project_id": "banco-sol-mc-empresas-2025",
+        "role": "promoter",
+        "name": "Banco Sol",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "banco-sol-virtual-assistant": [
+      {
+        "project_id": "banco-sol-virtual-assistant",
+        "role": "promoter",
+        "name": "Banco Sol",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "bda-financing-filda2025": [
+      {
+        "project_id": "bda-financing-filda2025",
+        "role": "promoter",
+        "name": "BDA - Banco de Desenvolvimento de Angola",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "bfa-30th-anniversary-filda": [
+      {
+        "project_id": "bfa-30th-anniversary-filda",
+        "role": "promoter",
+        "name": "BFA - Banco de Fomento Angola",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "bfa-mashreq-partnership": [
+      {
+        "project_id": "bfa-mashreq-partnership",
+        "role": "partner",
+        "name": "Mashreq Bank",
+        "type": "foreign_investor",
+        "country": "UAE"
+      },
+      {
+        "project_id": "bfa-mashreq-partnership",
+        "role": "promoter",
+        "name": "BFA - Banco de Fomento Angola",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "brazil-returns-to-filda": [
+      {
+        "project_id": "brazil-returns-to-filda",
+        "role": "promoter",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "cabinda-refinery-aipex-2026": [
+      {
+        "project_id": "cabinda-refinery-aipex-2026",
+        "role": "promoter",
+        "name": "Cabinda Refinery / Imbono Gemcorp",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "chicomba-water-dam": [
+      {
+        "project_id": "chicomba-water-dam",
+        "role": "financier",
+        "name": "BAI Europa",
+        "type": "company",
+        "country": "Portugal"
+      }
+    ],
+    "cip-cooperation-pt-ao": [
+      {
+        "project_id": "cip-cooperation-pt-ao",
+        "role": "partner",
+        "name": "AEP - Associacao Empresarial de Portugal",
+        "type": "company",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "cip-cooperation-pt-ao",
+        "role": "partner",
+        "name": "CCIPA - Camara de Comercio e Industria Portugal-Angola",
+        "type": "company",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "cip-cooperation-pt-ao",
+        "role": "promoter",
+        "name": "CIP - Confederacao da Industria Portuguesa",
+        "type": "company",
+        "country": "Portugal"
+      }
+    ],
+    "digital-infrastructure-pledge": [
+      {
+        "project_id": "digital-infrastructure-pledge",
+        "role": "promoter",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      },
+      {
+        "project_id": "digital-infrastructure-pledge",
+        "role": "promoter",
+        "name": "Joao Lourenco",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "esso-angola-filda2022": [
+      {
+        "project_id": "esso-angola-filda2022",
+        "role": "promoter",
+        "name": "Esso Angola",
+        "type": "foreign_investor",
+        "country": "USA"
+      }
+    ],
+    "etu-energias-leao-ouro-2025": [
+      {
+        "project_id": "etu-energias-leao-ouro-2025",
+        "role": "promoter",
+        "name": "Etu Energias",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "fabrimetal-aipex-2026": [
+      {
+        "project_id": "fabrimetal-aipex-2026",
+        "role": "promoter",
+        "name": "Fabrimetal",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "feito-em-angola-relaunch-2022": [
+      {
+        "project_id": "feito-em-angola-relaunch-2022",
+        "role": "promoter",
+        "name": "Mario Caetano Joao",
+        "type": "government",
+        "country": "Angola"
+      },
+      {
+        "project_id": "feito-em-angola-relaunch-2022",
+        "role": "promoter",
+        "name": "Ministry of Economy and Planning",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "filda-2023-2-billion-business": [
+      {
+        "project_id": "filda-2023-2-billion-business",
+        "role": "operator",
+        "name": "Grupo Arena",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "filda-2023-2-billion-business",
+        "role": "promoter",
+        "name": "Ministry of Economy and Planning",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "grain-production-ambition-2022": [
+      {
+        "project_id": "grain-production-ambition-2022",
+        "role": "promoter",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      },
+      {
+        "project_id": "grain-production-ambition-2022",
+        "role": "promoter",
+        "name": "Manuel Nunes Junior",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "huambo-investment-promotion-2022": [
+      {
+        "project_id": "huambo-investment-promotion-2022",
+        "role": "promoter",
+        "name": "Gabinete para o Desenvolvimento Economico do Huambo",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "huatong-aipex-awards-2026": [
+      {
+        "project_id": "huatong-aipex-awards-2026",
+        "role": "promoter",
+        "name": "Huatong Angola Industry",
+        "type": "company",
+        "country": "China"
+      }
+    ],
+    "huatong-angola-industry-awards": [
+      {
+        "project_id": "huatong-angola-industry-awards",
+        "role": "promoter",
+        "name": "Huatong Angola Industry",
+        "type": "company",
+        "country": "China"
+      }
+    ],
+    "investment-portal-georeferenced": [
+      {
+        "project_id": "investment-portal-georeferenced",
+        "role": "promoter",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      },
+      {
+        "project_id": "investment-portal-georeferenced",
+        "role": "promoter",
+        "name": "Ivan dos Santos",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "iveco-tway-launch": [
+      {
+        "project_id": "iveco-tway-launch",
+        "role": "promoter",
+        "name": "IVECO/Vecauto",
+        "type": "company",
+        "country": "Italy"
+      }
+    ],
+    "jardins-yoba-aipex-2026": [
+      {
+        "project_id": "jardins-yoba-aipex-2026",
+        "role": "promoter",
+        "name": "Jardins da Yoba",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "linha-verde-investor-visas": [
+      {
+        "project_id": "linha-verde-investor-visas",
+        "role": "promoter",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      },
+      {
+        "project_id": "linha-verde-investor-visas",
+        "role": "promoter",
+        "name": "Ivan dos Santos",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "lobito-atlantic-railway-aipex": [
+      {
+        "project_id": "lobito-atlantic-railway-aipex",
+        "role": "promoter",
+        "name": "Lobito Atlantic Railway (LAR)",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "montenegro-company-visits": [
+      {
+        "project_id": "montenegro-company-visits",
+        "role": "partner",
+        "name": "Central Solar do Biopio",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "montenegro-company-visits",
+        "role": "partner",
+        "name": "Lobito Atlantic Railway (LAR)",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "montenegro-company-visits",
+        "role": "partner",
+        "name": "Empresa Portuaria do Lobito - EP",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      },
+      {
+        "project_id": "montenegro-company-visits",
+        "role": "partner",
+        "name": "Powergol",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "montenegro-company-visits",
+        "role": "partner",
+        "name": "Refriango",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "montenegro-company-visits",
+        "role": "promoter",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "mou-aia-cip-2024": [
+      {
+        "project_id": "mou-aia-cip-2024",
+        "role": "partner",
+        "name": "CIP - Confederacao da Industria Portuguesa",
+        "type": "company",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "mou-aia-cip-2024",
+        "role": "promoter",
+        "name": "Associacao Industrial de Angola",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "mou-idii-ualgarve": [
+      {
+        "project_id": "mou-idii-ualgarve",
+        "role": "promoter",
+        "name": "IDIIA - Instituto de Desenvolvimento Industrial e Inovacao",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "omataplo-aipex-2026": [
+      {
+        "project_id": "omataplo-aipex-2026",
+        "role": "promoter",
+        "name": "Omataplo",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "pay4all-leao-ouro-2024": [
+      {
+        "project_id": "pay4all-leao-ouro-2024",
+        "role": "promoter",
+        "name": "Pay4all",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "porto-lobito-leao-ouro-2022": [
+      {
+        "project_id": "porto-lobito-leao-ouro-2022",
+        "role": "promoter",
+        "name": "Empresa Portuaria do Lobito - EP",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "portugal-30-companies-2022": [
+      {
+        "project_id": "portugal-30-companies-2022",
+        "role": "partner",
+        "name": "Novabase",
+        "type": "company",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "portugal-30-companies-2022",
+        "role": "partner",
+        "name": "Petrotec",
+        "type": "company",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "portugal-30-companies-2022",
+        "role": "partner",
+        "name": "Primavera",
+        "type": "company",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "portugal-30-companies-2022",
+        "role": "partner",
+        "name": "Quinta dos Jugais",
+        "type": "company",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "portugal-30-companies-2022",
+        "role": "promoter",
+        "name": "AEP - Associacao Empresarial de Portugal",
+        "type": "company",
+        "country": "Portugal"
+      }
+    ],
+    "portuguese-investment-zee-330m": [
+      {
+        "project_id": "portuguese-investment-zee-330m",
+        "role": "financier",
+        "name": "CCIPA - Camara de Comercio e Industria Portugal-Angola",
+        "type": "company",
+        "country": "Portugal"
+      }
+    ],
+    "prosil-isptec-2022": [
+      {
+        "project_id": "prosil-isptec-2022",
+        "role": "promoter",
+        "name": "ISPTEC",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "pt-ao-bilateral-2024": [
+      {
+        "project_id": "pt-ao-bilateral-2024",
+        "role": "promoter",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "pt-ao-credit-line-2-5b": [
+      {
+        "project_id": "pt-ao-credit-line-2-5b",
+        "role": "promoter",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "pt-ao-credit-line-3-25b": [
+      {
+        "project_id": "pt-ao-credit-line-3-25b",
+        "role": "promoter",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "sa-angola-investment-2022": [
+      {
+        "project_id": "sa-angola-investment-2022",
+        "role": "partner",
+        "name": "the dtic - Department of Trade Industry and Competition",
+        "type": "government",
+        "country": "South Africa"
+      },
+      {
+        "project_id": "sa-angola-investment-2022",
+        "role": "partner",
+        "name": "Wesgro",
+        "type": "government",
+        "country": "South Africa"
+      }
+    ],
+    "sonangol-leao-ouro-2022": [
+      {
+        "project_id": "sonangol-leao-ouro-2022",
+        "role": "promoter",
+        "name": "Sonangol",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "sonangol-leao-ouro-2024": [
+      {
+        "project_id": "sonangol-leao-ouro-2024",
+        "role": "promoter",
+        "name": "Sonangol",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "sonangol-leao-ouro-2025": [
+      {
+        "project_id": "sonangol-leao-ouro-2025",
+        "role": "promoter",
+        "name": "Sonangol",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "sonangol-sonils-filda2023": [
+      {
+        "project_id": "sonangol-sonils-filda2023",
+        "role": "operator",
+        "name": "SONILS",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "sonangol-sonils-filda2023",
+        "role": "promoter",
+        "name": "Sonangol",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "ucall-ai-launch": [
+      {
+        "project_id": "ucall-ai-launch",
+        "role": "promoter",
+        "name": "Ucall",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "unitel-leao-ouro-2024": [
+      {
+        "project_id": "unitel-leao-ouro-2024",
+        "role": "promoter",
+        "name": "Unitel",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "vi-encontro-empresarial-pt-ao": [
+      {
+        "project_id": "vi-encontro-empresarial-pt-ao",
+        "role": "partner",
+        "name": "Government of Angola",
+        "type": "government",
+        "country": "Angola"
+      },
+      {
+        "project_id": "vi-encontro-empresarial-pt-ao",
+        "role": "promoter",
+        "name": "CCIPA - Camara de Comercio e Industria Portugal-Angola",
+        "type": "company",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "vi-encontro-empresarial-pt-ao",
+        "role": "promoter",
+        "name": "Ivan dos Santos",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "zap-empresas-filda2022": [
+      {
+        "project_id": "zap-empresas-filda2022",
+        "role": "promoter",
+        "name": "ZAP",
+        "type": "company",
+        "country": "Angola"
+      }
+    ]
+  },
+  "evidence": {
+    "aep-delegation-filda2025": [
+      {
+        "id": 61,
+        "project_id": "aep-delegation-filda2025",
+        "field": "status",
+        "value": "completed",
+        "source_id": 127,
+        "observed_at": "2025-07-27",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "AEP regressa a Luanda com 15 empresas nacionais (FILDA 2025 delegation)",
+        "src_pub": "Portugal Global/AICEP",
+        "src_url": "https://portugalglobal.pt/pt/noticias/2025/julho/aep-regressa-a-luanda-com-15-empresas-nacionais/"
+      }
+    ],
+    "aep-delegation-filda2026": [
+      {
+        "id": 62,
+        "project_id": "aep-delegation-filda2026",
+        "field": "status",
+        "value": "completed",
+        "source_id": 55,
+        "observed_at": "2026-07-26",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Associação Empresarial de Portugal garante 20 empresas lusas na 41.ª edição da FILDA",
+        "src_pub": "VerAngola (LUSA)",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49499/Associacao-Empresarial-de-Portugal-garante-20-empresas-lusas-na-41-edicao-da-FILDA.htm"
+      }
+    ],
+    "africell-aipex-2026": [
+      {
+        "id": 63,
+        "project_id": "africell-aipex-2026",
+        "field": "status",
+        "value": "operational",
+        "source_id": 54,
+        "observed_at": "2026-07-17",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      }
+    ],
+    "angola-startup-summit-2022": [
+      {
+        "id": 64,
+        "project_id": "angola-startup-summit-2022",
+        "field": "status",
+        "value": "completed",
+        "source_id": 23,
+        "observed_at": "2022-07-20",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "DESTACADO NA FILDA 2022 PROJECTO DE IMPACTO SOCIAL - PROSIL",
+        "src_pub": "ISPTEC",
+        "src_url": "https://www.isptec.co.ao/noticia/destacado-na-filda-2022-projecto-de-impacto-social---prosil"
+      }
+    ],
+    "angola-startup-summit-2023": [
+      {
+        "id": 65,
+        "project_id": "angola-startup-summit-2023",
+        "field": "status",
+        "value": "completed",
+        "source_id": 7,
+        "observed_at": "2023-07-22",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huila vence II edicao do Angola Startup Summit 2023",
+        "src_pub": "Correio Digital",
+        "src_url": "https://correiodigital.net/huila-vence-ii-edicao-do-angola-startup-summit-2023/"
+      },
+      {
+        "id": 66,
+        "project_id": "angola-startup-summit-2023",
+        "field": "announced_value",
+        "value": "10000000.0",
+        "source_id": 7,
+        "observed_at": "2023-05-01",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huila vence II edicao do Angola Startup Summit 2023",
+        "src_pub": "Correio Digital",
+        "src_url": "https://correiodigital.net/huila-vence-ii-edicao-do-angola-startup-summit-2023/"
+      },
+      {
+        "id": 67,
+        "project_id": "angola-startup-summit-2023",
+        "field": "actual_completion",
+        "value": "2024",
+        "source_id": 7,
+        "observed_at": "2023-07-22",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huila vence II edicao do Angola Startup Summit 2023",
+        "src_pub": "Correio Digital",
+        "src_url": "https://correiodigital.net/huila-vence-ii-edicao-do-angola-startup-summit-2023/"
+      }
+    ],
+    "anpg-oil-sector-grand-prize": [
+      {
+        "id": 68,
+        "project_id": "anpg-oil-sector-grand-prize",
+        "field": "status",
+        "value": "operational",
+        "source_id": 5,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "ANPG E PARCEIROS CONQUISTAM GRANDE PREMIO LEAO DE OURO FILDA 2023",
+        "src_pub": "ANPG",
+        "src_url": "https://anpg.co.ao/noticias/anpg-e-parceiros-conquistam-grande-premio-leao-de-ouro-filda-2023/"
+      }
+    ],
+    "bda-financing-filda2025": [
+      {
+        "id": 69,
+        "project_id": "bda-financing-filda2025",
+        "field": "status",
+        "value": "announced",
+        "source_id": 126,
+        "observed_at": "2025-07-22",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Vice-Presidente conhece novas soluções financeiras do BDA na FILDA",
+        "src_pub": "Correio da Kianda",
+        "src_url": "https://correiokianda.info/vice-presidente-conhece-novas-solucoes-financeiras-do-bda-na-filda/"
+      }
+    ],
+    "bfa-30th-anniversary-filda": [
+      {
+        "id": 70,
+        "project_id": "bfa-30th-anniversary-filda",
+        "field": "status",
+        "value": "operational",
+        "source_id": 8,
+        "observed_at": "2023-07-17",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Filda 2023 - 38 Edicao da Feira Internacional de Luanda",
+        "src_pub": "BFA",
+        "src_url": "https://www.bfa.ao/pt/o-bfa/actualidade/noticias/filda-2023/"
+      }
+    ],
+    "bfa-mashreq-partnership": [
+      {
+        "id": 71,
+        "project_id": "bfa-mashreq-partnership",
+        "field": "status",
+        "value": "operational",
+        "source_id": 124,
+        "observed_at": "2025-07-16",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Parceria Estratégica BFA e Mashreq Bank (USD correspondent banking)",
+        "src_pub": "BFA",
+        "src_url": "https://www.bfa.ao/pt/o-bfa/actualidade/noticias/parceria-estrategica-bfa-e-mashreq-bank/"
+      }
+    ],
+    "brazil-returns-to-filda": [
+      {
+        "id": 72,
+        "project_id": "brazil-returns-to-filda",
+        "field": "status",
+        "value": "operational",
+        "source_id": 12,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "38 edicao da FILDA arrancou nesta terca-feira em Luanda",
+        "src_pub": "RFI",
+        "src_url": "https://www.rfi.fr/pt/angola/20230718-38-edição-da-filda-arrancou-nesta-terça-feira-em-luanda"
+      }
+    ],
+    "chicomba-water-dam": [
+      {
+        "id": 10,
+        "project_id": "chicomba-water-dam",
+        "field": "status",
+        "value": "under_construction",
+        "source_id": 129,
+        "observed_at": "2026-06-13",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Obras da represa de Chicomba lançadas (construction start, Cuvunji river)",
+        "src_pub": "Angop",
+        "src_url": "https://angop.ao/noticias/economia/obras-da-represa-de-chicomba-lancadas-no-neste-sabado/"
+      },
+      {
+        "id": 11,
+        "project_id": "chicomba-water-dam",
+        "field": "announced_value",
+        "value": "67248177.95",
+        "source_id": 128,
+        "observed_at": "2024-01-01",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Portuguese banking union finances 66ME water project in Angola's Huíla (Chicomba dam)",
+        "src_pub": "Medafrica Times",
+        "src_url": "https://medafricatimes.com/33963-portuguese-banking-union-finances-66me-water-project-in-angolas-hula.html"
+      }
+    ],
+    "cip-cooperation-pt-ao": [
+      {
+        "id": 73,
+        "project_id": "cip-cooperation-pt-ao",
+        "field": "status",
+        "value": "operational",
+        "source_id": 13,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "CIP reforca cooperacao economica entre Portugal e Angola",
+        "src_pub": "CIP",
+        "src_url": "https://cip.org.pt/cip-reforca-cooperacao-economica-entre-portugal-e-angola/"
+      }
+    ],
+    "digital-infrastructure-pledge": [
+      {
+        "id": 74,
+        "project_id": "digital-infrastructure-pledge",
+        "field": "status",
+        "value": "operational",
+        "source_id": 14,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola vai continuar a investir em infra-estruturas digitais",
+        "src_pub": "CIPRA",
+        "src_url": "https://www.cipra.gov.ao/noticias/834/governo/economia-digital-na-filda-2023/angola-vai-continuar-a-investir-em-infra-estruturas-digitais"
+      }
+    ],
+    "esso-angola-filda2022": [
+      {
+        "id": 75,
+        "project_id": "esso-angola-filda2022",
+        "field": "status",
+        "value": "operational",
+        "source_id": 26,
+        "observed_at": "2022-07-16",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "ExxonMobil participated in 37th FILDA (Esso Angola Facebook)",
+        "src_pub": "Esso Angola (Facebook)",
+        "src_url": "https://www.facebook.com/EssoAngola/posts/a-exxonmobil-participou-na-37-edicao-da-filda-que-decorreu-de-16-a-20-de-julho-/1494175937685687/"
+      }
+    ],
+    "etu-energias-leao-ouro-2025": [
+      {
+        "id": 14,
+        "project_id": "etu-energias-leao-ouro-2025",
+        "field": "status",
+        "value": "operational",
+        "source_id": 123,
+        "observed_at": "2025-07-27",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "ETU Energias recebe Leão de Ouro na FILDA 2025 e menção honrosa (25 anos)",
+        "src_pub": "ETU Energias",
+        "src_url": "https://etuenergias.co.ao/noticias/etu-energias-recebe-leao-de-ouro-na-filda-2025-e-mencao-honrosa-pela-sua-trajectoria-de-excellencia-no-sector-petrolifero/178"
+      }
+    ],
+    "fabrimetal-aipex-2026": [
+      {
+        "id": 76,
+        "project_id": "fabrimetal-aipex-2026",
+        "field": "status",
+        "value": "operational",
+        "source_id": 54,
+        "observed_at": "2026-07-17",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      }
+    ],
+    "feito-em-angola-relaunch-2022": [
+      {
+        "id": 77,
+        "project_id": "feito-em-angola-relaunch-2022",
+        "field": "status",
+        "value": "operational",
+        "source_id": 24,
+        "observed_at": "2022-07-16",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "CEFA news article (Feito em Angola)",
+        "src_pub": "CEFA",
+        "src_url": "https://www.cefa.co.ao/Noticias/Id/350/1"
+      }
+    ],
+    "filda-2023-2-billion-business": [
+      {
+        "id": 78,
+        "project_id": "filda-2023-2-billion-business",
+        "field": "status",
+        "value": "announced",
+        "source_id": 103,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA abre hoje com previsão de arrecadar dois bilhões de kwanzas em negócios",
+        "src_pub": "RNA",
+        "src_url": "https://rna.ao/rna.ao/2023/07/18/filda-abre-hoje-com-a-previsao-de-arrecadar-dois-bilhoes-de-kwanzas-em-negocios/"
+      },
+      {
+        "id": 79,
+        "project_id": "filda-2023-2-billion-business",
+        "field": "announced_value",
+        "value": "2000000000.0",
+        "source_id": 103,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA abre hoje com previsão de arrecadar dois bilhões de kwanzas em negócios",
+        "src_pub": "RNA",
+        "src_url": "https://rna.ao/rna.ao/2023/07/18/filda-abre-hoje-com-a-previsao-de-arrecadar-dois-bilhoes-de-kwanzas-em-negocios/"
+      },
+      {
+        "id": 80,
+        "project_id": "filda-2023-2-billion-business",
+        "field": "estimated_jobs",
+        "value": "1000",
+        "source_id": 103,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA abre hoje com previsão de arrecadar dois bilhões de kwanzas em negócios",
+        "src_pub": "RNA",
+        "src_url": "https://rna.ao/rna.ao/2023/07/18/filda-abre-hoje-com-a-previsao-de-arrecadar-dois-bilhoes-de-kwanzas-em-negocios/"
+      }
+    ],
+    "grain-production-ambition-2022": [
+      {
+        "id": 81,
+        "project_id": "grain-production-ambition-2022",
+        "field": "status",
+        "value": "announced",
+        "source_id": 17,
+        "observed_at": "2022-07-16",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola pretende ser o maior produtor de grãos em África",
+        "src_pub": "MIREX Angola / Embassy of Angola in Türkiye",
+        "src_url": "https://turquia.mirex.gov.ao/web/noticias/angola-pretende-ser-o-maior-produtor-de-gr-os-em--frica"
+      }
+    ],
+    "huambo-investment-promotion-2022": [
+      {
+        "id": 82,
+        "project_id": "huambo-investment-promotion-2022",
+        "field": "status",
+        "value": "announced",
+        "source_id": 20,
+        "observed_at": "2022-07-17",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2022: Huambo quer captar investimentos para Agricultura e Turismo",
+        "src_pub": "Embaixada da República de Angola na Türkiye",
+        "src_url": "https://www.embassyangolatr.org/pt/sala-de-imprensa/actualidade-informativa/filda-2022-huambo-quer-captar-investimentos-para-agricultura-e-turismo"
+      }
+    ],
+    "huatong-aipex-awards-2026": [
+      {
+        "id": 83,
+        "project_id": "huatong-aipex-awards-2026",
+        "field": "status",
+        "value": "operational",
+        "source_id": 54,
+        "observed_at": "2026-07-17",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      },
+      {
+        "id": 84,
+        "project_id": "huatong-aipex-awards-2026",
+        "field": "announced_value",
+        "value": "900000000.0",
+        "source_id": 54,
+        "observed_at": "2026-07-21",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      },
+      {
+        "id": 85,
+        "project_id": "huatong-aipex-awards-2026",
+        "field": "estimated_jobs",
+        "value": "2000",
+        "source_id": 54,
+        "observed_at": "2026-07-21",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      }
+    ],
+    "huatong-angola-industry-awards": [
+      {
+        "id": 1,
+        "project_id": "huatong-angola-industry-awards",
+        "field": "status",
+        "value": "operational",
+        "source_id": 54,
+        "observed_at": "2026-07-17",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      },
+      {
+        "id": 2,
+        "project_id": "huatong-angola-industry-awards",
+        "field": "announced_value",
+        "value": "900000000",
+        "source_id": 125,
+        "observed_at": "2026-07-20",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola to Invest $900 Million in Barra do Dande Port Terminal",
+        "src_pub": "360 Angola",
+        "src_url": "https://360angola.com/business/infrastructure/huatong-angola-to-invest-900-million-in-barra-do-dande-port-terminal/"
+      },
+      {
+        "id": 3,
+        "project_id": "huatong-angola-industry-awards",
+        "field": "estimated_jobs",
+        "value": "2000",
+        "source_id": 125,
+        "observed_at": "2026-07-20",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola to Invest $900 Million in Barra do Dande Port Terminal",
+        "src_pub": "360 Angola",
+        "src_url": "https://360angola.com/business/infrastructure/huatong-angola-to-invest-900-million-in-barra-do-dande-port-terminal/"
+      },
+      {
+        "id": 4,
+        "project_id": "huatong-angola-industry-awards",
+        "field": "actual_completion",
+        "value": "2029",
+        "source_id": 125,
+        "observed_at": "2026-07-20",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola to Invest $900 Million in Barra do Dande Port Terminal",
+        "src_pub": "360 Angola",
+        "src_url": "https://360angola.com/business/infrastructure/huatong-angola-to-invest-900-million-in-barra-do-dande-port-terminal/"
+      }
+    ],
+    "investment-portal-georeferenced": [
+      {
+        "id": 12,
+        "project_id": "investment-portal-georeferenced",
+        "field": "status",
+        "value": "operational",
+        "source_id": 70,
+        "observed_at": "2024-07-01",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "AIPEX launches Invest in Angola platform",
+        "src_pub": "CNBC Africa",
+        "src_url": "https://www.cnbcafrica.com/2024/aipex-launches-invest-in-angola-platform-a-new-era-for-investment-in-angola"
+      },
+      {
+        "id": 13,
+        "project_id": "investment-portal-georeferenced",
+        "field": "actual_completion",
+        "value": "2024",
+        "source_id": 70,
+        "observed_at": "2024-07-01",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "AIPEX launches Invest in Angola platform",
+        "src_pub": "CNBC Africa",
+        "src_url": "https://www.cnbcafrica.com/2024/aipex-launches-invest-in-angola-platform-a-new-era-for-investment-in-angola"
+      }
+    ],
+    "iveco-tway-launch": [
+      {
+        "id": 86,
+        "project_id": "iveco-tway-launch",
+        "field": "status",
+        "value": "operational",
+        "source_id": 49,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Marcas em Acção na FILDA 2024 (IVECO/Ucall launches)",
+        "src_pub": "Marcas em Acção",
+        "src_url": "https://marcasemaccao.com/2024/07/26/marcas-em-accao-na-filda-2024/"
+      }
+    ],
+    "jardins-yoba-aipex-2026": [
+      {
+        "id": 87,
+        "project_id": "jardins-yoba-aipex-2026",
+        "field": "status",
+        "value": "operational",
+        "source_id": 54,
+        "observed_at": "2026-07-17",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      }
+    ],
+    "linha-verde-investor-visas": [
+      {
+        "id": 5,
+        "project_id": "linha-verde-investor-visas",
+        "field": "status",
+        "value": "delayed",
+        "source_id": 67,
+        "observed_at": "2024-01-01",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Janela Única do Investimento (JUI) Portal",
+        "src_pub": "AIPEX",
+        "src_url": "https://jui.aipex.gov.ao/"
+      }
+    ],
+    "lobito-atlantic-railway-aipex": [
+      {
+        "id": 88,
+        "project_id": "lobito-atlantic-railway-aipex",
+        "field": "status",
+        "value": "operational",
+        "source_id": 54,
+        "observed_at": "2026-07-17",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      }
+    ],
+    "montenegro-company-visits": [
+      {
+        "id": 89,
+        "project_id": "montenegro-company-visits",
+        "field": "status",
+        "value": "completed",
+        "source_id": 40,
+        "observed_at": "2024-07-25",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Visita oficial do Primeiro-Ministro a Angola (23-25 julho 2024)",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/comunicados/visita-oficial-do-primeiro-ministro-a-angola-23-24-e-25-de-julho-de-2024"
+      }
+    ],
+    "mou-aia-cip-2024": [
+      {
+        "id": 90,
+        "project_id": "mou-aia-cip-2024",
+        "field": "status",
+        "value": "operational",
+        "source_id": 36,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Governo vai dar um novo impulso à relação com Angola",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/noticias/governo-vai-dar-um-novo-impulso-a-relacao-com-angola"
+      }
+    ],
+    "mou-idii-ualgarve": [
+      {
+        "id": 91,
+        "project_id": "mou-idii-ualgarve",
+        "field": "status",
+        "value": "announced",
+        "source_id": 36,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Governo vai dar um novo impulso à relação com Angola",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/noticias/governo-vai-dar-um-novo-impulso-a-relacao-com-angola"
+      }
+    ],
+    "omataplo-aipex-2026": [
+      {
+        "id": 92,
+        "project_id": "omataplo-aipex-2026",
+        "field": "status",
+        "value": "operational",
+        "source_id": 54,
+        "observed_at": "2026-07-17",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
+        "src_pub": "VerAngola",
+        "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      }
+    ],
+    "pay4all-leao-ouro-2024": [
+      {
+        "id": 93,
+        "project_id": "pay4all-leao-ouro-2024",
+        "field": "status",
+        "value": "operational",
+        "source_id": 48,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Pay4all vence Prémio Leão de Ouro Economia Digital FILDA 2024",
+        "src_pub": "Pay4all",
+        "src_url": "https://pay4all.ao/pay4all-vence-premio-leao-de-ouro-para-melhor-participacao-na-filda-2024-na-categoria-economia-digital/"
+      }
+    ],
+    "porto-lobito-leao-ouro-2022": [
+      {
+        "id": 94,
+        "project_id": "porto-lobito-leao-ouro-2022",
+        "field": "status",
+        "value": "operational",
+        "source_id": 27,
+        "observed_at": "2022-07-16",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2022: Porto do Lobito vence prémio de melhor participação dos transportes e logística",
+        "src_pub": "Jornal 24 Horas",
+        "src_url": "https://jornal24horas.ao/economia/filda-2022porto-do-lobito-vence-premio-de-melhor-participacao-dos-transportes-e-logistica/"
+      }
+    ],
+    "portugal-30-companies-2022": [
+      {
+        "id": 95,
+        "project_id": "portugal-30-companies-2022",
+        "field": "status",
+        "value": "completed",
+        "source_id": 19,
+        "observed_at": "2022-07-20",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Portugal mobiliza 30 empresas para FILDA/2022",
+        "src_pub": "Correio Digital",
+        "src_url": "https://correiodigital.net/portugal-mobiliza-30-empresas-para-filda-2022/"
+      }
+    ],
+    "portuguese-investment-zee-330m": [
+      {
+        "id": 96,
+        "project_id": "portuguese-investment-zee-330m",
+        "field": "status",
+        "value": "delayed",
+        "source_id": 97,
+        "observed_at": "2026-07-01",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Investimento português na ZEE atinge USD 330 milhões",
+        "src_pub": "Angonoticias/Angop",
+        "src_url": "https://www.angonoticias.com/Artigos/item/82396/investimento-portugues-na-zee-atinge-usd-330-milhoes"
+      },
+      {
+        "id": 97,
+        "project_id": "portuguese-investment-zee-330m",
+        "field": "announced_value",
+        "value": "330000000.0",
+        "source_id": 6,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Angola: Portuguese Investment in Zee Reaches USD 330 Million",
+        "src_pub": "AllAfrica/ANGOP",
+        "src_url": "https://allafrica.com/stories/202307190023.html"
+      }
+    ],
+    "prosil-isptec-2022": [
+      {
+        "id": 98,
+        "project_id": "prosil-isptec-2022",
+        "field": "status",
+        "value": "announced",
+        "source_id": 23,
+        "observed_at": "2022-07-20",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "DESTACADO NA FILDA 2022 PROJECTO DE IMPACTO SOCIAL - PROSIL",
+        "src_pub": "ISPTEC",
+        "src_url": "https://www.isptec.co.ao/noticia/destacado-na-filda-2022-projecto-de-impacto-social---prosil"
+      }
+    ],
+    "pt-ao-bilateral-2024": [
+      {
+        "id": 99,
+        "project_id": "pt-ao-bilateral-2024",
+        "field": "status",
+        "value": "operational",
+        "source_id": 36,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Governo vai dar um novo impulso à relação com Angola",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/noticias/governo-vai-dar-um-novo-impulso-a-relacao-com-angola"
+      }
+    ],
+    "pt-ao-credit-line-2-5b": [
+      {
+        "id": 6,
+        "project_id": "pt-ao-credit-line-2-5b",
+        "field": "status",
+        "value": "operational",
+        "source_id": 36,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Governo vai dar um novo impulso à relação com Angola",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/noticias/governo-vai-dar-um-novo-impulso-a-relacao-com-angola"
+      },
+      {
+        "id": 7,
+        "project_id": "pt-ao-credit-line-2-5b",
+        "field": "announced_value",
+        "value": "2500000000",
+        "source_id": 36,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Governo vai dar um novo impulso à relação com Angola",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc24/comunicacao/noticias/governo-vai-dar-um-novo-impulso-a-relacao-com-angola"
+      }
+    ],
+    "pt-ao-credit-line-3-25b": [
+      {
+        "id": 8,
+        "project_id": "pt-ao-credit-line-3-25b",
+        "field": "status",
+        "value": "operational",
+        "source_id": 91,
+        "observed_at": "2025-07-25",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Portugal assinou 23 instrumentos de cooperação com Angola",
+        "src_pub": "Jornal de Negócios",
+        "src_url": "https://www.jornaldenegocios.pt/economia/mundo/africa/angola/detalhe/portugal-assinou-23-instrumentos-de-cooperacao-com-angola-e-reforcou-credito-em-62-desde-julho-2024"
+      },
+      {
+        "id": 9,
+        "project_id": "pt-ao-credit-line-3-25b",
+        "field": "announced_value",
+        "value": "3250000000",
+        "source_id": 91,
+        "observed_at": "2025-07-25",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Portugal assinou 23 instrumentos de cooperação com Angola",
+        "src_pub": "Jornal de Negócios",
+        "src_url": "https://www.jornaldenegocios.pt/economia/mundo/africa/angola/detalhe/portugal-assinou-23-instrumentos-de-cooperacao-com-angola-e-reforcou-credito-em-62-desde-julho-2024"
+      }
+    ],
+    "sa-angola-investment-2022": [
+      {
+        "id": 100,
+        "project_id": "sa-angola-investment-2022",
+        "field": "status",
+        "value": "announced",
+        "source_id": 18,
+        "observed_at": "2022-07-15",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "South African companies urged to invest in Angola",
+        "src_pub": "South African Government / the dtic",
+        "src_url": "https://www.gov.za/news/media-statements/south-african-companies-urged-invest-angola-15-jul-2022"
+      },
+      {
+        "id": 101,
+        "project_id": "sa-angola-investment-2022",
+        "field": "announced_value",
+        "value": "19000000.0",
+        "source_id": 18,
+        "observed_at": "2022-07-15",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "South African companies urged to invest in Angola",
+        "src_pub": "South African Government / the dtic",
+        "src_url": "https://www.gov.za/news/media-statements/south-african-companies-urged-invest-angola-15-jul-2022"
+      }
+    ],
+    "sonangol-leao-ouro-2022": [
+      {
+        "id": 102,
+        "project_id": "sonangol-leao-ouro-2022",
+        "field": "status",
+        "value": "operational",
+        "source_id": 28,
+        "observed_at": "2022-07-16",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Eventos Arena — Sonangol best participation FILDA 2022 (Facebook)",
+        "src_pub": "Eventos Arena (Facebook)",
+        "src_url": "https://www.facebook.com/eventosarena.angola/photos/durante-a-cerimonia-de-premios-filda-2022-a-sonangol-destacou-se-como-melhor-par/1870072219852414/"
+      }
+    ],
+    "sonangol-leao-ouro-2024": [
+      {
+        "id": 103,
+        "project_id": "sonangol-leao-ouro-2024",
+        "field": "status",
+        "value": "operational",
+        "source_id": 45,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Sonangol leva projectos de transição energética na FILDA",
+        "src_pub": "Angop",
+        "src_url": "https://www.angop.ao/noticias/economia/sonangol-leva-projectos-de-transicao-energetica-na-filda/"
+      }
+    ],
+    "sonangol-leao-ouro-2025": [
+      {
+        "id": 104,
+        "project_id": "sonangol-leao-ouro-2025",
+        "field": "status",
+        "value": "operational",
+        "source_id": 122,
+        "observed_at": "2025-07-22",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2025: Leão de Ouro Permanece na Galeria da Sonangol",
+        "src_pub": "Sonangol",
+        "src_url": "https://www.sonangol.co.ao/filda-2025-i-leao-de-ouro-permanece-na-galeria-da-sonangol/"
+      }
+    ],
+    "sonangol-sonils-filda2023": [
+      {
+        "id": 105,
+        "project_id": "sonangol-sonils-filda2023",
+        "field": "status",
+        "value": "operational",
+        "source_id": 4,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "FILDA 2023 | Sonangol encerra participacao arrebatando 2 premios",
+        "src_pub": "Sonangol",
+        "src_url": "https://www.sonangol.co.ao/filda-2023-sonangol-encerra-participacao-arrebatando-2-premios/"
+      }
+    ],
+    "ucall-ai-launch": [
+      {
+        "id": 106,
+        "project_id": "ucall-ai-launch",
+        "field": "status",
+        "value": "announced",
+        "source_id": 49,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Marcas em Acção na FILDA 2024 (IVECO/Ucall launches)",
+        "src_pub": "Marcas em Acção",
+        "src_url": "https://marcasemaccao.com/2024/07/26/marcas-em-accao-na-filda-2024/"
+      }
+    ],
+    "unitel-leao-ouro-2024": [
+      {
+        "id": 107,
+        "project_id": "unitel-leao-ouro-2024",
+        "field": "status",
+        "value": "operational",
+        "source_id": 47,
+        "observed_at": "2024-07-23",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Entrevistas FILDA 2024: UNITEL e a Transformação Digital",
+        "src_pub": "Marcas em Acção",
+        "src_url": "https://marcasemaccao.com/2024/07/26/unitel-e-a-transformacao-digital/"
+      }
+    ],
+    "vi-encontro-empresarial-pt-ao": [
+      {
+        "id": 108,
+        "project_id": "vi-encontro-empresarial-pt-ao",
+        "field": "status",
+        "value": "completed",
+        "source_id": 83,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "VI Encontro Angola-Portugal Business Networking CCIPA 2023",
+        "src_pub": "Embaixada de Portugal em Luanda (MNE)",
+        "src_url": "https://luanda.embaixadaportugal.mne.gov.pt/pt/a-embaixada/noticias/vi-encontro-angola-portugal-business-networking-ccipa-2023"
+      },
+      {
+        "id": 109,
+        "project_id": "vi-encontro-empresarial-pt-ao",
+        "field": "actual_completion",
+        "value": "2026",
+        "source_id": 83,
+        "observed_at": "2023-07-18",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "VI Encontro Angola-Portugal Business Networking CCIPA 2023",
+        "src_pub": "Embaixada de Portugal em Luanda (MNE)",
+        "src_url": "https://luanda.embaixadaportugal.mne.gov.pt/pt/a-embaixada/noticias/vi-encontro-angola-portugal-business-networking-ccipa-2023"
+      }
+    ],
+    "zap-empresas-filda2022": [
+      {
+        "id": 110,
+        "project_id": "zap-empresas-filda2022",
+        "field": "status",
+        "value": "operational",
+        "source_id": 25,
+        "observed_at": "2022-07-16",
+        "created_at": "2026-07-30 15:59:38",
+        "src_title": "Vidas ZAP reafirma responsabilidade social da ZAP na Lunda Norte e em Luanda",
+        "src_pub": "Nova Gazeta",
+        "src_url": "https://www.novagazeta.co.ao/artigo/vidas-zap-reafirma-responsabilidade-social-da-zap-na-lunda-norte-e-em-luanda"
+      }
+    ]
+  },
+  "breakdowns": {
+    "linha-verde-investor-visas": {
+      "base": 10,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": -10,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "investment-portal-georeferenced": {
+      "base": 60,
+      "events": 18,
+      "evidence": 5,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "digital-infrastructure-pledge": {
+      "base": 60,
+      "events": 24,
+      "evidence": 4,
+      "delay": -10,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "sonangol-sonils-filda2023": {
+      "base": 60,
+      "events": 20,
+      "evidence": 2,
+      "delay": -10,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "anpg-oil-sector-grand-prize": {
+      "base": 60,
+      "events": 30,
+      "evidence": 2,
+      "delay": -10,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "portuguese-investment-zee-330m": {
+      "base": 10,
+      "events": 3,
+      "evidence": 0,
+      "delay": -10,
+      "status_penalty": -10,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "vi-encontro-empresarial-pt-ao": {
+      "base": 70,
+      "events": 30,
+      "evidence": 7,
+      "delay": -10,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "angola-startup-summit-2023": {
+      "base": 60,
+      "events": 23,
+      "evidence": 5,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "bfa-30th-anniversary-filda": {
+      "base": 60,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "banco-sol-virtual-assistant": {
+      "base": 10,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": -10,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "filda-2023-2-billion-business": {
+      "base": 15,
+      "events": 3,
+      "evidence": 3,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "huatong-angola-industry-awards": {
+      "base": 60,
+      "events": 30,
+      "evidence": 10,
+      "delay": -15,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "brazil-returns-to-filda": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "cip-cooperation-pt-ao": {
+      "base": 60,
+      "events": 28,
+      "evidence": 4,
+      "delay": -10,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "pt-ao-bilateral-2024": {
+      "base": 60,
+      "events": 18,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "chicomba-water-dam": {
+      "base": 40,
+      "events": 25,
+      "evidence": 2,
+      "delay": -10,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "pt-ao-credit-line-2-5b": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": -5,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "mou-aia-cip-2024": {
+      "base": 60,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "mou-idii-ualgarve": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "sonangol-leao-ouro-2024": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "unitel-leao-ouro-2024": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "pay4all-leao-ouro-2024": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "iveco-tway-launch": {
+      "base": 60,
+      "events": 18,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "ucall-ai-launch": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "montenegro-company-visits": {
+      "base": 70,
+      "events": 18,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "sonangol-leao-ouro-2025": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "etu-energias-leao-ouro-2025": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "pt-ao-credit-line-3-25b": {
+      "base": 60,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "bda-financing-filda2025": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "bfa-mashreq-partnership": {
+      "base": 60,
+      "events": 18,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "aep-delegation-filda2025": {
+      "base": 70,
+      "events": 18,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "huatong-aipex-awards-2026": {
+      "base": 60,
+      "events": 23,
+      "evidence": 5,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "omataplo-aipex-2026": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "lobito-atlantic-railway-aipex": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "fabrimetal-aipex-2026": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "africell-aipex-2026": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "cabinda-refinery-aipex-2026": {
+      "base": 40,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "jardins-yoba-aipex-2026": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "aep-delegation-filda2026": {
+      "base": 70,
+      "events": 18,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "grain-production-ambition-2022": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "sa-angola-investment-2022": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "portugal-30-companies-2022": {
+      "base": 70,
+      "events": 18,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "huambo-investment-promotion-2022": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "angola-startup-summit-2022": {
+      "base": 70,
+      "events": 28,
+      "evidence": 4,
+      "delay": -5,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "prosil-isptec-2022": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "feito-em-angola-relaunch-2022": {
+      "base": 60,
+      "events": 18,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "zap-empresas-filda2022": {
+      "base": 60,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "esso-angola-filda2022": {
+      "base": 60,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v1-2026-07"
+    },
+    "porto-lobito-leao-ouro-2022": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    },
+    "sonangol-leao-ouro-2022": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v1-2026-07"
+    }
+  }
+}

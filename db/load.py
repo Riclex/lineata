@@ -27,6 +27,7 @@ import argparse
 # snapshot in projects.csv against the formula on every rebuild.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from calculate_scores import compute_scores, SCORE_VERSION
+from constants import MUTATION_OPS  # staleness-guard op set (single source of truth)
 
 BASE_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_dir = os.path.join(BASE_dir, "data")
@@ -153,15 +154,18 @@ def main():
     # If db/update.py has appended mutations to the live DB that haven't been
     # checkpointed back to CSV (via db/export_csv.py), a rebuild would SILENTLY
     # LOSE them. Refuse unless --force is passed. The guard counts only
-    # MUTATION operations (add-*/set-status/reverify) — not the load-seed /
-    # export-csv checkpoint markers this script and export_csv.py write.
+    # MUTATION operations (MUTATION_OPS — add-*/set-status/relink-*/reverify),
+    # not the load-seed / export-csv checkpoint markers this script and
+    # export_csv.py write. The set is imported from db/constants.py so it can
+    # never drift from the ops db/update.py actually writes (it once omitted
+    # relink-*, which would have let an uncheckpointed relink be lost on rebuild).
     if os.path.exists(DB_path) and not args.force:
         conn_old = sqlite3.connect(DB_path)
         try:
             max_cl = conn_old.execute(
                 "SELECT max(ts) FROM change_log WHERE operation IN "
-                "('add-source','add-event','add-evidence','set-status','reverify')"
-            ).fetchone()[0]
+                f"({','.join('?' * len(MUTATION_OPS))})",
+                MUTATION_OPS).fetchone()[0]
             le = conn_old.execute(
                 "SELECT value FROM db_meta WHERE key='last_exported_at'"
             ).fetchone()

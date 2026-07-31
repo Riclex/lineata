@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angola Investment Execution Database</title>
+  <meta name="description" content="Who actually delivers in Angola? Track every major investment announcement and see what actually happened.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       TOKEN SYSTEM
+       ============================================================ */
+    :root {
+      --bg:           #080b0f;
+      --surface:      #11161d;
+      --surface2:     #181e28;
+      --border:       #1f2833;
+      --border-vis:   #2a3543;
+      --text:         #e8ecf1;
+      --text-dim:     #788494;
+      --text-muted:   #4a5568;
+      --accent:       #e8a838;
+      --accent-warm:  #d4952b;
+      --accent-glow:  rgba(232, 168, 56, 0.12);
+      --green:        #3ba55c;
+      --green-dim:    rgba(59, 165, 92, 0.15);
+      --red:          #d94848;
+      --red-dim:      rgba(217, 72, 72, 0.15);
+      --amber:        #d4932c;
+      --amber-dim:    rgba(212, 147, 44, 0.15);
+      --blue:         #5b8cc9;
+
+      --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+      --font-body:    'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono:    'JetBrains Mono', 'SF Mono', 'Cascadia Code', monospace;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-panel: 0 0 0 1px var(--border), 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ============================================================
+       LAYOUT
+       ============================================================ */
+    .app {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* --- Sidebar --- */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-brand {
+      font-family: var(--font-display);
+      font-size: 20px;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .sidebar-brand span { color: var(--accent); }
+    .sidebar-subtitle {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 28px;
+      letter-spacing: 0.3px;
+    }
+
+    .sidebar-nav { list-style: none; flex: 1; }
+    .sidebar-nav li { margin-bottom: 2px; }
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .sidebar-nav a:hover { color: var(--text); background: var(--surface2); }
+    .sidebar-nav a.active { color: var(--accent); background: var(--accent-glow); }
+    .sidebar-nav .nav-icon { font-size: 16px; width: 20px; text-align: center; }
+
+    .sidebar-stats {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+    .sidebar-stat {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 4px 0;
+    }
+    .sidebar-stat .label { color: var(--text-dim); }
+    .sidebar-stat .value { font-family: var(--font-mono); font-size: 12px; color: var(--text); }
+
+    /* --- Main content --- */
+    .main {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- Top bar --- */
+    .topbar {
+      padding: 16px 28px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .search-wrap {
+      position: relative;
+      max-width: 560px;
+    }
+    .search-wrap input {
+      width: 100%;
+      padding: 11px 16px 11px 42px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-wrap input::placeholder { color: var(--text-muted); }
+    .search-wrap input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .search-wrap .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 16px;
+      pointer-events: none;
+    }
+    .search-shortcut {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--surface2);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    /* --- Filters row --- */
+    .filters {
+      display: flex;
+      gap: 10px;
+      padding: 12px 28px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .filter-chip {
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+      font-family: var(--font-body);
+    }
+    .filter-chip:hover { border-color: var(--text-dim); color: var(--text); }
+    .filter-chip.active { background: var(--accent-glow); border-color: var(--accent); color: var(--accent); }
+    .filter-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      padding: 6px 4px 6px 0;
+    }
+    .filter-separator { width: 1px; height: 20px; background: var(--border); margin: 0 4px; align-self: center; }
+    .result-count {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      white-space: nowrap;
+    }
+
+    /* --- Project list --- */
+    .project-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 28px 40px;
+    }
+    .project-list-header {
+      display: flex;
+      align-items: center;
+      padding: 8px 0 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4px;
+    }
+    .project-list-header .col-score { width: 80px; text-align: right; }
+    .project-list-header .col-sector { width: 140px; }
+    .project-list-header .col-edition { width: 80px; }
+    .project-list-header .col-status { width: 120px; }
+
+    .project-row {
+      display: flex;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.12s;
+      gap: 0;
+    }
+    .project-row:hover { background: var(--accent-glow); margin: 0 -12px; padding: 14px 12px; border-radius: var(--radius-sm); }
+    .project-row.selected { background: var(--surface); margin: 0 -12px; padding: 14px 12px; border-radius: var(--radius-sm); border-bottom-color: transparent; }
+
+    .project-row .col-main { flex: 1; min-width: 0; }
+    .project-row .col-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .project-row .col-meta {
+      font-size: 13px;
+      color: var(--text-dim);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .project-row .col-meta span { white-space: nowrap; }
+    .meta-dot { color: var(--text-muted); }
+
+    .project-row .col-score {
+      width: 80px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .score-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .score-number {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 500;
+      width: 28px;
+      text-align: right;
+    }
+    .score-bar {
+      width: 48px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+    .score-high .score-number { color: var(--green); }
+    .score-high .score-bar-fill { background: var(--green); }
+    .score-mid .score-number { color: var(--amber); }
+    .score-mid .score-bar-fill { background: var(--amber); }
+    .score-low .score-number { color: var(--red); }
+    .score-low .score-bar-fill { background: var(--red); }
+
+    .project-row .col-sector { width: 140px; font-size: 13px; color: var(--text-dim); flex-shrink: 0; }
+    .project-row .col-edition { width: 80px; font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); flex-shrink: 0; }
+    .project-row .col-status { width: 120px; flex-shrink: 0; }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .status-completed, .status-operational { background: var(--green-dim); color: var(--green); }
+    .status-under_construction { background: var(--blue); color: #fff; background: rgba(91, 140, 201, 0.2); }
+    .status-delayed, .status-suspended { background: var(--amber-dim); color: var(--amber); }
+    .status-announced { background: var(--surface2); color: var(--text-dim); }
+    .status-cancelled { background: var(--red-dim); color: var(--red); }
+    .status-unknown { background: var(--surface2); color: var(--text-muted); }
+
+    /* --- Empty state --- */
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-dim);
+    }
+    .empty-state .empty-icon { font-size: 40px; margin-bottom: 16px; }
+    .empty-state h3 { font-family: var(--font-display); font-size: 20px; color: var(--text); margin-bottom: 8px; }
+    .empty-state p { max-width: 400px; margin: 0 auto; font-size: 14px; }
+
+    /* ============================================================
+       DETAIL PANEL (slide-out)
+       ============================================================ */
+    .detail-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .detail-overlay.open { opacity: 1; pointer-events: auto; }
+
+    .detail-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 620px;
+      max-width: 100vw;
+      height: 100vh;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      z-index: 60;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-panel);
+    }
+    .detail-panel.open { transform: translateX(0); }
+
+    .detail-close {
+      position: sticky;
+      top: 16px;
+      float: right;
+      margin-right: 20px;
+      z-index: 5;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text-dim);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+    .detail-close:hover { color: var(--text); border-color: var(--text-dim); }
+
+    .detail-content { padding: 24px 32px 60px; }
+
+    .detail-header { margin-bottom: 28px; }
+    .detail-header .back-link {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--text-dim);
+      text-decoration: none;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+    .detail-header .back-link:hover { color: var(--text); }
+    .detail-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .detail-subtitle {
+      font-size: 14px;
+      color: var(--text-dim);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* --- Stat tiles --- */
+    .detail-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .detail-stat {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+    }
+    .detail-stat .stat-value {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .detail-stat .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .detail-stat.score-stat { grid-column: 1 / -1; display: flex; align-items: center; gap: 16px; padding: 16px 20px; text-align: left; }
+    .detail-stat.score-stat .score-big {
+      font-family: var(--font-mono);
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1;
+    }
+    .detail-stat.score-stat .score-formula {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .score-formula .formula-part {
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .score-formula .formula-part.positive { color: var(--green); }
+    .score-formula .formula-part.negative { color: var(--red); }
+    .score-formula .formula-op {
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+
+    /* --- Section headings --- */
+    .detail-section {
+      margin-bottom: 28px;
+    }
+    .detail-section h3 {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* --- Timeline --- */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 20px;
+      padding-bottom: 2px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -21px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border-vis);
+      border: 2px solid var(--surface);
+    }
+    .timeline-item.type-completion .timeline-dot,
+    .timeline-item.type-groundbreaking .timeline-dot,
+    .timeline-item.type-construction .timeline-dot { background: var(--green); }
+    .timeline-item.type-delay .timeline-dot,
+    .timeline-item.type-suspension .timeline-dot { background: var(--red); }
+    .timeline-item.type-financing .timeline-dot { background: var(--blue); }
+    .timeline-item.type-announcement .timeline-dot { background: var(--amber); }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+    .timeline-type {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: capitalize;
+      margin-bottom: 2px;
+    }
+    .timeline-desc {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+      line-height: 1.45;
+    }
+    .timeline-source {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+    .timeline-source:hover { border-color: var(--accent); color: var(--accent); }
+    .source-conf { font-size: 10px; padding: 1px 5px; border-radius: 3px; font-weight: 500; }
+    .source-conf-high { background: var(--green-dim); color: var(--green); }
+    .source-conf-medium { background: var(--amber-dim); color: var(--amber); }
+    .source-conf-low { background: var(--red-dim); color: var(--red); }
+    .source-conf-archived { background: rgba(91,140,201,0.15); color: var(--blue); }
+
+    /* --- Organizations --- */
+    .org-list { display: flex; flex-direction: column; gap: 8px; }
+    .org-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+    .org-name { font-size: 14px; font-weight: 500; flex: 1; }
+    .org-role {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      font-weight: 500;
+    }
+    .org-country { font-size: 12px; color: var(--text-muted); }
+
+    /* --- Evidence --- */
+    .evidence-list { display: flex; flex-direction: column; gap: 6px; }
+    .evidence-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 13px;
+      padding: 8px 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+    .evidence-field {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      min-width: 110px;
+      font-weight: 500;
+    }
+    .evidence-value { color: var(--text); flex: 1; }
+    .evidence-source { font-size: 11px; color: var(--text-muted); }
+
+    /* --- Score breakdown --- */
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .breakdown-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      text-align: center;
+    }
+    .breakdown-item .bd-value {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .breakdown-item .bd-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .breakdown-item .bd-value.positive { color: var(--green); }
+    .breakdown-item .bd-value.negative { color: var(--red); }
+    .breakdown-item .bd-value.neutral { color: var(--text); }
+
+    /* --- Aggregate views --- */
+    .aggregate-view { padding: 0; }
+    .aggregate-view h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    .aggregate-view .view-subtitle {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+    .agg-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .agg-table th {
+      text-align: left;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .agg-table th.num { text-align: right; }
+    .agg-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .agg-table tr:hover td { background: var(--accent-glow); }
+    .agg-table tr { cursor: pointer; transition: background 0.12s; }
+    .agg-table .agg-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .agg-table .agg-count {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .agg-table .agg-avg {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 500;
+      text-align: right;
+    }
+    .agg-table .agg-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .agg-table .agg-bar {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      min-width: 60px;
+    }
+    .agg-table .agg-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+    .agg-table .agg-dist {
+      display: flex;
+      gap: 3px;
+      align-items: flex-end;
+      height: 24px;
+    }
+    .agg-table .agg-dist-bar {
+      width: 8px;
+      border-radius: 2px 2px 0 0;
+      background: var(--border);
+      transition: height 0.3s;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 1024px) {
+      .sidebar { display: none; }
+      .detail-panel { width: 100vw; }
+      .project-row .col-sector,
+      .project-row .col-edition { display: none; }
+      .project-list-header .col-sector,
+      .project-list-header .col-edition { display: none; }
+    }
+    @media (max-width: 640px) {
+      .topbar { padding: 12px 16px; }
+      .filters { padding: 10px 16px; gap: 6px; }
+      .project-list { padding: 12px 16px 40px; }
+      .project-row .col-title { font-size: 15px; }
+      .project-row .col-status { display: none; }
+      .detail-stats { grid-template-columns: repeat(2, 1fr); }
+      .detail-content { padding: 20px 20px 60px; }
+      .detail-title { font-size: 22px; }
+      .breakdown-grid { grid-template-columns: repeat(2, 1fr); }
+      .search-shortcut { display: none; }
+    }
+
+    /* --- Reduced motion --- */
+    @media (prefers-reduced-motion: reduce) {
+      .detail-panel { transition: none; }
+      .detail-overlay { transition: none; }
+      .score-bar-fill { transition: none; }
+    }
+
+    /* --- Keyboard focus --- */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .project-row:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+      border-radius: var(--radius-sm);
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">Angola Investment<br><span>Execution Database</span></div>
+      <div class="sidebar-subtitle">Who actually delivers?</div>
+      <ul class="sidebar-nav">
+        <li><a href="#" class="active" data-view="all"><span class="nav-icon">☰</span> All Projects</a></li>
+        <li><a href="#" data-view="sector"><span class="nav-icon">◈</span> By Sector</a></li>
+        <li><a href="#" data-view="province"><span class="nav-icon">◆</span> By Province</a></li>
+        <li><a href="#" data-view="edition"><span class="nav-icon">◉</span> By Edition</a></li>
+      </ul>
+      <div class="sidebar-stats">
+        <div class="sidebar-stat"><span class="label">Projects tracked</span><span class="value">51</span></div>
+        <div class="sidebar-stat"><span class="label">Scored (with evidence)</span><span class="value">50</span></div>
+        <div class="sidebar-stat"><span class="label">Sources</span><span class="value">130</span></div>
+        <div class="sidebar-stat"><span class="label">Events</span><span class="value">105</span></div>
+        <div class="sidebar-stat"><span class="label">Avg score</span><span class="value">62.4</span></div>
+        <div class="sidebar-stat"><span class="label">Editions</span><span class="value">2022–2026</span></div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- Search -->
+      <div class="topbar">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="search" placeholder="Search projects, companies, sectors..." autofocus>
+          <span class="search-shortcut">/</span>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters" id="filters">
+        <span class="filter-label">Status</span>
+        <div class="filter-group" id="status-filters"></div>
+        <span class="filter-separator"></span>
+        <span class="filter-label">Sector</span>
+        <div class="filter-group" id="sector-filters"></div>
+        <span class="filter-separator"></span>
+        <span class="filter-label">Edition</span>
+        <div class="filter-group" id="edition-filters"></div>
+        <span class="result-count" id="result-count"></span>
+      </div>
+
+      <!-- Project list -->
+      <div class="project-list" id="project-list"></div>
+    </main>
+  </div>
+
+  <!-- Detail overlay -->
+  <div class="detail-overlay" id="detail-overlay"></div>
+
+  <!-- Detail panel -->
+  <div class="detail-panel" id="detail-panel">
+    <button class="detail-close" id="detail-close" aria-label="Close detail panel">×</button>
+    <div class="detail-content" id="detail-content"></div>
+  </div>
+
+  <script>
+    // ============================================================
+    // DATA LOADING
+    // ============================================================
+    const API_BASE = '/api';
+    let DATA = { projects: [], events: {}, orgs: {}, evidence: {}, breakdowns: {} };
+    let FACETS = null;
+
+    async function apiFetch(path) {
+      const res = await fetch(API_BASE + path);
+      if (!res.ok) throw new Error(`API error: ${res.status}`);
+      return res.json();
+    }
+
+    async function loadData() {
+      try {
+        // Try live API first
+        const [projects, facets] = await Promise.all([
+          apiFetch('/projects'),
+          apiFetch('/facets')
+        ]);
+        DATA.projects = projects;
+        FACETS = facets;
+        init();
+      } catch (e) {
+        // Fall back to static data.json
+        console.warn('API unavailable, falling back to static data:', e.message);
+        try {
+          const res = await fetch('data.json');
+          const staticData = await res.json();
+          DATA = {
+            projects: staticData.projects,
+            events: staticData.events || {},
+            orgs: staticData.orgs || {},
+            evidence: staticData.evidence || {},
+            breakdowns: staticData.breakdowns || {}
+          };
+          init();
+        } catch (e2) {
+          document.getElementById('project-list').innerHTML =
+            `<div class="empty-state"><div class="empty-icon">!</div><h3>Could not load data</h3><p>${esc(e2.message)}</p></div>`;
+        }
+      }
+    }
+
+    async function loadProjectDetail(projectId) {
+      try {
+        const detail = await apiFetch('/projects/' + projectId);
+        // Populate the detail caches from the API response
+        DATA.events[projectId] = detail.events || [];
+        DATA.orgs[projectId] = detail.organizations || [];
+        DATA.evidence[projectId] = detail.field_evidence || [];
+        DATA.breakdowns[projectId] = detail.score_breakdown || {};
+        return detail;
+      } catch (e) {
+        console.warn('API detail unavailable, using cached data:', e.message);
+        return DATA.projects.find(p => p.id === projectId) || null;
+      }
+    }
+
+    // ============================================================
+    // STATE
+    // ============================================================
+    let state = {
+      search: '',
+      status: null,
+      sector: null,
+      edition: null,
+      selectedId: null,
+      view: 'all'
+    };
+
+    // ============================================================
+    // URL ROUTING (hash-based)
+    // ============================================================
+    function syncURL() {
+      const parts = [];
+      if (state.selectedId) {
+        parts.push('project', state.selectedId);
+      } else if (state.view !== 'all') {
+        parts.push(state.view);
+        if (state.sector) parts.push(state.sector);
+        if (state.province) parts.push(state.province);
+        if (state.edition) parts.push(state.edition);
+      } else if (state.sector) {
+        parts.push('sector', state.sector);
+      } else if (state.province) {
+        parts.push('province', state.province);
+      } else if (state.edition) {
+        parts.push('edition', state.edition);
+      }
+      const hash = parts.length ? '#/' + parts.join('/') : '';
+      if (location.hash !== hash) {
+        history.replaceState(null, '', hash || '#/');
+      }
+    }
+
+    function loadFromURL() {
+      const hash = location.hash.replace(/^#\/?/, '');
+      if (!hash) return;
+      const parts = hash.split('/');
+
+      if (parts[0] === 'project' && parts[1]) {
+        state.selectedId = parts[1];
+        state.view = 'all';
+      } else if (['sector', 'province', 'edition'].includes(parts[0])) {
+        state.view = parts[0];
+        state.selectedId = null;
+        if (parts[1]) {
+          state[parts[0]] = parts[1];
+        }
+      }
+    }
+
+    // ============================================================
+    // HELPERS
+    // ============================================================
+    // Escape a DB-sourced string for safe interpolation into innerHTML (text
+    // AND attribute contexts: covers &, <, >, ", '). The whole app renders DB
+    // fields (project titles, descriptions, org names, source titles/URLs,
+    // evidence values) into innerHTML via template literals; without escaping
+    // a single description containing an angle bracket — or a hostile title —
+    // would break the page or inject markup. Route every DB-sourced string
+    // through esc() before interpolating. Null/undefined -> ''.
+    function esc(s) {
+      if (s == null) return '';
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function scoreClass(score) {
+      if (score >= 70) return 'score-high';
+      if (score >= 40) return 'score-mid';
+      return 'score-low';
+    }
+
+    function statusLabel(s) {
+      const map = {
+        completed: 'Completed', operational: 'Operational',
+        under_construction: 'Under Construction', announced: 'Announced',
+        delayed: 'Delayed', suspended: 'Suspended', cancelled: 'Cancelled',
+        financed: 'Financed', mou_signed: 'MoU Signed', restarted: 'Restarted',
+        unknown: 'Unknown'
+      };
+      return map[s] || s;
+    }
+
+    function statusCssClass(s) {
+      return 'status-' + s;
+    }
+
+    function formatValue(v, currency) {
+      if (v == null) return null;
+      if (v >= 1e9) return (v / 1e9).toFixed(1) + 'B';
+      if (v >= 1e6) return (v / 1e6).toFixed(0) + 'M';
+      if (v >= 1e3) return (v / 1e3).toFixed(0) + 'K';
+      return v.toString();
+    }
+
+    function eventTypeLabel(t) {
+      const map = {
+        announcement: 'Announcement', mou: 'MoU Signed', financing: 'Financing',
+        groundbreaking: 'Groundbreaking', construction: 'Construction',
+        delay: 'Delay', suspension: 'Suspension', restart: 'Restart',
+        completion: 'Completion', expansion: 'Expansion', closure: 'Closure',
+        ownership_change: 'Ownership Change'
+      };
+      return map[t] || t;
+    }
+
+    function roleLabel(r) {
+      const map = { promoter: 'Promoter', investor: 'Investor', contractor: 'Contractor',
+        financier: 'Financier', partner: 'Partner', operator: 'Operator' };
+      return map[r] || r;
+    }
+
+    // ============================================================
+    // FILTERING
+    // ============================================================
+    function filteredProjects() {
+      let projects = DATA.projects;
+      if (state.search) {
+        const q = state.search.toLowerCase();
+        projects = projects.filter(p => {
+          if (p.title.toLowerCase().includes(q)) return true;
+          if (p.sector && p.sector.toLowerCase().includes(q)) return true;
+          if (p.subsector && p.subsector.toLowerCase().includes(q)) return true;
+          if (p.province && p.province.toLowerCase().includes(q)) return true;
+          const orgs = DATA.orgs[p.id] || [];
+          return orgs.some(o => o.name.toLowerCase().includes(q));
+        });
+      }
+      if (state.status) projects = projects.filter(p => p.status === state.status);
+      if (state.sector) projects = projects.filter(p => p.sector === state.sector);
+      if (state.edition) projects = projects.filter(p => p.filda_edition === state.edition);
+      return projects;
+    }
+
+    // ============================================================
+    // RENDER
+    // ============================================================
+    function renderFilters() {
+      // Use facets from API if available, fall back to deriving from projects
+      const statusFacets = FACETS ? FACETS.status : null;
+      const sectorFacets = FACETS ? FACETS.sector : null;
+      const editionFacets = FACETS ? FACETS.filda_edition : null;
+
+      const statuses = statusFacets
+        ? statusFacets.map(f => f.value)
+        : [...new Set(DATA.projects.map(p => p.status))].sort();
+      document.getElementById('status-filters').innerHTML = statuses.map(s => {
+        const count = statusFacets ? statusFacets.find(f => f.value === s)?.count : '';
+        return `<button class="filter-chip${state.status === s ? ' active' : ''}" data-filter="status" data-value="${esc(s)}">${esc(statusLabel(s))}${count ? ' ' + count : ''}</button>`;
+      }).join('');
+
+      const sectors = sectorFacets
+        ? sectorFacets.map(f => f.value)
+        : [...new Set(DATA.projects.map(p => p.sector).filter(Boolean))].sort();
+      document.getElementById('sector-filters').innerHTML = sectors.map(s => {
+        const count = sectorFacets ? sectorFacets.find(f => f.value === s)?.count : '';
+        return `<button class="filter-chip${state.sector === s ? ' active' : ''}" data-filter="sector" data-value="${esc(s)}">${esc(s)}${count ? ' ' + count : ''}</button>`;
+      }).join('');
+
+      const editions = editionFacets
+        ? editionFacets.map(f => f.value)
+        : [...new Set(DATA.projects.map(p => p.filda_edition).filter(Boolean))].sort();
+      document.getElementById('edition-filters').innerHTML = editions.map(e => {
+        const count = editionFacets ? editionFacets.find(f => f.value === e)?.count : '';
+        return `<button class="filter-chip${state.edition === e ? ' active' : ''}" data-filter="edition" data-value="${esc(e)}">${esc(e)}${count ? ' ' + count : ''}</button>`;
+      }).join('');
+    }
+
+    function renderList() {
+      if (state.view !== 'all') {
+        renderAggregateView();
+        return;
+      }
+      renderProjectList();
+    }
+
+    function renderAggregateView() {
+      const projects = filteredProjects();
+      const container = document.getElementById('project-list');
+      const dim = state.view; // 'sector', 'province', or 'edition'
+      const dimLabel = { sector: 'Sector', province: 'Province', edition: 'FILDA Edition' }[dim] || dim;
+
+      // Group projects by dimension
+      const groups = {};
+      for (const p of projects) {
+        let key = dim === 'edition' ? p.filda_edition : p[dim];
+        if (!key) key = 'Unknown';
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(p);
+      }
+
+      // Compute stats per group
+      const rows = Object.entries(groups).map(([name, projs]) => {
+        const n = projs.length;
+        const avg = projs.reduce((s, p) => s + p.execution_score, 0) / n;
+        const completed = projs.filter(p => p.status === 'completed' || p.status === 'operational').length;
+        const dist = { '0-20': 0, '21-40': 0, '41-60': 0, '61-80': 0, '81-100': 0 };
+        for (const p of projs) {
+          if (p.execution_score <= 20) dist['0-20']++;
+          else if (p.execution_score <= 40) dist['21-40']++;
+          else if (p.execution_score <= 60) dist['41-60']++;
+          else if (p.execution_score <= 80) dist['61-80']++;
+          else dist['81-100']++;
+        }
+        return { name, n, avg, completed, dist };
+      });
+
+      // Sort by count desc
+      rows.sort((a, b) => b.n - a.n);
+
+      const maxN = Math.max(...rows.map(r => r.n), 1);
+      const maxDist = Math.max(...rows.flatMap(r => Object.values(r.dist)), 1);
+
+      const scoreColor = (s) => s >= 70 ? 'var(--green)' : s >= 40 ? 'var(--amber)' : 'var(--red)';
+      const distColors = ['var(--red)', 'var(--red)', 'var(--amber)', 'var(--green)', 'var(--green)'];
+
+      document.getElementById('result-count').textContent = `${rows.length} ${dimLabel.toLowerCase()} groups · ${projects.length} projects`;
+
+      container.innerHTML = `
+        <div class="aggregate-view">
+          <h2>By ${dimLabel}</h2>
+          <p class="view-subtitle">Execution metrics grouped by ${dimLabel.toLowerCase()}. Click a row to filter.</p>
+          <table class="agg-table">
+            <thead>
+              <tr>
+                <th>${dimLabel}</th>
+                <th class="num">Projects</th>
+                <th class="num">Avg Score</th>
+                <th class="num">Active</th>
+                <th>Distribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map(r => `
+              <tr data-filter="${dim}" data-value="${esc(r.name)}">
+                <td><span class="agg-name">${esc(r.name)}</span></td>
+                <td class="num"><span class="agg-count">${r.n}</span></td>
+                <td class="num">
+                  <div class="agg-bar-wrap">
+                    <span class="agg-avg" style="color:${scoreColor(r.avg)}">${r.avg.toFixed(1)}</span>
+                    <div class="agg-bar"><div class="agg-bar-fill" style="width:${r.avg}%;background:${scoreColor(r.avg)}"></div></div>
+                  </div>
+                </td>
+                <td class="num"><span class="agg-count">${r.completed}/${r.n}</span></td>
+                <td>
+                  <div class="agg-dist">
+                    ${Object.entries(r.dist).map(([bucket, count], i) =>
+                      `<div class="agg-dist-bar" style="height:${Math.max(4, (count/maxDist)*24)}px;background:${distColors[i]}" title="${bucket}: ${count}"></div>`
+                    ).join('')}
+                  </div>
+                </td>
+              </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      // Click handler for aggregate rows — sets the filter
+      container.querySelectorAll('.agg-table tr').forEach(tr => {
+        tr.addEventListener('click', () => {
+          const filter = tr.dataset.filter;
+          const value = tr.dataset.value;
+          if (filter === 'sector') { state.sector = value; state.edition = null; }
+          else if (filter === 'province') { state.province = value; state.sector = null; state.edition = null; }
+          else if (filter === 'edition') { state.edition = value; state.sector = null; state.province = null; }
+          state.view = 'all';
+          document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+          document.querySelector('.sidebar-nav a[data-view="all"]').classList.add('active');
+          syncURL();
+          renderFilters();
+          renderList();
+        });
+      });
+    }
+
+    function renderProjectList() {
+      const projects = filteredProjects();
+      const container = document.getElementById('project-list');
+      document.getElementById('result-count').textContent = `${projects.length} project${projects.length !== 1 ? 's' : ''}`;
+
+      if (projects.length === 0) {
+        container.innerHTML = `<div class="empty-state">
+          <div class="empty-icon">⌕</div>
+          <h3>No projects match</h3>
+          <p>Try adjusting your search or filters. The database covers 50 scored projects across 5 FILDA editions.</p>
+        </div>`;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="project-list-header">
+          <span class="col-main">Project</span>
+          <span class="col-sector">Sector</span>
+          <span class="col-edition">Edition</span>
+          <span class="col-status">Status</span>
+          <span class="col-score">Score</span>
+        </div>
+        ${projects.map(p => {
+          const sc = scoreClass(p.execution_score);
+          const orgNames = (DATA.orgs[p.id] || []).map(o => esc(o.name)).slice(0, 2).join(', ');
+          return `
+          <div class="project-row${state.selectedId === p.id ? ' selected' : ''}" data-id="${esc(p.id)}" tabindex="0" role="button" aria-label="${esc(p.title)}">
+            <div class="col-main">
+              <div class="col-title">${esc(p.title)}</div>
+              <div class="col-meta">
+                ${p.province ? `<span>${esc(p.province)}</span><span class="meta-dot">·</span>` : ''}
+                ${orgNames ? `<span>${orgNames}</span>` : ''}
+                ${p.announced_value ? `<span class="meta-dot">·</span><span>${formatValue(p.announced_value, p.currency)} ${esc(p.currency) || 'USD'}</span>` : ''}
+              </div>
+            </div>
+            <div class="col-sector">${esc(p.sector) || '—'}</div>
+            <div class="col-edition">${esc(p.filda_edition) || '—'}</div>
+            <div class="col-status"><span class="status-badge ${statusCssClass(p.status)}">${esc(statusLabel(p.status))}</span></div>
+            <div class="col-score ${sc}">
+              <div class="score-bar-wrap">
+                <span class="score-number"${p.execution_score === 0 ? ' title="Scored 0 — evaluated by the formula, no execution progress observed yet (not the same as tracked-but-not-scored)"' : ''}>${p.execution_score}</span>
+                <div class="score-bar"><div class="score-bar-fill" style="width:${p.execution_score}%"></div></div>
+              </div>
+            </div>
+          </div>`;
+        }).join('')}
+      `;
+    }
+
+    function renderDetail(project) {
+      const p = project;
+      const sc = scoreClass(p.execution_score);
+      const pOrgs = p.organizations || DATA.orgs[p.id] || [];
+      const pEvents = p.events || DATA.events[p.id] || [];
+      const pEvidence = p.field_evidence || DATA.evidence[p.id] || [];
+      const bd = p.score_breakdown || DATA.breakdowns[p.id] || {};
+      const scoreColor = p.execution_score >= 70 ? 'var(--green)' : p.execution_score >= 40 ? 'var(--amber)' : 'var(--red)';
+
+      function fmtComponent(val) {
+        if (val === 0) return '0';
+        return val > 0 ? `+${val}` : `${val}`;
+      }
+
+      document.getElementById('detail-content').innerHTML = `
+        <div class="detail-header">
+          <span class="back-link" id="detail-back">← Back to all projects</span>
+          <h1 class="detail-title">${esc(p.title)}</h1>
+          <div class="detail-subtitle">
+            ${p.sector ? `<span>${esc(p.sector)}${p.subsector ? ' · ' + esc(p.subsector) : ''}</span>` : ''}
+            ${p.province ? `<span>${esc(p.province)}${p.municipality ? ', ' + esc(p.municipality) : ''}</span>` : ''}
+            ${p.filda_edition ? `<span>FILDA ${esc(p.filda_edition)}</span>` : ''}
+          </div>
+        </div>
+
+        <div class="detail-stats">
+          <div class="detail-stat score-stat">
+            ${Number(p.evidence_complete) === 1 ? `
+            <span class="score-big" style="color:${scoreColor}">${p.execution_score}</span>
+            ${p.execution_score === 0 ? '<div style="font-size:11px;color:var(--text-muted);margin-top:2px">evaluated at 0</div>' : ''}
+            <div class="score-formula">
+              <span class="formula-part">${bd.base || 0}</span>
+              <span class="formula-op">+</span>
+              <span class="formula-part positive">${bd.events || 0}</span>
+              <span class="formula-op">+</span>
+              <span class="formula-part positive">${bd.evidence || 0}</span>
+              <span class="formula-op">−</span>
+              <span class="formula-part negative">${Math.abs(bd.delay || 0)}</span>
+              <span class="formula-op">−</span>
+              <span class="formula-part negative">${Math.abs(bd.status_penalty || 0)}</span>
+              <span class="formula-op">−</span>
+              <span class="formula-part negative">${Math.abs(bd.only_announce || 0)}</span>
+            </div>` : `
+            <span class="score-big" style="color:var(--text-muted);font-size:24px">not scored</span>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px;max-width:150px">Tracked — no click-through evidence yet (excluded from published averages).</div>`}
+            <div style="flex:1"></div>
+            <span class="status-badge ${statusCssClass(p.status)}" style="font-size:13px;padding:5px 14px">${esc(statusLabel(p.status))}</span>
+          </div>
+          ${p.announced_value ? `<div class="detail-stat"><div class="stat-value">${formatValue(p.announced_value)}</div><div class="stat-label">${esc(p.currency) || 'USD'}</div></div>` : '<div class="detail-stat"><div class="stat-value">—</div><div class="stat-label">Value</div></div>'}
+          ${p.estimated_jobs ? `<div class="detail-stat"><div class="stat-value">${p.estimated_jobs.toLocaleString()}</div><div class="stat-label">Est. Jobs</div></div>` : '<div class="detail-stat"><div class="stat-value">—</div><div class="stat-label">Est. Jobs</div></div>'}
+          ${p.actual_completion ? `<div class="detail-stat"><div class="stat-value">${esc(p.actual_completion)}</div><div class="stat-label">Completed</div></div>` : '<div class="detail-stat"><div class="stat-value">—</div><div class="stat-label">Completed</div></div>'}
+        </div>
+
+        <div class="detail-section">
+          <h3>Score Breakdown · Formula v${esc(bd.version) || '—'}</h3>
+          <div class="breakdown-grid">
+            <div class="breakdown-item">
+              <div class="bd-value neutral">${bd.base || 0}</div>
+              <div class="bd-label">Base · ${esc(statusLabel(p.status))}</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="bd-value positive">${fmtComponent(bd.events || 0)}</div>
+              <div class="bd-label">Event Points · max 30</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="bd-value positive">${fmtComponent(bd.evidence || 0)}</div>
+              <div class="bd-label">Evidence Bonus · max 10</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="bd-value negative">${bd.delay || 0}</div>
+              <div class="bd-label">Delay Penalty</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="bd-value negative">${bd.status_penalty || 0}</div>
+              <div class="bd-label">Status Penalty</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="bd-value negative">${bd.only_announce || 0}</div>
+              <div class="bd-label">Only-Announce Penalty</div>
+            </div>
+          </div>
+        </div>
+
+        ${p.description ? `<div class="detail-section"><p style="font-size:14px;color:var(--text-dim);line-height:1.6">${esc(p.description)}</p></div>` : ''}
+
+        ${pEvents.length > 0 ? `
+        <div class="detail-section">
+          <h3>Timeline · ${pEvents.length} event${pEvents.length !== 1 ? 's' : ''}</h3>
+          <div class="timeline">
+            ${pEvents.map(e => `
+            <div class="timeline-item type-${esc(e.event_type)}">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">${esc(e.event_date) || 'Unknown date'}</div>
+              <div class="timeline-type">${esc(eventTypeLabel(e.event_type))}</div>
+              ${e.description ? `<div class="timeline-desc">${esc(e.description)}</div>` : ''}
+              ${(() => {
+                const pub = e.source_publisher || e.src_pub;
+                const title = e.source_title || e.src_title;
+                const url = e.source_url || e.src_url;
+                const conf = e.source_confidence || e.src_conf;
+                const arch = e.source_archived_url || e.src_archived_url;
+                const ust = e.source_url_status || e.src_url_status;
+                // When the live URL is dead/blocked and an archived copy exists,
+                // send the click-through to the archive so "click through the
+                // evidence" still resolves (the live link would 404/auth-wall).
+                const liveDead = ust === 'dead' || ust === 'blocked';
+                const href = (liveDead && arch) ? arch : (url || '#');
+                if (pub || title) {
+                  return `<a class="timeline-source" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(title || '')}">
+                    ${esc(pub || title || 'Source')}
+                    ${conf ? `<span class="source-conf source-conf-${esc(conf)}">${esc(conf)}</span>` : ''}
+                    ${(liveDead && arch) ? '<span class="source-conf source-conf-archived">archived</span>' : ''}
+                    ${href && href !== '#' ? ' ↗' : ''}
+                  </a>`;
+                }
+                if (e.source_id === null) {
+                  return '<span class="timeline-source" style="color:var(--text-muted);border-style:dashed">No grounded source</span>';
+                }
+                return '';
+              })()}
+            </div>`).join('')}
+          </div>
+        </div>` : ''}
+
+        ${pOrgs.length > 0 ? `
+        <div class="detail-section">
+          <h3>Organizations · ${pOrgs.length}</h3>
+          <div class="org-list">
+            ${pOrgs.map(o => `
+            <div class="org-item">
+              <span class="org-name">${esc(o.name)}</span>
+              <span class="org-role">${esc(roleLabel(o.role))}</span>
+              ${o.country ? `<span class="org-country">${esc(o.country)}</span>` : ''}
+            </div>`).join('')}
+          </div>
+        </div>` : ''}
+
+        ${pEvidence.length > 0 ? `
+        <div class="detail-section">
+          <h3>Field Evidence · ${pEvidence.length} record${pEvidence.length !== 1 ? 's' : ''}</h3>
+          <div class="evidence-list">
+            ${pEvidence.map(ev => `
+            <div class="evidence-item">
+              <span class="evidence-field">${esc(ev.field)}</span>
+              <span class="evidence-value">${esc(ev.value) || '—'}</span>
+              ${(() => { const pub = ev.source_publisher || ev.src_pub; return pub ? `<span class="evidence-source">${esc(pub)}${ev.observed_at ? ' · ' + esc(ev.observed_at) : ''}</span>` : ''; })()}
+            </div>`).join('')}
+          </div>
+        </div>` : ''}
+
+        <div class="detail-section">
+          <h3>Record Info</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px;color:var(--text-dim)">
+            <div>Last verified: <span style="color:var(--text)">${esc(p.last_verified) || 'Never'}</span></div>
+            <div>Scoring: <span style="color:var(--text)">${p.evidence_complete ? 'Scored — ' + p.execution_score + '/100' : 'Tracked, not scored'}</span></div>
+            <div>Country: <span style="color:var(--text)">${esc(p.country) || 'Angola'}</span></div>
+            <div>Created: <span style="color:var(--text)">${p.created_at ? esc(p.created_at.slice(0,10)) : '—'}</span></div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function openDetail(projectId) {
+      const project = DATA.projects.find(p => p.id === projectId);
+      if (!project) return;
+      state.selectedId = projectId;
+
+      // Show panel immediately with basic data, then enrich
+      document.getElementById('detail-panel').classList.add('open');
+      document.getElementById('detail-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      renderDetail(project);
+      renderList();
+
+      syncURL();
+
+      // Fetch full detail in the background
+      const detail = await loadProjectDetail(projectId);
+      if (detail && detail.events) {
+        renderDetail(detail);
+      }
+    }
+
+    function closeDetail() {
+      state.selectedId = null;
+      document.getElementById('detail-panel').classList.remove('open');
+      document.getElementById('detail-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+      syncURL();
+      renderList();
+    }
+
+    // ============================================================
+    // EVENT HANDLERS
+    // ============================================================
+    function init() {
+      // Restore state from URL on first load
+      loadFromURL();
+
+      // Restore sidebar active state
+      document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+      const activeLink = document.querySelector(`.sidebar-nav a[data-view="${state.view}"]`);
+      if (activeLink) activeLink.classList.add('active');
+
+      renderFilters();
+      renderList();
+
+      // If URL had a project selected, open the detail panel
+      if (state.selectedId) {
+        openDetail(state.selectedId);
+      }
+
+      // Listen for back/forward
+      window.addEventListener('hashchange', () => {
+        const prevSelectedId = state.selectedId;
+        const prevView = state.view;
+        loadFromURL();
+        if (state.selectedId !== prevSelectedId) {
+          if (state.selectedId) {
+            openDetail(state.selectedId);
+          } else if (prevSelectedId) {
+            closeDetail();
+          }
+        }
+        if (state.view !== prevView) {
+          document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+          const link = document.querySelector(`.sidebar-nav a[data-view="${state.view}"]`);
+          if (link) link.classList.add('active');
+          renderFilters();
+          renderList();
+        }
+      });
+
+      // Search
+      document.getElementById('search').addEventListener('input', e => {
+        state.search = e.target.value;
+        state.selectedId = null;
+        renderList();
+      });
+
+      // Global / shortcut
+      document.addEventListener('keydown', e => {
+        if (e.key === '/' && document.activeElement !== document.getElementById('search')) {
+          e.preventDefault();
+          document.getElementById('search').focus();
+        }
+        if (e.key === 'Escape') {
+          if (state.selectedId) { closeDetail(); }
+        }
+      });
+
+      // Filter chips
+      document.getElementById('filters').addEventListener('click', e => {
+        const chip = e.target.closest('.filter-chip');
+        if (!chip) return;
+        const filter = chip.dataset.filter;
+        const value = chip.dataset.value;
+        if (state[filter] === value) {
+          state[filter] = null;
+        } else {
+          state[filter] = value;
+        }
+        state.selectedId = null;
+        syncURL();
+        renderFilters();
+        renderList();
+      });
+
+      // Project row clicks
+      document.getElementById('project-list').addEventListener('click', e => {
+        const row = e.target.closest('.project-row');
+        if (!row) return;
+        openDetail(row.dataset.id);
+      });
+
+      // Keyboard navigation for project rows
+      document.getElementById('project-list').addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          const row = e.target.closest('.project-row');
+          if (row) openDetail(row.dataset.id);
+        }
+      });
+
+      // Detail close
+      document.getElementById('detail-close').addEventListener('click', closeDetail);
+      document.getElementById('detail-overlay').addEventListener('click', closeDetail);
+      document.getElementById('detail-content').addEventListener('click', e => {
+        if (e.target.id === 'detail-back') closeDetail();
+      });
+
+      // Sidebar nav
+      document.querySelector('.sidebar-nav').addEventListener('click', e => {
+        e.preventDefault();
+        const link = e.target.closest('a');
+        if (!link) return;
+        document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+        state.view = link.dataset.view;
+        state.status = null; state.sector = null; state.edition = null;
+        state.selectedId = null;
+        syncURL();
+        renderFilters();
+        renderList();
+      });
+    }
+
+    // ============================================================
+    // BOOT
+    // ============================================================
+    loadData();
+  </script>
+</body>
+</html>

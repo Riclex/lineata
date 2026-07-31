@@ -42,3 +42,25 @@ MUTATION_OPS = (
 # MUTATION_OPS plus the checkpoint markers written by load.py / export_csv.py
 # (these are NOT mutations -- they record rebuilds/checkpoints, not data edits).
 ALLOWED_OPS = MUTATION_OPS + ("export-csv", "load-seed")
+
+
+# Event descriptions that indicate a recognition/award, not a real project
+# completion. Used by db/verify.py Check A to forbid award events typed as
+# `completion` (which would inflate the score +15 and the completion-rate view).
+# Validated against the 2026-07-31 dataset: catches all 18 award-completion
+# events, 0 false positives on the 11 genuine completion events
+# (conferences/delegations/launches). If a future completion description is
+# ambiguous, assess it manually rather than over-fitting this list.
+AWARD_INDICATORS = (
+    "award", "awards", "prize", "prizes", "prémio", "premio",
+    "aipex", "leao de ouro", "leão de ouro", "grand prize",
+    "grand premio", "grand prémio", "bci challenge", "best participation",
+)
+
+
+def looks_like_award(text):
+    """True if text reads as a recognition/award rather than a real completion."""
+    if not text:
+        return False
+    t = text.lower()
+    return any(k in t for k in AWARD_INDICATORS)

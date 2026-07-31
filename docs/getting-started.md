@@ -77,7 +77,7 @@ python db/verify.py
 ```
 
 `verify.py` is the article↔DB contract: it pins every figure published in the
-articles (counts, the 62.4 average, the distribution, all 13 sector averages,
+articles (counts, the 60.7 average, the distribution, all 13 sector averages,
 private/gov averages, the seven case-study scores) to concrete DB queries and
 exits non-zero on any drift. It currently runs 81 checks. **Any data edit that
 moves a score must update `verify.py`'s expectations AND the article figures

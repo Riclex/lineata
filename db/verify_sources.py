@@ -29,6 +29,9 @@ import argparse
 import urllib.request
 import urllib.error
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from audit import log_change  # shared change_log writer (db/audit.py)
+
 BASE_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_dir = os.path.join(BASE_dir, "data")
 DB_path = os.path.join(BASE_dir, "db", "investment_tracker.db")
@@ -106,7 +109,7 @@ def main():
     # Write back to sources.csv (preserves column order; persists across rebuilds).
     from datetime import date
     today = date.today().isoformat()
-    changed = 0
+    changed_ids = []  # ids whose last_verified / url_status actually changed
     for r in rows:
         sid = r["id"]
         if sid in results:
@@ -114,22 +117,46 @@ def main():
             if r.get("last_verified", "") != today or r.get("url_status", "") != new_status:
                 r["last_verified"] = today
                 r["url_status"] = new_status
-                changed += 1
+                changed_ids.append(sid)
     with open(SOURCES_csv, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
-    print(f"[OK] data/sources.csv updated: {changed} source(s) re-stamped (last_verified={today})")
+    print(f"[OK] data/sources.csv updated: {len(changed_ids)} source(s) re-stamped (last_verified={today})")
 
-    # Also reflect into the live DB so the same run's DB matches.
-    conn = sqlite3.connect(DB_path)
-    for sid, (status, code) in results.items():
-        conn.execute(
-            "UPDATE sources SET last_verified=?, url_status=? WHERE id=?",
-            (today, status, sid))
-    conn.commit()
+    # Also reflect into the live DB so the same run's DB matches, AND write one
+    # change_log 'reverify' row per actually-changed source. This closes the audit
+    # gap: --apply used to mutate sources.last_verified / url_status with no
+    # change_log row, so the reverify audit trail (who/when/old->new) was lost and
+    # the staleness guard (which counts 'reverify' ops) couldn't see these
+    # mutations. Routing the liveness stamp through log_change makes the audit
+    # trail complete and brings these mutations under load.py's staleness guard.
+    url_by_id = {r["id"]: r.get("url", "") for r in rows}
+    conn = sqlite3.connect(DB_path, isolation_level=None)
+    conn.execute("BEGIN")
+    n = 0
+    try:
+        for sid in changed_ids:
+            status = results[sid][0]
+            old = conn.execute(
+                "SELECT last_verified, url_status FROM sources WHERE id=?",
+                (sid,)).fetchone()
+            old_lv, old_status = (old[0], old[1]) if old else (None, None)
+            conn.execute(
+                "UPDATE sources SET last_verified=?, url_status=? WHERE id=?",
+                (today, status, sid))
+            log_change(conn, "reverify", "sources", sid,
+                       {"old_status": old_status, "new_status": status,
+                        "old_last_verified": old_lv, "new_last_verified": today},
+                       url_by_id.get(sid) or None, None)
+            n += 1
+        conn.execute("COMMIT")
+    except Exception as e:
+        conn.execute("ROLLBACK")
+        conn.close()
+        sys.exit(f"[ERR] verify_sources DB write failed: {e}")
     conn.close()
-    print(f"[OK] db/investment_tracker.db updated.")
+    print(f"[OK] db/investment_tracker.db updated: {n} source(s) re-stamped + audit-logged.")
 
 
 if __name__ == "__main__":

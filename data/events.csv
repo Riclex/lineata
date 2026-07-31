@@ -3,19 +3,19 @@ id,project_id,event_type,event_date,description,source_id
 2,investment-portal-georeferenced,announcement,2023-07-18,Investment attraction portal with georeferenced projects announced,1
 3,digital-infrastructure-pledge,announcement,2023-07-18,President Lourenco pledged continued investment in digital infrastructure at FILDA opening,14
 4,sonangol-sonils-filda2023,announcement,2023-07-18,SONILS first participation in FILDA,4
-5,sonangol-sonils-filda2023,completion,2023-07-22,Sonangol won 2 awards: Best Oil & Gas Participation and Sustainability,4
+5,sonangol-sonils-filda2023,expansion,2023-07-22,Sonangol won 2 awards: Best Oil & Gas Participation and Sustainability,4
 6,anpg-oil-sector-grand-prize,announcement,2023-07-18,ANPG and partners participated in FILDA 2023 oil sector corridor,5
-7,anpg-oil-sector-grand-prize,completion,2023-07-22,ANPG won Grand Prize Leao de Ouro for second time in four participations,5
+7,anpg-oil-sector-grand-prize,expansion,2023-07-22,ANPG won Grand Prize Leao de Ouro for second time in four participations,5
 8,portuguese-investment-zee-330m,announcement,2023-07-18,Portuguese investment in ZEE reaches USD 330M highlighted at FILDA,6
 9,vi-encontro-empresarial-pt-ao,announcement,2023-07-18,VI Encontro Empresarial Portugal/Angola organized by CCIPA,83
 10,vi-encontro-empresarial-pt-ao,completion,2023-07-18,Event completed with ~100 Portuguese and Angolan entrepreneurs,83
 11,angola-startup-summit-2023,announcement,2023-05-01,Angola Startup Summit II Edition announced under FILDA,7
-12,angola-startup-summit-2023,completion,2023-07-22,SIA from Huila won BCI Challenge with 10M Kwanza prize,7
+12,angola-startup-summit-2023,expansion,2023-07-22,SIA from Huila won BCI Challenge with 10M Kwanza prize,7
 13,bfa-30th-anniversary-filda,announcement,2023-07-17,BFA announced presence at FILDA celebrating 30th anniversary,8
 14,banco-sol-virtual-assistant,announcement,2023-07-18,Banco Sol presented a virtual assistant at FILDA 2023,9
 15,filda-2023-2-billion-business,announcement,2023-07-18,FILDA 2023 projected to generate above 2 billion in business (currency unclear),103
-16,huatong-angola-industry-awards,completion,2023-07-22,Huatong Angola Industry won 3 prizes at FILDA 2023,15
-17,brazil-returns-to-filda,announcement,2023-07-18,Brazil returned to FILDA after absence,12
+16,huatong-angola-industry-awards,expansion,2023-07-22,Huatong Angola Industry won 3 prizes at FILDA 2023,15
+17,brazil-returns-to-filda,announcement,2023-07-18,Brazil returned to FILDA after absence,29
 18,cip-cooperation-pt-ao,announcement,2023-07-18,CIP reinforced economic cooperation between Portugal and Angola,13
 19,digital-infrastructure-pledge,announcement,2023-07-18,Angola to invest in broadband fiber optic Angosat-2 internet expansion,14
 20,linha-verde-investor-visas,delay,2024-01-01,No distinct Linha Verde branded product launched. Concept absorbed into JUI digital portal and visto de privilegiado framework,67
@@ -30,7 +30,7 @@ id,project_id,event_type,event_date,description,source_id
 29,anpg-oil-sector-grand-prize,expansion,2026-04-01,$100 billion investment pipeline reported. Oil revenue rose to $7.16B in Q1 2026,121
 30,huatong-angola-industry-awards,construction,2026-01-01,Aluminum production started in Barra do Dande ZEE. 1200 direct + 800 indirect jobs. First 1000 tons exported to Netherlands,130
 31,huatong-angola-industry-awards,financing,2026-07-20,$900M port terminal investment signed. 25-year subconcession. Completion by 2029/2030,125
-32,huatong-angola-industry-awards,completion,2026-07-17,"Won 3 AIPEX Awards 2026: Manufacturing & Industrialization, Export Champion, Investor of the Year",54
+32,huatong-angola-industry-awards,expansion,2026-07-17,"Won 3 AIPEX Awards 2026: Manufacturing & Industrialization, Export Champion, Investor of the Year",54
 33,portuguese-investment-zee-330m,delay,2026-07-01,Figure unchanged since 2023. Restated at FILDA 2026 by ZEE Chairman. No new aggregate published,97
 34,brazil-returns-to-filda,expansion,2024-07-01,4 Brazilian companies via ApexBrasil at FILDA 2024. Expanded to Angola Startup Summit with SEBRAE,104
 35,cip-cooperation-pt-ao,completion,2025-07-25,Declaration of Economic Cooperation signed during President Lourenco State Visit to Portugal,13
@@ -51,9 +51,9 @@ id,project_id,event_type,event_date,description,source_id
 50,zap-empresas-filda2022,announcement,2022-07-16,ZAP promoted ZAP Empresas corporate connectivity at FILDA 2022. ~10000 visitors to stand,25
 51,esso-angola-filda2022,announcement,2022-07-16,ExxonMobil participated in FILDA 2022 with a stand representing ongoing operations,26
 52,porto-lobito-leao-ouro-2022,announcement,2022-07-16,Empresa Portuaria do Lobito participated in FILDA 2022,27
-53,porto-lobito-leao-ouro-2022,completion,2022-07-20,Porto do Lobito won Leao de Ouro for best Transport and Logistics participation,27
+53,porto-lobito-leao-ouro-2022,expansion,2022-07-20,Porto do Lobito won Leao de Ouro for best Transport and Logistics participation,27
 54,sonangol-leao-ouro-2022,announcement,2022-07-16,Sonangol participated in FILDA 2022,28
-55,sonangol-leao-ouro-2022,completion,2022-07-20,Sonangol won best participation in Oil and Gas sector at FILDA 2022,28
+55,sonangol-leao-ouro-2022,expansion,2022-07-20,Sonangol won best participation in Oil and Gas sector at FILDA 2022,28
 56,pt-ao-bilateral-2024,announcement,2024-07-23,"12 bilateral instruments signed between Portugal and Angola at FILDA 2024 covering PPP, debt management, labour, fisheries, health, tourism, education",36
 57,pt-ao-bilateral-2024,completion,2024-07-28,FILDA 2024 closed with 1771 participations and 54.175 billion Kz business volume,30
 58,chicomba-water-dam,announcement,2024-07-23,EUR 65M financing for Chicomba water dam in Huila province announced. BAI Europa as agent bank,38
@@ -63,20 +63,20 @@ id,project_id,event_type,event_date,description,source_id
 62,mou-aia-cip-2024,announcement,2024-07-23,MoU signed between AIA and CIP for industrial cooperation,36
 63,mou-idii-ualgarve,announcement,2024-07-23,MoU signed between IDIIA and Universidade do Algarve for industrial innovation cooperation,36
 64,sonangol-leao-ouro-2024,announcement,2024-07-23,Sonangol participated in FILDA 2024 with energy transition projects,45
-65,sonangol-leao-ouro-2024,completion,2024-07-28,Sonangol won Grande Premio Leao de Ouro at FILDA 2024,44
+65,sonangol-leao-ouro-2024,expansion,2024-07-28,Sonangol won Grande Premio Leao de Ouro at FILDA 2024,44
 66,unitel-leao-ouro-2024,announcement,2024-07-23,Unitel participated in FILDA 2024 with digital transformation showcase,47
-67,unitel-leao-ouro-2024,completion,2024-07-28,Unitel won Leao de Ouro telecom category at FILDA 2024,46
+67,unitel-leao-ouro-2024,expansion,2024-07-28,Unitel won Leao de Ouro telecom category at FILDA 2024,46
 68,pay4all-leao-ouro-2024,announcement,2024-07-23,Pay4all participated in FILDA 2024,48
-69,pay4all-leao-ouro-2024,completion,2024-07-28,Pay4all won Leao de Ouro digital economy category at FILDA 2024,48
+69,pay4all-leao-ouro-2024,expansion,2024-07-28,Pay4all won Leao de Ouro digital economy category at FILDA 2024,48
 70,iveco-tway-launch,announcement,2024-07-23,IVECO/Vecauto launched new T-Way heavy truck at FILDA 2024,49
 71,iveco-tway-launch,completion,2024-07-28,T-Way heavy truck launch completed at FILDA 2024,49
 72,ucall-ai-launch,announcement,2024-07-23,Ucall launched AI-powered chatbot and speech analytics at FILDA 2024,49
 73,montenegro-company-visits,announcement,2024-07-23,"PM Montenegro visited Powergol, Refriango, Central Solar do Biopio, Porto do Lobito, Lobito Atlantic Railway",40
 74,montenegro-company-visits,completion,2024-07-25,Montenegro company visits completed during official visit 23-25 July 2024,40
 75,sonangol-leao-ouro-2025,announcement,2025-07-22,Sonangol participated in FILDA 2025 with 100% solar-powered stand,122
-76,sonangol-leao-ouro-2025,completion,2025-07-27,Sonangol won Grande Premio Leao de Ouro at FILDA 2025,122
+76,sonangol-leao-ouro-2025,expansion,2025-07-27,Sonangol won Grande Premio Leao de Ouro at FILDA 2025,122
 77,etu-energias-leao-ouro-2025,announcement,2025-07-22,ETU Energias participated in FILDA 2025 celebrating 25 years,123
-78,etu-energias-leao-ouro-2025,completion,2025-07-27,ETU Energias won Leao de Ouro at FILDA 2025,123
+78,etu-energias-leao-ouro-2025,expansion,2025-07-27,ETU Energias won Leao de Ouro at FILDA 2025,123
 79,pt-ao-credit-line-3-25b,announcement,2025-07-25,Portugal-Angola credit line increased from EUR 2.5B to EUR 3.25B announced during FILDA week,91
 80,banco-sol-mc-empresas-2025,announcement,2025-07-22,Banco Sol launched Cartao Multicaixa Empresas and QR Code payment solutions at FILDA 2025,
 81,bda-financing-filda2025,announcement,2025-07-22,BDA presented new financing solutions at FILDA 2025,126
@@ -85,20 +85,20 @@ id,project_id,event_type,event_date,description,source_id
 84,aep-delegation-filda2025,announcement,2025-07-22,AEP organized Portuguese company delegation to FILDA 2025,127
 85,aep-delegation-filda2025,completion,2025-07-27,AEP delegation completed participation at FILDA 2025,127
 86,huatong-aipex-awards-2026,announcement,2026-07-21,Huatong Angola Industry participated in FILDA 2026 / AIPEX Awards,54
-87,huatong-aipex-awards-2026,completion,2026-07-17,"Huatong won 3 AIPEX Awards: Manufacturing and Industrialization, Export Champion, Investor of the Year",54
+87,huatong-aipex-awards-2026,expansion,2026-07-17,"Huatong won 3 AIPEX Awards: Manufacturing and Industrialization, Export Champion, Investor of the Year",54
 88,huatong-aipex-awards-2026,expansion,2026-07-20,Huatong signed $900M protocol for Barra do Dande port terminal. 25-year concession. Completion 2029-2030,125
 89,omataplo-aipex-2026,announcement,2026-07-21,Omataplo participated in FILDA 2026 AIPEX Awards,54
-90,omataplo-aipex-2026,completion,2026-07-17,Omataplo won AIPEX Green Investment award at FILDA 2026,54
+90,omataplo-aipex-2026,expansion,2026-07-17,Omataplo won AIPEX Green Investment award at FILDA 2026,54
 91,lobito-atlantic-railway-aipex,announcement,2026-07-21,Lobito Atlantic Railway participated in FILDA 2026,54
-92,lobito-atlantic-railway-aipex,completion,2026-07-17,LAR won AIPEX Regional Development award at FILDA 2026,54
+92,lobito-atlantic-railway-aipex,expansion,2026-07-17,LAR won AIPEX Regional Development award at FILDA 2026,54
 93,fabrimetal-aipex-2026,announcement,2026-07-21,Fabrimetal participated in FILDA 2026 AIPEX Awards,54
-94,fabrimetal-aipex-2026,completion,2026-07-17,Fabrimetal won AIPEX Job Creation award at FILDA 2026,54
+94,fabrimetal-aipex-2026,expansion,2026-07-17,Fabrimetal won AIPEX Job Creation award at FILDA 2026,54
 95,africell-aipex-2026,announcement,2026-07-21,Africell participated in FILDA 2026 AIPEX Awards,54
-96,africell-aipex-2026,completion,2026-07-17,Africell won AIPEX Digital Economy award at FILDA 2026,54
+96,africell-aipex-2026,expansion,2026-07-17,Africell won AIPEX Digital Economy award at FILDA 2026,54
 97,cabinda-refinery-aipex-2026,announcement,2026-07-21,Cabinda Refinery / Imbono Gemcorp participated in FILDA 2026,54
 98,cabinda-refinery-aipex-2026,expansion,2026-07-17,Cabinda Refinery won AIPEX Energy award at FILDA 2026,54
 99,jardins-yoba-aipex-2026,announcement,2026-07-21,Jardins da Yoba participated in FILDA 2026 AIPEX Awards,54
-100,jardins-yoba-aipex-2026,completion,2026-07-17,Jardins da Yoba won AIPEX Agribusiness award at FILDA 2026,54
+100,jardins-yoba-aipex-2026,expansion,2026-07-17,Jardins da Yoba won AIPEX Agribusiness award at FILDA 2026,54
 101,aep-delegation-filda2026,announcement,2026-07-21,AEP organized 20 Portuguese companies delegation to FILDA 2026,55
 102,aep-delegation-filda2026,completion,2026-07-26,AEP delegation completed participation at FILDA 2026,55
 103,chicomba-water-dam,financing,2024-01-01,"Financing authorized by Presidential decree. EUR 67.2M syndicated loan from BAI Europa and BCP, covered by Portuguese export credit agency",128

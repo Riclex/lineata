@@ -21,7 +21,7 @@ import sqlite3
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from calculate_scores import SCORE_VERSION  # formula-version stamp (methodology § Versioning)
-from constants import MUTATION_OPS, ALLOWED_OPS  # op vocab (single source of truth)
+from constants import MUTATION_OPS, ALLOWED_OPS, looks_like_award  # op vocab (single source of truth)
 
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "investment_tracker.db")
 
@@ -95,8 +95,8 @@ def main():
         "SELECT AVG(execution_score) FROM projects WHERE evidence_complete = 1"
     ).fetchone()[0]
     check("average execution score (DB precise, scored only)",
-          round(avg, 4), 62.4, tol=0.05)
-    check("average execution score (article '62')", int(round(avg)), 62)
+          round(avg, 4), 60.68, tol=0.05)
+    check("average execution score (article '61')", int(round(avg)), 61)
 
     # Distribution buckets — must match the published 10/1/7/20/12 table (50 scored).
     buckets = {"0-20": 0, "21-40": 0, "41-60": 0, "61-80": 0, "81-100": 0}
@@ -120,18 +120,18 @@ def main():
     # ---- Sector averages (PT article sector table; scored projects only) ----
     # (sector, expected_count, expected_avg_one_decimal)
     expected_sectors = [
-        ("Manufacturing", 4, 85.0),
+        ("Manufacturing", 4, 82.0),
         ("Digital", 1, 83.0),
         ("Trade", 3, 77.3),
-        ("Logistics", 1, 77.0),
-        ("Energy", 7, 73.1),
-        ("Telecom", 4, 72.8),
-        ("Infrastructure", 3, 72.3),
-        ("Technology", 4, 71.3),
+        ("Logistics", 1, 72.0),
+        ("Energy", 7, 70.0),
+        ("Telecom", 4, 70.3),
+        ("Infrastructure", 3, 69.0),
+        ("Technology", 4, 67.0),
         ("Multi-sector", 8, 58.0),
         ("Government", 3, 54.3),
         ("Finance", 6, 44.0),
-        ("Agriculture", 5, 36.8),
+        ("Agriculture", 5, 34.8),
         ("Education", 1, 8.0),
     ]
     sector_rows = {r[0]: (r[1], r[2]) for r in conn.execute(
@@ -156,7 +156,7 @@ def main():
     check("government project count (scored)", len(gov), 3)
     check("private project count (scored)", len(priv), 47)
     check("government avg score", round(sum(gov) / len(gov), 1), 54.3, tol=AVG_TOL)
-    check("private avg score", round(sum(priv) / len(priv), 1), 62.9, tol=AVG_TOL)
+    check("private avg score", round(sum(priv) / len(priv), 1), 61.1, tol=AVG_TOL)
 
     # ---- Case-study scores (published in both articles) ----
     case_studies = {
@@ -166,7 +166,7 @@ def main():
         "pt-ao-credit-line-3-25b": 53,            # Credit line 3.25B successor
         "chicomba-water-dam": 57,                  # Chicomba — PT article
         "investment-portal-georeferenced": 83,     # Portal — both articles
-        "etu-energias-leao-ouro-2025": 80,         # ETU — EN article
+        "etu-energias-leao-ouro-2025": 75,         # ETU — EN article
     }
     for pid, expected in case_studies.items():
         row = conn.execute(
@@ -175,13 +175,34 @@ def main():
         actual = row[0] if row else None
         check(f"case study {pid}", actual, expected)
 
-    # ---- Status supported by an event (auditor-style, low false positive) ----
-    # A project claiming tangible execution (completed / under_construction)
-    # must have at least one tangible-execution event (completion, construction,
-    # groundbreaking, financing). Deliberately excludes 'operational' because
-    # many non-physical projects (trade, finance, MoU) are legitimately
-    # operational without a build event — flagging them would be a false
-    # positive, which erodes trust more than it builds it.
+    # ---- Check A: a `completion` event must be a real completion, not an award ----
+    # Awards are recorded as `expansion` (methodology § Evidence Bonus: "expansion
+    # event (proxy for awards / capacity growth)"). A `completion` event gives +15
+    # and feeds v_execution_by_sector.completion_rate, so an award mistyped as
+    # completion inflates both. This is the root-cause guard for the
+    # "only completed projects get the completed flag" rule.
+    award_completions = [
+        r[0] for r in conn.execute(
+            "SELECT id, description FROM events WHERE event_type='completion'")
+        if looks_like_award(r[1])]
+    check("no completion event is an award", len(award_completions), 0)
+    if award_completions:
+        for eid in award_completions:
+            checks.append((f"completion event {eid} is an award (re-type to expansion)",
+                           True, False, False))
+
+    # ---- Status supported by genuine progress evidence ----
+    # Check B (hard): completed / under_construction must have a genuine progress
+    #   event (completion-non-award / construction / groundbreaking / financing).
+    #   Check A already guarantees any `completion` event is non-award, so the
+    #   progress_evts set below is genuine by construction.
+    # Check C (warning): operational without a genuine progress event is surfaced
+    #   as a warning, not a hard fail — many non-physical projects (trade,
+    #   finance, MoU, awards) are legitimately operational without a build event,
+    #   and the 16 award-only operational projects (status backed only by an
+    #   award+announcement after the 2026-07-31 re-type) are tracked here as
+    #   known-open rather than forced into a status-downgrade cascade. Escalate
+    #   to hard-fail by moving the 'operational' branch into the check() below.
     #
     # KNOWN_STATUS_ISSUES: projects whose status is plausibly correct in the
     # real world but not yet backed by a construction/groundbreaking/financing
@@ -193,24 +214,30 @@ def main():
     KNOWN_STATUS_ISSUES = {"cabinda-refinery-aipex-2026"}
     progress_evts = {"completion", "construction", "groundbreaking", "financing"}
     for r in conn.execute(
-        "SELECT id, status FROM projects "
-        "WHERE status IN ('completed', 'under_construction') "
-        "AND evidence_complete = 1"
+        "SELECT id, status FROM projects WHERE evidence_complete = 1"
     ):
         evts = {e[0] for e in conn.execute(
             "SELECT event_type FROM events WHERE project_id = ?", (r[0],))}
         supported = bool(evts & progress_evts)
-        if supported:
-            check(f"status '{r[1]}' supported by a progress event ({r[0]})",
-                  True, True)
-        elif r[0] in KNOWN_STATUS_ISSUES:
+        if r[1] in ("completed", "under_construction"):
+            if supported:
+                check(f"status '{r[1]}' supported by a progress event ({r[0]})",
+                      True, True)
+            elif r[0] in KNOWN_STATUS_ISSUES:
+                warnings.append(
+                    f"status '{r[1]}' not yet backed by a construction/"
+                    f"groundbreaking/financing event (KNOWN OPEN ISSUE): {r[0]} — "
+                    f"needs a construction source; see data-lineage.md")
+            else:
+                check(f"status '{r[1]}' supported by a progress event ({r[0]})",
+                      False, True)
+        elif r[1] == "operational" and not supported:
             warnings.append(
-                f"status '{r[1]}' not yet backed by a construction/"
-                f"groundbreaking/financing event (KNOWN OPEN ISSUE): {r[0]} — "
-                f"needs a construction source; see data-lineage.md")
-        else:
-            check(f"status '{r[1]}' supported by a progress event ({r[0]})",
-                  False, True)
+                f"status 'operational' has no genuine progress event "
+                f"(completion/construction/groundbreaking/financing): {r[0]} — "
+                f"backed only by {sorted(evts) or 'no events'}; needs operational "
+                f"evidence or a status downgrade (see data-lineage.md "
+                f"'Award-completion re-type applied 2026-07-31')")
 
     # ---- Case-study field-level evidence (project_evidence table) ----
     # The goal: "don't score projects unless someone can click through the
