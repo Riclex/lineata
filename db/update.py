@@ -30,10 +30,10 @@ Usage:
     python db/update.py set-status   --project ID --status S --source-url URL [--date D] [--apply]
     python db/update.py relink       --table events|project_evidence --id N --source-url URL [--note N] [--apply]
     python db/update.py relink       --table events|project_evidence --id N --clear [--note N] [--apply]
+    python db/update.py retype-event --event-id N --to <type> [--source-url URL] [--note N] [--apply]
     python db/update.py reverify     [--stale-days N] [--limit N] [--apply]
 """
 
-import json
 import os
 import sys
 import sqlite3
@@ -43,6 +43,7 @@ from datetime import date
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from verify_sources import classify          # db/verify_sources.py:41 — stdlib urllib only
 from calculate_scores import calculate_score  # db/calculate_scores.py:181 — single-project recompute
+from audit import log_change                 # db/audit.py — shared change_log writer
 
 BASE_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_path = os.path.join(BASE_dir, "db", "investment_tracker.db")
@@ -141,7 +142,12 @@ def resolve_or_create_source(conn, url, title, publisher, pub_date, confidence, 
     """Return (source_id, created_bool). Idempotent on URL: a duplicate URL
     returns the existing id and created=False. When created and verify is True,
     the URL is classified via verify_sources.classify() and last_verified /
-    url_status are stamped; in a dry run (verify=False) they are left NULL."""
+    url_status are stamped; in a dry run (verify=False) they are left NULL.
+
+    The SELECT-then-INSERT is race-free against the idx_sources_url unique
+    index (schema.sql): if two paths race to create the same URL, the loser's
+    INSERT raises IntegrityError, which we catch and re-resolve to the winner's
+    id. The index is the real backstop — the SELECT is just the fast path."""
     row = conn.execute("SELECT id FROM sources WHERE url=?", (url,)).fetchone()
     if row is not None:
         return row[0], False
@@ -150,11 +156,16 @@ def resolve_or_create_source(conn, url, title, publisher, pub_date, confidence, 
         last_verified = date.today().isoformat()
     else:
         status, last_verified = None, None
-    cur = conn.execute(
-        "INSERT INTO sources (title, url, date, publisher, confidence, "
-        "last_verified, url_status) VALUES (?, ?, ?, ?, ?, ?, ?)",
-        (title, url, pub_date, publisher, confidence, last_verified, status))
-    return cur.lastrowid, True
+    try:
+        cur = conn.execute(
+            "INSERT INTO sources (title, url, date, publisher, confidence, "
+            "last_verified, url_status) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (title, url, pub_date, publisher, confidence, last_verified, status))
+        return cur.lastrowid, True
+    except sqlite3.IntegrityError:
+        # A concurrent insert won the race on idx_sources_url. Re-resolve.
+        row = conn.execute("SELECT id FROM sources WHERE url=?", (url,)).fetchone()
+        return row[0], False
 
 
 def recompute_project_score(conn, pid):
@@ -167,15 +178,6 @@ def recompute_project_score(conn, pid):
     score, breakdown = calculate_score(conn, row)
     conn.execute("UPDATE projects SET execution_score=? WHERE id=?", (score, pid))
     return score, breakdown
-
-
-def log_change(conn, operation, target_table, target_id, payload, source_url, note):
-    conn.execute(
-        "INSERT INTO change_log (operation, target_table, target_id, payload_json, "
-        "source_url, note) VALUES (?, ?, ?, ?, ?, ?)",
-        (operation, target_table, str(target_id) if target_id is not None else None,
-         json.dumps(payload, ensure_ascii=False) if payload is not None else None,
-         source_url, note))
 
 
 def finish(conn, apply, summary_lines):
@@ -254,12 +256,31 @@ def cmd_add_event(flags, apply):
     try:
         sid, src_created = resolve_or_create_source(
             conn, source_url, title, None, None, "medium", verify=apply)
+        # Idempotency guard: an event with the same (project, type, date, source,
+        # description) is a re-run of the same add-event call, not a new
+        # observation. No-op it (no INSERT, no change_log row) — matching the
+        # add-source (dedup on URL) and add-evidence (dedup on project/field/
+        # source) discipline. Description is included so two genuinely distinct
+        # same-day/same-source announcements are still allowed (the 2023-07-18
+        # digital-infrastructure pledge + Angosat-2 specifics are a real pair,
+        # not a duplicate). A hard 4-column UNIQUE was deliberately NOT added to
+        # events for the same reason.
+        desc = note or title
+        dup = conn.execute(
+            "SELECT id FROM events WHERE project_id=? AND event_type=? "
+            "AND event_date IS ? AND source_id IS ? AND description IS ?",
+            (pid, etype, edate, sid, desc)).fetchone()
+        if dup is not None:
+            conn.execute("ROLLBACK"); conn.close()
+            print(f"existing event id={dup[0]} for ({pid}, {etype}, {edate}, "
+                  f"source {sid}) — skipping (re-run no-op)")
+            return
         old_score = conn.execute(
             "SELECT execution_score FROM projects WHERE id=?", (pid,)).fetchone()[0]
         cur = conn.execute(
             "INSERT INTO events (project_id, event_type, event_date, description, source_id) "
             "VALUES (?, ?, ?, ?, ?)",
-            (pid, etype, edate, note or title, sid))
+            (pid, etype, edate, desc, sid))
         eid = cur.lastrowid
         new_score, breakdown = recompute_project_score(conn, pid)
         if apply:
@@ -359,11 +380,21 @@ def cmd_set_status(flags, apply):
         eid = None
         if edate and new_status in STATUS_TO_EVENT:
             etype = STATUS_TO_EVENT[new_status]
-            cur = conn.execute(
-                "INSERT INTO events (project_id, event_type, event_date, source_id) "
-                "VALUES (?, ?, ?, ?)",
-                (pid, etype, edate, sid))
-            eid = cur.lastrowid
+            # Idempotency guard (mirrors cmd_add_event): if the status-derived
+            # event already exists for this project/date/source, don't insert a
+            # duplicate. The status flip itself still proceeds below.
+            dup = conn.execute(
+                "SELECT id FROM events WHERE project_id=? AND event_type=? "
+                "AND event_date IS ? AND source_id IS ?",
+                (pid, etype, edate, sid)).fetchone()
+            if dup is None:
+                cur = conn.execute(
+                    "INSERT INTO events (project_id, event_type, event_date, source_id) "
+                    "VALUES (?, ?, ?, ?)",
+                    (pid, etype, edate, sid))
+                eid = cur.lastrowid
+            else:
+                eid = dup[0]  # reference the existing event in the audit payload
 
         conn.execute("UPDATE projects SET status=? WHERE id=?", (new_status, pid))
         new_score, breakdown = recompute_project_score(conn, pid)
@@ -549,6 +580,69 @@ def cmd_relink(flags, apply):
         sys.exit(f"[ERR] relink failed: {e}")
 
 
+def cmd_retype_event(flags, apply):
+    """Re-type an existing event (e.g. an award mistyped as `completion` -> `expansion`).
+
+    Corrects event_type without touching the date, description, or source link.
+    Because event_type IS a formula input (see methodology § Versioning), the
+    affected project's score is recomputed and score_old/score_new are logged.
+    `--source-url` is optional: it defaults to the event's own source URL (the
+    award article that justifies the re-type), so the audit row always traces to
+    a real URL — no fabrication. The re-type is a correction of an
+    already-evidenced event, not a new claim, so reusing its own backing source
+    is defensible.
+
+    Idempotent: if the event is already --to, this is a no-op and writes no
+    change_log row (the audit trail records real mutations only, matching
+    add-event/relink).
+    """
+    require(flags, ["event_id", "to"])
+    eid = flags["event_id"]
+    new_type = flags["to"]
+    source_url = flags.get("source_url")
+    note = flags.get("note")
+    if new_type not in EVENT_TYPES:
+        sys.exit(f"[ERR] --to must be one of {sorted(EVENT_TYPES)}")
+
+    conn = connect()
+    conn.execute("BEGIN")
+    try:
+        row = conn.execute(
+            "SELECT e.id, e.project_id, e.event_type, e.source_id, s.url "
+            "FROM events e LEFT JOIN sources s ON s.id=e.source_id WHERE e.id=?",
+            (eid,)).fetchone()
+        if row is None:
+            conn.execute("ROLLBACK"); conn.close()
+            sys.exit(f"[ERR] no event with id={eid}")
+        pid, old_type, old_sid, own_url = row[1], row[2], row[3], row[4]
+        if old_type == new_type:
+            conn.execute("ROLLBACK"); conn.close()
+            print(f"no-op: event {eid} already type={new_type}")
+            return
+        if not source_url:
+            source_url = own_url  # the award article backing the event
+        old_score = conn.execute(
+            "SELECT execution_score FROM projects WHERE id=?", (pid,)).fetchone()[0]
+        conn.execute("UPDATE events SET event_type=? WHERE id=?", (new_type, eid))
+        new_score, breakdown = recompute_project_score(conn, pid)
+        if apply:
+            log_change(conn, "retype-event", "events", eid,
+                       {"event_id": int(eid), "project_id": pid,
+                        "event_type_old": old_type, "event_type_new": new_type,
+                        "source_id": old_sid, "source_url": source_url,
+                        "score_old": old_score, "score_new": new_score,
+                        "breakdown": breakdown, "note": note},
+                       source_url, note)
+        finish(conn, apply, [
+            f"retype-event: event id={eid}  {old_type} -> {new_type}",
+            f"  project={pid}  source={source_url or '(no source link)'}",
+            f"  -> score {old_score} -> {new_score}",
+        ])
+    except Exception as e:
+        conn.execute("ROLLBACK"); conn.close()
+        sys.exit(f"[ERR] retype-event failed: {e}")
+
+
 # ------------------------------------------------------------------
 # Dispatch
 # ------------------------------------------------------------------
@@ -559,6 +653,7 @@ COMMANDS = {
     "set-status": cmd_set_status,
     "relink": cmd_relink,
     "reverify": cmd_reverify,
+    "retype-event": cmd_retype_event,
 }
 
 

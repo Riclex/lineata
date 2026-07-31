@@ -147,6 +147,12 @@ CREATE TABLE IF NOT EXISTS sources (
     created_at   TEXT DEFAULT (datetime('now'))
 );
 
+-- One URL = one source. A partial unique index (skips empty-URL / publisher-only
+-- rows, which legitimately repeat as '') makes db/update.py's resolve_or_create_source
+-- dedup race-free and forbids accidental duplicate URLs from CSV edits or concurrent
+-- inserts. Enforced at the DB level so the constraint survives every rebuild.
+CREATE UNIQUE INDEX IF NOT EXISTS idx_sources_url ON sources(url) WHERE url != '';
+
 -- ============================================================
 -- Views: Aggregated execution metrics
 -- ============================================================
@@ -209,9 +215,17 @@ GROUP BY o.country;
 -- ============================================================
 -- Triggers: auto-update updated_at
 -- ============================================================
+-- The WHEN guard fires the trigger only when updated_at is NOT itself being
+-- changed (OLD.updated_at IS NEW.updated_at), so the trigger's own UPDATE of
+-- updated_at does not re-fire it. Without this guard the trigger recursed on
+-- its own write and only avoided a stack overflow because SQLite's
+-- recursive_triggers pragma defaults to OFF -- a latent bug if anyone ever
+-- enables it. The guard is column-list-independent, so it survives schema
+-- changes without enumerating every non-updated_at column.
 CREATE TRIGGER IF NOT EXISTS trg_projects_updated
 AFTER UPDATE ON projects
 FOR EACH ROW
+WHEN OLD.updated_at IS NEW.updated_at
 BEGIN
     UPDATE projects SET updated_at = datetime('now') WHERE id = OLD.id;
 END;
@@ -219,6 +233,7 @@ END;
 CREATE TRIGGER IF NOT EXISTS trg_organizations_updated
 AFTER UPDATE ON organizations
 FOR EACH ROW
+WHEN OLD.updated_at IS NEW.updated_at
 BEGIN
     UPDATE organizations SET updated_at = datetime('now') WHERE id = OLD.id;
 END;
@@ -234,7 +249,7 @@ END;
 CREATE TABLE IF NOT EXISTS change_log (
     id            INTEGER PRIMARY KEY AUTOINCREMENT,
     ts            TEXT NOT NULL DEFAULT (datetime('now')),
-    operation     TEXT NOT NULL,   -- 'add-source'|'add-event'|'add-evidence'|'set-status'|'reverify'|'export-csv'|'load-seed'
+    operation     TEXT NOT NULL,   -- 'add-source'|'add-event'|'add-evidence'|'set-status'|'relink-event'|'relink-evidence'|'reverify'|'retype-event'|'export-csv'|'load-seed'
     target_table  TEXT NOT NULL,   -- 'sources'|'events'|'project_evidence'|'projects'|'db_meta'
     target_id     TEXT,            -- row id of the target (TEXT covers both TEXT and INTEGER PKs)
     payload_json  TEXT,            -- JSON snapshot of what was written/changed
@@ -250,10 +265,10 @@ CREATE INDEX IF NOT EXISTS idx_changelog_op     ON change_log(operation);
 -- DB metadata (checkpoint watermark)
 -- ============================================================
 -- Holds the 'last_exported_at' watermark used by load.py's staleness guard:
--- if change_log has MUTATION rows (add-*/set-status/reverify) newer than
--- last_exported_at, load.py refuses to rebuild (it would silently lose
--- uncheckpointed DB edits) unless --force is passed. Updated by
--- db/export_csv.py on every successful checkpoint.
+-- if change_log has MUTATION rows (MUTATION_OPS: add-*/set-status/relink-*/
+-- reverify — see db/constants.py) newer than last_exported_at, load.py refuses
+-- to rebuild (it would silently lose uncheckpointed DB edits) unless --force
+-- is passed. Updated by db/export_csv.py on every successful checkpoint.
 CREATE TABLE IF NOT EXISTS db_meta (
     key   TEXT PRIMARY KEY,
     value TEXT

@@ -21,6 +21,7 @@ import sqlite3
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from calculate_scores import SCORE_VERSION  # formula-version stamp (methodology § Versioning)
+from constants import MUTATION_OPS, ALLOWED_OPS  # op vocab (single source of truth)
 
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "investment_tracker.db")
 
@@ -280,9 +281,6 @@ def main():
             check("db_meta score_version matches calculate_scores.SCORE_VERSION",
                   sv[0], SCORE_VERSION)
 
-    ALLOWED_OPS = {"add-source", "add-event", "add-evidence", "set-status",
-                   "relink-event", "relink-evidence",
-                   "reverify", "export-csv", "load-seed"}
     if _table_exists("change_log"):
         # No orphan targets: every logged mutation must point at a real row.
         # target_id is TEXT so it matches both TEXT and INTEGER PKs via cast.
@@ -293,6 +291,7 @@ def main():
             ("set-status", "projects", "projects.id"),
             ("relink-event", "events", "events.id"),
             ("relink-evidence", "project_evidence", "project_evidence.id"),
+            ("retype-event", "events", "events.id"),
         ]
         for op, tbl, target_col in orphan_checks:
             orphans = conn.execute(
@@ -312,10 +311,12 @@ def main():
 
         # Watermark vs latest mutation. A lag is a WARNING (the DB is current
         # even if the CSV checkpoint lags); load.py enforces the hard guard.
+        # Op set is imported from db/constants.py so it stays in sync with the
+        # ops db/update.py actually writes (once omitted relink-* here too).
         max_mut = conn.execute(
             "SELECT max(ts) FROM change_log WHERE operation IN "
-            "('add-source','add-event','add-evidence','set-status','reverify')"
-        ).fetchone()[0]
+            f"({','.join('?' * len(MUTATION_OPS))})",
+            MUTATION_OPS).fetchone()[0]
         le = conn.execute(
             "SELECT value FROM db_meta WHERE key='last_exported_at'"
         ).fetchone() if _table_exists("db_meta") else None
