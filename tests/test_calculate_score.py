@@ -102,17 +102,28 @@ class BaseAndOnlyAnnounceTests(unittest.TestCase):
 
 
 class EventsCapTests(unittest.TestCase):
-    def test_event_points_capped_at_30(self):
-        """Three completion events = 45 points, but the cap holds at 30."""
+    def test_event_points_count_distinct_types_not_raw_count(self):
+        """v2: points sum by DISTINCT event type, not raw event count.
+        Three `completion` events = ONE distinct type = +15 (not +45)."""
         conn = make_conn()
         add_project(conn, "p", status="announced")
         for d in ("2024-01-01", "2024-06-01", "2025-01-01"):
             add_event(conn, "p", "completion", d)
         _, b = score(conn, "p")
+        self.assertEqual(b["events"], 15)
+
+    def test_event_points_capped_at_30_with_distinct_types(self):
+        """v2: distinct types reaching the cap: completion(15)+expansion(10)+
+        groundbreaking(8)+financing(7) = 40 -> capped at 30."""
+        conn = make_conn()
+        add_project(conn, "p", status="announced")
+        for t in ("completion", "expansion", "groundbreaking", "financing"):
+            add_event(conn, "p", t, "2024-01-01")
+        _, b = score(conn, "p")
         self.assertEqual(b["events"], 30)
 
     def test_zero_point_events_do_not_inflate(self):
-        """delay/suspension/closure/ownership_change add 0 event points."""
+        """Zero-point types add 0 even as distinct types."""
         conn = make_conn()
         add_project(conn, "p", status="announced")
         add_event(conn, "p", "announcement", "2024-01-01")  # +3 (clears only-announce)
@@ -240,6 +251,7 @@ class ClampAndVersionTests(unittest.TestCase):
         add_event(conn, "p", "completion", "2026-02-01")  # push events to cap
         add_event(conn, "p", "completion", "2026-03-01")
         add_event(conn, "p", "expansion", "2026-06-01")
+        add_event(conn, "p", "groundbreaking", "2026-04-01")  # v2: distinct set {announcement,completion,expansion,groundbreaking}=36 -> cap 30
         s, _ = score(conn, "p")
         self.assertEqual(s, 100)
 

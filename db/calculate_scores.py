@@ -101,12 +101,16 @@ def years_between(date_str1, date_str2):
 
 
 def calculate_event_points(conn, project_id):
-    """Sum event points for a project, capped at MAX_EVENT_POINTS."""
-    events = conn.execute(
-        "SELECT event_type FROM events WHERE project_id = ?", (project_id,)
-    ).fetchall()
-    
-    total = sum(EVENT_POINTS.get(e[0], 0) for e in events)
+    """Sum event points by DISTINCT event type (v2), capped at MAX_EVENT_POINTS.
+
+    v2 scores each event type once, so duplicate coverage of the same milestone
+    no longer stacks. A project with three `announcement` events earns +3, not
+    +9. Rich, diverse timelines are still rewarded; repetitive coverage is not.
+    See docs/scoring-methodology.md § Proposed v2 (adopted 2026-07-31).
+    """
+    types = {e[0] for e in conn.execute(
+        "SELECT event_type FROM events WHERE project_id = ?", (project_id,))}
+    total = sum(EVENT_POINTS.get(t, 0) for t in types)
     return min(total, MAX_EVENT_POINTS)
 
 
