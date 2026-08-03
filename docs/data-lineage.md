@@ -154,7 +154,7 @@ python db/verify_snapshot.py       # article↔DB contract: pins published figur
 python db/query.py --summary      # read-only JSON access layer (workflow-integration leg)
 ```
 
-### Alignment work applied 2026-07-25 (goal: InvestmentExecutionDatabase-goal.md)
+### Alignment work applied 2026-07-25
 
 A targeted pass to align the project with its stated goal — "build the authoritative historical record of announced investments and their execution, where every claim is click-through-able to evidence." Four foundational controls plus the field-level-provenance starter:
 
@@ -416,7 +416,7 @@ The article's four illustrative cases are Huatong, the Portugal–Angola credit 
 
 19. ~~**Pin article figures to the DB (regression net)**~~ — resolved. `db/verify_snapshot.py` derives every published figure from the DB and compares to committed `db/snapshot.json`, and pins article text to DB figures; exits non-zero on drift. This subsumes the manual reconciliation behind recommendation #11 and the ETU check behind #12.
 
-### Alignment work (2026-07-25, per InvestmentExecutionDatabase-goal.md)
+### Alignment work (2026-07-25)
 
 20. ~~**Stop overwriting `created_at`**~~ — resolved. `load.py` now persists `created_at` from CSV (rebuilt fresh each run); existing rows backfilled with the 2026-07-23 dataset-origin date. See "Alignment work applied 2026-07-25".
 

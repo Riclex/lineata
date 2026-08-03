@@ -12,10 +12,9 @@ repo. All commands run from the repo root.
 
 Three things to hold in your head before touching anything:
 
-1. **The asset is the database, not the articles.** Read
-   `InvestmentExecutionDatabase-goal.md` — it's the product vision and the
-   "why" behind every design decision. The articles are a distribution channel
-   for the database.
+1. **The asset is the database, not the articles.** The execution score and
+   its traceable, click-through evidence are the product; the articles are a
+   distribution channel for the database.
 2. **Three operating modes, not one.** Maintenance is *event-driven*, not a
    full rebuild. Read the README "Operating Modes" section:
    - **Seed** (rare): `db/load.py` — rebuild the DB from `data/*.csv` checkpoints.

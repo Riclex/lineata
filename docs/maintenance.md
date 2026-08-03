@@ -60,13 +60,3 @@ committed baseline; `--update` records an *intended* change.
 
     python db/digest.py --days 30         # print the status-change digest
     python db/digest.py --days 30 --out digest/2026-08.md
-
-## Closing out a design spec
-
-After a `docs/superpowers/specs/*` design is fully implemented, set its
-`Status:` line to `Implemented (<date>) — <summary, branch/commit ref>`. The
-spec is **provenance — it is not deleted**; the body stays as the dated record
-of what was decided and why, and the flipped header is the only post-hoc edit.
-The authoritative "is it done?" record lives in git history and
-`docs/data-lineage.md`, not in the spec, so the header flip is a convenience
-for a reader landing on the spec — not a substitute for the lineage log.

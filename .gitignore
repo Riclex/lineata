@@ -18,3 +18,10 @@ tests/_tmp_update.db-shm
 
 # Session scheduler lock (runtime artifact, not source)
 .claude/scheduled_tasks.lock
+
+# PRIVATE / internal documents — not published in the public repo.
+# Kept locally only. (History was rewritten to purge prior copies.)
+InvestmentExecutionDatabase-goal.md
+docs/project-roadmap.md
+docs/superpowers/
+research/

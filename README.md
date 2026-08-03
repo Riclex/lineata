@@ -2,7 +2,7 @@
 
 A PitchBook for announced investments in Angola. Tracks what actually happened to projects announced at FILDA and other sources — not just what was announced.
 
-> **New here?** Start with [`docs/getting-started.md`](docs/getting-started.md) — a 10-step walkthrough from clone to your first round-trip change. Then read `InvestmentExecutionDatabase-goal.md` for the product vision and `docs/scoring-methodology.md` for the execution-score formula.
+> **New here?** Start with [`docs/getting-started.md`](docs/getting-started.md) — a 10-step walkthrough from clone to your first round-trip change. Then read `docs/scoring-methodology.md` for the execution-score formula.
 
 ## Concept
 
@@ -93,14 +93,12 @@ The discipline: **always `export_csv.py --apply` after `update.py --apply`** bef
 ```
 FILDA Investment Tracker/
 ├── README.md                       # This file
-├── InvestmentExecutionDatabase-goal.md  # Product vision / the "why" behind the design
 ├── docs/
 │   ├── getting-started.md     # START HERE — onboarding walkthrough for new contributors
 │   ├── data-model.md          # Full data model specification (column dictionary)
 │   ├── scoring-methodology.md # Execution-score formula, weights, worked examples, versioning
 │   ├── data-lineage.md        # Provenance narrative: where every source/link/fix came from
-│   ├── maintenance.md         # Maintenance cadence (every commit, before publish, after updates, monthly)
-│   └── project-roadmap.md     # Detailed product roadmap
+│   └── maintenance.md         # Maintenance cadence (every commit, before publish, after updates, monthly)
 ├── db/
 │   ├── schema.sql             # SQLite database schema
 │   ├── load.py                # CSV → SQLite loader (fresh rebuild; FK + score gates; staleness guard)
@@ -134,10 +132,8 @@ FILDA Investment Tracker/
 ├── scripts/
 │   └── install_hooks.py       # Cross-platform pre-commit hook installer
 ├── digest/                    # Monthly status-change digest output
-├── landing-page/
-│   └── index.html             # Demand validation landing page
-└── research/
-    └── filda-2023-raw.md       # Raw research notes for Phase 0
+└── landing-page/
+    └── index.html             # Demand validation landing page
 ```
 
 **New?** Read [`docs/getting-started.md`](docs/getting-started.md) — a 10-step
