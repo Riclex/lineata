@@ -5,6 +5,7 @@
 db/investment_tracker.db
 db/investment_tracker.db-wal
 db/investment_tracker.db-shm
+db/investment_tracker.db.bak
 
 # Python bytecode caches
 __pycache__/

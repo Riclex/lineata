@@ -126,6 +126,18 @@ def main():
         conn.close()
         return
 
+    # 0) Safety backup: copy the live DB to a timestamped .bak before any writes,
+    #    so a crash or corruption mid-checkpoint never loses the working copy.
+    #    The DB is gitignored (rebuilt from CSV), so this is the only on-disk
+    #    fallback between checkpoints. Only the most recent backup is kept.
+    import shutil
+    bak_path = DB_path + ".bak"
+    try:
+        shutil.copy2(DB_path, bak_path)
+        print(f"backup: {os.path.relpath(bak_path, BASE_dir)} (pre-checkpoint safety copy)")
+    except Exception as e:
+        print(f"[warn] could not write backup ({e}) — continuing without it")
+
     # 1) Stamp the watermark + write the export-csv audit row first, so the
     #    change_log.csv and db_meta.csv we export below include them.
     conn.execute("BEGIN")

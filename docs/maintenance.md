@@ -30,6 +30,11 @@ publish.
 `load.py` refuses to rebuild if the live DB has uncheckpointed `change_log`
 mutations — run `export_csv.py --apply` first.
 
+`export_csv.py --apply` writes a pre-checkpoint safety backup
+(`db/investment_tracker.db.bak`) before touching the CSVs — the DB is
+gitignored, so this is the only on-disk fallback between checkpoints if
+something goes wrong mid-checkpoint. Only the most recent backup is kept.
+
 ## Source URL liveness (~every 30 days, or before publish)
 
     python db/verify_sources.py --apply   # re-classify all source URLs, stamp
