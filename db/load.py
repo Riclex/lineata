@@ -186,10 +186,21 @@ def main():
     # every load. CREATE TABLE IF NOT EXISTS won't add columns to an existing
     # table, so a schema.sql change (new columns/tables) requires a clean
     # rebuild — deleting the file guarantees schema.sql is applied exactly.
+    import time as _time
     for suffix in ("", "-wal", "-shm"):
         p = DB_path + suffix
         if os.path.exists(p):
-            os.remove(p)
+            # On Windows, another process briefly holding the file (IDE language
+            # server, a just-closed connection) can make os.remove fail with
+            # PermissionError. Retry a few times — the lock is usually transient.
+            for _attempt in range(5):
+                try:
+                    os.remove(p)
+                    break
+                except PermissionError:
+                    if _attempt == 4:
+                        raise
+                    _time.sleep(0.2)
 
     conn = sqlite3.connect(DB_path)
     failed = False

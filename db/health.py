@@ -5,7 +5,7 @@ One-command consistency gate for the Angola Investment Execution Database.
 Runs the integrity chain in order and exits non-zero on the first failure, so
 it can gate a publish, a scheduled run, or a git pre-commit hook:
 
-    tests  →  load.py (round-trip rebuild)  →  verify_invariants.py  →  verify_snapshot.py  →  verify_sources.py  →  verify_docs.py
+    tests  →  load.py (round-trip rebuild)  →  verify_invariants.py  →  verify_snapshot.py  →  export_app_json.py --check  →  verify_sources.py  →  verify_docs.py
 
 The --fast mode (for the pre-commit hook) runs only tests + verify_invariants.py: no
 rebuild, no network, no doc sweep — a code edit shouldn't be blocked by a
@@ -79,6 +79,8 @@ def main():
              [PY, os.path.join("db", "verify_invariants.py")]),
             ("snapshot + article pin (verify_snapshot.py)",
              [PY, os.path.join("db", "verify_snapshot.py")]),
+            ("static app JSON sync (export_app_json.py --check)",
+             [PY, os.path.join("db", "export_app_json.py"), "--check"]),
         ]
         if not args.no_network:
             stages.append(
