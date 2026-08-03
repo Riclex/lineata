@@ -15,24 +15,24 @@
     ]
   },
   "aggregate": {
-    "avg_precise": 60.68,
-    "avg_rounded": 61,
+    "avg_precise": 43.78,
+    "avg_rounded": 44,
     "distribution": {
-      "0-20": 10,
-      "21-40": 1,
-      "41-60": 7,
-      "61-80": 20,
-      "81-100": 12
+      "0-20": 16,
+      "21-40": 12,
+      "41-60": 2,
+      "61-80": 13,
+      "81-100": 7
     }
   },
   "sectors": {
     "Agriculture": {
       "count": 5,
-      "avg": 34.8
+      "avg": 16.4
     },
     "Digital": {
       "count": 1,
-      "avg": 83.0
+      "avg": 81.0
     },
     "Education": {
       "count": 1,
@@ -40,19 +40,19 @@
     },
     "Energy": {
       "count": 7,
-      "avg": 70.0
+      "avg": 35.0
     },
     "Finance": {
       "count": 6,
-      "avg": 44.0
+      "avg": 28.8
     },
     "Government": {
       "count": 3,
-      "avg": 54.3
+      "avg": 54.0
     },
     "Infrastructure": {
       "count": 3,
-      "avg": 69.0
+      "avg": 36.0
     },
     "Logistics": {
       "count": 1,
@@ -60,38 +60,38 @@
     },
     "Manufacturing": {
       "count": 4,
-      "avg": 82.0
+      "avg": 65.3
     },
     "Multi-sector": {
       "count": 8,
-      "avg": 58.0
+      "avg": 57.6
     },
     "Technology": {
       "count": 4,
-      "avg": 67.0
+      "avg": 53.3
     },
     "Telecom": {
       "count": 4,
-      "avg": 70.3
+      "avg": 35.0
     },
     "Trade": {
       "count": 3,
-      "avg": 77.3
+      "avg": 61.0
     }
   },
   "gov_vs_private": {
     "gov_count": 3,
     "private_count": 47,
-    "gov_avg": 54.3,
-    "private_avg": 61.1
+    "gov_avg": 54.0,
+    "private_avg": 43.1
   },
   "case_studies": {
-    "huatong-angola-industry-awards": 85,
+    "huatong-angola-industry-awards": 78,
     "linha-verde-investor-visas": 3,
-    "pt-ao-credit-line-2-5b": 70,
-    "pt-ao-credit-line-3-25b": 53,
-    "chicomba-water-dam": 57,
-    "investment-portal-georeferenced": 83,
-    "etu-energias-leao-ouro-2025": 75
+    "pt-ao-credit-line-2-5b": 69,
+    "pt-ao-credit-line-3-25b": 8,
+    "chicomba-water-dam": 50,
+    "investment-portal-georeferenced": 81,
+    "etu-energias-leao-ouro-2025": 30
   }
 }
