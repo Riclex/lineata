@@ -51,7 +51,8 @@ def _ns(params):
     return Namespace(
         sector=params.get("sector"), province=params.get("province"),
         status=params.get("status"),
-        edition=params.get("edition"), org=params.get("org"),
+        edition=str(params.get("edition")) if params.get("edition") else None,
+        org=params.get("org"),
         min_score=_int(params.get("min_score")), max_score=_int(params.get("max_score")),
         search=params.get("search"), include_unscored=bool(params.get("include_unscored")),
         summary=False, project=None, facets=False,
@@ -86,6 +87,12 @@ class APIHandler(SimpleHTTPRequestHandler):
     def _send_error(self, status, message):
         self._send_json({"error": message}, status)
 
+    def _send_server_error(self, exc):
+        """Log the real exception, return a generic message to the client."""
+        # Never leak raw Python exception text to API consumers.
+        self.log_message("unhandled %s: %s", type(exc).__name__, exc)
+        self._send_json({"error": "Internal server error"}, 500)
+
     def _params(self):
         return dict(urllib.parse.parse_qsl(urllib.parse.urlparse(self.path).query))
 
@@ -114,7 +121,7 @@ class APIHandler(SimpleHTTPRequestHandler):
                     self._send_json(detail)
                 return
         except Exception as e:
-            self._send_error(500, str(e)); return
+            self._send_server_error(e); return
         super().do_GET()
 
     def do_OPTIONS(self):

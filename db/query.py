@@ -149,7 +149,7 @@ def project_detail(conn, pid):
     p = conn.execute(f"SELECT {PROJECT_SELECT} FROM projects p "
                      "WHERE p.id = ?", (pid,)).fetchone()
     if p is None:
-        raise SystemExit(f"No project with id {pid!r}.")
+        return None
     d = project_row(p)
     d["organizations"] = [
         {"name": r["name"], "type": r["type"], "country": r["country"],
@@ -233,6 +233,8 @@ def main():
         result = facets(conn)
     elif args.project:
         result = project_detail(conn, args.project)
+        if result is None:
+            raise SystemExit(f"No project with id {args.project!r}.")
     elif args.summary:
         result = summary(conn, args)
     else:
