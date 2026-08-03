@@ -282,10 +282,10 @@ Resolves recommendation #14. Stored `execution_score` values are now stamped wit
 
 - `calculate_scores.py` exposes `SCORE_VERSION = "v1-2026-07"` (the current weights); the breakdown dict returned by `calculate_score` now carries a `version` key (consumed by `update.py`'s `change_log` payload and `--verbose`).
 - `load.py` stamps `db_meta.score_version` on every rebuild (`INSERT OR IGNORE`, warns on mismatch with the current constant). The score-consistency gate remains the real backstop: a weight change without a `--update-csv` re-snapshot fails the rebuild.
-- `verify.py` asserts the `score_version` row exists and matches the constant — 79 checks total (was 77).
+- `verify_invariants.py` asserts the `score_version` row exists and matches the constant (29 structural checks).
 - `db_meta.csv` now carries two rows (`last_exported_at`, `score_version`); round-trips through `load.py` ↔ `export_csv.py`.
 
-Weights are unchanged, so no score moved and no article figure drifted. The procedure for changing a weight (bump version → `--update-csv` → update `verify.py` + article together → reload + verify) is documented in `docs/scoring-methodology.md` § Versioning, alongside a **draft v2 coverage-adjusted event-points variant** (distinct-event-type scoring) that is written up but **not applied** — adopting it is a versioned bump that moves scores and requires the article/`verify.py` cascade.
+Weights are unchanged, so no score moved and no article figure drifted. The procedure for changing a weight (bump version → `--update-csv` → update `db/snapshot.json` via `verify_snapshot.py --update` + article together → reload + verify) is documented in `docs/scoring-methodology.md` § Versioning. (The v2 coverage-adjusted event-points variant described below has since been **adopted** as `v2-2026-07` — see the 2026-08-03 entry.)
 
 ### Huatong source mis-link corrected 2026-07-30
 
@@ -343,15 +343,15 @@ Clamped to [0, 100]
 
 ### Score distribution
 
-Average score: **62.36 over 50 scored projects** (Banco Sol is tracked but `evidence_complete = 0` / unscored; matches the figure cited in the published article).
+Average score: **43.78 over 50 scored projects** (Banco Sol is tracked but `evidence_complete = 0` / unscored; matches the figure cited in the published article). Under v2-2026-07 (distinct-type event points + confidence-weighted evidence bonus + 17 operational-without-progress downgrades).
 
 | Range | Count | % | Interpretation |
 |-------|-------|---|----------------|
-| 0-20 | 10 | 20% | No evidence of execution beyond announcement |
-| 21-40 | 1 | 2% | Initial or partial execution |
-| 41-60 | 7 | 14% | Operational but no traceable timeline in sources consulted |
-| 61-80 | 20 | 40% | Substantive execution with verifiable results |
-| 81-100 | 12 | 24% | Strong execution with documented results |
+| 0-20 | 16 | 32% | No evidence of execution beyond announcement |
+| 21-40 | 12 | 24% | Initial or partial execution |
+| 41-60 | 2 | 4% | Operational but no traceable timeline in sources consulted |
+| 61-80 | 13 | 26% | Substantive execution with verifiable results |
+| 81-100 | 7 | 14% | Strong execution with documented results |
 
 ### Known scoring issues
 
@@ -377,15 +377,15 @@ The article carries its own curated footnote bibliography (`[1]`–`[27]` in `ar
 |---------------|------------|----------|------------------|------------------------------|------------|
 | 630 participations (2022) | Correio Digital + Menos Fios | research file | [1] | — (research-file claim, no single DB row) | medium |
 | 2,348 participations (2026) | VerAngola | research file | [2] | — (research-file claim) | high |
-| Average score 61 (50 scored) | calculated | projects.execution_score | n/a | n/a | formula-derived (DB avg 60.68; Banco Sol unscored) |
+| Average score 44 (50 scored) | calculated | projects.execution_score | n/a | n/a | formula-derived (DB avg 43.78; Banco Sol unscored) |
 | 51 projects tracked (50 scored) | count | projects | n/a | n/a | direct count (evidence_complete) |
-| Distribution table (10/1/7/20/12) | calculated | projects grouped by score | n/a | n/a | formula-derived, 50 scored |
-| Sector table | calculated | projects grouped by sector | n/a | n/a | formula-derived (Energy 70,0; Finance 6 @ 44,0) |
-| Private vs gov (61,1 vs 54,3) | calculated | projects by sector | n/a | n/a | derived from 50 scored obs (government = `Government` sector, 3 projects; private = other 47) |
-| Huatong score 85 | calculated | projects + events + sources | [13,14,15,26,27] | 15, 54, 125, 130, 131 (16 removed 2026-07-30; event 30 grounded via 130; event 105 Apr-2026 first export grounded via 131 — see Huatong April export) | high |
+| Distribution table (16/12/2/13/7) | calculated | projects grouped by score | n/a | n/a | formula-derived, 50 scored |
+| Sector table | calculated | projects grouped by sector | n/a | n/a | formula-derived (Energy 35,0; Finance 6 @ 28,8) |
+| Gov vs private (54,0 vs 43,1) | calculated | projects by sector | n/a | n/a | derived from 50 scored obs (government = `Government` sector, 3 projects; private = other 47) |
+| Huatong score 78 | calculated | projects + events + sources | [13,14,15,26,27] | 15, 54, 125, 130, 131 (16 removed 2026-07-30; event 30 grounded via 130; event 105 Apr-2026 first export grounded via 131 — see Huatong April export) | high |
 | Linha Verde score 3 | calculated | projects + events + sources | [19,20] | 1, 67 | high |
-| Credit line 2.5B score 70 (and successor 3.25B score 53) | calculated | projects + events + sources | [21,22] | 36, 91 (3.25B: 91) | high (timeline now grounded) |
-| Chicomba score 57 | calculated | projects + events + sources | [21,25] | 38, 128, 129 | high |
+| Credit line 2.5B score 69 (and successor 3.25B score 8) | calculated | projects + events + sources | [21,22] | 36, 91 (3.25B: 91) | high (timeline now grounded) |
+| Chicomba score 50 | calculated | projects + events + sources | [21,25] | 38, 128, 129 | high |
 | Participation methodology (direct + indirect) | research file | filda-participation-analysis.md | [24] | — (research file) | high (6 sources) |
 
 **Note on the credit-line score:** the earlier version of this table listed "Credit line score 50 / projects (no events)". That is stale — the credit-line projects now have grounded events (the Portugal.gov.pt FILDA-2024 announcement, source 36; the Jornal de Negócios credit-increase article, source 91), so the 2.5B line scores 70 and the 3.25B successor scores 53.
@@ -410,9 +410,9 @@ The article's four illustrative cases are Huatong, the Portugal–Angola credit 
 
 17. ~~**Single source of truth for `execution_score`**~~ — resolved. `db/load.py` recomputes scores and asserts they match the `projects.csv` snapshot (score-consistency gate); `db/calculate_scores.py --update-csv` refreshes the snapshot. The DB ships only formula-verified scores.
 
-18. ~~**Reconcile the scoring methodology docs to the code**~~ — resolved. `docs/scoring-methodology.md` matches `calculate_scores.py` (evidence-bonus rule, formula terms, reproducible worked examples 83/3/83); the stale formula in `docs/data-model.md` was replaced with a pointer. The documented-but-unimplemented confidence-weighting of evidence is now explicitly flagged as a limitation.
+18. ~~**Reconcile the scoring methodology docs to the code**~~ — resolved. `docs/scoring-methodology.md` matches `calculate_scores.py` (evidence-bonus rule, formula terms, reproducible worked examples 78/3/81 under v2-2026-07); the stale formula in `docs/data-model.md` was replaced with a pointer. The confidence-weighting of evidence is now implemented as of v2-2026-07.
 
-19. ~~**Pin article figures to the DB (regression net)**~~ — resolved. `db/verify.py` runs 51 article↔DB contract checks and exits non-zero on drift. This subsumes the manual reconciliation behind recommendation #11 and the ETU check behind #12.
+19. ~~**Pin article figures to the DB (regression net)**~~ — resolved. `db/verify_snapshot.py` derives every published figure from the DB and compares to committed `db/snapshot.json`, and pins article text to DB figures; exits non-zero on drift. This subsumes the manual reconciliation behind recommendation #11 and the ETU check behind #12.
 
 ### Alignment work (2026-07-25, per InvestmentExecutionDatabase-goal.md)
 
@@ -422,7 +422,7 @@ The article's four illustrative cases are Huatong, the Portugal–Angola credit 
 
 22. ~~**Field-level provenance (starter)**~~ — `project_evidence` table added and backfilled for the 7 case studies (14 rows). The remaining 44 projects are field-evidence-pending; the `source_id` convention is documented and not overclaimed.
 
-23. ~~**"No score without click-through evidence"**~~ — operationalised as a `verify.py` check. Event 80 (Banco Sol) is the single known exception, surfaced every run as a warning (the event appears misattributed, not merely unsourced) pending a decision.
+23. ~~**"No score without click-through evidence"**~~ — operationalised as a `verify_invariants.py` check. Event 80 (Banco Sol) is the single known exception, surfaced every run as a warning (the event appears misattributed, not merely unsourced) pending a decision.
 
 ### To improve data quality
 
@@ -444,6 +444,6 @@ The article's four illustrative cases are Huatong, the Portugal–Angola credit 
 
 13. **Every number in the article should link to a source ID** — currently some derived statistics (distribution table, sector averages) are formula-derived but the underlying project data should still be traceable.
 
-14. ~~**Version the scoring formula**~~ — resolved (2026-07-28). `calculate_scores.SCORE_VERSION` is stamped into `db_meta.score_version` by `load.py` and asserted by `verify.py`; the change procedure is documented in `docs/scoring-methodology.md` § Versioning. See "Formula versioning applied 2026-07-28".
+14. ~~**Version the scoring formula**~~ — resolved (2026-07-28). `calculate_scores.SCORE_VERSION` is stamped into `db_meta.score_version` by `load.py` and asserted by `verify_invariants.py`; the change procedure is documented in `docs/scoring-methodology.md` § Versioning. See "Formula versioning applied 2026-07-28".
 
 15. **Add a "last_verified" date per project** — when was the last time a human checked the project status against current sources?

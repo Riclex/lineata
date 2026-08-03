@@ -73,16 +73,19 @@ re-load.
 ## 4. Verify the published figures still match the DB
 
 ```
-python db/verify.py
+python db/verify_invariants.py   # structural checks (29 checks, data-independent)
+python db/verify_snapshot.py     # published-figure pin + article text pin
 ```
 
-`verify.py` is the article↔DB contract: it pins every figure published in the
-articles (counts, the 60.7 average, the distribution, all 13 sector averages,
-private/gov averages, the seven case-study scores) to concrete DB queries and
-exits non-zero on any drift. It currently runs 81 checks. **Any data edit that
-moves a score must update `verify.py`'s expectations AND the article figures
-together** — that's the cascade. A green `verify.py` means the published
-analysis and the database agree.
+`verify_invariants.py` checks structural invariants that hold for any valid
+dataset (audit-trail integrity, score-version stamp, award/completion guard,
+evidence gating, status-backed-by-progress). `verify_snapshot.py` derives every
+published figure (counts, the average, the distribution, sector averages,
+gov/private averages, case-study scores) from the DB and compares to a
+committed `db/snapshot.json` baseline; it also pins article text to DB figures.
+**Any data edit that moves a score must regenerate the snapshot
+(`verify_snapshot.py --update`) AND the article figures together** — that's the
+cascade. A green run means the published analysis and the database agree.
 
 ## 5. See the score breakdown
 
@@ -92,7 +95,7 @@ python db/calculate_scores.py --verbose
 
 This recomputes every score and prints the per-component breakdown
 (base / events / evidence / delay / status_penalty / only_announce). Find
-Huatong — you should see `base=60 events=+30 evidence=+10 delay=-15 ... = 85`.
+Huatong — you should see `base=60 events=+25 evidence=+8 delay=-15 ... = 78`.
 This is the fastest way to understand *why* a project scores what it does.
 
 ## 6. Query the data (read-only)
@@ -132,14 +135,16 @@ rebuild.* The sequence, after a real `--apply`:
 python db/update.py <cmd> ... --apply   # 1. mutate the live DB (one change_log row)
 python db/export_csv.py --apply         # 2. checkpoint: refresh data/*.csv + stamp watermark
 python db/load.py                       # 3. rebuild from CSV (FK + score gates)
-python db/verify.py                     # 4. article figures still match?
+python db/verify_invariants.py          # 4a. structural invariants still hold?
+python db/verify_snapshot.py            # 4b. article figures still match?
 ```
 
-If `verify.py` fails after a score-moving edit, it's because the published
-figures need updating — that's the cascade, and it's *by design*. Update the
-articles + `verify.py` expectations **together**, then re-run `load.py` +
-`verify.py`. See `docs/data-lineage.md` § "Huatong April export event added
-2026-07-30" for a worked example of the whole cascade.
+If `verify_snapshot.py` fails after a score-moving edit, it's because the
+published figures need updating — that's the cascade, and it's *by design*.
+Update the articles, regenerate the snapshot
+(`python db/verify_snapshot.py --update`), and commit `db/snapshot.json`
+**together**, then re-run `load.py` + the verifiers. See `docs/data-lineage.md`
+for worked examples of the whole cascade.
 
 ## 9. Run the tests
 
@@ -168,8 +173,8 @@ Three read-only scripts watch the codebase for drift. Run them before a publish
 or when something feels off:
 
 ```
-python db/health.py             # full gate: tests → load → verify → URL liveness → doc drift
-python db/health.py --fast       # pre-commit: tests + verify.py only (~0.3s, no rebuild/network)
+python db/health.py             # full gate: tests → load → invariants → snapshot → URL liveness → doc drift
+python db/health.py --fast       # pre-commit: tests + verify_invariants.py only (~0.3s, no rebuild/network)
 python db/verify_docs.py          # docs/*.md + README cited numbers still match the DB?
 python db/changelog.py            # audit digest: checkpoint status, score movers, new sources
 ```
@@ -177,15 +182,15 @@ python db/changelog.py            # audit digest: checkpoint status, score mover
 `health.py` is the one-command gate — it chains the whole integrity chain and
 exits non-zero on the first failure, so it can gate a publish or a git
 pre-commit hook (`--fast`). `verify_docs.py` is what catches a worked example
-that goes stale after a score moves (the Huatong 83→85 case is why it exists).
+that goes stale after a score moves.
 `changelog.py` reads the `change_log` audit trail back to you — the checkpoint
 status, which scores moved, what sources were added, and whether the
 "only Banco Sol is unsourced" invariant still holds.
 
 ## The one-sentence version
 
-> Read the goal → read the scoring methodology → `load.py` → `verify.py` →
-> dry-run an `add-event` → `export_csv --apply` → `load.py` → `verify.py`. Never
+> Read the goal → read the scoring methodology → `load.py` → `verify_invariants.py` →
+> dry-run an `add-event` → `export_csv --apply` → `load.py` → `verify_snapshot.py`. Never
 > fabricate a URL; never edit a CSV by hand; always checkpoint after an append.
 
 ## Golden rules
@@ -198,4 +203,5 @@ status, which scores moved, what sources were added, and whether the
 - **Always checkpoint after an append** (`export_csv.py --apply`) before
   rebuilding, or the staleness guard refuses it.
 - **A score change is a cascade.** Move a scored project's score → update the
-  article figures + `verify.py` expectations together, then re-verify.
+  article figures + regenerate `db/snapshot.json` (`verify_snapshot.py --update`)
+  together, then re-verify.
