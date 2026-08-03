@@ -19,7 +19,7 @@ SQLITE DATABASE (db/investment_tracker.db — loaded via db/load.py)
     ↓
 COMPUTED SCORES (db/calculate_scores.py — formula applied)
     ↓
-ARTICLE CLAIMS (articles/*.md — cited back to sources)
+PUBLISHED CLAIMS (cited back to sources)
 ```
 
 ---
@@ -94,7 +94,7 @@ Three sources carry a named publisher but an empty `url` — the research file a
 
 4. **Currency confusion:** The "EUR 2 billion" FILDA 2023 figure was likely "2 billion Kwanzas" (~$4M USD), not EUR. This was discovered during status tracing and noted in the research files.
 
-5. **Participation count misinterpretation:** Numbers reported as "companies" or "expositores" are actually total participations (direct + indirect). Corrected in article and research files.
+5. **Participation count misinterpretation:** Numbers reported as "companies" or "expositores" are actually total participations (direct + indirect). Corrected in the published article and research files.
 
 6. **2025 figure discrepancies:** The 2,194 figure used in initial research was not found in any source. Actual figures: "mais de 2,200" (RFI), 2,044 (MinCom), "cerca de 1,800" (Economia & Mercado). Corrected in research file.
 
@@ -150,7 +150,7 @@ Reproduce with:
 python db/load.py                 # rebuild + foreign_key_check + score-consistency gate
 python db/calculate_scores.py     # score report (avg 60.68 over 50 scored, 10/1/7/20/12)
 python db/verify_invariants.py    # structural invariants (FK, score_version, change_log orphans; 29 checks)
-python db/verify_snapshot.py       # article↔DB contract: pins published figures to db/snapshot.json + articles/*.md
+python db/verify_snapshot.py       # article↔DB contract: pins published figures to db/snapshot.json + the published articles
 python db/query.py --summary      # read-only JSON access layer (workflow-integration leg)
 ```
 
@@ -188,7 +188,7 @@ python db/_extract/archive_sources.py --apply    # backfill sources.archived_url
 python db/load.py                         # fresh rebuild + integrity gates (now loads created_at + evidence_complete)
 python db/verify_sources.py --apply       # URL liveness → stamps sources.last_verified + url_status
 python db/verify_invariants.py            # structural invariants (FK, score_version, change_log orphans)
-python db/verify_snapshot.py              # article↔DB contract (replaced the old verify.py; pins db/snapshot.json + articles/*.md)
+python db/verify_snapshot.py              # article↔DB contract (replaced the old verify.py; pins db/snapshot.json + the published articles)
 python db/query.py --summary              # read-only JSON access layer
 ```
 
@@ -240,26 +240,13 @@ A targeted web-research pass (`db/_extract/link_null_events.py`) grounded 12 of 
 
 **Event 80 (Banco Sol Cartão Multicaixa Empresas)** stays NULL: the research and a web search surfaced only Banco Sol's year-round product pages, not a FILDA-2025 launch article — so the source is left unpinned rather than fabricated.
 
-**Chicomba groundbreaking date corrected:** the source (Angop) reports the works launched on **Saturday 13 June 2026**, but event 104 had been dated `2026-07-19`. Corrected to `2026-06-13` in `events.csv`, and the PT article body + footnote [25] updated to "13 de junho de 2026" (the EN article has no Chicomba section). The ~5-week shift did not change the score (57) — the delay term is year-based.
+**Chicomba groundbreaking date corrected:** the source (Angop) reports the works launched on **Saturday 13 June 2026**, but event 104 had been dated `2026-07-19`. Corrected to `2026-06-13` in `events.csv`, and the published article updated to "13 de junho de 2026". The ~5-week shift did not change the score (57) — the delay term is year-based.
 
 The grounding does **not** change execution scores (`source_id` is not a formula input); the distribution (avg 61.4, 11/1/7/20/12) is unchanged.
 
 ### Article reconciliation applied 2026-07-25
 
-Both articles were reconciled against the DB after re-linking. Scores were stable throughout this work (re-linking + the Chicomba date change moved no score), so every discrepancy found was pre-existing article staleness, not a regression. Fixes applied:
-
-| Article | Location | Before | After | Reason |
-|---------|----------|--------|-------|--------|
-| PT | Sector table | Infraestrutura 68,3 (misplaced) | 72,3, moved above Tecnologia | DB sector average |
-| PT | Sector table | Agricultura 36,2 | 36,8 | DB sector average |
-| PT | Sector table | Tecnologia 71,3 | 71,3 (kept; round-half-up 71,25→71,3) | confirmed against DB |
-| PT | Private vs gov | "61,5 vs 54,3" | "61,8 vs 54,3" | private = 48 non-`Government` projects, avg 61,8 |
-| PT | Chicomba body + fn [25] | "Em julho de 2026" / "julho 2026" | "Em 13 de junho de 2026" / "Lançamento das obras em 13 de junho de 2026" | Angop source (event 104 date corrected) |
-| EN | ETU case | "Execution score: 85." | "Execution score: 80." | DB computes 80 |
-| EN | Energy sector | "7 projects operational and expanding" | "6 projects operational and 1 under construction" | DB project statuses |
-| EN | Finance sector | "7 projects, all operational but none 'complete.'" | "7 projects, 4 operational and 2 still announced, none 'complete.'" | DB project statuses |
-
-The Article Layer table below reflects these corrections (private/gov 61,8 vs 54,3).
+The published articles (private, not in this repo) were reconciled against the DB after re-linking. Scores were stable throughout this work (re-linking + the Chicomba date change moved no score), so every discrepancy found was pre-existing staleness in the published pieces, not a regression. The published figures and case-study scores were corrected to match the DB.
 
 ### Incremental update layer applied 2026-07-27
 
@@ -318,7 +305,7 @@ The published Substack narrative had long cited Huatong's first 1,000-ton alumin
 
 Unlike the 2026-07-30 mis-link fix (which held the score at 83 because `source_id` is not a formula input), this edit **does** move the score, because a new event type enters the formula: the `expansion` event flips the "awards/recognition (expansion events)" branch of the evidence bonus from 0 to +2 (per the Cabinda convention, `expansion` codes awards / recognition / new operational milestones). Huatong's event-points component was already saturated at the 30 cap (completion 15 + construction 8 + completion 15 + financing 7 = 45 → 30), so the +10 expansion points add nothing there; the +2 evidence bonus is the sole mover. **Score 83 → 85.** Breakdown: base 60 (operational) + events 30 (capped) + evidence 10 (jobs 3 + actual_completion 3 + prod_events 2 + expansion/award 2) − delay 15 (2023-07-22 → 2029) = 85.
 
-A score change on a published case study is a cascade: the article↔DB contract required coordinated updates, done together — the Substack, EN, and PT articles (Huatong case-study score 83 → 85; Substack + PT Manufacturing sector average 84.5 / 84,5 → 85.0 / 85,0; Substack April-export sentence now hyperlinks OPaís with the corrected attribution), the LinkedIn post (83/100 → 85/100), and `verify.py` expectations (case-study 83 → 85; avg 62.36 → 62.4; Manufacturing 84.5 → 85.0; source count 129 → 130; event count 104 → 105; linked 103 → 104). The overall average (62.4), private average (62.9), government average (54.3), and the distribution buckets (10/1/7/20/12) are unchanged — Huatong stays in the 81–100 band and the +2 is too small to move the one-decimal private average. EN and PT gained a new footnote ([24] / [27]) for the OPaís first-export source so the April export claim is traceable to its grounding article, not to the January production-start article it previously cited.
+A score change on a published case study is a cascade: the article↔DB contract required coordinated updates, done together — the published articles and `verify.py` expectations were updated in lockstep (case-study 83 → 85; avg 62.36 → 62.4; Manufacturing 84.5 → 85.0; source count 129 → 130; event count 104 → 105; linked 103 → 104). The overall average (62.4), private average (62.9), government average (54.3), and the distribution buckets (10/1/7/20/12) are unchanged — Huatong stays in the 81–100 band and the +2 is too small to move the one-decimal private average. The April-export claim was also re-grounded to its OPaís source (id 131) rather than the January production-start article it had cited.
 
 ### Award-completion re-type applied 2026-07-31
 
@@ -371,28 +358,28 @@ Average score: **43.78 over 50 scored projects** (Banco Sol is tracked but `evid
 
 ## Article Layer: Claim Traceability
 
-### Claims in the article and their data lineage
+### Claims in the published pieces and their data lineage
 
-The article carries its own curated footnote bibliography (`[1]`–`[27]` in `articles/01-o-que-aconteceu-filda-pt.md`) — those footnote numbers are the article's, separate from the DB `sources.id`. The table below maps each published claim to its article footnote **and** to the DB source IDs that now back it after the 2026-07-25 re-linking, so the article and the structured record are traceable to each other.
+The table below maps each published claim to the DB source IDs that back it after the 2026-07-25 re-linking, so the published pieces and the structured record are traceable to each other. (The published articles are private — not in this repo — so their internal footnote numbering is not shown here.)
 
-| Article Claim | Data Source | DB Table | Article footnote | DB source IDs (post-re-link) | Confidence |
-|---------------|------------|----------|------------------|------------------------------|------------|
-| 630 participations (2022) | Correio Digital + Menos Fios | research file | [1] | — (research-file claim, no single DB row) | medium |
-| 2,348 participations (2026) | VerAngola | research file | [2] | — (research-file claim) | high |
-| Average score 44 (50 scored) | calculated | projects.execution_score | n/a | n/a | formula-derived (DB avg 43.78; Banco Sol unscored) |
-| 51 projects tracked (50 scored) | count | projects | n/a | n/a | direct count (evidence_complete) |
-| Distribution table (16/12/2/13/7) | calculated | projects grouped by score | n/a | n/a | formula-derived, 50 scored |
-| Sector table | calculated | projects grouped by sector | n/a | n/a | formula-derived (Energy 35,0; Finance 6 @ 28,8) |
-| Gov vs private (54,0 vs 43,1) | calculated | projects by sector | n/a | n/a | derived from 50 scored obs (government = `Government` sector, 3 projects; private = other 47) |
-| Huatong score 78 | calculated | projects + events + sources | [13,14,15,26,27] | 15, 54, 125, 130, 131 (16 removed 2026-07-30; event 30 grounded via 130; event 105 Apr-2026 first export grounded via 131 — see Huatong April export) | high |
-| Linha Verde score 3 | calculated | projects + events + sources | [19,20] | 1, 67 | high |
-| Credit line 2.5B score 69 (and successor 3.25B score 8) | calculated | projects + events + sources | [21,22] | 36, 91 (3.25B: 91) | high (timeline now grounded) |
-| Chicomba score 50 | calculated | projects + events + sources | [21,25] | 38, 128, 129 | high |
-| Participation methodology (direct + indirect) | research file | filda-participation-analysis.md | [24] | — (research file) | high (6 sources) |
+| Published claim | Data Source | DB Table | DB source IDs (post-re-link) | Confidence |
+|-----------------|-------------|----------|------------------------------|------------|
+| 630 participations (2022) | Correio Digital + Menos Fios | research file | — (research-file claim, no single DB row) | medium |
+| 2,348 participations (2026) | VerAngola | research file | — (research-file claim) | high |
+| Average score 44 (50 scored) | calculated | projects.execution_score | n/a | formula-derived (DB avg 43.78; Banco Sol unscored) |
+| 51 projects tracked (50 scored) | count | projects | n/a | direct count (evidence_complete) |
+| Distribution table (16/12/2/13/7) | calculated | projects grouped by score | n/a | formula-derived, 50 scored |
+| Sector table | calculated | projects grouped by sector | n/a | formula-derived (Energy 35,0; Finance 6 @ 28,8) |
+| Gov vs private (54,0 vs 43,1) | calculated | projects by sector | n/a | derived from 50 scored obs (government = `Government` sector, 3 projects; private = other 47) |
+| Huatong score 78 | calculated | projects + events + sources | 15, 54, 125, 130, 131 (16 removed 2026-07-30; event 30 grounded via 130; event 105 Apr-2026 first export grounded via 131 — see Huatong April export) | high |
+| Linha Verde score 3 | calculated | projects + events + sources | 1, 67 | high |
+| Credit line 2.5B score 69 (and successor 3.25B score 8) | calculated | projects + events + sources | 36, 91 (3.25B: 91) | high (timeline now grounded) |
+| Chicomba score 50 | calculated | projects + events + sources | 38, 128, 129 | high |
+| Participation methodology (direct + indirect) | research file | filda-participation-analysis.md | — (research file) | high (6 sources) |
 
 **Note on the credit-line score:** the earlier version of this table listed "Credit line score 50 / projects (no events)". That is stale — the credit-line projects now have grounded events (the Portugal.gov.pt FILDA-2024 announcement, source 36; the Jornal de Negócios credit-increase article, source 91), so the 2.5B line scores 70 and the 3.25B successor scores 53.
 
-The article's four illustrative cases are Huatong, the Portugal–Angola credit line, Chicomba, and Linha Verde. (An earlier draft also featured the Investment Portal; it is no longer an article case, though it remains DB-tracked at score 83 backed by DB sources 1 and 70.)
+The four illustrative case studies are Huatong, the Portugal–Angola credit line, Chicomba, and Linha Verde. (The Investment Portal is also DB-tracked at score 83, backed by DB sources 1 and 70.)
 
 ---
 
@@ -430,7 +417,7 @@ The article's four illustrative cases are Huatong, the Portugal–Angola credit 
 
 6. ~~**Pin sources for the 13 NULL events**~~ — 12 of 13 grounded via targeted web research (2026-07-25); only event 80 (Banco Sol) remains NULL. See "NULL-event grounding applied 2026-07-25".
 
-7. ~~**Correct the Chicomba groundbreaking date**~~ — resolved (2026-07-25). Event 104 now dated `2026-06-13` per the Angop source; the PT article body and footnote [25] were updated to "13 de junho de 2026". Score unchanged (57). The EN article has no Chicomba section.
+7. ~~**Correct the Chicomba groundbreaking date**~~ — resolved (2026-07-25). Event 104 now dated `2026-06-13` per the Angop source; the published article was updated to "13 de junho de 2026". Score unchanged (57).
 
 8. **Add the BAI parent organization** — `bai-europa`'s `parent_org_id` was nulled because the `bai` parent is not in the dataset. Add it with a source to restore the subsidiary relationship.
 
@@ -440,9 +427,9 @@ The article's four illustrative cases are Huatong, the Portugal–Angola credit 
 
 ### To improve traceability
 
-11. ~~**Re-cite the article against the new source IDs**~~ — resolved (2026-07-25). The Article Layer table now maps each published claim to its article footnote and the post-re-linking DB source IDs, and stale numeric claims were refreshed (avg 46→61, private/gov 46.5/34.3→61.5/54.3, credit-line "score 50 / no events"→70/53 with grounded events).
+11. ~~**Re-cite the article against the new source IDs**~~ — resolved (2026-07-25). The Article Layer table now maps each published claim to the post-re-linking DB source IDs, and stale numeric claims were refreshed (avg 46→61, private/gov 46.5/34.3→61.5/54.3, credit-line "score 50 / no events"→70/53 with grounded events).
 
-12. ~~**Reconcile the EN article's ETU score**~~ — resolved (2026-07-25). `articles/01-what-happened-filda-en.md` cited ETU Energias at 85/100 but the DB computes 80/100 (a pre-existing mismatch — the score was stable across re-linking). Corrected to 80. See "Article reconciliation applied 2026-07-25".
+12. ~~**Reconcile the published ETU score**~~ — resolved (2026-07-25). The published piece cited ETU Energias at 85/100 but the DB computes 80/100 (a pre-existing mismatch — the score was stable across re-linking). Corrected to 80. See "Article reconciliation applied 2026-07-25".
 
 13. **Every number in the article should link to a source ID** — currently some derived statistics (distribution table, sector averages) are formula-derived but the underlying project data should still be traceable.
 
