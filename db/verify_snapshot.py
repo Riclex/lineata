@@ -10,7 +10,7 @@ INTENDED change is made by regenerating with --update and committing.
 
 It also pins the published article text: derives the figures from the DB and
 asserts articles/*.md contain the matching numbers — a genuine article<->DB
-pin (today's verify.py only checked DB == hardcoded expected).
+pin (the old db/verify.py only checked DB == hardcoded expected).
 
 Usage:
     python db/verify_snapshot.py          # compare DB to db/snapshot.json
@@ -158,6 +158,10 @@ def _article_files():
             p = os.path.join(root, sub, "01-what-happened-filda.md")
             if os.path.exists(p):
                 out.append(p)
+        # LinkedIn PT-EU post (condensed adapter)
+        p = os.path.join(root, "LinkedIn", "01-o-que-aconteceu-filda.md")
+        if os.path.exists(p):
+            out.append(p)
     return out
 
 
