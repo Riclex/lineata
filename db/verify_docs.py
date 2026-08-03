@@ -100,16 +100,14 @@ def main():
         ok = (expected == actual) if ok is None else ok
         checks.append((label, ok, expected, actual, location))
 
-    # --- verify.py check count cited in README + _extract/README ---
+    # --- verify_invariants.py check count cited in README + _extract/README ---
     readme = read(README)
-    chk("README 'verify.py (NN checks)'", vchk,
-        first_int(readme, r"verify\.py[^\n]*\((\d+) checks"), "README.md")
-    chk("README directory-tree 'contract verifier (NN checks)'", vchk,
-        first_int(readme, r"contract verifier \((\d+) checks"), "README.md")
+    chk("README 'verify_invariants.py (NN checks)'", vchk,
+        first_int(readme, r"verify_invariants\.py[^\n]*\((\d+) checks"), "README.md")
     if os.path.exists(EXTRACT_README):
         er = read(EXTRACT_README)
-        chk("_extract/README 'NN article↔DB contract checks'", vchk,
-            first_int(er, r"# (\d+) article"), "db/_extract/README.md")
+        chk("_extract/README 'NN structural invariant checks'", vchk,
+            first_int(er, r"# (\d+) structural"), "db/_extract/README.md")
 
     # --- data-lineage.md cited counts ---
     lineage = read(LINEAGE)

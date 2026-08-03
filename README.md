@@ -64,9 +64,14 @@ The discipline: **always `export_csv.py --apply` after `update.py --apply`** bef
 
 ## Monitoring
 
-- **`python db/health.py`** — one-command gate: unit tests → round-trip rebuild → article↔DB contract → source URL liveness → doc-figure drift. Exits non-zero on the first failure, so it can gate a publish. `--fast` (tests + verify.py only) is for the pre-commit hook; `--no-network` skips URL liveness.
-- **`python db/verify_docs.py`** — scans `docs/*.md` + `README.md` for cited numbers (source/event counts, linked/NULL, avg score, verify.py check count, scoring-methodology worked examples) and flags any that drift from the DB.
+- **`python db/health.py`** — one-command gate: unit tests → round-trip rebuild → structural invariants → snapshot + article pin → source URL liveness → doc-figure drift. Exits non-zero on the first failure, so it can gate a publish. `--fast` (tests + verify_invariants.py only) is for the pre-commit hook; `--no-network` skips URL liveness.
+- **`python db/verify_invariants.py`** — structural checks that hold for any valid dataset (29 checks): audit-trail integrity, score-version stamp, award/completion guard, evidence gating, status-backed-by-progress. Exit non-zero on failure.
+- **`python db/verify_snapshot.py`** — derives every published figure from the DB and compares to committed `db/snapshot.json`; `--update` regenerates the baseline. Also pins article text to DB figures.
+- **`python db/verify_docs.py`** — scans `docs/*.md` + `README.md` for cited numbers (source/event counts, linked/NULL, avg score, verify_invariants.py check count, scoring-methodology worked examples) and flags any that drift from the DB.
 - **`python db/changelog.py`** — read-only digest of the `change_log` audit trail: checkpoint status, mutation breakdown, score movers, new sources, and the "only Banco Sol is unsourced" invariant. `--since YYYY-MM-DD` / `--movers` filter.
+- **`python db/digest.py`** — monthly status-change digest (markdown, email-ready). Reads the `change_log` audit trail for the last N days, groups by project. `--days N` / `--since YYYY-MM-DD` / `--out path`.
+- **`python scripts/install_hooks.py`** — installs the `.git/hooks/pre-commit` hook (runs `health.py --fast`). Run once.
+- **`docs/maintenance.md`** — the maintenance cadence: every commit, before publish, after update sessions, source URL liveness, data changes, monthly digest.
 
 ## Phased Rollout
 
@@ -94,6 +99,7 @@ FILDA Investment Tracker/
 │   ├── data-model.md          # Full data model specification (column dictionary)
 │   ├── scoring-methodology.md # Execution-score formula, weights, worked examples, versioning
 │   ├── data-lineage.md        # Provenance narrative: where every source/link/fix came from
+│   ├── maintenance.md         # Maintenance cadence (every commit, before publish, after updates, monthly)
 │   └── project-roadmap.md     # Detailed product roadmap
 ├── db/
 │   ├── schema.sql             # SQLite database schema
@@ -101,16 +107,21 @@ FILDA Investment Tracker/
 │   ├── calculate_scores.py    # Execution-score calculator (--update-csv syncs projects.csv)
 │   ├── update.py              # Incremental append-only mutator (add-event/source/evidence, set-status, relink, reverify)
 │   ├── export_csv.py          # DB → CSV checkpointer (stamps db_meta watermark; recomputes scores)
-│   ├── verify.py              # Article↔DB contract verifier (82 checks; exit non-zero on drift)
+│   ├── verify_invariants.py   # Structural invariant verifier (29 checks; exit non-zero on failure)
+│   ├── verify_snapshot.py     # Snapshot drift verifier + article pin (--update regenerates db/snapshot.json)
+│   ├── snapshot.json           # Committed baseline of all published figures (auto-generated)
 │   ├── verify_sources.py      # Source URL liveness checker (--apply stamps last_verified + url_status)
 │   ├── verify_docs.py         # Doc-figure drift detector (scans docs/*.md + README for stale cited numbers)
-│   ├── health.py              # One-command consistency gate (tests → load → verify → verify_sources → verify_docs); --fast for pre-commit
+│   ├── health.py              # One-command consistency gate (tests → load → invariants → snapshot → sources → docs); --fast for pre-commit
 │   ├── changelog.py            # Read-only change_log audit digest (checkpoint status, score movers, new sources, invariants)
+│   ├── digest.py              # Monthly status-change digest (markdown, email-ready)
 │   ├── query.py               # Read-only JSON query API (filters: sector/province/org/edition/status/score)
 │   ├── investment_tracker.db  # The database (rebuilt from CSVs)
 │   └── _extract/              # Source-extraction provenance (2026-07-25 re-linking)
 ├── tests/
-│   └── test_calculate_score.py  # Formula unit tests (in-memory DB; run: python -m unittest discover tests)
+│   ├── test_calculate_score.py  # Formula unit tests (in-memory DB; run: python -m unittest discover tests)
+│   ├── test_update.py           # update.py integration tests (hermetic, temp DB)
+│   └── test_verify_snapshot.py  # Snapshot generate/compare round-trip tests
 ├── data/
 │   ├── projects.csv           # Project records (Phase 0: FILDA 2023)
 │   ├── organizations.csv      # Organization records
@@ -119,7 +130,10 @@ FILDA Investment Tracker/
 │   ├── project_evidence.csv   # Field-level provenance (project field → source)
 │   ├── change_log.csv         # Append-only audit trail of every update.py mutation (+ load-seed/export-csv markers)
 │   └── db_meta.csv            # Checkpoint watermark (last_exported_at) + score_version
-├── articles/                  # Published analyses (Substack / EN / PT / LinkedIn) — pinned to DB figures by verify.py
+├── articles/                  # Published analyses (Substack / EN / PT / LinkedIn) — pinned to DB figures by verify_snapshot.py
+├── scripts/
+│   └── install_hooks.py       # Cross-platform pre-commit hook installer
+├── digest/                    # Monthly status-change digest output
 ├── landing-page/
 │   └── index.html             # Demand validation landing page
 └── research/
