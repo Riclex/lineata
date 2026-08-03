@@ -41,14 +41,8 @@ CASE_STUDIES = [
 
 
 def _distribution(scores):
-    dist = {"0-20": 0, "21-40": 0, "41-60": 0, "61-80": 0, "81-100": 0}
-    for s in scores:
-        if s <= 20: dist["0-20"] += 1
-        elif s <= 40: dist["21-40"] += 1
-        elif s <= 60: dist["41-60"] += 1
-        elif s <= 80: dist["61-80"] += 1
-        else: dist["81-100"] += 1
-    return dist
+    from constants import score_distribution
+    return score_distribution(scores)
 
 
 def generate_snapshot(conn):

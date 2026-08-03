@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Shared operation vocabulary for the FILDA Investment Execution Database pipeline.
+Shared vocabulary and utilities for the FILDA Investment Execution Database pipeline.
 
 Single source of truth for the change_log operation vocabulary so the
-staleness guard (db/load.py), the article<->DB contract (db/verify.py), and the
-audit digest (db/changelog.py) can never drift out of sync again.
+staleness guard (db/load.py), the invariant checker (db/verify_invariants.py),
+and the audit digest (db/changelog.py) can never drift out of sync again.
 
 Background: the staleness guard in load.py originally enumerated the mutation
 operations by name and omitted the `relink-event` / `relink-evidence` ops that
@@ -20,7 +20,7 @@ the same tuple.
                  changelog.py's uncheckpointed-mutation count.
   ALLOWED_OPS  : every operation that may legally appear in change_log -- the
                  mutation set plus the load-seed / export-csv checkpoint markers
-                 written by load.py / export_csv.py. Used by verify.py's
+                 written by load.py / export_csv.py. Used by verify_invariants.py's
                  "change_log operations all in allowed set" check.
 
 Keep MUTATION_OPS in sync with COMMANDS in db/update.py (every command that
@@ -45,8 +45,8 @@ ALLOWED_OPS = MUTATION_OPS + ("export-csv", "load-seed")
 
 
 # Event descriptions that indicate a recognition/award, not a real project
-# completion. Used by db/verify.py Check A to forbid award events typed as
-# `completion` (which would inflate the score +15 and the completion-rate view).
+# completion. Used by db/verify_invariants.py Check A to forbid award events typed
+# as `completion` (which would inflate the score +15 and the completion-rate view).
 # Validated against the 2026-07-31 dataset: catches all 18 award-completion
 # events, 0 false positives on the 11 genuine completion events
 # (conferences/delegations/launches). If a future completion description is
@@ -56,6 +56,34 @@ AWARD_INDICATORS = (
     "aipex", "leao de ouro", "leão de ouro", "grand prize",
     "grand premio", "grand prémio", "bci challenge", "best participation",
 )
+
+# Score distribution bucket boundaries. Single-sourced here so the score
+# report (db/calculate_scores.py), the query summary (db/query.py), and the
+# snapshot verifier (db/verify_snapshot.py) can never drift out of sync.
+# Keys are the published bucket labels; values are the inclusive upper bound.
+SCORE_BUCKETS = (
+    ("0-20", 20),
+    ("21-40", 40),
+    ("41-60", 60),
+    ("61-80", 80),
+    ("81-100", 100),
+)
+
+
+def score_distribution(scores):
+    """Bucket a list of scores into the published distribution.
+
+    Returns an ordered dict {bucket_label: count} matching SCORE_BUCKETS order.
+    Used by the score report, the query summary, and the snapshot verifier so
+    all three derive the distribution from one definition.
+    """
+    dist = {label: 0 for label, _ in SCORE_BUCKETS}
+    for s in scores:
+        for label, upper in SCORE_BUCKETS:
+            if s <= upper:
+                dist[label] += 1
+                break
+    return dist
 
 
 def looks_like_award(text):

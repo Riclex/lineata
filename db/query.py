@@ -132,13 +132,9 @@ def summary(conn, args):
                 "by_status": {}}
     avg = conn.execute(
         f"SELECT ROUND(AVG(execution_score), 2) {base}", params).fetchone()[0]
-    dist = {"0-20": 0, "21-40": 0, "41-60": 0, "61-80": 0, "81-100": 0}
-    for s, in conn.execute(f"SELECT execution_score {base}", params):
-        if s <= 20: dist["0-20"] += 1
-        elif s <= 40: dist["21-40"] += 1
-        elif s <= 60: dist["41-60"] += 1
-        elif s <= 80: dist["61-80"] += 1
-        else: dist["81-100"] += 1
+    from constants import score_distribution
+    dist = score_distribution(
+        s for (s,) in conn.execute(f"SELECT execution_score {base}", params))
     by_status = {r[0]: r[1] for r in conn.execute(
         f"SELECT status, COUNT(*) {base} GROUP BY status ORDER BY 2 DESC", params)}
     return {"count": n, "average_score": avg, "distribution": dist,

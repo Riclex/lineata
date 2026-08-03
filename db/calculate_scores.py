@@ -376,13 +376,8 @@ def main():
     print(f"Score range: {min(s[2] for s in scored)} - {max(s[2] for s in scored)}")
 
     # Distribution
-    buckets = {'0-20': 0, '21-40': 0, '41-60': 0, '61-80': 0, '81-100': 0}
-    for s in scored:
-        if s[2] <= 20: buckets['0-20'] += 1
-        elif s[2] <= 40: buckets['21-40'] += 1
-        elif s[2] <= 60: buckets['41-60'] += 1
-        elif s[2] <= 80: buckets['61-80'] += 1
-        else: buckets['81-100'] += 1
+    from constants import score_distribution
+    buckets = score_distribution(s[2] for s in scored)
 
     print(f"\nDistribution:")
     for bucket, count in buckets.items():
