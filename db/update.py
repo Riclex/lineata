@@ -46,7 +46,13 @@ from calculate_scores import calculate_score  # db/calculate_scores.py:181 — s
 from audit import log_change                 # db/audit.py — shared change_log writer
 
 BASE_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_path = os.path.join(BASE_dir, "db", "investment_tracker.db")
+DEFAULT_DB_path = os.path.join(BASE_dir, "db", "investment_tracker.db")
+
+
+def db_path():
+    """The DB path, overridable via FILDA_DB_PATH for tests. Production callers
+    leave the env var unset and get the default on-disk database."""
+    return os.environ.get("FILDA_DB_PATH", DEFAULT_DB_path)
 
 # CHECK-list values mirrored from db/schema.sql so we validate before INSERT.
 EVENT_TYPES = {
@@ -128,7 +134,7 @@ def valid_url(url):
 # ------------------------------------------------------------------
 def connect():
     """Open a connection in manual-transaction mode with FKs on."""
-    conn = sqlite3.connect(DB_path, isolation_level=None)
+    conn = sqlite3.connect(db_path(), isolation_level=None)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
@@ -208,8 +214,10 @@ def cmd_add_source(flags, apply):
         sys.exit(f"[ERR] --confidence must be one of {sorted(CONFIDENCE_LEVELS)}")
 
     # Idempotency pre-check: a duplicate URL is a no-op, NOT a mutation.
-    existing = sqlite3.connect(DB_path).execute(
+    pre_conn = sqlite3.connect(db_path())
+    existing = pre_conn.execute(
         "SELECT id FROM sources WHERE url=?", (url,)).fetchone()
+    pre_conn.close()
     if existing is not None:
         print(f"existing source id={existing[0]} for {url} (no-op)")
         return
@@ -658,8 +666,8 @@ COMMANDS = {
 
 
 def main():
-    if not os.path.exists(DB_path):
-        sys.exit(f"Database not found at {DB_path}. Run `python db/load.py` first.")
+    if not os.path.exists(db_path()):
+        sys.exit(f"Database not found at {db_path()}. Run `python db/load.py` first.")
     if len(sys.argv) < 2 or sys.argv[1] not in COMMANDS:
         sys.exit(f"usage: python db/update.py <{'|'.join(COMMANDS)}> ... [--apply]\n"
                  f"  commands: {', '.join(COMMANDS)}")
