@@ -31,7 +31,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from constants import MUTATION_OPS  # op vocab (single source of truth -- matches load.py/verify.py)
+from constants import MUTATION_OPS  # op vocab (single source of truth -- matches load.py/verify_invariants.py)
 
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                        "investment_tracker.db")

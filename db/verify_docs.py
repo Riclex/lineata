@@ -122,7 +122,7 @@ def main():
     lin_avg = first_float(lineage, r"avg (\d+\.\d+) over the 50 scored")
     # Allow the lineage avg to be one- or two-decimal; compare with tolerance.
     if lin_avg is not None:
-        chk("data-lineage verify.py desc 'avg N.NN over the 50 scored'",
+        chk("data-lineage desc 'avg N.NN over the 50 scored'",
             True, True, "docs/data-lineage.md",
             ok=abs(lin_avg - avg_rounded) <= 0.05)
 

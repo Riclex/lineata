@@ -19,8 +19,8 @@ def log_change(conn, operation, target_table, target_id, payload, source_url, no
     """Append one change_log row inside the caller's open transaction.
 
     target_id is coerced to TEXT so a single column matches both TEXT and
-    INTEGER primary keys (see verify.py's orphan-target checks, which cast the
-    target column to TEXT for comparison).
+    INTEGER primary keys (see verify_invariants.py's orphan-target checks,
+    which cast the target column to TEXT for comparison).
     """
     conn.execute(
         "INSERT INTO change_log (operation, target_table, target_id, payload_json, "

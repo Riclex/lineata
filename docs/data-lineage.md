@@ -149,7 +149,8 @@ Reproduce with:
 ```
 python db/load.py                 # rebuild + foreign_key_check + score-consistency gate
 python db/calculate_scores.py     # score report (avg 60.68 over 50 scored, 10/1/7/20/12)
-python db/verify.py               # 81 article↔DB contract checks (69 at this pass → 77 after 2026-07-27 → 81 after 2026-07-30; + known-open-issue warnings)
+python db/verify_invariants.py    # structural invariants (FK, score_version, change_log orphans; 29 checks)
+python db/verify_snapshot.py       # article↔DB contract: pins published figures to db/snapshot.json + articles/*.md
 python db/query.py --summary      # read-only JSON access layer (workflow-integration leg)
 ```
 
@@ -186,7 +187,8 @@ python db/_extract/expand_evidence.py --apply   # field-level evidence for the n
 python db/_extract/archive_sources.py --apply    # backfill sources.archived_url from the Wayback API
 python db/load.py                         # fresh rebuild + integrity gates (now loads created_at + evidence_complete)
 python db/verify_sources.py --apply       # URL liveness → stamps sources.last_verified + url_status
-python db/verify.py                       # 81 article↔DB contract checks now (69 at this pass → 77 after 2026-07-27 → 81 after 2026-07-30; + known-open-issue warnings)
+python db/verify_invariants.py            # structural invariants (FK, score_version, change_log orphans)
+python db/verify_snapshot.py              # article↔DB contract (replaced the old verify.py; pins db/snapshot.json + articles/*.md)
 python db/query.py --summary              # read-only JSON access layer
 ```
 

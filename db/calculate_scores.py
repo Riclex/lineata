@@ -26,7 +26,7 @@ from datetime import datetime
 # snapshot of a specific version; without this stamp, historical scores
 # become unreproducible after a weight change (see limitation #14 in the
 # methodology doc). load.py stamps this into db_meta.score_version on every
-# rebuild, and verify.py asserts the DB row matches this constant.
+# rebuild, and verify_invariants.py asserts the DB row matches this constant.
 SCORE_VERSION = "v2-2026-07"
 
 BASE_SCORES = {

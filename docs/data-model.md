@@ -126,7 +126,7 @@ Key/value metadata table. Holds two rows: `last_exported_at` (the checkpoint
 watermark) and `score_version` (the formula-version stamp, see
 `docs/scoring-methodology.md` § Versioning). `db/export_csv.py` stamps
 `last_exported_at`; `db/load.py` stamps `score_version` on every rebuild;
-`db/verify.py` asserts the `score_version` row matches
+`db/verify_invariants.py` asserts the `score_version` row matches
 `calculate_scores.SCORE_VERSION`. `load.py`'s staleness guard refuses a rebuild
 if `change_log` has mutation rows newer than `last_exported_at` (would silently
 lose uncheckpointed DB edits) unless `--force` is passed.
