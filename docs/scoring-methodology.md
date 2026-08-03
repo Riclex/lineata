@@ -36,7 +36,7 @@ examples below are generated from that script and reproduce exactly.
 
 ### 2. Event Points (from events table)
 
-Each event recorded in the project's timeline contributes points. Multiple events = stronger evidence of progress.
+Each event recorded in the project's timeline contributes points. **v2 (adopted 2026-07-31): event points sum by distinct event type, not raw count** — see § Versioning. Duplicate coverage of the same milestone no longer stacks; rich, diverse timelines are still rewarded.
 
 | Event Type | Points |
 |-----------|--------|
@@ -67,12 +67,11 @@ signals present in the project record and its events:
 | At least one `completion`, `construction`, or `groundbreaking` event | +2 |
 | At least one `expansion` event (proxy for awards / capacity growth) | +2 |
 
-**Note on source confidence:** an earlier version of this section stated that
-evidence points were weighted by `sources.confidence` (high = full, medium =
-half, low = 0). That gating is **not implemented** in `calculate_scores.py` —
-the evidence bonus currently ignores confidence. Treating evidence from a
-low-confidence source the same as a high-confidence one is a known limitation;
-see § Limitations.
+**Note on source confidence (v2, adopted 2026-07-31):** evidence signals are
+**scaled by the backing source's confidence** (high = 1.0, medium = 0.5,
+low/NULL = 0.0). Jobs and actual_completion use the `project_evidence` source
+confidence; production and expansion use the max confidence among the
+category's event sources. Rounded half-up to an int. See § Versioning.
 
 ### 4. Delay Penalty
 
@@ -110,11 +109,11 @@ reproduce exactly.
 
 ### Huatong Angola Industry (`huatong-angola-industry-awards`)
 - Base (operational): 60
-- Events: +30 (capped — multiple timeline events)
-- Evidence: +10 (jobs +3, actual_completion +3, a production event +2, and an `expansion` event — the Apr-2026 first 1,000-ton export — +2)
+- Events: +25 (v2 distinct types: construction +8, expansion +10, financing +7 = 25)
+- Evidence: +8 (jobs +2, actual_completion +2, production +2, expansion +2 — confidence-weighted)
 - Delay: -15 (3+ years, 2023→2026)
 - Status penalty: 0 · Only-announcement: 0
-- **Score: 60 + 30 + 10 - 15 = 85**
+- **Score: 60 + 25 + 8 - 15 = 78**
 
 ### Linha Verde (`linha-verde-investor-visas`)
 - Base (delayed): 10
@@ -127,10 +126,10 @@ reproduce exactly.
 ### Investment Attraction Portal (`investment-portal-georeferenced`)
 - Base (operational): 60
 - Events: +18
-- Evidence: +5
+- Evidence: +3 (actual_completion +2, production +1 — confidence-weighted)
 - Delay: 0
 - Status penalty: 0 · Only-announcement: 0
-- **Score: 60 + 18 + 5 - 0 = 83**
+- **Score: 60 + 18 + 3 - 0 = 81**
 
 ## Scoring Script
 
@@ -151,7 +150,7 @@ with the formula. Two controls enforce this:
 
 1. The formula rewards having more events recorded. Projects with better press coverage may score higher. This is a known bias.
 2. The "announced_value" field is not used in scoring. A $1B announcement and a $1M announcement are scored the same. This is intentional — the score measures execution, not scale.
-3. Evidence bonus is inferred from structural signals (`estimated_jobs` > 0, a recorded `actual_completion`, and the presence of completion/construction/groundbreaking or expansion events) rather than from explicit evidence tags. It does **not** weight by `sources.confidence` despite that being a documented intent — see § Evidence Bonus. Explicit evidence tagging (jobs_verified, exports_documented, etc.) would make this more rigorous.
+3. Evidence bonus is inferred from structural signals (`estimated_jobs` > 0, a recorded `actual_completion`, and the presence of completion/construction/groundbreaking or expansion events) rather than from explicit evidence tags. As of v2-2026-07 it **does** weight by `sources.confidence` (high = full, medium = half, low/NULL = 0). Explicit evidence tagging (jobs_verified, exports_documented, etc.) would make this more rigorous.
 4. The methodology will evolve. As we collect more data (especially post-2023 backfill), we may adjust weights. Stored scores now carry a **formula version stamp** (`SCORE_VERSION` in `calculate_scores.py`, persisted in `db_meta.score_version`) — see § Versioning below. When weights change, bump the version and re-snapshot so old scores stay reproducible.
 
 5. **Recency / survivorship bias in the edition averages.** The mean score rises steadily by edition (2022: 51.4 → 2026: 80.0). Some of that is real — recent announcements still have active press coverage and operating status. But part is mechanical, and it is the same structural bias as limitation #1: older projects have had more time to stall *and* to lose their press trail, so they record fewer dated events and earn fewer event points. A project that executed well in 2022 but attracted no follow-up reporting will score lower than an otherwise-identical 2026 project simply because more of its timeline is recoverable today. Read the edition trend as a signal contaminated by research coverage, not as a clean measure of improving execution. The edition lens just makes the coverage bias visible; it does not create a new one.
@@ -160,16 +159,22 @@ with the formula. Two controls enforce this:
 
 Every stored `execution_score` is a snapshot produced by a specific set of weights. To keep historical scores reproducible after a weight change:
 
-- `calculate_scores.py` exposes a `SCORE_VERSION` string (currently `v1-2026-07`) naming the weights defined above.
+- `calculate_scores.py` exposes a `SCORE_VERSION` string (currently `v2-2026-07`) naming the weights defined above.
 - `db/load.py` stamps it into `db_meta.score_version` on every rebuild (`INSERT OR IGNORE`, then warns if the loaded row disagrees with the current constant — a stale-snapshot signal).
-- `db/verify.py` asserts the DB's `score_version` row exists and matches `calculate_scores.SCORE_VERSION`.
+- `db/verify_invariants.py` asserts the DB's `score_version` row exists and matches `calculate_scores.SCORE_VERSION`.
 - The score-consistency gate in `load.py` is the real backstop: changing a weight without refreshing the `projects.csv` snapshot fails the rebuild, because the recomputed scores no longer match the stored ones.
 
-**To change a weight:** (1) bump `SCORE_VERSION` and record the change here; (2) run `python db/calculate_scores.py --update-csv` to re-snapshot; (3) update `verify.py` expectations and the published article figures **together** (a weight change moves scores → counts/averages/distribution drift by design); (4) `python db/load.py && python db/verify.py` to confirm. Do not change weights and articles in separate unverified steps.
+**To change a weight:** (1) bump `SCORE_VERSION` and record the change here; (2) run `python db/calculate_scores.py --update-csv` to re-snapshot; (3) update `db/snapshot.json` via `python db/verify_snapshot.py --update` and the published article figures **together** (a weight change moves scores → counts/averages/distribution drift by design); (4) `python db/load.py && python db/verify_invariants.py && python db/verify_snapshot.py` to confirm. Do not change weights and articles in separate unverified steps.
 
-## Proposed v2 — coverage-adjusted event points (draft, NOT applied)
+### 2026-07-31 — v2-2026-07
 
-This is a proposal to address limitation #1 (coverage bias) directly. It is **not applied** — adopting it is a versioned formula bump that moves scores and therefore requires the article + `verify.py` cascade above. It is written up here so the decision and its trade-offs are on the record.
+1. **Event points score distinct types, not raw count.** Duplicate coverage of the same milestone no longer stacks. A project with three `announcement` events earns +3 (not +9). Rich, diverse timelines are still rewarded; repetitive coverage is not. See § Event Points.
+2. **Evidence bonus weighted by source confidence.** Each signal is scaled by its backing source's confidence (high = 1.0, medium = 0.5, low/NULL = 0.0). Jobs/actual_completion use the `project_evidence` source; production/expansion use the max confidence among the category's event sources. Rounded half-up. See § Evidence Bonus.
+3. **17 operational-without-progress projects downgraded to `announced`.** Projects with status `operational` but no progress event (completion/construction/groundbreaking/financing) were downgraded via `update.py set-status`, each with its own announcement source URL. 12 award-only + 5 announce-only projects moved from operational → announced, pulling the headline average from 61 → 44 and shifting the distribution from 10/1/7/20/12 → 16/12/2/13/7. The 5 "mixed" operational projects (award/expansion events that are not purely award-like) remain operational.
+
+## v2 — coverage-adjusted event points (adopted 2026-07-31)
+
+This change was adopted as part of `SCORE_VERSION = v2-2026-07`. It addresses limitation #1 (coverage bias) directly. The original proposal is preserved below for the record.
 
 **Problem.** Event points are additive: `sum(EVENT_POINTS[e] for e in events)`, capped at 30. A project covered by six press mentions earns more than an identical project covered by two, regardless of execution. More sourcing sharpens this rather than fixing it — scores become more dependent on research effort, not less.
 
