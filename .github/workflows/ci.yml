@@ -1,0 +1,58 @@
+# CI for the Angola Investment Execution Database.
+# Runs the fast consistency gate on every push/PR, and the full health gate
+# (including round-trip rebuild + snapshot) on the default branch.
+# A weekly scheduled job re-checks source URL liveness so link rot is caught
+# even when no one is actively committing.
+
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    # Weekly URL-liveness re-check (Mondays ~09:00 UTC).
+    - cron: '7 9 * * 1'
+
+jobs:
+  fast-gate:
+    name: Fast gate (tests + invariants)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Fast consistency gate
+        run: python db/health.py --fast
+
+  full-gate:
+    name: Full gate (rebuild + snapshot + docs)
+    runs-on: ubuntu-latest
+    # Only run the full gate (which needs the DB built) on the default branch.
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Build DB from CSV checkpoints
+        run: python db/load.py
+      - name: Full health gate (no network)
+        run: python db/health.py --no-network
+
+  url-liveness:
+    name: Source URL liveness (scheduled)
+    runs-on: ubuntu-latest
+    # Only the weekly scheduled run does a live URL sweep; PRs skip the network.
+    if: github.event_name == 'schedule'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Build DB
+        run: python db/load.py
+      - name: Re-check source URL liveness
+        run: python db/verify_sources.py --limit 50
