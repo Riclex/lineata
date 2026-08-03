@@ -30,6 +30,9 @@ import os
 import sqlite3
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from calculate_scores import calculate_score  # for project_detail score breakdown
+
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                        "investment_tracker.db")
 
@@ -180,8 +183,6 @@ def project_detail(conn, pid):
             "WHERE pe.project_id = ? ORDER BY pe.id", (pid,))
     ]
     # Score breakdown
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    from calculate_scores import calculate_score
     prow = conn.execute("SELECT * FROM projects WHERE id = ?", (pid,)).fetchone()
     if prow:
         sc, breakdown = calculate_score(conn, prow)
