@@ -10,7 +10,9 @@ INTENDED change is made by regenerating with --update and committing.
 
 It also pins the published article text: derives the figures from the DB and
 asserts articles/*.md contain the matching numbers — a genuine article<->DB
-pin (the old db/verify.py only checked DB == hardcoded expected).
+pin (the old db/verify.py only checked DB == hardcoded expected). The articles
+are private (paid Substack content, not in this repo); the pin runs locally
+where articles/ exists and no-ops in a fresh clone.
 
 Usage:
     python db/verify_snapshot.py          # compare DB to db/snapshot.json

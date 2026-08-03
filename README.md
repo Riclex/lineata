@@ -128,7 +128,6 @@ FILDA Investment Tracker/
 │   ├── project_evidence.csv   # Field-level provenance (project field → source)
 │   ├── change_log.csv         # Append-only audit trail of every update.py mutation (+ load-seed/export-csv markers)
 │   └── db_meta.csv            # Checkpoint watermark (last_exported_at) + score_version
-├── articles/                  # Published analyses (Substack / EN / PT / LinkedIn) — pinned to DB figures by verify_snapshot.py
 ├── scripts/
 │   └── install_hooks.py       # Cross-platform pre-commit hook installer
 ├── digest/                    # Monthly status-change digest output

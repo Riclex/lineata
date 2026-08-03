@@ -50,7 +50,7 @@ After an intended data/formula change, regenerate the snapshot baseline and
 commit it together with any updated articles:
 
     python db/verify_snapshot.py --update
-    git add db/snapshot.json articles/ docs/scoring-methodology.md
+    git add db/snapshot.json docs/scoring-methodology.md
     git commit -m "data: <change>"
 
 `verify_snapshot.py` (without `--update`) catches *unintended* drift against the
