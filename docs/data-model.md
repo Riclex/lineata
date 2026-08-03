@@ -29,8 +29,11 @@ The database tracks announced investment projects in Angola and their execution 
 | filda_edition | TEXT | FILDA edition the project was announced at (e.g. "2023") |
 | last_verified | TEXT | YYYY-MM-DD a human last checked this project's status against sources |
 | evidence_complete | INTEGER | 1 = scored (default); 0 = tracked but NOT scored (no click-through evidence — see `docs/data-lineage.md` "Event 80 (Banco Sol)"). Scored 0 and excluded from published aggregates. |
+| is_externally_blocked | INTEGER | Label only (default 0): 1 = stalled by an external force (judicial / regulatory / disbursement), not underperformance. **Not** a `calculate_score` input — the score is unchanged. Set via `db/update.py set-blocked --project ID --source-url URL --to 1`. |
 | created_at | TEXT | Record creation timestamp |
 | updated_at | TEXT | Last update timestamp (advanced by `trg_projects_updated` on real edits; see `db/update.py`) |
+
+**Derived (not stored):** `execution_band` — a coarse public-facing label (`UNCONFIRMED` / `STALLED` / `DELIVERED` / `IN_PROGRESS` / `SILENT`) computed in `db/query.py` from `status` + `execution_score` + `evidence_complete` via `db/constants.py:execution_band()`. The 0–100 `execution_score` remains the analytical detail; the band is the primary published category. See `docs/scoring-methodology.md` § Execution Band.
 
 ### organizations
 

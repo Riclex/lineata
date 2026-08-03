@@ -339,6 +339,24 @@
     .status-cancelled { background: var(--red-dim); color: var(--red); }
     .status-unknown { background: var(--surface2); color: var(--text-muted); }
 
+    /* Execution band — the coarse PRIMARY public label (Gap 3). Status sets
+       the band, score refines it; the 0-100 score stays as the secondary detail. */
+    .project-row .col-band { width: 118px; flex-shrink: 0; }
+    .band-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .band-DELIVERED { background: var(--green-dim); color: var(--green); }
+    .band-IN_PROGRESS { background: rgba(91, 140, 201, 0.2); color: #5b8cc9; }
+    .band-STALLED { background: var(--amber-dim); color: var(--amber); }
+    .band-SILENT { background: var(--red-dim); color: var(--red); }
+    .band-UNCONFIRMED { background: var(--surface2); color: var(--text-muted); }
+
     /* --- Empty state --- */
     .empty-state {
       text-align: center;
@@ -975,6 +993,14 @@
     function statusCssClass(s) {
       return 'status-' + s;
     }
+    function bandLabel(b) {
+      const map = {
+        DELIVERED: 'Delivered', IN_PROGRESS: 'In Progress',
+        STALLED: 'Stalled', SILENT: 'Silent', UNCONFIRMED: 'Unconfirmed'
+      };
+      return map[b] || b;
+    }
+    function bandCssClass(b) { return 'band-' + b; }
 
     function formatValue(v, currency) {
       if (v == null) return null;
@@ -1180,6 +1206,7 @@
 
       container.innerHTML = `
         <div class="project-list-header">
+          <span class="col-band">Band</span>
           <span class="col-main">Project</span>
           <span class="col-sector">Sector</span>
           <span class="col-edition">Edition</span>
@@ -1191,6 +1218,7 @@
           const orgNames = (DATA.orgs[p.id] || []).map(o => esc(o.name)).slice(0, 2).join(', ');
           return `
           <div class="project-row${state.selectedId === p.id ? ' selected' : ''}" data-id="${esc(p.id)}" tabindex="0" role="button" aria-label="${esc(p.title)}">
+            <div class="col-band"><span class="band-badge ${bandCssClass(p.execution_band)}">${esc(bandLabel(p.execution_band))}</span></div>
             <div class="col-main">
               <div class="col-title">${esc(p.title)}</div>
               <div class="col-meta">
@@ -1235,6 +1263,11 @@
             ${p.sector ? `<span>${esc(p.sector)}${p.subsector ? ' · ' + esc(p.subsector) : ''}</span>` : ''}
             ${p.province ? `<span>${esc(p.province)}${p.municipality ? ', ' + esc(p.municipality) : ''}</span>` : ''}
             ${p.filda_edition ? `<span>FILDA ${esc(p.filda_edition)}</span>` : ''}
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <span class="band-badge ${bandCssClass(p.execution_band)}">${esc(bandLabel(p.execution_band))}</span>
+            ${Number(p.is_externally_blocked) === 1 ? '<span class="band-badge band-STALLED" title="Stalled by an external force (judicial / regulatory / disbursement), not underperformance">Externally blocked</span>' : ''}
+            <span class="status-badge ${statusCssClass(p.status)}">${esc(statusLabel(p.status))}</span>
           </div>
         </div>
 

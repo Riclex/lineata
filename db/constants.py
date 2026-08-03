@@ -37,6 +37,7 @@ MUTATION_OPS = (
     "relink-evidence",
     "reverify",
     "retype-event",
+    "set-blocked",
 )
 
 # MUTATION_OPS plus the checkpoint markers written by load.py / export_csv.py
@@ -92,3 +93,49 @@ def looks_like_award(text):
         return False
     t = text.lower()
     return any(k in t for k in AWARD_INDICATORS)
+
+
+# Execution band — the coarse public-facing label (guideline §0.A halfway
+# version). The 0-100 execution_score stays as the analytical detail; this enum
+# is the primary published category, derived mechanically from the existing
+# fields (no judgment input, not stored). Hybrid derivation (the project's
+# choice): status sets the band, the score refines the upper bands.
+#   UNCONFIRMED : evidence_complete = 0 (tracked but unscored, e.g. Banco Sol)
+#   STALLED     : status delayed/suspended
+#   DELIVERED   : status completed, OR score >= 81 (strong verifiable execution)
+#   IN_PROGRESS : status operational/under_construction/restarted, OR score 41-80
+#   SILENT      : everything else (announced/unknown/etc. with score < 41 -- the
+#                 "thin public trail" cases; low score == thin record, not failure)
+EXECUTION_BANDS = ("UNCONFIRMED", "STALLED", "DELIVERED", "IN_PROGRESS", "SILENT")
+
+
+def execution_band(status, score, evidence_complete):
+    """Derive the coarse execution-band label from existing project fields.
+
+    Pure function of (status, execution_score, evidence_complete) -- no
+    judgment, no storage. Status sets the band; the score refines DELIVERED vs
+    IN_PROGRESS (and can promote a thin-trail project up). See EXECUTION_BANDS
+    above for the exact mapping.
+    """
+    if not evidence_complete:
+        return "UNCONFIRMED"
+    if status in ("delayed", "suspended"):
+        return "STALLED"
+    if status == "completed" or score >= 81:
+        return "DELIVERED"
+    if status in ("operational", "under_construction", "restarted") or 41 <= score <= 80:
+        return "IN_PROGRESS"
+    return "SILENT"
+
+
+def band_distribution(rows):
+    """Count rows into the EXECUTION_BANDS buckets.
+
+    `rows` is an iterable of (status, score, evidence_complete) tuples. Returns
+    an ordered dict {band: count} matching EXECUTION_BANDS order. Used by the
+    query summary so the by_band view derives from one definition.
+    """
+    dist = {b: 0 for b in EXECUTION_BANDS}
+    for status, score, evidence_complete in rows:
+        dist[execution_band(status, score, evidence_complete)] += 1
+    return dist

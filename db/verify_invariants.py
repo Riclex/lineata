@@ -71,6 +71,7 @@ def main():
             ("add-evidence", "project_evidence", "project_evidence.id"),
             ("add-source", "sources", "sources.id"),
             ("set-status", "projects", "projects.id"),
+            ("set-blocked", "projects", "projects.id"),
             ("relink-event", "events", "events.id"),
             ("relink-evidence", "project_evidence", "project_evidence.id"),
             ("retype-event", "events", "events.id"),

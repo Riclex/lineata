@@ -31,7 +31,9 @@ import sqlite3
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from calculate_scores import calculate_score  # for project_detail score breakdown
+from calculate_scores import calculate_score, SCORE_VERSION  # score breakdown + version
+from constants import (execution_band, band_distribution,  # coarse public label (Gap 3)
+                       EXECUTION_BANDS)
 
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                        "investment_tracker.db")
@@ -41,8 +43,8 @@ PROJECT_SELECT = """
     p.id, p.title, p.sector, p.subsector, p.province, p.municipality,
     p.status, p.execution_score, p.announced_value, p.currency,
     p.estimated_jobs, p.actual_completion, p.filda_edition,
-    p.evidence_complete, p.last_verified, p.description, p.country,
-    p.expected_completion, p.coordinates, p.created_at
+    p.evidence_complete, p.is_externally_blocked, p.last_verified,
+    p.description, p.country, p.expected_completion, p.coordinates, p.created_at
 """
 
 
@@ -59,6 +61,9 @@ def project_row(row):
         "subsector": row["subsector"], "province": row["province"],
         "municipality": row["municipality"], "status": row["status"],
         "execution_score": row["execution_score"],
+        "execution_band": execution_band(
+            row["status"], row["execution_score"], row["evidence_complete"]),
+        "is_externally_blocked": row["is_externally_blocked"],
         "announced_value": row["announced_value"], "currency": row["currency"],
         "estimated_jobs": row["estimated_jobs"],
         "actual_completion": row["actual_completion"],
@@ -132,16 +137,21 @@ def summary(conn, args):
     n = conn.execute(f"SELECT COUNT(*) {base}", params).fetchone()[0]
     if n == 0:
         return {"count": 0, "average_score": None, "distribution": {},
-                "by_status": {}}
+                "by_band": {b: 0 for b in EXECUTION_BANDS}, "by_status": {},
+                "score_version": SCORE_VERSION}
     avg = conn.execute(
         f"SELECT ROUND(AVG(execution_score), 2) {base}", params).fetchone()[0]
     from constants import score_distribution
     dist = score_distribution(
         s for (s,) in conn.execute(f"SELECT execution_score {base}", params))
+    by_band = band_distribution(
+        conn.execute(f"SELECT status, execution_score, evidence_complete {base}",
+                     params))
     by_status = {r[0]: r[1] for r in conn.execute(
         f"SELECT status, COUNT(*) {base} GROUP BY status ORDER BY 2 DESC", params)}
     return {"count": n, "average_score": avg, "distribution": dist,
-            "by_status": by_status}
+            "by_band": by_band, "by_status": by_status,
+            "score_version": SCORE_VERSION}
 
 
 def project_detail(conn, pid):
@@ -188,6 +198,22 @@ def project_detail(conn, pid):
         sc, breakdown = calculate_score(conn, prow)
         d["execution_score"] = sc
         d["score_breakdown"] = breakdown
+    # Per-project changelog (Gap 1): every mutation that touched this project,
+    # pulled from change_log by the project_id embedded in each row's payload.
+    # Rows without a project_id (load-seed / export-csv / add-source) are skipped.
+    d["changelog"] = []
+    for r in conn.execute(
+        "SELECT ts, operation, source_url, note, payload_json "
+        "FROM change_log ORDER BY ts").fetchall():
+        try:
+            pj = json.loads(r["payload_json"]) if r["payload_json"] else {}
+        except ValueError:
+            continue
+        if pj.get("project_id") == pid:
+            d["changelog"].append({
+                "ts": r["ts"], "operation": r["operation"],
+                "source_url": r["source_url"], "note": r["note"]})
+    d["score_version"] = SCORE_VERSION
     return d
 
 

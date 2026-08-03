@@ -428,6 +428,71 @@ def cmd_set_status(flags, apply):
         sys.exit(f"[ERR] set-status failed: {e}")
 
 
+def cmd_set_blocked(flags, apply):
+    """Set the is_externally_blocked label on a project (Gap 2).
+
+    Label ONLY: it does not affect execution_score (is_externally_blocked is not
+    a calculate_score input) and inserts no event. --to 1 marks the project as
+    stalled by an external force (judicial / regulatory / disbursement); --to 0
+    clears it. Requires a --source-url grounding the reason (a court ruling,
+    regulatory halt, disbursement-delay article). Idempotent: a re-call that
+    finds the flag already at the target value writes nothing.
+    """
+    require(flags, ["project", "source_url", "to"])
+    pid = flags["project"]
+    source_url = flags["source_url"].strip()
+    note = flags.get("note")
+    to_val = flags["to"].strip()
+    if to_val not in ("0", "1"):
+        sys.exit(f"[ERR] --to must be 0 (unblocked) or 1 (blocked); got {to_val!r}")
+    if not valid_url(source_url):
+        sys.exit(f"[ERR] --source-url must be a full http(s) URL: {source_url!r}")
+
+    conn = connect()
+    if not project_exists(conn, pid):
+        conn.close()
+        sys.exit(f"[ERR] unknown project id: {pid!r}")
+
+    conn.execute("BEGIN")
+    try:
+        old = conn.execute(
+            "SELECT is_externally_blocked FROM projects WHERE id=?", (pid,)
+        ).fetchone()[0]
+        old_val = int(old) if old is not None else 0
+        new_val = int(to_val)
+
+        if old_val == new_val:
+            finish(conn, apply, [
+                f"set-blocked: project={pid}  is_externally_blocked already {old_val}",
+                "  -> no change (idempotent no-op)",
+            ])
+            return
+
+        sid, src_created = resolve_or_create_source(
+            conn, source_url, None, None, None, "medium", verify=apply)
+        conn.execute("UPDATE projects SET is_externally_blocked=? WHERE id=?",
+                     (new_val, pid))
+        # Label only: the score is NOT recomputed. Record it unchanged for audit.
+        cur_score = conn.execute(
+            "SELECT execution_score FROM projects WHERE id=?", (pid,)).fetchone()[0]
+
+        if apply:
+            log_change(conn, "set-blocked", "projects", pid,
+                       {"project_id": pid, "field": "is_externally_blocked",
+                        "old": old_val, "new": new_val,
+                        "source_id": sid, "source_url": source_url,
+                        "score_unchanged": cur_score, "note": note},
+                       source_url, note)
+        finish(conn, apply, [
+            f"set-blocked: project={pid}  is_externally_blocked {old_val} -> {new_val}",
+            f"  source={source_url}  (source id={sid}, {'new' if src_created else 'existing'})",
+            f"  -> score unchanged ({cur_score}); is_externally_blocked is a label, not a score input",
+        ])
+    except Exception as e:
+        conn.execute("ROLLBACK"); conn.close()
+        sys.exit(f"[ERR] set-blocked failed: {e}")
+
+
 def cmd_reverify(flags, apply):
     stale_days = int(flags.get("stale_days", "30"))
     limit = flags.get("limit")
@@ -659,6 +724,7 @@ COMMANDS = {
     "add-event": cmd_add_event,
     "add-evidence": cmd_add_evidence,
     "set-status": cmd_set_status,
+    "set-blocked": cmd_set_blocked,
     "relink": cmd_relink,
     "reverify": cmd_reverify,
     "retype-event": cmd_retype_event,

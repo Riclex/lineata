@@ -101,6 +101,32 @@ type recorded for a project is `announcement` — i.e. no follow-up event of any
 kind — an additional **-10** is applied. This catches announcements that
 generated no traceable downstream activity.
 
+## Execution Band (public label)
+
+The 0–100 `execution_score` is the analytical metric. On top of it, the API
+and app expose a coarse **`execution_band`** label as the primary public-facing
+category — a quantization that is honest about the precision the underlying
+media-sourced data supports. The band is **derived, not stored** (computed in
+`db/query.py` from `status` + `execution_score` + `evidence_complete` via
+`db/constants.py:execution_band()`); the score stays as the secondary detail.
+
+Hybrid derivation (status sets the band, the score refines the upper bands):
+
+| Band | When |
+|------|------|
+| `UNCONFIRMED` | `evidence_complete = 0` (tracked but unscored, e.g. Banco Sol) |
+| `STALLED` | `status` is `delayed` or `suspended` |
+| `DELIVERED` | `status = completed`, OR `execution_score ≥ 81` (strong verifiable execution) |
+| `IN_PROGRESS` | `status` is `operational` / `under_construction` / `restarted`, OR `execution_score` 41–80 |
+| `SILENT` | everything else (announced/unknown with score < 41 — the "thin public trail" cases; low score == thin record, not failure) |
+
+The band carries no judgment the score doesn't already encode — it is a
+mechanical function of existing fields. Read `SILENT` as "the public record of
+FILDA execution is thin," not "the project failed" (the same caveat the articles
+apply to a low score). An `is_externally_blocked` label can be set on a project
+to flag that a thin trail reflects an external blocker (judicial / regulatory /
+disbursement), not inaction — see `db/update.py set-blocked`.
+
 ## Worked Examples
 
 These are the actual component breakdowns reported by

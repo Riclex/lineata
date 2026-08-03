@@ -137,6 +137,48 @@ class UpdateTests(unittest.TestCase):
             "SELECT COUNT(*) FROM change_log WHERE operation='retype-event'").fetchone()[0], 1)
         conn.close()
 
+    # --- set-blocked (Gap 2): label-only flag, no score change ---
+
+    def test_set_blocked_sets_flag_logs_and_keeps_score(self):
+        conn = sqlite3.connect(self.tmp)
+        before = conn.execute("SELECT execution_score FROM projects WHERE id='p1'").fetchone()[0]
+        conn.close()
+        flags = {"project": "p1", "to": "1",
+                 "source_url": "https://example.test/block"}
+        update.cmd_set_blocked(flags, apply=True)
+        conn = sqlite3.connect(self.tmp)
+        blocked = conn.execute("SELECT is_externally_blocked FROM projects WHERE id='p1'").fetchone()[0]
+        after = conn.execute("SELECT execution_score FROM projects WHERE id='p1'").fetchone()[0]
+        nlog = conn.execute(
+            "SELECT COUNT(*) FROM change_log WHERE operation='set-blocked'").fetchone()[0]
+        conn.close()
+        self.assertEqual(blocked, 1)
+        self.assertEqual(nlog, 1)
+        self.assertEqual(before, after)  # label only -- score unchanged
+
+    def test_set_blocked_idempotent(self):
+        flags = {"project": "p1", "to": "1",
+                 "source_url": "https://example.test/block"}
+        update.cmd_set_blocked(flags, apply=True)
+        update.cmd_set_blocked(flags, apply=True)  # already 1 -> no-op
+        self.assertEqual(self._count("change_log", "WHERE operation='set-blocked'"), 1)
+
+    def test_set_blocked_unblock_with_to_zero(self):
+        flags = {"project": "p1", "to": "1",
+                 "source_url": "https://example.test/block"}
+        update.cmd_set_blocked(flags, apply=True)
+        flags["to"] = "0"
+        update.cmd_set_blocked(flags, apply=True)  # clear it
+        conn = sqlite3.connect(self.tmp)
+        blocked = conn.execute("SELECT is_externally_blocked FROM projects WHERE id='p1'").fetchone()[0]
+        conn.close()
+        self.assertEqual(blocked, 0)
+
+    def test_set_blocked_requires_source_url(self):
+        flags = {"project": "p1", "to": "1"}
+        with self.assertRaises(SystemExit):
+            update.cmd_set_blocked(flags, apply=True)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

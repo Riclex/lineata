@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS projects (
     filda_edition       TEXT,  -- e.g. "2023"
     last_verified       TEXT,  -- YYYY-MM-DD a human last checked this project's status against sources
     evidence_complete   INTEGER DEFAULT 1,  -- 0 = tracked but NOT scored (no click-through evidence; see data-lineage.md "Event 80")
+    is_externally_blocked INTEGER DEFAULT 0,  -- label only (Gap 2): 1 = stalled by an external force (judicial/regulatory/disbursement), not underperformance; does NOT affect the score
     created_at          TEXT DEFAULT (datetime('now')),
     updated_at          TEXT DEFAULT (datetime('now'))
 );

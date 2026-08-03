@@ -39,14 +39,17 @@ DB_path = os.path.join(BASE, "db", "investment_tracker.db")
 OUT_path = os.path.join(BASE, "app", "data.json")
 
 # Flat project fields the app reads. Includes description / coordinates /
-# created_at / updated_at — the hand-built app/data.json carried these and the
-# detail view reads them; db/query.py's PROJECT_SELECT is narrower, so this list
-# is the source of truth for the fallback shape.
+# created_at — the detail view reads these; db/query.py's PROJECT_SELECT is
+# narrower, so this list is the source of truth for the fallback shape.
+# `updated_at` is deliberately excluded: load.py's rebuild re-INSERTs every row
+# (advancing updated_at via the DEFAULT datetime('now')), so including it would
+# make `--check` fail after every rebuild on a pure timestamp drift, not a data
+# drift. The app does not read updated_at.
 PROJECT_COLS = [
     "id", "title", "sector", "subsector", "description", "country", "province",
     "municipality", "coordinates", "status", "announced_value", "currency",
     "estimated_jobs", "expected_completion", "actual_completion", "execution_score",
-    "filda_edition", "last_verified", "evidence_complete", "created_at", "updated_at",
+    "filda_edition", "last_verified", "evidence_complete", "created_at",
 ]
 
 
@@ -80,7 +83,7 @@ def build(conn):
         events.setdefault(r["project_id"], []).append(_clean({
             "id": r["id"], "project_id": r["project_id"], "event_type": r["event_type"],
             "event_date": r["event_date"], "description": r["description"],
-            "source_id": r["source_id"], "created_at": r["created_at"],
+            "source_id": r["source_id"],
             "src_title": r["src_title"], "src_pub": r["src_pub"], "src_url": r["src_url"],
             "src_conf": r["src_conf"], "src_archived_url": r["src_archived_url"],
             "src_url_status": r["src_url_status"],
@@ -105,8 +108,7 @@ def build(conn):
         evidence.setdefault(r["project_id"], []).append(_clean({
             "id": r["id"], "project_id": r["project_id"], "field": r["field"],
             "value": r["value"], "source_id": r["source_id"], "observed_at": r["observed_at"],
-            "created_at": r["created_at"], "src_title": r["src_title"],
-            "src_pub": r["src_pub"], "src_url": r["src_url"],
+            "src_title": r["src_title"], "src_pub": r["src_pub"], "src_url": r["src_url"],
         }))
 
     # breakdowns: scored projects only (unscored is excluded from averages and

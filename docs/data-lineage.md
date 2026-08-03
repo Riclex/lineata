@@ -319,6 +319,14 @@ Average 62.4 -> 60.7 (precise 60.68); distribution unchanged (10/1/7/20/12); pri
 
 Known follow-up (out of scope): the 22 Check C operational projects need either genuine operational evidence or a status downgrade — a separate research effort. The ~6 `completion` events that are conference/delegation/event completions (AEP delegations, Portugal-30-companies, etc.) are genuine completions of non-physical projects and are intentionally left as `completion`.
 
+### 2026-08-04 — public-label band + external-block flag + API lineage
+
+Three structural additions close the guideline gaps the project previously handled only with prose caveats:
+
+- **`execution_band` (derived, not stored).** A coarse public-facing label — `UNCONFIRMED` / `STALLED` / `DELIVERED` / `IN_PROGRESS` / `SILENT` — computed in `db/query.py` from `status` + `execution_score` + `evidence_complete` via `db/constants.py:execution_band()`. Hybrid derivation: status sets the band, the score refines the upper bands (see `docs/scoring-methodology.md` § Execution Band). The 0–100 score stays as the analytical detail; the band is the primary published category. No score moved (it is a pure function of existing fields), so no snapshot/version bump. Exposed in `project_row()` and as `by_band` in `summary()`.
+- **`is_externally_blocked` (label-only column).** A new `projects` column (INTEGER, default 0) flagging that a thin public trail reflects an external blocker (judicial / regulatory / disbursement), not inaction. **Not** a `calculate_score` input — the score is unchanged. Set via `db/update.py set-blocked --project ID --source-url URL --to 1` (idempotent, one `change_log` row, no score recompute). `set-blocked` added to `MUTATION_OPS`/`COMMANDS`; `verify_invariants.py` gained an orphan check for it (30 checks, was 29). All 51 projects default to 0 — none classified yet.
+- **API lineage (Gap 1 cheap fix).** `summary()` and `project_detail()` now carry `score_version`; `project_detail()` adds a per-project `changelog` array (the `change_log` rows whose payload `project_id` matches). No `valid_from`/`valid_to` SCD2 time-ranges (the expensive part) — deliberately out of scope.
+
 ---
 
 ## Scoring Layer: Formula Application
