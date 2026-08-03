@@ -38,7 +38,8 @@ PROJECT_SELECT = """
     p.id, p.title, p.sector, p.subsector, p.province, p.municipality,
     p.status, p.execution_score, p.announced_value, p.currency,
     p.estimated_jobs, p.actual_completion, p.filda_edition,
-    p.evidence_complete, p.last_verified
+    p.evidence_complete, p.last_verified, p.description, p.country,
+    p.expected_completion, p.coordinates, p.created_at
 """
 
 
@@ -60,7 +61,9 @@ def project_row(row):
         "actual_completion": row["actual_completion"],
         "filda_edition": row["filda_edition"],
         "evidence_complete": row["evidence_complete"],
-        "last_verified": row["last_verified"],
+        "last_verified": row["last_verified"], "description": row["description"],
+        "country": row["country"], "expected_completion": row["expected_completion"],
+        "coordinates": row["coordinates"], "created_at": row["created_at"],
     }
 
 
@@ -94,6 +97,11 @@ def build_where(args):
                  " JOIN organizations o ON o.id = po.organization_id")
         clauses.append("(o.name = ? OR o.id = ?)")
         params += [args.org, args.org]
+    search = getattr(args, "search", None)
+    if search:
+        clauses.append("(p.title LIKE ? OR p.sector LIKE ? OR p.subsector LIKE ? OR p.province LIKE ?)")
+        q = f"%{search}%"
+        params += [q, q, q, q]
     where = (" WHERE " + " AND ".join(clauses)) if clauses else ""
     return where, params, joins
 
@@ -103,7 +111,16 @@ def query_projects(conn, args):
     sql = (f"SELECT {PROJECT_SELECT} FROM projects p{joins}{where}"
            " GROUP BY p.id ORDER BY p.execution_score DESC, p.title")
     rows = conn.execute(sql, params).fetchall()
-    return [project_row(r) for r in rows]
+    out = [project_row(r) for r in rows]
+    for p in out:
+        p["organizations"] = [
+            {"name": r["name"], "role": r["role"], "country": r["country"]}
+            for r in conn.execute(
+                "SELECT o.name, po.role, o.country FROM project_organizations po "
+                "JOIN organizations o ON o.id = po.organization_id "
+                "WHERE po.project_id = ?", (p["id"],))
+        ]
+    return out
 
 
 def summary(conn, args):
@@ -129,12 +146,11 @@ def summary(conn, args):
 
 
 def project_detail(conn, pid):
-    p = conn.execute(f"SELECT {PROJECT_SELECT}, p.description FROM projects p "
+    p = conn.execute(f"SELECT {PROJECT_SELECT} FROM projects p "
                      "WHERE p.id = ?", (pid,)).fetchone()
     if p is None:
         raise SystemExit(f"No project with id {pid!r}.")
     d = project_row(p)
-    d["description"] = p["description"]
     d["organizations"] = [
         {"name": r["name"], "type": r["type"], "country": r["country"],
          "role": r["role"]}
@@ -144,20 +160,37 @@ def project_detail(conn, pid):
             "WHERE po.project_id = ? ORDER BY po.role", (pid,))
     ]
     d["events"] = [
-        {"id": r["id"], "event_type": r["event_type"],
-         "event_date": r["event_date"], "description": r["description"],
-         "source_id": r["source_id"]}
+        {"id": r["id"], "event_type": r["event_type"], "event_date": r["event_date"],
+         "description": r["description"], "source_id": r["source_id"],
+         "source_title": r["src_title"], "source_publisher": r["src_pub"],
+         "source_url": r["src_url"], "source_confidence": r["src_conf"],
+         "source_archived_url": r["src_arch"], "source_url_status": r["src_status"]}
         for r in conn.execute(
-            "SELECT id, event_type, event_date, description, source_id "
-            "FROM events WHERE project_id = ? ORDER BY event_date", (pid,))
+            "SELECT e.id, e.event_type, e.event_date, e.description, e.source_id, "
+            "s.title AS src_title, s.publisher AS src_pub, s.url AS src_url, "
+            "s.confidence AS src_conf, s.archived_url AS src_arch, s.url_status AS src_status "
+            "FROM events e LEFT JOIN sources s ON s.id = e.source_id "
+            "WHERE e.project_id = ? ORDER BY e.event_date", (pid,))
     ]
     d["field_evidence"] = [
-        {"field": r["field"], "value": r["value"], "source_id": r["source_id"],
-         "observed_at": r["observed_at"]}
+        {"id": r["id"], "field": r["field"], "value": r["value"],
+         "source_id": r["source_id"], "observed_at": r["observed_at"],
+         "source_title": r["src_title"], "source_publisher": r["src_pub"],
+         "source_url": r["src_url"]}
         for r in conn.execute(
-            "SELECT field, value, source_id, observed_at FROM project_evidence "
-            "WHERE project_id = ? ORDER BY id", (pid,))
+            "SELECT pe.id, pe.field, pe.value, pe.source_id, pe.observed_at, "
+            "s.title AS src_title, s.publisher AS src_pub, s.url AS src_url "
+            "FROM project_evidence pe LEFT JOIN sources s ON s.id = pe.source_id "
+            "WHERE pe.project_id = ? ORDER BY pe.id", (pid,))
     ]
+    # Score breakdown
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from calculate_scores import calculate_score
+    prow = conn.execute("SELECT * FROM projects WHERE id = ?", (pid,)).fetchone()
+    if prow:
+        sc, breakdown = calculate_score(conn, prow)
+        d["execution_score"] = sc
+        d["score_breakdown"] = breakdown
     return d
 
 
@@ -185,6 +218,7 @@ def main():
     ap.add_argument("--max-score", type=int, dest="max_score")
     ap.add_argument("--include-unscored", action="store_true",
                     help="also return tracked-but-unscored entries (default: scored only)")
+    ap.add_argument("--search", help="full-text search across title, sector, subsector, province")
     ap.add_argument("--summary", action="store_true",
                     help="return aggregate stats over the filtered set instead of listing")
     ap.add_argument("--project", metavar="ID", help="return full detail for one project")
