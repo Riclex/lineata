@@ -171,7 +171,16 @@ def check_articles(conn):
     """Derive headline figures from the DB and assert the article text contains
     them. Returns a list of drift strings ([] if all articles pin)."""
     snap = generate_snapshot(conn)
-    avg_rounded = snap["aggregate"]["avg_rounded"]
+    # The published articles are FILDA-only (a new broadened article is planned
+    # for when the Tier 3 cohorts are complete); pin them to the FILDA-only avg,
+    # not the broadened-DB avg, so adding non-FILDA cohorts doesn't break the pin.
+    # Case-study scores (snap["case_studies"]) are all FILDA projects and are
+    # unaffected by non-FILDA cohorts, so they pin directly.
+    filda_scores = [r[0] for r in conn.execute(
+        "SELECT execution_score FROM projects WHERE source_program='FILDA' "
+        "AND evidence_complete=1")]
+    filda_avg = (sum(filda_scores) / len(filda_scores)) if filda_scores else 0.0
+    avg_rounded = int(round(filda_avg))
     dist = snap["aggregate"]["distribution"]
     # The distribution is published as e.g. "10 / 1 / 7 / 20 / 12" or a table.
     # We assert each article contains the rounded avg string and each non-zero

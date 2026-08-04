@@ -461,6 +461,52 @@
       "created_at": "2026-08-04"
     },
     {
+      "id": "eseep-energy-transmission",
+      "title": "Energy Sector Efficiency and Expansion Programme (ESEEP)",
+      "sector": "Energy",
+      "subsector": "Transmission",
+      "description": "AfDB USD 530M energy sector efficiency/expansion; 343 km 400 kV Huambo-Lubango transmission line + 860,000 pre-paid meters + 400,000 new customers; operational target 2023",
+      "country": "Angola",
+      "province": "Huambo",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 530.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "2023",
+      "execution_score": 68,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
+    },
+    {
+      "id": "asrp-agriculture-reform",
+      "title": "Agriculture Sector Reform Programme (ASRP)",
+      "sector": "Agriculture",
+      "subsector": "Policy reform",
+      "description": "AfDB USD 105.19M agriculture sector reform loan; smallholder mechanization/irrigation in Lunda Norte, Lunda Sul, Moxico, Cuando-Cubango; approved Dec 2023, disbursed Jun 2024, implementing",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 105.19,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 67,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
+    },
+    {
       "id": "pt-ao-credit-line-2-5b",
       "title": "Portugal-Angola Credit Line EUR 2.5B",
       "sector": "Finance",
@@ -482,6 +528,52 @@
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "mosap3-agricultural-transformation",
+      "title": "Angola Agricultural Transformation Project (MOSAP3)",
+      "sector": "Agriculture",
+      "subsector": "Agribusiness",
+      "description": "World Bank USD 300M + AFD USD 115M agricultural transformation; 16,000 smallholders supported by Jun 2025; 600,000 target across 13 provinces; builds on MOSAP2 (179,000 smallholders)",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 300.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 63,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
+    },
+    {
+      "id": "pdac-commercial-agriculture",
+      "title": "Commercial Agriculture Development Project (PDAC)",
+      "sector": "Agriculture",
+      "subsector": "Agribusiness",
+      "description": "World Bank USD 130M + AFD USD 100M commercial agriculture development; 395 business plans, 159 disbursed, 51 credit guarantees, 7000+ farmers; Moderately Satisfactory; some infrastructure delays + USD 34M partial cancellation",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 130.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2025",
+      "actual_completion": "",
+      "execution_score": 63,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
     },
     {
       "id": "chicomba-water-dam",
@@ -525,6 +617,52 @@
       "execution_score": 47,
       "filda_edition": "",
       "source_program": "AIPEX",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
+    },
+    {
+      "id": "reclima-water-security",
+      "title": "RECLIMA Climate Resilience and Water Security",
+      "sector": "Infrastructure",
+      "subsector": "Water",
+      "description": "World Bank USD 300M (IBRD) + AFD USD 150M climate-resilience/water-security project; water supply in Menongue, M Banza-Congo, Sumbe, Porto Amboim + Sendi/Quimaia dam rehab; effective May 2023, satisfactory implementation",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 300.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2028",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
+    },
+    {
+      "id": "bita-water-supply",
+      "title": "Luanda Bita Water Supply Guarantee",
+      "sector": "Infrastructure",
+      "subsector": "Water",
+      "description": "World Bank USD 500M guarantee mobilizing commercial financing for Luanda Bita water supply (EPAL); 900,000 people target; effective Sep 2022, construction progressing",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 500.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2027",
+      "actual_completion": "",
+      "execution_score": 41,
+      "filda_edition": "",
+      "source_program": "multilateral",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
       "created_at": "2026-08-04"
@@ -1526,6 +1664,22 @@
         "src_url_status": "alive"
       }
     ],
+    "asrp-agriculture-reform": [
+      {
+        "id": 125,
+        "project_id": "asrp-agriculture-reform",
+        "event_type": "financing",
+        "event_date": "2023-12-13",
+        "description": "AfDB USD 105.19M loan approved; agriculture sector reform, smallholder mechanization/irrigation in 4 provinces",
+        "source_id": 147,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://afdb.africa-newsroom.com/press/angola-african-development-bank-approves-105million-loan-to-improve-the-productivity-of-smallholdings-and-reduce-food-imports",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "baia-fish-processing": [
       {
         "id": 108,
@@ -1648,6 +1802,36 @@
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
+      }
+    ],
+    "bita-water-supply": [
+      {
+        "id": 117,
+        "project_id": "bita-water-supply",
+        "event_type": "financing",
+        "event_date": "2019-07-16",
+        "description": "World Bank USD 500M guarantee approved; mobilizes commercial financing for Luanda Bita water supply",
+        "source_id": 142,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://documents1.worldbank.org/curated/en/099122725095529077/pdf/P163610-9e90a2df-8e18-415b-aaed-7bedbd674c07.pdf",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "dead"
+      },
+      {
+        "id": 118,
+        "project_id": "bita-water-supply",
+        "event_type": "construction",
+        "event_date": "2022-09-27",
+        "description": "Effective Sep 2022; construction progressing on Kwanza catchment, treatment, transmission mains",
+        "source_id": 142,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://documents1.worldbank.org/curated/en/099122725095529077/pdf/P163610-9e90a2df-8e18-415b-aaed-7bedbd674c07.pdf",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "dead"
       }
     ],
     "brazil-returns-to-filda": [
@@ -1909,6 +2093,36 @@
         "src_title": "Angola expands rural broadband using Angosat-2 and TV White Space",
         "src_pub": "Ecofin Agency",
         "src_url": "https://www.ecofinagency.com/news-digital/1707-57482-angola-expands-rural-broadband-using-angosat-2-and-t-v-white-space",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "eseep-energy-transmission": [
+      {
+        "id": 123,
+        "project_id": "eseep-energy-transmission",
+        "event_type": "financing",
+        "event_date": "2019-12-01",
+        "description": "AfDB USD 530M approved; energy sector efficiency/expansion, 343 km Huambo-Lubango transmission line",
+        "source_id": 146,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://www.afdb.org/en/news-and-events/press-releases/angola-african-development-bank-funds-530-million-electricity-project-expand-renewable-energy-and-regional-connectivity-42723",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 124,
+        "project_id": "eseep-energy-transmission",
+        "event_type": "completion",
+        "event_date": "2023-12-31",
+        "description": "Operational 2023; 343 km 400 kV line, 860,000 pre-paid meters, 400,000 new customers",
+        "source_id": 146,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://www.afdb.org/en/news-and-events/press-releases/angola-african-development-bank-funds-530-million-electricity-project-expand-renewable-energy-and-regional-connectivity-42723",
         "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -2394,6 +2608,36 @@
         "src_url_status": "alive"
       }
     ],
+    "mosap3-agricultural-transformation": [
+      {
+        "id": 121,
+        "project_id": "mosap3-agricultural-transformation",
+        "event_type": "financing",
+        "event_date": "2022-06-01",
+        "description": "World Bank USD 300M + AFD USD 115M approved; agricultural transformation, 600,000 smallholder target",
+        "source_id": 144,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099120012092126895",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 122,
+        "project_id": "mosap3-agricultural-transformation",
+        "event_type": "expansion",
+        "event_date": "2025-06-01",
+        "description": "16,000 smallholders supported with inputs for 2025-2026 campaign; 13 provinces",
+        "source_id": 145,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://angop.ao/en/noticias/agricultura/mosap-3-apoia-16-mil-pequenos-produtores-agricolas/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "mou-aia-cip-2024": [
       {
         "id": 62,
@@ -2482,6 +2726,36 @@
         "src_pub": "Pay4all",
         "src_url": "https://pay4all.ao/pay4all-vence-premio-leao-de-ouro-para-melhor-participacao-na-filda-2024-na-categoria-economia-digital/",
         "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "pdac-commercial-agriculture": [
+      {
+        "id": 119,
+        "project_id": "pdac-commercial-agriculture",
+        "event_type": "financing",
+        "event_date": "2018-05-29",
+        "description": "World Bank USD 130M + AFD USD 100M approved; commercial agriculture development",
+        "source_id": 143,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://www.worldbank.org/en/results/2024/03/01/enhancing-food-security-and-income-for-smallholder-farmers-in-afe-angola",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 120,
+        "project_id": "pdac-commercial-agriculture",
+        "event_type": "expansion",
+        "event_date": "2024-03-01",
+        "description": "395 business plans, 159 disbursed, 51 credit guarantees, 7000+ farmers; USD 34M partially cancelled on infrastructure",
+        "source_id": 143,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://www.worldbank.org/en/results/2024/03/01/enhancing-food-security-and-income-for-smallholder-farmers-in-afe-angola",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -2712,6 +2986,22 @@
         "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "dead"
+      }
+    ],
+    "reclima-water-security": [
+      {
+        "id": 116,
+        "project_id": "reclima-water-security",
+        "event_type": "financing",
+        "event_date": "2022-03-30",
+        "description": "World Bank USD 300M (IBRD) + AFD USD 150M approved; climate-resilience/water-security",
+        "source_id": 141,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://www.worldbank.org/en/news/press-release/2022/03/30/world-bank-injects-300-million-to-support-climate-resilience-and-water-security-in-angola",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
       }
     ],
     "sa-angola-investment-2022": [
@@ -3140,6 +3430,15 @@
         "country": "Angola"
       }
     ],
+    "asrp-agriculture-reform": [
+      {
+        "project_id": "asrp-agriculture-reform",
+        "role": "financier",
+        "name": "African Development Bank",
+        "type": "foreign_investor",
+        "country": "Cote d Ivoire"
+      }
+    ],
     "baia-fish-processing": [
       {
         "project_id": "baia-fish-processing",
@@ -3199,6 +3498,15 @@
         "name": "BFA - Banco de Fomento Angola",
         "type": "company",
         "country": "Angola"
+      }
+    ],
+    "bita-water-supply": [
+      {
+        "project_id": "bita-water-supply",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
       }
     ],
     "brazil-returns-to-filda": [
@@ -3274,6 +3582,15 @@
         "name": "Joao Lourenco",
         "type": "government",
         "country": "Angola"
+      }
+    ],
+    "eseep-energy-transmission": [
+      {
+        "project_id": "eseep-energy-transmission",
+        "role": "financier",
+        "name": "African Development Bank",
+        "type": "foreign_investor",
+        "country": "Cote d Ivoire"
       }
     ],
     "esso-angola-filda2022": [
@@ -3481,6 +3798,15 @@
         "country": "Angola"
       }
     ],
+    "mosap3-agricultural-transformation": [
+      {
+        "project_id": "mosap3-agricultural-transformation",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
+      }
+    ],
     "mou-aia-cip-2024": [
       {
         "project_id": "mou-aia-cip-2024",
@@ -3522,6 +3848,15 @@
         "name": "Pay4all",
         "type": "company",
         "country": "Angola"
+      }
+    ],
+    "pdac-commercial-agriculture": [
+      {
+        "project_id": "pdac-commercial-agriculture",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
       }
     ],
     "ponto-mais-furniture": [
@@ -3645,6 +3980,15 @@
         "name": "TotalEnergies",
         "type": "foreign_investor",
         "country": "France"
+      }
+    ],
+    "reclima-water-security": [
+      {
+        "project_id": "reclima-water-security",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
       }
     ],
     "sa-angola-investment-2022": [
@@ -5069,6 +5413,60 @@
       "events": 30,
       "evidence": 1,
       "delay": -15,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "reclima-water-security": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "bita-water-supply": {
+      "base": 40,
+      "events": 15,
+      "evidence": 1,
+      "delay": -15,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "pdac-commercial-agriculture": {
+      "base": 60,
+      "events": 17,
+      "evidence": 1,
+      "delay": -15,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "mosap3-agricultural-transformation": {
+      "base": 60,
+      "events": 17,
+      "evidence": 1,
+      "delay": -15,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "eseep-energy-transmission": {
+      "base": 60,
+      "events": 22,
+      "evidence": 1,
+      "delay": -15,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "asrp-agriculture-reform": {
+      "base": 60,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
       "status_penalty": 0,
       "only_announce": 0,
       "version": "v2-2026-07"

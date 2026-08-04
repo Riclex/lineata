@@ -1,34 +1,34 @@
 {
   "counts": {
-    "projects": 57,
-    "scored": 56,
+    "projects": 63,
+    "scored": 62,
     "unscored": 1,
     "unscored_ids": [
       "banco-sol-mc-empresas-2025"
     ],
-    "sources": 139,
-    "events": 115,
-    "events_linked": 114,
+    "sources": 146,
+    "events": 125,
+    "events_linked": 124,
     "events_null": 1,
     "null_event_ids": [
       80
     ]
   },
   "aggregate": {
-    "avg_precise": 42.1607,
-    "avg_rounded": 42,
+    "avg_precise": 43.7097,
+    "avg_rounded": 44,
     "distribution": {
       "0-20": 19,
       "21-40": 14,
-      "41-60": 2,
-      "61-80": 12,
+      "41-60": 4,
+      "61-80": 16,
       "81-100": 9
     }
   },
   "sectors": {
     "Agriculture": {
-      "count": 7,
-      "avg": 22.7
+      "count": 10,
+      "avg": 35.2
     },
     "Digital": {
       "count": 1,
@@ -39,8 +39,8 @@
       "avg": 8.0
     },
     "Energy": {
-      "count": 9,
-      "avg": 38.9
+      "count": 10,
+      "avg": 41.8
     },
     "Finance": {
       "count": 6,
@@ -51,8 +51,8 @@
       "avg": 54.0
     },
     "Infrastructure": {
-      "count": 3,
-      "avg": 36.0
+      "count": 5,
+      "avg": 39.2
     },
     "Logistics": {
       "count": 1,
@@ -81,9 +81,9 @@
   },
   "gov_vs_private": {
     "gov_count": 3,
-    "private_count": 53,
+    "private_count": 59,
     "gov_avg": 54.0,
-    "private_avg": 41.5
+    "private_avg": 43.2
   },
   "case_studies": {
     "huatong-angola-industry-awards": 78,

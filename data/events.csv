@@ -114,3 +114,13 @@ id,project_id,event_type,event_date,description,source_id
 113,cabinda-refinery-build,financing,2022-03-01,Phase 1 financing: Gemcorp equity + Africa Finance Corporation USD 150M + Afreximbank USD 100M (total USD 473M),139
 114,cabinda-refinery-build,construction,2022-03-01,Phase 1 site preparation and civil works began Q1 2022,140
 115,cabinda-refinery-build,completion,2025-09-01,"Phase 1 (30,000 bpd) inaugurated Sep 2025 by President Lourenco",140
+116,reclima-water-security,financing,2022-03-30,World Bank USD 300M (IBRD) + AFD USD 150M approved; climate-resilience/water-security,141
+117,bita-water-supply,financing,2019-07-16,World Bank USD 500M guarantee approved; mobilizes commercial financing for Luanda Bita water supply,142
+118,bita-water-supply,construction,2022-09-27,"Effective Sep 2022; construction progressing on Kwanza catchment, treatment, transmission mains",142
+119,pdac-commercial-agriculture,financing,2018-05-29,World Bank USD 130M + AFD USD 100M approved; commercial agriculture development,143
+120,pdac-commercial-agriculture,expansion,2024-03-01,"395 business plans, 159 disbursed, 51 credit guarantees, 7000+ farmers; USD 34M partially cancelled on infrastructure",143
+121,mosap3-agricultural-transformation,financing,2022-06-01,"World Bank USD 300M + AFD USD 115M approved; agricultural transformation, 600,000 smallholder target",144
+122,mosap3-agricultural-transformation,expansion,2025-06-01,"16,000 smallholders supported with inputs for 2025-2026 campaign; 13 provinces",145
+123,eseep-energy-transmission,financing,2019-12-01,"AfDB USD 530M approved; energy sector efficiency/expansion, 343 km Huambo-Lubango transmission line",146
+124,eseep-energy-transmission,completion,2023-12-31,"Operational 2023; 343 km 400 kV line, 860,000 pre-paid meters, 400,000 new customers",146
+125,asrp-agriculture-reform,financing,2023-12-13,"AfDB USD 105.19M loan approved; agriculture sector reform, smallholder mechanization/irrigation in 4 provinces",147

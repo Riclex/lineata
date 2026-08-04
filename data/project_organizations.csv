@@ -15,6 +15,7 @@ id,project_id,organization_id,role
 13,anpg-oil-sector-grand-prize,exxonmobil,partner
 14,anpg-oil-sector-grand-prize,sonangol,partner
 10,anpg-oil-sector-grand-prize,totalenergies,partner
+97,asrp-agriculture-reform,afdb,financier
 89,baia-fish-processing,baia-fish,operator
 72,banco-sol-mc-empresas-2025,banco-sol,promoter
 25,banco-sol-virtual-assistant,banco-sol,promoter
@@ -22,6 +23,7 @@ id,project_id,organization_id,role
 24,bfa-30th-anniversary-filda,bfa,promoter
 74,bfa-mashreq-partnership,bfa,promoter
 75,bfa-mashreq-partnership,mashreq-bank,partner
+93,bita-water-supply,world-bank,financier
 29,brazil-returns-to-filda,gov-angola,promoter
 82,cabinda-refinery-aipex-2026,cabinda-refinery,promoter
 91,cabinda-refinery-build,cabinda-refinery,operator
@@ -31,6 +33,7 @@ id,project_id,organization_id,role
 30,cip-cooperation-pt-ao,cip,promoter
 5,digital-infrastructure-pledge,gov-angola,promoter
 6,digital-infrastructure-pledge,joao-lourenco,promoter
+96,eseep-energy-transmission,afdb,financier
 49,esso-angola-filda2022,esso-angola,promoter
 70,etu-energias-leao-ouro-2025,etu-energias,promoter
 80,fabrimetal-aipex-2026,fabrimetal,promoter
@@ -56,11 +59,13 @@ id,project_id,organization_id,role
 67,montenegro-company-visits,porto-lobito,partner
 64,montenegro-company-visits,powergol,partner
 65,montenegro-company-visits,refriango,partner
+95,mosap3-agricultural-transformation,world-bank,financier
 55,mou-aia-cip-2024,aia,promoter
 56,mou-aia-cip-2024,cip,partner
 57,mou-idii-ualgarve,idii,promoter
 78,omataplo-aipex-2026,omataplo,promoter
 60,pay4all-leao-ouro-2024,pay4all,promoter
+94,pdac-commercial-agriculture,world-bank,financier
 90,ponto-mais-furniture,ponto-mais,operator
 50,porto-lobito-leao-ouro-2022,porto-lobito,promoter
 37,portugal-30-companies-2022,aep,promoter
@@ -76,6 +81,7 @@ id,project_id,organization_id,role
 85,quilemba-solar-park,quilemba-solar,operator
 86,quilemba-solar-park,sonangol,partner
 87,quilemba-solar-park,totalenergies,partner
+92,reclima-water-security,world-bank,financier
 35,sa-angola-investment-2022,dtic-sa,partner
 36,sa-angola-investment-2022,wesgro,partner
 88,safcomex-cooking-oil,safcomex,operator
