@@ -26,8 +26,8 @@ id,project_id,event_type,event_date,description,source_id
 25,vi-encontro-empresarial-pt-ao,expansion,2026-07-20,IX edition held with 500 participants and 6 European chambers. 5x growth from 2023,87
 26,sonangol-sonils-filda2023,delay,2025-03-01,Sonangol privatization delayed. Chairman targets 30% IPO cautiously. Profits fell 11% in 2025,119
 27,sonangol-sonils-filda2023,financing,2026-02-01,Sonangol seeking $4.8 billion loan from Chinese financial institutions per Reuters,120
-28,anpg-oil-sector-grand-prize,expansion,2025-09-01,Block 33/24 development agreement signed. New projects announced to sustain production,121
-29,anpg-oil-sector-grand-prize,expansion,2026-04-01,$100 billion investment pipeline reported. Oil revenue rose to $7.16B in Q1 2026,121
+28,anpg-oil-sector-grand-prize,financing,2025-09-01,Block 33/24 development agreement signed. New projects announced to sustain production,132
+29,anpg-oil-sector-grand-prize,expansion,2026-04-01,$100 billion investment pipeline reported. Oil revenue rose to $7.16B in Q1 2026,133
 30,huatong-angola-industry-awards,construction,2026-01-01,Aluminum production started in Barra do Dande ZEE. 1200 direct + 800 indirect jobs. First 1000 tons exported to Netherlands,130
 31,huatong-angola-industry-awards,financing,2026-07-20,$900M port terminal investment signed. 25-year subconcession. Completion by 2029/2030,125
 32,huatong-angola-industry-awards,expansion,2026-07-17,"Won 3 AIPEX Awards 2026: Manufacturing & Industrialization, Export Champion, Investor of the Year",54
@@ -35,7 +35,7 @@ id,project_id,event_type,event_date,description,source_id
 34,brazil-returns-to-filda,expansion,2024-07-01,4 Brazilian companies via ApexBrasil at FILDA 2024. Expanded to Angola Startup Summit with SEBRAE,104
 35,cip-cooperation-pt-ao,completion,2025-07-25,Declaration of Economic Cooperation signed during President Lourenco State Visit to Portugal,13
 36,cip-cooperation-pt-ao,expansion,2025-07-25,AIPEX signed MoUs with AICEP Global Parques and Porto Business School. 4 priority axes defined,90
-37,angola-startup-summit-2023,expansion,2024-05-01,III edition held with 125+ startups. UNITEL sponsorship. Brazilian debut via SEBRAE,106
+37,angola-startup-summit-2023,completion,2024-05-01,III edition held with 125+ startups. UNITEL sponsorship. Brazilian debut via SEBRAE,134
 38,filda-2023-2-billion-business,delay,2024-07-01,Data correction: original source likely says 2 billion Kwanzas not EUR. Actual FILDA 2024: ~54B Kz,103
 39,grain-production-ambition-2022,announcement,2022-07-16,Manuel Nunes Junior announced Angola's ambition to become largest grain producer in Africa at FILDA 2022 opening,17
 40,sa-angola-investment-2022,announcement,2022-07-15,South Africa-Angola investment promotion seminar with dtic and Wesgro. 19 SA companies at FILDA. Only 5 SA projects worth $19M registered since 2018,18
@@ -59,7 +59,7 @@ id,project_id,event_type,event_date,description,source_id
 58,chicomba-water-dam,announcement,2024-07-23,EUR 65M financing for Chicomba water dam in Huila province announced. BAI Europa as agent bank,38
 59,chicomba-water-dam,financing,2024-07-23,BAI Europa confirmed as agent bank for EUR 65M Chicomba water dam financing,38
 60,pt-ao-credit-line-2-5b,announcement,2024-07-23,Portugal-Angola credit line increased from EUR 2B to EUR 2.5B during PM Montenegro visit,36
-61,pt-ao-credit-line-2-5b,expansion,2025-07-25,Credit line further increased to EUR 3.25B at FILDA 2025,91
+61,pt-ao-credit-line-2-5b,financing,2025-07-25,Credit line further increased to EUR 3.25B (25 July 2025),135
 62,mou-aia-cip-2024,announcement,2024-07-23,MoU signed between AIA and CIP for industrial cooperation,36
 63,mou-idii-ualgarve,announcement,2024-07-23,MoU signed between IDIIA and Universidade do Algarve for industrial innovation cooperation,36
 64,sonangol-leao-ouro-2024,announcement,2024-07-23,Sonangol participated in FILDA 2024 with energy transition projects,45
@@ -77,7 +77,7 @@ id,project_id,event_type,event_date,description,source_id
 76,sonangol-leao-ouro-2025,expansion,2025-07-27,Sonangol won Grande Premio Leao de Ouro at FILDA 2025,122
 77,etu-energias-leao-ouro-2025,announcement,2025-07-22,ETU Energias participated in FILDA 2025 celebrating 25 years,123
 78,etu-energias-leao-ouro-2025,expansion,2025-07-27,ETU Energias won Leao de Ouro at FILDA 2025,123
-79,pt-ao-credit-line-3-25b,announcement,2025-07-25,Portugal-Angola credit line increased from EUR 2.5B to EUR 3.25B announced during FILDA week,91
+79,pt-ao-credit-line-3-25b,announcement,2025-07-25,Portugal-Angola credit line increased from EUR 2.5B to EUR 3.25B (25 July 2025),135
 80,banco-sol-mc-empresas-2025,announcement,2025-07-22,Banco Sol launched Cartao Multicaixa Empresas and QR Code payment solutions at FILDA 2025,
 81,bda-financing-filda2025,announcement,2025-07-22,BDA presented new financing solutions at FILDA 2025,126
 82,bfa-mashreq-partnership,announcement,2025-07-16,BFA announced strategic partnership with Mashreq Bank reinforcing USD correspondent banking capacity,124
@@ -86,7 +86,7 @@ id,project_id,event_type,event_date,description,source_id
 85,aep-delegation-filda2025,completion,2025-07-27,AEP delegation completed participation at FILDA 2025,127
 86,huatong-aipex-awards-2026,announcement,2026-07-21,Huatong Angola Industry participated in FILDA 2026 / AIPEX Awards,54
 87,huatong-aipex-awards-2026,expansion,2026-07-17,"Huatong won 3 AIPEX Awards: Manufacturing and Industrialization, Export Champion, Investor of the Year",54
-88,huatong-aipex-awards-2026,expansion,2026-07-20,Huatong signed $900M protocol for Barra do Dande port terminal. 25-year concession. Completion 2029-2030,125
+88,huatong-aipex-awards-2026,financing,2026-07-20,Huatong signed $900M protocol for Barra do Dande port terminal. 25-year concession. Completion 2029-2030,125
 89,omataplo-aipex-2026,announcement,2026-07-21,Omataplo participated in FILDA 2026 AIPEX Awards,54
 90,omataplo-aipex-2026,expansion,2026-07-17,Omataplo won AIPEX Green Investment award at FILDA 2026,54
 91,lobito-atlantic-railway-aipex,announcement,2026-07-21,Lobito Atlantic Railway participated in FILDA 2026,54

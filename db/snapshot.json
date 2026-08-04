@@ -6,7 +6,7 @@
     "unscored_ids": [
       "banco-sol-mc-empresas-2025"
     ],
-    "sources": 130,
+    "sources": 134,
     "events": 105,
     "events_linked": 104,
     "events_null": 1,
@@ -15,14 +15,14 @@
     ]
   },
   "aggregate": {
-    "avg_precise": 43.78,
-    "avg_rounded": 44,
+    "avg_precise": 42.9,
+    "avg_rounded": 43,
     "distribution": {
       "0-20": 16,
-      "21-40": 12,
-      "41-60": 2,
-      "61-80": 13,
-      "81-100": 7
+      "21-40": 14,
+      "41-60": 1,
+      "61-80": 10,
+      "81-100": 9
     }
   },
   "sectors": {
@@ -40,11 +40,11 @@
     },
     "Energy": {
       "count": 7,
-      "avg": 35.0
+      "avg": 32.4
     },
     "Finance": {
       "count": 6,
-      "avg": 28.8
+      "avg": 28.2
     },
     "Government": {
       "count": 3,
@@ -60,15 +60,15 @@
     },
     "Manufacturing": {
       "count": 4,
-      "avg": 65.3
+      "avg": 67.0
     },
     "Multi-sector": {
       "count": 8,
-      "avg": 57.6
+      "avg": 52.0
     },
     "Technology": {
       "count": 4,
-      "avg": 53.3
+      "avg": 57.3
     },
     "Telecom": {
       "count": 4,
@@ -83,12 +83,12 @@
     "gov_count": 3,
     "private_count": 47,
     "gov_avg": 54.0,
-    "private_avg": 43.1
+    "private_avg": 42.2
   },
   "case_studies": {
     "huatong-angola-industry-awards": 78,
     "linha-verde-investor-visas": 3,
-    "pt-ao-credit-line-2-5b": 69,
+    "pt-ao-credit-line-2-5b": 65,
     "pt-ao-credit-line-3-25b": 8,
     "chicomba-water-dam": 50,
     "investment-portal-georeferenced": 81,

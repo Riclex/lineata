@@ -6,7 +6,8 @@ aia,Associacao Industrial de Angola,company,Angola,,,Angolan Industrial Associat
 anglobal,Anglobal Group,company,Angola,,,Telecom and industrial solutions,2026-07-23
 anpg,ANPG - Agencia Nacional de Petroleo Gas e Biocombustiveis,state_owned_enterprise,Angola,,"[""Agencia Nacional de Petroleo""]",National Agency for Oil Gas and Biofuels,2026-07-23
 azule-energy,Azule Energy,foreign_investor,Italy,,,"[""BP Angola"",""Eni Angola""]",2026-07-23
-bai-europa,BAI Europa,company,Portugal,,,"BAI European subsidiary, trade finance",2026-07-23
+bai,Banco Angolano de Investimentos,company,Angola,,,Angola's first private bank; parent of BAI Europa (99.99% owned),2026-08-04
+bai-europa,BAI Europa,company,Portugal,bai,"BAI European subsidiary, trade finance",2026-07-23,
 banco-sol,Banco Sol,company,Angola,,,Angolan bank presenting virtual assistant at FILDA 2023,2026-07-23
 bci,BCI - Banco Comercial e de Investimentos,company,Angola,,,"Commercial and investment bank, Leao de Ouro 2025",2026-07-23
 bda,BDA - Banco de Desenvolvimento de Angola,state_owned_enterprise,Angola,,,Development Bank of Angola,2026-07-23

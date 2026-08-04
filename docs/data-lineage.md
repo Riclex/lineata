@@ -26,7 +26,7 @@ PUBLISHED CLAIMS (cited back to sources)
 
 ## Source Layer: Where the Data Comes From
 
-### 130 sources in the database, each with a confidence level
+### 134 sources in the database, each with a confidence level
 
 The sources table was rebuilt on 2026-07-25 from the research files, then extended with a targeted web-research pass. It retains the 15 original hand-curated sources (the duplicate `id 11`, which shared source 15's URL, was collapsed into 15), adds 105 sources extracted from the research files — VerAngola, SCM/Ministry of Industry, Forbes Portugal/África Lusófona, Jornal de Angola, Angolan Mining Oil & Gas, RFI, BAI Europa, Sonangol official, AEP, ApexBrasil, Portugal.gov.pt, CIPRA, CIP, Embaixada de Portugal, INACOM, GGPEN, and many more — adds 8 more (ids 122–129) found by direct web search to ground the previously-NULL events, adds 1 (id 130, the VerAngola Jan-2026 Huatong inauguration article) on 2026-07-30 to ground event 30, and adds 1 (id 131, the OPaís 13 Apr 2026 first-export article) on 2026-07-30 to ground event 105 (Huatong's first 1,000-ton aluminum export to the Netherlands). The previous "11+ sources used in research but not entered" gap is closed.
 
@@ -111,7 +111,7 @@ Three sources carry a named publisher but an empty `url` — the research file a
 | projects | 51 | 5 FILDA editions (2022-2026) |
 | organizations | 64 | companies, government, foreign investors, SOEs |
 | events | 105 | All 51 projects have at least one event |
-| sources | 130 | 105 from research files + 8 from targeted web research + 1 (id 130) grounding the Huatong Jan-2026 inauguration + 1 (id 131) grounding the Huatong Apr-2026 first export; 104 events linked to a specific source, 1 NULL (see Source Layer) |
+| sources | 134 | 105 from research files + 8 from targeted web research + 1 (id 130) grounding the Huatong Jan-2026 inauguration + 1 (id 131) grounding the Huatong Apr-2026 first export + 1 (id 132) AOG-2025 Block 33/24 dev agreement + 1 (id 133) ANPG $100B pipeline + 1 (id 134) Angola Startup Summit III edition winners + 1 (id 135) Portugal.gov.pt 3.25B credit line; 104 events linked to a specific source, 1 NULL (see Source Layer) |
 | project_organizations | 84 | All 51 projects have org links |
 
 ### Coverage — previously a critical gap, now resolved
@@ -141,7 +141,7 @@ Four controls were added so the integrity checks that were once run manually now
 1. **`foreign_key_check` is now an automated gate in `db/load.py`.** After the bulk insert and FK re-enable, the loader runs `PRAGMA foreign_key_check` and fails the load (non-zero exit, violations printed) if any row references a missing parent. The CSV bugs above are the class of defect this now catches on every rebuild, not just once.
 2. **Score-consistency gate in `db/load.py`.** `execution_score` is loaded from `projects.csv` (a snapshot), then recomputed from the loaded data via `calculate_scores.compute_scores` and asserted equal. A stale snapshot fails the load with a per-project diff. This caught a real, broad staleness on first run — 37 score cells in `projects.csv` had drifted from the formula (the CSV had never been refreshed after past `calculate_scores.py` runs) — and they were synced (see #3). The DB now ships only formula-verified scores.
 3. **`db/calculate_scores.py --update-csv`** recomputes scores and rewrites the `execution_score` column in `data/projects.csv`, so the snapshot can be refreshed in one command after any data edit (instead of drifting silently).
-4. **`db/verify_invariants.py`** (29 structural checks) + **`db/verify_snapshot.py`** (auto-generated snapshot + article pin) replaced the old `db/verify.py`. The snapshot is committed as `db/snapshot.json` and regenerated with `--update`. After the v2-2026-07 formula change and 17 operational-without-progress downgrades (2026-08-03), the published figures are: 51 tracked / 50 scored, 130 sources / 105 events (104 linked / 1 NULL), avg 43.8 over the 50 scored, distribution 16/12/2/13/7, gov/private 54,0 vs 43,1. Exits non-zero on any drift.
+4. **`db/verify_invariants.py`** (30 structural checks) + **`db/verify_snapshot.py`** (auto-generated snapshot + article pin) replaced the old `db/verify.py`. The snapshot is committed as `db/snapshot.json` and regenerated with `--update`. After the v2-2026-07 formula change, 17 operational-without-progress downgrades (2026-08-03), and the Tier 1 dataset cleanup (2026-08-04), the published figures are: 51 tracked / 50 scored, 134 sources / 105 events (104 linked / 1 NULL), avg 42.9 over the 50 scored, distribution 16/14/1/10/9, gov/private 54,0 vs 42,2. Exits non-zero on any drift.
 
 The scoring methodology docs were also reconciled to the code: `docs/scoring-methodology.md` now documents the *actual* evidence-bonus rule (and notes that the previously documented `sources.confidence` weighting is **not** implemented), its worked examples reproduce against the script (83 / 3 / 83), and the stale formula in `docs/data-model.md` was replaced with a pointer to the methodology doc.
 
@@ -327,6 +327,21 @@ Three structural additions close the guideline gaps the project previously handl
 - **`is_externally_blocked` (label-only column).** A new `projects` column (INTEGER, default 0) flagging that a thin public trail reflects an external blocker (judicial / regulatory / disbursement), not inaction. **Not** a `calculate_score` input — the score is unchanged. Set via `db/update.py set-blocked --project ID --source-url URL --to 1` (idempotent, one `change_log` row, no score recompute). `set-blocked` added to `MUTATION_OPS`/`COMMANDS`; `verify_invariants.py` gained an orphan check for it (30 checks, was 29). All 51 projects default to 0 — none classified yet.
 - **API lineage (Gap 1 cheap fix).** `summary()` and `project_detail()` now carry `score_version`; `project_detail()` adds a per-project `changelog` array (the `change_log` rows whose payload `project_id` matches). No `valid_from`/`valid_to` SCD2 time-ranges (the expensive part) — deliberately out of scope.
 
+### 2026-08-04 — Tier 1 dataset cleanup (6 known-open warnings resolved)
+
+The six `verify_invariants` Check-C warnings (`operational`/`under_construction` without a genuine progress event) and the BAI-parent recommendation (#8) were closed. Every mutation went through the audited `update.py` (relink / retype-event / set-status) with a real `--source-url`, or a documented `events.csv`/`organizations.csv` checkpoint edit; no figure was moved without source verification first.
+
+- **anpg-oil-sector-grand-prize** (65 → 72): events 28/29 were backed by source 121, a URL-less low-confidence placeholder ("publisher cited, article URL not pinned"). Re-linked to real articles — event 28 (Block 33/24 development agreement, signed at **AOG 2025**, not FILDA) to source 132 (angolaoilandgas.com); event 29 ($100B pipeline / Q1-2026 $7.16B revenue) to source 133 (angolanminingoilandgas.com). Event 28 re-typed `expansion` → `financing` (signed Risk-Services Contract = capital committed) — a genuine progress event, so the `operational` status is now backed (no downgrade). No score version bump (re-typing events changes the score but not the formula weights).
+- **angola-startup-summit-2023** (78 → 94): event 37 ("III edition held") was linked to a *preview* article ("Arranca hoje") that does not confirm the event happened. Re-linked to the post-event winners article (source 134, menosfios) and re-typed `expansion` → `completion` (non-physical completion, per the AEP-delegation convention). Source verification found a real post-event source (winners named, INAPEM-IMA memo); the original preview would have made a `completion` re-type a fabrication.
+- **brazil-returns-to-filda** (75 → 30): participation-only (4 companies via ApexBrasil), no progress event → downgraded `operational` → `announced` (sourced to RFI, the original announcement).
+- **pt-ao-credit-line-2-5b** (69 → 65): event 61 (the 2.5B→3.25B increase) re-typed `expansion` → `financing` (capital committed). **Source correction:** events 61 and 79 were mis-linked to source 91 (a 23-Nov-2025 *Jornal de Negócios* retrospective about the AU-EU summit) which does not mention FILDA; the increase was actually announced **25 July 2025** during FILDA 2025 week (40th edition, 22–27 Jul), confirmed by portugal.gov.pt, VerAngola, Observador, Público, and Forbes. Both events re-linked to source 135 (portugal.gov.pt, 25 Jul 2025); the original 2025-07-25 date and the "during FILDA week" framing are correct and retained. The first-pass plan to drop the FILDA framing was based on the mis-linked source and was reverted. The within-2025 date shift is year-based, so the re-type (not the date) is the sole score mover.
+- **huatong-aipex-awards-2026** (76 → 83): event 88 ($900M Barra do Dande port-terminal protocol, 25-year concession) re-typed `expansion` → `financing` (signed protocol; disbursement conditional on regulatory approval). Source 125 (360angola) confirms the signed protocols. This project is distinct from the case study `huatong-angola-industry-awards` (score 78, unchanged).
+- **cabinda-refinery-aipex-2026** (54 → 29): the project is scoped as the **AIPEX Energy Award at FILDA 2026** (an award project), not the refinery build — downgraded `under_construction` → `announced` for consistency with other award-only projects. (The refinery itself was inaugurated Sep 2025 and began commercial production Apr 2026 — a genuinely delivered project, but a different scope, flagged as a Tier 3 coverage candidate.)
+- **ev79 / pt-ao-credit-line-3-25b**: same mis-link and same unsupported "FILDA week" framing as ev61, on the same Nov-2025 source — re-linked to source 135 alongside ev61 for consistency. Score 8 unchanged (year-based delay).
+- **BAI parent (recommendation #8):** added the `bai` org (Banco Angolano de Investimentos, Angola) to `organizations.csv` with the bancobaieuropa.pt source, and set `bai-europa.parent_org_id = 'bai'` (99.99% subsidiary). The `organizations` table has no `source_id` column, so the source is recorded here and in the description, not as a DB source link.
+
+**Figure cascade (articles + snapshot + this lineage updated together):** avg 43.78 → 42.90 (44 → 43); distribution 16/12/2/13/7 → 16/14/1/10/9; private avg 43,1 → 42,2 (government 54,0 unchanged); sources 130 → 134. Sector averages that moved: Energy 35,0 → 32,4; Finance 28,8 → 28,2; Manufacturing 65,3 → 67,0; Technology 53,3 → 57,3; Multi-sector 57,6 → 52,0. Only published case-study score that moved: `pt-ao-credit-line-2-5b` 69 → 65 (Huatong 78, Linha Verde 3, Chicomba 50, portal 81, ETU 30, credit-line-3.25B 8 all unchanged). `verify_invariants` now 30/30 with **zero known-open warnings** (was 6). `db/snapshot.json` regenerated; all five article variants (EN-full, PT-full, Substack, LinkedIn-EN, LinkedIn-PT) + `make_charts.py` updated; article pin green.
+
 ---
 
 ## Scoring Layer: Formula Application
@@ -340,7 +355,7 @@ Clamped to [0, 100]
 
 ### Score distribution
 
-Average score: **43.78 over 50 scored projects** (Banco Sol is tracked but `evidence_complete = 0` / unscored; matches the figure cited in the published article). Under v2-2026-07 (distinct-type event points + confidence-weighted evidence bonus + 17 operational-without-progress downgrades).
+Average score: **42.90 over 50 scored projects** (Banco Sol is tracked but `evidence_complete = 0` / unscored; matches the figure cited in the published article). Under v2-2026-07 (distinct-type event points + confidence-weighted evidence bonus + 17 operational-without-progress downgrades + 2026-08-04 Tier 1 cleanup).
 
 | Range | Count | % | Interpretation |
 |-------|-------|---|----------------|
@@ -374,14 +389,14 @@ The table below maps each published claim to the DB source IDs that back it afte
 |-----------------|-------------|----------|------------------------------|------------|
 | 630 participations (2022) | Correio Digital + Menos Fios | research file | — (research-file claim, no single DB row) | medium |
 | 2,348 participations (2026) | VerAngola | research file | — (research-file claim) | high |
-| Average score 44 (50 scored) | calculated | projects.execution_score | n/a | formula-derived (DB avg 43.78; Banco Sol unscored) |
+| Average score 43 (50 scored) | calculated | projects.execution_score | n/a | formula-derived (DB avg 42.90; Banco Sol unscored) |
 | 51 projects tracked (50 scored) | count | projects | n/a | direct count (evidence_complete) |
-| Distribution table (16/12/2/13/7) | calculated | projects grouped by score | n/a | formula-derived, 50 scored |
-| Sector table | calculated | projects grouped by sector | n/a | formula-derived (Energy 35,0; Finance 6 @ 28,8) |
-| Gov vs private (54,0 vs 43,1) | calculated | projects by sector | n/a | derived from 50 scored obs (government = `Government` sector, 3 projects; private = other 47) |
+| Distribution table (16/14/1/10/9) | calculated | projects grouped by score | n/a | formula-derived, 50 scored |
+| Sector table | calculated | projects grouped by sector | n/a | formula-derived (Energy 32,4; Finance 6 @ 28,2; Manufacturing 67,0; Technology 57,3; Multi-sector 52,0) |
+| Gov vs private (54,0 vs 42,2) | calculated | projects by sector | n/a | derived from 50 scored obs (government = `Government` sector, 3 projects; private = other 47) |
 | Huatong score 78 | calculated | projects + events + sources | 15, 54, 125, 130, 131 (16 removed 2026-07-30; event 30 grounded via 130; event 105 Apr-2026 first export grounded via 131 — see Huatong April export) | high |
 | Linha Verde score 3 | calculated | projects + events + sources | 1, 67 | high |
-| Credit line 2.5B score 69 (and successor 3.25B score 8) | calculated | projects + events + sources | 36, 91 (3.25B: 91) | high (timeline now grounded) |
+| Credit line 2.5B score 65 (and successor 3.25B score 8) | calculated | projects + events + sources | 36, 135 (3.25B: 135, relinked from 91) | high (timeline now grounded) |
 | Chicomba score 50 | calculated | projects + events + sources | 38, 128, 129 | high |
 | Participation methodology (direct + indirect) | research file | filda-participation-analysis.md | — (research file) | high (6 sources) |
 
