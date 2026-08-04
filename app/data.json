@@ -18,6 +18,7 @@
       "actual_completion": "",
       "execution_score": 97,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -40,6 +41,7 @@
       "actual_completion": "2026",
       "execution_score": 95,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -62,6 +64,7 @@
       "actual_completion": "2024",
       "execution_score": 94,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -84,6 +87,7 @@
       "actual_completion": "",
       "execution_score": 90,
       "filda_edition": "2025",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -106,6 +110,7 @@
       "actual_completion": "",
       "execution_score": 90,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -128,6 +133,7 @@
       "actual_completion": "",
       "execution_score": 89,
       "filda_edition": "2026",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -150,6 +156,7 @@
       "actual_completion": "",
       "execution_score": 89,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -172,6 +179,7 @@
       "actual_completion": "",
       "execution_score": 83,
       "filda_edition": "2026",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -194,6 +202,7 @@
       "actual_completion": "2024",
       "execution_score": 81,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -216,6 +225,7 @@
       "actual_completion": "",
       "execution_score": 80,
       "filda_edition": "2025",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -238,6 +248,7 @@
       "actual_completion": "",
       "execution_score": 80,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -260,6 +271,7 @@
       "actual_completion": "",
       "execution_score": 80,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -282,6 +294,7 @@
       "actual_completion": "",
       "execution_score": 79,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -304,6 +317,7 @@
       "actual_completion": "2029",
       "execution_score": 78,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -326,9 +340,33 @@
       "actual_completion": "",
       "execution_score": 78,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "cabinda-refinery-build",
+      "title": "Cabinda Refinery (Imbono/Gemcorp)",
+      "sector": "Energy",
+      "subsector": "Refining",
+      "description": "Angola first post-independence refinery; Gemcorp 90%/Sonangol 10% via Imbono; Phase 1 (30,000 bpd) inaugurated Sep 2025, commercial production Apr 2026; Phase 2 (60,000 bpd) engineering underway",
+      "country": "Angola",
+      "province": "Cabinda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 473.0,
+      "currency": "USD",
+      "estimated_jobs": 2700,
+      "expected_completion": "",
+      "actual_completion": "2025-09",
+      "execution_score": 76,
+      "filda_edition": "",
+      "source_program": "refinery",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
     },
     {
       "id": "digital-infrastructure-pledge",
@@ -348,6 +386,7 @@
       "actual_completion": "",
       "execution_score": 74,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -370,6 +409,7 @@
       "actual_completion": "",
       "execution_score": 72,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -392,9 +432,33 @@
       "actual_completion": "",
       "execution_score": 72,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "baia-fish-processing",
+      "title": "Baia Fish Processing Plant",
+      "sector": "Agriculture",
+      "subsector": "Fisheries",
+      "description": "Pescaria Baia Fish fish freezing/processing plant (200 t/day), Baia Farta, Benguela; inaugurated 8 Jun 2026; BDA+BPC $18M; AIPEX-promoted May 2024",
+      "country": "Angola",
+      "province": "Benguela",
+      "municipality": "Baia Farta",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 17.5,
+      "currency": "USD",
+      "estimated_jobs": 165,
+      "expected_completion": "",
+      "actual_completion": "2026-06-08",
+      "execution_score": 69,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
     },
     {
       "id": "pt-ao-credit-line-2-5b",
@@ -414,6 +478,7 @@
       "actual_completion": "",
       "execution_score": 65,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -436,9 +501,33 @@
       "actual_completion": "",
       "execution_score": 50,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "quilemba-solar-park",
+      "title": "Quilemba Solar Photovoltaic Park",
+      "sector": "Energy",
+      "subsector": "Solar",
+      "description": "Angola's largest private solar PV plant (35 MWp), Lubango, Huila; JV TotalEnergies 51%/Sonangol 30%/Maurel & Prom 19%; AIPEX-promoted May 2024",
+      "country": "Angola",
+      "province": "Huila",
+      "municipality": "Lubango",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 36.8,
+      "currency": "USD",
+      "estimated_jobs": 50,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
     },
     {
       "id": "brazil-returns-to-filda",
@@ -458,6 +547,7 @@
       "actual_completion": "",
       "execution_score": 30,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -480,6 +570,7 @@
       "actual_completion": "",
       "execution_score": 30,
       "filda_edition": "2025",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -502,6 +593,7 @@
       "actual_completion": "",
       "execution_score": 30,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -524,6 +616,7 @@
       "actual_completion": "",
       "execution_score": 30,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -546,6 +639,7 @@
       "actual_completion": "",
       "execution_score": 30,
       "filda_edition": "2025",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -568,6 +662,7 @@
       "actual_completion": "",
       "execution_score": 29,
       "filda_edition": "2026",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -590,6 +685,7 @@
       "actual_completion": "",
       "execution_score": 29,
       "filda_edition": "2026",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -612,6 +708,7 @@
       "actual_completion": "",
       "execution_score": 29,
       "filda_edition": "2026",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -634,6 +731,7 @@
       "actual_completion": "",
       "execution_score": 29,
       "filda_edition": "2026",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -656,6 +754,7 @@
       "actual_completion": "",
       "execution_score": 29,
       "filda_edition": "2026",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -678,6 +777,7 @@
       "actual_completion": "",
       "execution_score": 29,
       "filda_edition": "2026",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -700,6 +800,7 @@
       "actual_completion": "",
       "execution_score": 29,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -722,6 +823,7 @@
       "actual_completion": "",
       "execution_score": 29,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -744,6 +846,7 @@
       "actual_completion": "",
       "execution_score": 28,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -766,6 +869,7 @@
       "actual_completion": "",
       "execution_score": 20,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -788,6 +892,7 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -810,6 +915,7 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2025",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -832,6 +938,7 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -854,9 +961,33 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "hospital-serum-factory",
+      "title": "Hospital Serum Factory",
+      "sector": "Manufacturing",
+      "subsector": "Pharmaceuticals",
+      "description": "Hospital serum factory, Luanda; AIPEX-promoted May 2024, $15M, 503 jobs. A separate larger VitalFlow EUR 80M pharmaceutical complex in ZEE is a different project, not conflated.",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 15.0,
+      "currency": "USD",
+      "estimated_jobs": 503,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
     },
     {
       "id": "huambo-investment-promotion-2022",
@@ -876,6 +1007,7 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -898,6 +1030,7 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -920,6 +1053,7 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -942,9 +1076,33 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "ponto-mais-furniture",
+      "title": "Ponto Mais Furniture Factory",
+      "sector": "Manufacturing",
+      "subsector": "Furniture",
+      "description": "Ponto Mais (Casa Nova group) furniture factory, Luanda; offices/homes/schools/hospitals; AIPEX-promoted May 2024, $10.3M, 77 jobs; SADC export ambitions",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 10.3,
+      "currency": "USD",
+      "estimated_jobs": 77,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
     },
     {
       "id": "pt-ao-credit-line-3-25b",
@@ -964,9 +1122,33 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2025",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "safcomex-cooking-oil",
+      "title": "Safcomex Cooking Oil & Soya Factory",
+      "sector": "Agriculture",
+      "subsector": "Food processing",
+      "description": "Safcomex soya/cooking-oil/bran factory (150 t/day), Icolo e Bengo; AIPEX-promoted May 2024; expected operational end-2024 (unconfirmed)",
+      "country": "Angola",
+      "province": "Bengo",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 25.0,
+      "currency": "USD",
+      "estimated_jobs": 140,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-04",
+      "evidence_complete": 1,
+      "created_at": "2026-08-04"
     },
     {
       "id": "sa-angola-investment-2022",
@@ -986,6 +1168,7 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -1008,6 +1191,7 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2024",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -1030,6 +1214,7 @@
       "actual_completion": "",
       "execution_score": 8,
       "filda_edition": "2022",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -1052,6 +1237,7 @@
       "actual_completion": "",
       "execution_score": 3,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -1074,6 +1260,7 @@
       "actual_completion": "",
       "execution_score": 0,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -1096,6 +1283,7 @@
       "actual_completion": "",
       "execution_score": 0,
       "filda_edition": "2023",
+      "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
@@ -1338,6 +1526,36 @@
         "src_url_status": "alive"
       }
     ],
+    "baia-fish-processing": [
+      {
+        "id": 108,
+        "project_id": "baia-fish-processing",
+        "event_type": "announcement",
+        "event_date": "2024-05-17",
+        "description": "AIPEX-signed investment contract (USD 17.5M, 165 jobs, fish catching/processing, Benguela)",
+        "source_id": 136,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://investinangola.ao/2024/07/18/aipex-signs-six-investment-project-contracts/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 112,
+        "project_id": "baia-fish-processing",
+        "event_type": "completion",
+        "event_date": "2026-06-08",
+        "description": "Inaugurated 8 Jun 2026; 200 t/day; BDA+BPC USD 18M financing",
+        "source_id": 138,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://www.verangola.net/va/en/062026/Industry/49062/Fish-processing-plant-inaugurated-in-Benguela-It-will-process-200-tonsday-and-generate-200-jobs.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "banco-sol-mc-empresas-2025": [
       {
         "id": 80,
@@ -1487,6 +1705,50 @@
         "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
         "src_pub": "VerAngola",
         "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "cabinda-refinery-build": [
+      {
+        "id": 113,
+        "project_id": "cabinda-refinery-build",
+        "event_type": "financing",
+        "event_date": "2022-03-01",
+        "description": "Phase 1 financing: Gemcorp equity + Africa Finance Corporation USD 150M + Afreximbank USD 100M (total USD 473M)",
+        "source_id": 139,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://africaoilgasreport.com/2026/03/refining-gap/its-almost-done-cabinda-refinery-to-start-commercial-production-in-april-2026/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "blocked"
+      },
+      {
+        "id": 114,
+        "project_id": "cabinda-refinery-build",
+        "event_type": "construction",
+        "event_date": "2022-03-01",
+        "description": "Phase 1 site preparation and civil works began Q1 2022",
+        "source_id": 140,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://angolapetroleum.com/downstream/cabinda-refinery-inauguration/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 115,
+        "project_id": "cabinda-refinery-build",
+        "event_type": "completion",
+        "event_date": "2025-09-01",
+        "description": "Phase 1 (30,000 bpd) inaugurated Sep 2025 by President Lourenco",
+        "source_id": 140,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://angolapetroleum.com/downstream/cabinda-refinery-inauguration/",
         "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -1800,6 +2062,22 @@
         "src_pub": "MIREX Angola / Embassy of Angola in Türkiye",
         "src_url": "https://turquia.mirex.gov.ao/web/noticias/angola-pretende-ser-o-maior-produtor-de-gr-os-em--frica",
         "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "hospital-serum-factory": [
+      {
+        "id": 109,
+        "project_id": "hospital-serum-factory",
+        "event_type": "announcement",
+        "event_date": "2024-05-17",
+        "description": "AIPEX-signed investment contract (USD 15M, 503 jobs, hospital serum factory, Luanda)",
+        "source_id": 136,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://investinangola.ao/2024/07/18/aipex-signs-six-investment-project-contracts/",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -2208,6 +2486,22 @@
         "src_url_status": "alive"
       }
     ],
+    "ponto-mais-furniture": [
+      {
+        "id": 110,
+        "project_id": "ponto-mais-furniture",
+        "event_type": "announcement",
+        "event_date": "2024-05-17",
+        "description": "AIPEX-signed investment contract (USD 10.3M, 77 jobs, furniture factory, Luanda)",
+        "source_id": 136,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://investinangola.ao/2024/07/18/aipex-signs-six-investment-project-contracts/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "porto-lobito-leao-ouro-2022": [
       {
         "id": 52,
@@ -2390,6 +2684,36 @@
         "src_url_status": "alive"
       }
     ],
+    "quilemba-solar-park": [
+      {
+        "id": 106,
+        "project_id": "quilemba-solar-park",
+        "event_type": "announcement",
+        "event_date": "2024-05-17",
+        "description": "AIPEX-signed investment contract (USD 36.8M, 50 jobs, solar PV park, Huila)",
+        "source_id": 136,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://investinangola.ao/2024/07/18/aipex-signs-six-investment-project-contracts/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 111,
+        "project_id": "quilemba-solar-park",
+        "event_type": "construction",
+        "event_date": "2025-05-21",
+        "description": "Construction started; 35 MWp, Angola largest private solar PV plant; 150+ jobs",
+        "source_id": 137,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://www.businesswire.com/news/home/20250521277404/en/Maurel-Prom-Start-of-Construction-of-Quilemba-Solar-Photovoltaic-Power-Plant-in-Angola",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "dead"
+      }
+    ],
     "sa-angola-investment-2022": [
       {
         "id": 40,
@@ -2404,6 +2728,22 @@
         "src_conf": "high",
         "src_archived_url": "http://web.archive.org/web/20260623040035/https://www.gov.za/news/media-statements/south-african-companies-urged-invest-angola-15-jul-2022",
         "src_url_status": "dead"
+      }
+    ],
+    "safcomex-cooking-oil": [
+      {
+        "id": 107,
+        "project_id": "safcomex-cooking-oil",
+        "event_type": "announcement",
+        "event_date": "2024-05-17",
+        "description": "AIPEX-signed investment contract (USD 25M, 140 jobs, soya/cooking-oil/bran factory, Icolo e Bengo)",
+        "source_id": 136,
+        "src_title": "",
+        "src_pub": "",
+        "src_url": "https://investinangola.ao/2024/07/18/aipex-signs-six-investment-project-contracts/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
       }
     ],
     "sonangol-leao-ouro-2022": [
@@ -2800,6 +3140,15 @@
         "country": "Angola"
       }
     ],
+    "baia-fish-processing": [
+      {
+        "project_id": "baia-fish-processing",
+        "role": "operator",
+        "name": "Pescaria Baia Fish",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "banco-sol-mc-empresas-2025": [
       {
         "project_id": "banco-sol-mc-empresas-2025",
@@ -2865,6 +3214,15 @@
       {
         "project_id": "cabinda-refinery-aipex-2026",
         "role": "promoter",
+        "name": "Cabinda Refinery / Imbono Gemcorp",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "cabinda-refinery-build": [
+      {
+        "project_id": "cabinda-refinery-build",
+        "role": "operator",
         "name": "Cabinda Refinery / Imbono Gemcorp",
         "type": "company",
         "country": "Angola"
@@ -3166,6 +3524,15 @@
         "country": "Angola"
       }
     ],
+    "ponto-mais-furniture": [
+      {
+        "project_id": "ponto-mais-furniture",
+        "role": "operator",
+        "name": "Ponto Mais (Casa Nova group)",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "porto-lobito-leao-ouro-2022": [
       {
         "project_id": "porto-lobito-leao-ouro-2022",
@@ -3257,6 +3624,29 @@
         "country": "Angola"
       }
     ],
+    "quilemba-solar-park": [
+      {
+        "project_id": "quilemba-solar-park",
+        "role": "operator",
+        "name": "Quilemba Solar Lda",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "quilemba-solar-park",
+        "role": "partner",
+        "name": "Sonangol",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      },
+      {
+        "project_id": "quilemba-solar-park",
+        "role": "partner",
+        "name": "TotalEnergies",
+        "type": "foreign_investor",
+        "country": "France"
+      }
+    ],
     "sa-angola-investment-2022": [
       {
         "project_id": "sa-angola-investment-2022",
@@ -3271,6 +3661,15 @@
         "name": "Wesgro",
         "type": "government",
         "country": "South Africa"
+      }
+    ],
+    "safcomex-cooking-oil": [
+      {
+        "project_id": "safcomex-cooking-oil",
+        "role": "operator",
+        "name": "Safcomex Limitada",
+        "type": "company",
+        "country": "Angola"
       }
     ],
     "sonangol-leao-ouro-2022": [
@@ -4616,6 +5015,60 @@
       "events": 13,
       "evidence": 0,
       "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "quilemba-solar-park": {
+      "base": 40,
+      "events": 11,
+      "evidence": 1,
+      "delay": -5,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "safcomex-cooking-oil": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "baia-fish-processing": {
+      "base": 60,
+      "events": 18,
+      "evidence": 1,
+      "delay": -10,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "hospital-serum-factory": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "ponto-mais-furniture": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "cabinda-refinery-build": {
+      "base": 60,
+      "events": 30,
+      "evidence": 1,
+      "delay": -15,
       "status_penalty": 0,
       "only_announce": 0,
       "version": "v2-2026-07"

@@ -42,7 +42,7 @@ DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 PROJECT_SELECT = """
     p.id, p.title, p.sector, p.subsector, p.province, p.municipality,
     p.status, p.execution_score, p.announced_value, p.currency,
-    p.estimated_jobs, p.actual_completion, p.filda_edition,
+    p.estimated_jobs, p.actual_completion, p.filda_edition, p.source_program,
     p.evidence_complete, p.is_externally_blocked, p.last_verified,
     p.description, p.country, p.expected_completion, p.coordinates, p.created_at
 """
@@ -68,6 +68,7 @@ def project_row(row):
         "estimated_jobs": row["estimated_jobs"],
         "actual_completion": row["actual_completion"],
         "filda_edition": row["filda_edition"],
+        "source_program": row["source_program"],
         "evidence_complete": row["evidence_complete"],
         "last_verified": row["last_verified"], "description": row["description"],
         "country": row["country"], "expected_completion": row["expected_completion"],
@@ -94,6 +95,9 @@ def build_where(args):
     if args.edition:
         clauses.append("p.filda_edition = ?")
         params.append(str(args.edition))
+    if args.source_program:
+        clauses.append("p.source_program = ?")
+        params.append(args.source_program)
     if args.min_score is not None:
         clauses.append("p.execution_score >= ?")
         params.append(args.min_score)
@@ -219,7 +223,7 @@ def project_detail(conn, pid):
 
 def facets(conn):
     out = {}
-    for dim in ("sector", "province", "filda_edition", "status"):
+    for dim in ("sector", "province", "filda_edition", "source_program", "status"):
         rows = conn.execute(
             f"SELECT {dim} AS k, COUNT(*) AS n FROM projects "
             "WHERE evidence_complete = 1 AND {0} IS NOT NULL "
@@ -236,6 +240,8 @@ def main():
     ap.add_argument("--province")
     ap.add_argument("--status")
     ap.add_argument("--edition", type=int)
+    ap.add_argument("--source-program", dest="source_program",
+                    help="filter by source program (FILDA/AIPEX/refinery/PPP/multilateral)")
     ap.add_argument("--org", help="organization name or id (any role)")
     ap.add_argument("--min-score", type=int, dest="min_score")
     ap.add_argument("--max-score", type=int, dest="max_score")

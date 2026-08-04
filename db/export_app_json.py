@@ -49,7 +49,7 @@ PROJECT_COLS = [
     "id", "title", "sector", "subsector", "description", "country", "province",
     "municipality", "coordinates", "status", "announced_value", "currency",
     "estimated_jobs", "expected_completion", "actual_completion", "execution_score",
-    "filda_edition", "last_verified", "evidence_complete", "created_at",
+    "filda_edition", "source_program", "last_verified", "evidence_complete", "created_at",
 ]
 
 

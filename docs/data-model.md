@@ -26,7 +26,8 @@ The database tracks announced investment projects in Angola and their execution 
 | expected_completion | TEXT | Expected completion date (YYYY or YYYY-MM) |
 | actual_completion | TEXT | Actual completion date (YYYY or YYYY-MM), NULL if not yet |
 | execution_score | INTEGER | Calculated 0–100 (see scoring below) |
-| filda_edition | TEXT | FILDA edition the project was announced at (e.g. "2023") |
+| filda_edition | TEXT | FILDA edition the project was announced at (e.g. "2023"); NULL for non-FILDA projects (Tier 3: AIPEX / refinery / PPP / multilateral) |
+| source_program | TEXT | Channel the project entered the DB through: `FILDA` (default, the original 51), `AIPEX`, `refinery`, `PPP`, `multilateral` (see `constants.SOURCE_PROGRAMS`). NOT NULL, default `FILDA`. |
 | last_verified | TEXT | YYYY-MM-DD a human last checked this project's status against sources |
 | evidence_complete | INTEGER | 1 = scored (default); 0 = tracked but NOT scored (no click-through evidence — see `docs/data-lineage.md` "Event 80 (Banco Sol)"). Scored 0 and excluded from published aggregates. |
 | is_externally_blocked | INTEGER | Label only (default 0): 1 = stalled by an external force (judicial / regulatory / disbursement), not underperformance. **Not** a `calculate_score` input — the score is unchanged. Set via `db/update.py set-blocked --project ID --source-url URL --to 1`. |

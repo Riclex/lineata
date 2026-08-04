@@ -109,6 +109,16 @@ def looks_like_award(text):
 EXECUTION_BANDS = ("UNCONFIRMED", "STALLED", "DELIVERED", "IN_PROGRESS", "SILENT")
 
 
+# Source program — which announcement channel a project entered the database
+# through. The database started FILDA-only (51 projects, 2022-2026); Tier 3
+# coverage expansion broadens it to AIPEX-promoted, PPP, multilateral-funded,
+# and standalone refinery builds. Single-sourced here so verify_invariants.py
+# can enforce the allowed set (the projects column is plain TEXT with a DEFAULT
+# 'FILDA'; projects are added via CSV, not update.py, so the invariant checker
+# is the backstop, not the schema).
+SOURCE_PROGRAMS = ("FILDA", "AIPEX", "refinery", "PPP", "multilateral")
+
+
 def execution_band(status, score, evidence_complete):
     """Derive the coarse execution-band label from existing project fields.
 

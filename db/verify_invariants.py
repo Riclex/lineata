@@ -21,7 +21,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from calculate_scores import SCORE_VERSION
-from constants import MUTATION_OPS, ALLOWED_OPS, looks_like_award
+from constants import MUTATION_OPS, ALLOWED_OPS, looks_like_award, SOURCE_PROGRAMS
 
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "investment_tracker.db")
 AVG_TOL = 0.05
@@ -162,6 +162,13 @@ def main():
     # ---- Chicomba groundbreaking date (corrected 2026-06-13 per Angop) ----
     row = conn.execute("SELECT event_date FROM events WHERE id = 104").fetchone()
     check("Chicomba groundbreaking (event 104) date", row[0] if row else None, "2026-06-13")
+
+    # ---- source_program in allowed set (Tier 3 coverage expansion) ----
+    bad = [(r[0], r[1]) for r in conn.execute(
+        "SELECT id, source_program FROM projects") if r[1] not in SOURCE_PROGRAMS]
+    for pid, sp in bad:
+        check(f"source_program {sp!r} in allowed set ({pid})", False, True)
+    check("all projects source_program in allowed set", len(bad), 0)
 
     conn.close()
 

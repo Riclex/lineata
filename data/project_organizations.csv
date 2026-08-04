@@ -15,6 +15,7 @@ id,project_id,organization_id,role
 13,anpg-oil-sector-grand-prize,exxonmobil,partner
 14,anpg-oil-sector-grand-prize,sonangol,partner
 10,anpg-oil-sector-grand-prize,totalenergies,partner
+89,baia-fish-processing,baia-fish,operator
 72,banco-sol-mc-empresas-2025,banco-sol,promoter
 25,banco-sol-virtual-assistant,banco-sol,promoter
 73,bda-financing-filda2025,bda,promoter
@@ -23,6 +24,7 @@ id,project_id,organization_id,role
 75,bfa-mashreq-partnership,mashreq-bank,partner
 29,brazil-returns-to-filda,gov-angola,promoter
 82,cabinda-refinery-aipex-2026,cabinda-refinery,promoter
+91,cabinda-refinery-build,cabinda-refinery,operator
 53,chicomba-water-dam,bai-europa,financier
 32,cip-cooperation-pt-ao,aep,partner
 31,cip-cooperation-pt-ao,ccipa,partner
@@ -59,6 +61,7 @@ id,project_id,organization_id,role
 57,mou-idii-ualgarve,idii,promoter
 78,omataplo-aipex-2026,omataplo,promoter
 60,pay4all-leao-ouro-2024,pay4all,promoter
+90,ponto-mais-furniture,ponto-mais,operator
 50,porto-lobito-leao-ouro-2022,porto-lobito,promoter
 37,portugal-30-companies-2022,aep,promoter
 40,portugal-30-companies-2022,novabase,partner
@@ -70,8 +73,12 @@ id,project_id,organization_id,role
 52,pt-ao-bilateral-2024,gov-angola,promoter
 54,pt-ao-credit-line-2-5b,gov-angola,promoter
 71,pt-ao-credit-line-3-25b,gov-angola,promoter
+85,quilemba-solar-park,quilemba-solar,operator
+86,quilemba-solar-park,sonangol,partner
+87,quilemba-solar-park,totalenergies,partner
 35,sa-angola-investment-2022,dtic-sa,partner
 36,sa-angola-investment-2022,wesgro,partner
+88,safcomex-cooking-oil,safcomex,operator
 51,sonangol-leao-ouro-2022,sonangol,promoter
 58,sonangol-leao-ouro-2024,sonangol,promoter
 69,sonangol-leao-ouro-2025,sonangol,promoter

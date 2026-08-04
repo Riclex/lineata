@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS projects (
     actual_completion   TEXT,  -- YYYY or YYYY-MM
     execution_score     INTEGER DEFAULT 0
                         CHECK (execution_score >= 0 AND execution_score <= 100),
-    filda_edition       TEXT,  -- e.g. "2023"
+    filda_edition       TEXT,  -- e.g. "2023"; NULL for non-FILDA projects (Tier 3)
+    source_program      TEXT NOT NULL DEFAULT 'FILDA',  -- FILDA / AIPEX / refinery / PPP / multilateral (see constants.SOURCE_PROGRAMS); Tier 3 broadens coverage beyond FILDA
     last_verified       TEXT,  -- YYYY-MM-DD a human last checked this project's status against sources
     evidence_complete   INTEGER DEFAULT 1,  -- 0 = tracked but NOT scored (no click-through evidence; see data-lineage.md "Event 80")
     is_externally_blocked INTEGER DEFAULT 0,  -- label only (Gap 2): 1 = stalled by an external force (judicial/regulatory/disbursement), not underperformance; does NOT affect the score
@@ -44,6 +45,7 @@ CREATE INDEX IF NOT EXISTS idx_projects_sector    ON projects(sector);
 CREATE INDEX IF NOT EXISTS idx_projects_province  ON projects(province);
 CREATE INDEX IF NOT EXISTS idx_projects_status    ON projects(status);
 CREATE INDEX IF NOT EXISTS idx_projects_filda    ON projects(filda_edition);
+CREATE INDEX IF NOT EXISTS idx_projects_program ON projects(source_program);
 
 -- ============================================================
 -- Organizations

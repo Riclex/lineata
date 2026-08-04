@@ -65,7 +65,7 @@ The discipline: **always `export_csv.py --apply` after `update.py --apply`** bef
 ## Monitoring
 
 - **`python db/health.py`** — one-command gate: unit tests → round-trip rebuild → structural invariants → snapshot + article pin → source URL liveness → doc-figure drift. Exits non-zero on the first failure, so it can gate a publish. `--fast` (tests + verify_invariants.py only) is for the pre-commit hook; `--no-network` skips URL liveness.
-- **`python db/verify_invariants.py`** — structural checks that hold for any valid dataset (30 checks): audit-trail integrity, score-version stamp, award/completion guard, evidence gating, status-backed-by-progress. Exit non-zero on failure.
+- **`python db/verify_invariants.py`** — structural checks that hold for any valid dataset (32 checks): audit-trail integrity, score-version stamp, award/completion guard, evidence gating, status-backed-by-progress, source-program membership. Exit non-zero on failure.
 - **`python db/verify_snapshot.py`** — derives every published figure from the DB and compares to committed `db/snapshot.json`; `--update` regenerates the baseline. Also pins article text to DB figures.
 - **`python db/verify_docs.py`** — scans `docs/*.md` + `README.md` for cited numbers (source/event counts, linked/NULL, avg score, verify_invariants.py check count, scoring-methodology worked examples) and flags any that drift from the DB.
 - **`python db/changelog.py`** — read-only digest of the `change_log` audit trail: checkpoint status, mutation breakdown, score movers, new sources, and the "only Banco Sol is unsourced" invariant. `--since YYYY-MM-DD` / `--movers` filter.
@@ -105,7 +105,7 @@ FILDA Investment Tracker/
 │   ├── calculate_scores.py    # Execution-score calculator (--update-csv syncs projects.csv)
 │   ├── update.py              # Incremental append-only mutator (add-event/source/evidence, set-status, relink, reverify)
 │   ├── export_csv.py          # DB → CSV checkpointer (stamps db_meta watermark; recomputes scores)
-│   ├── verify_invariants.py   # Structural invariant verifier (30 checks; exit non-zero on failure)
+│   ├── verify_invariants.py   # Structural invariant verifier (32 checks; exit non-zero on failure)
 │   ├── verify_snapshot.py     # Snapshot drift verifier + article pin (--update regenerates db/snapshot.json)
 │   ├── snapshot.json           # Committed baseline of all published figures (auto-generated)
 │   ├── verify_sources.py      # Source URL liveness checker (--apply stamps last_verified + url_status)
