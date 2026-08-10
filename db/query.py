@@ -3,10 +3,10 @@
 Read-only query CLI for the Angola Investment Execution Database.
 
 A thin, dependency-free access layer over the SQLite database: filter projects
-by sector / province / organization / FILDA edition / status / score range and
-get JSON back. This is the embryo of the "workflow integration" leg of the
-goal's framework (Unique Data + Decision Logic + Workflow Integration = Value)
-— the data is only useful if something can query it.
+by sector / province / organization / FILDA edition / source program / status /
+score range and get JSON back. This is the embryo of the "workflow integration"
+leg of the goal's framework (Unique Data + Decision Logic + Workflow Integration
+= Value) — the data is only useful if something can query it.
 
 Read-only: opens the DB in immutable mode and never writes.
 
@@ -16,6 +16,7 @@ Examples:
     python db/query.py --province Bengo --min-score 60  # high-scoring Bengo
     python db/query.py --org Sonangol                    # everything Sonangol touches
     python db/query.py --edition 2024 --summary          # aggregate stats for 2024
+    python db/query.py --source-program AIPEX --summary  # aggregate stats for AIPEX cohort
     python db/query.py --project chicomba-water-dam      # full detail + timeline
     python db/query.py --facets                           # sector/province/edition browse counts
 

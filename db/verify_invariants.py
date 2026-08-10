@@ -24,7 +24,6 @@ from calculate_scores import SCORE_VERSION
 from constants import MUTATION_OPS, ALLOWED_OPS, looks_like_award, SOURCE_PROGRAMS
 
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "investment_tracker.db")
-AVG_TOL = 0.05
 
 
 def main():
@@ -112,7 +111,6 @@ def main():
                            True, False, False))
 
     # ---- status backed by genuine progress (Check B hard / Check C warning) ----
-    KNOWN_STATUS_ISSUES = {"cabinda-refinery-aipex-2026"}
     progress_evts = {"completion", "construction", "groundbreaking", "financing"}
     for r in conn.execute(
         "SELECT id, status FROM projects WHERE evidence_complete = 1"):
@@ -122,11 +120,6 @@ def main():
         if r[1] in ("completed", "under_construction"):
             if supported:
                 check(f"status '{r[1]}' supported by a progress event ({r[0]})", True, True)
-            elif r[0] in KNOWN_STATUS_ISSUES:
-                warnings.append(
-                    f"status '{r[1]}' not yet backed by a construction/groundbreaking/"
-                    f"financing event (KNOWN OPEN ISSUE): {r[0]} — needs a construction "
-                    f"source; see data-lineage.md")
             else:
                 check(f"status '{r[1]}' supported by a progress event ({r[0]})", False, True)
         elif r[1] == "operational" and not supported:

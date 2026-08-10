@@ -1199,7 +1199,7 @@
         container.innerHTML = `<div class="empty-state">
           <div class="empty-icon">⌕</div>
           <h3>No projects match</h3>
-          <p>Try adjusting your search or filters. The database covers 50 scored projects across 5 FILDA editions.</p>
+          <p>Try adjusting your search or filters. The database covers ${DATA.projects.length} scored projects across 5 FILDA editions and other sources.</p>
         </div>`;
         return;
       }
