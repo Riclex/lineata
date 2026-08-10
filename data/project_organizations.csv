@@ -2,6 +2,7 @@ id,project_id,organization_id,role
 76,aep-delegation-filda2025,aep,promoter
 84,aep-delegation-filda2026,aep,promoter
 81,africell-aipex-2026,africell,promoter
+101,angola-digital-acceleration,world-bank,financier
 44,angola-startup-summit-2022,grupo-arena,operator
 43,angola-startup-summit-2022,mep-angola,partner
 23,angola-startup-summit-2023,mep-angola,partner
@@ -33,7 +34,9 @@ id,project_id,organization_id,role
 30,cip-cooperation-pt-ao,cip,promoter
 5,digital-infrastructure-pledge,gov-angola,promoter
 6,digital-infrastructure-pledge,joao-lourenco,promoter
+103,economic-diversification-job-creation,world-bank,financier
 96,eseep-energy-transmission,afdb,financier
+99,esiap-electricity-access,world-bank,financier
 49,esso-angola-filda2022,esso-angola,promoter
 70,etu-energias-leao-ouro-2025,etu-energias,promoter
 80,fabrimetal-aipex-2026,fabrimetal,promoter
@@ -43,9 +46,11 @@ id,project_id,organization_id,role
 26,filda-2023-2-billion-business,mep-angola,promoter
 33,grain-production-ambition-2022,gov-angola,promoter
 34,grain-production-ambition-2022,manuel-nunes-junior,promoter
+100,heprr-health-emergency-preparedness,world-bank,financier
 42,huambo-investment-promotion-2022,huambo-dev-office,promoter
 77,huatong-aipex-awards-2026,huatong-angola,promoter
 28,huatong-angola-industry-awards,huatong-angola,promoter
+98,huila-cunene-interconnection,world-bank,financier
 3,investment-portal-georeferenced,gov-angola,promoter
 4,investment-portal-georeferenced,ivan-dos-santos,promoter
 61,iveco-tway-launch,iveco-vecauto,promoter
@@ -53,6 +58,7 @@ id,project_id,organization_id,role
 1,linha-verde-investor-visas,gov-angola,promoter
 2,linha-verde-investor-visas,ivan-dos-santos,promoter
 79,lobito-atlantic-railway-aipex,lobito-atlantic-railway,promoter
+104,luanda-science-technology-park,afdb,financier
 66,montenegro-company-visits,central-solar-biopio,partner
 63,montenegro-company-visits,gov-angola,promoter
 68,montenegro-company-visits,lobito-atlantic-railway,partner
@@ -85,6 +91,7 @@ id,project_id,organization_id,role
 35,sa-angola-investment-2022,dtic-sa,partner
 36,sa-angola-investment-2022,wesgro,partner
 88,safcomex-cooking-oil,safcomex,operator
+102,secondary-cities-support,world-bank,financier
 51,sonangol-leao-ouro-2022,sonangol,promoter
 58,sonangol-leao-ouro-2024,sonangol,promoter
 69,sonangol-leao-ouro-2025,sonangol,promoter

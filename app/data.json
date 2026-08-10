@@ -599,6 +599,98 @@
       "created_at": "2026-08-04"
     },
     {
+      "id": "luanda-science-technology-park",
+      "title": "Luanda Science and Technology Park",
+      "sector": "Technology",
+      "subsector": "R&D infrastructure",
+      "description": "AfDB-financed science and technology park in Luanda - US$90M AfDB of the US$100M PDCT program (per AfDB); first stone laid Mar 2023 with ~30-month build; eight new buildings and rehabilitation of the National Center for Scientific Research (CNIC), business incubators and research centers; implementing ministry MESCTI.",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 90000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2025",
+      "actual_completion": "",
+      "execution_score": 49,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-10",
+      "evidence_complete": 1,
+      "created_at": "2026-08-10"
+    },
+    {
+      "id": "economic-diversification-job-creation",
+      "title": "Accelerating Economic Diversification and Job Creation Project",
+      "sector": "Multi-sector",
+      "subsector": "Private sector development",
+      "description": "World Bank IBRD US$300M (board-approved 31 May 2023) to help Angola transition to private-sector-led, non-oil growth focused on MSMEs in value chains (cereals, tubers, beans, vegetables); includes ~US$130M productive infrastructure along the Lobito Corridor (Benguela, Huambo, Bie, Moxico); targets ~12,000 firms; implemented by the Ministry of Economy and Planning.",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 300000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-10",
+      "evidence_complete": 1,
+      "created_at": "2026-08-10"
+    },
+    {
+      "id": "secondary-cities-support",
+      "title": "Angola Secondary Cities Support Program",
+      "sector": "Infrastructure",
+      "subsector": "Urban development",
+      "description": "World Bank Program-for-Results IBRD US$300M (board-approved 20 Jun 2024; total program cost US$400M incl. US$100M government) to improve climate-informed urban growth and increase access to affordable housing in Huambo, Benguela and Lubango; targets ~45,000 housing solutions via 10 disbursement-linked indicators; implemented by MINOPUH with the three city administrations.",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 300000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2029",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-10",
+      "evidence_complete": 1,
+      "created_at": "2026-08-10"
+    },
+    {
+      "id": "esiap-electricity-access",
+      "title": "Electricity Sector Improvement and Access Project (ESIAP)",
+      "sector": "Energy",
+      "subsector": "Distribution & Access",
+      "description": "World Bank IBRD US$250M + French AFD US$167M (total US$417M, board-approved 18 Feb 2021) to improve Angola's electricity utilities' performance and expand access: ~196,500 new connections (~1M people) and 93,857 public lights; network rehabilitation, National Control Center/SCADA and generation management; implemented by MINEA with utilities ENDE, RNT and PRODEL.",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 417000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2026",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-10",
+      "evidence_complete": 1,
+      "created_at": "2026-08-10"
+    },
+    {
       "id": "quilemba-solar-park",
       "title": "Quilemba Solar Photovoltaic Park",
       "sector": "Energy",
@@ -988,6 +1080,75 @@
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "angola-digital-acceleration",
+      "title": "Angola Digital Acceleration Project (PADA)",
+      "sector": "Digital",
+      "subsector": "Broadband",
+      "description": "World Bank IBRD US$300M (board-approved 27 Jun 2024), Angola's first-phase country operation under the Inclusive Digitalization in Eastern and Southern Africa (IDEA) multi-phase program: affordable broadband connectivity, inclusive digital public infrastructure and productive digital use, targeting 13M+ people; implemented by IMA (Instituto de Modernizacao Administrativa). Loan signed Oct 2024; effectiveness delayed into 2025.",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 300000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2030",
+      "actual_completion": "",
+      "execution_score": 22,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-10",
+      "evidence_complete": 1,
+      "created_at": "2026-08-10"
+    },
+    {
+      "id": "heprr-health-emergency-preparedness",
+      "title": "Angola Health Emergency Preparedness Response and Resilience Project (HEPRR)",
+      "sector": "Health",
+      "subsector": "Emergency preparedness",
+      "description": "World Bank IBRD loan (US$250M, board-approved 21 Nov 2025) to strengthen health-system resilience and multisectoral preparedness and response to health emergencies; nationwide with a focus on cross-border health security along the Lobito Corridor; implemented by the Ministry of Health.",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 250000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2030",
+      "actual_completion": "",
+      "execution_score": 22,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-10",
+      "evidence_complete": 1,
+      "created_at": "2026-08-10"
+    },
+    {
+      "id": "huila-cunene-interconnection",
+      "title": "Huila-Cunene Interconnection Project (RETRADE)",
+      "sector": "Energy",
+      "subsector": "Transmission",
+      "description": "World Bank IBRD loan (recorded principal US$334M, board-approved 21 Nov 2025) financing Angola's obligations toward the Angola-Namibia (ANNA) interconnection to connect Angola to the Southern Africa Power Pool (SAPP). Components: 400 kV Lubango-Cahama-Namibia-border line (~321 km) and 220 kV Cahama-Ondjiva line (~200 km); implemented by RNT (national transmission utility) under MINEA. Appraisal (ESRS) estimated US$350M IBRD of ~US$460M total.",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 334000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 22,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-10",
+      "evidence_complete": 1,
+      "created_at": "2026-08-10"
     },
     {
       "id": "filda-2023-2-billion-business",
@@ -1518,6 +1679,22 @@
         "src_url_status": "alive"
       }
     ],
+    "angola-digital-acceleration": [
+      {
+        "id": 131,
+        "project_id": "angola-digital-acceleration",
+        "event_type": "financing",
+        "event_date": "2024-06-27",
+        "description": "World Bank board approved US$300M Angola Digital Acceleration Project (PADA) under the IDEA multi-phase program",
+        "source_id": 155,
+        "src_title": "Inclusive Digitalization in Eastern and Southern Africa Program: Angola",
+        "src_pub": "World Bank",
+        "src_url": "https://www.worldbank.org/en/news/factsheet/2024/06/27/inclusive-digitalization-in-eastern-and-southern-africa-program-afe-angola",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "angola-startup-summit-2022": [
       {
         "id": 44,
@@ -1817,7 +1994,7 @@
         "src_url": "https://documents1.worldbank.org/curated/en/099122725095529077/pdf/P163610-9e90a2df-8e18-415b-aaed-7bedbd674c07.pdf",
         "src_conf": "high",
         "src_archived_url": "",
-        "src_url_status": "dead"
+        "src_url_status": "alive"
       },
       {
         "id": 118,
@@ -1831,7 +2008,7 @@
         "src_url": "https://documents1.worldbank.org/curated/en/099122725095529077/pdf/P163610-9e90a2df-8e18-415b-aaed-7bedbd674c07.pdf",
         "src_conf": "high",
         "src_archived_url": "",
-        "src_url_status": "dead"
+        "src_url_status": "alive"
       }
     ],
     "brazil-returns-to-filda": [
@@ -1861,7 +2038,7 @@
         "src_url": "https://apexbrasil.com.br/br/pt/conteudo/noticias/filda-2024-movimentou-mais-de-us-30-mil-em-negocios-in-loco-par.html",
         "src_conf": "high",
         "src_archived_url": "",
-        "src_url_status": "dead"
+        "src_url_status": "alive"
       }
     ],
     "cabinda-refinery-aipex-2026": [
@@ -1907,7 +2084,7 @@
         "src_url": "https://africaoilgasreport.com/2026/03/refining-gap/its-almost-done-cabinda-refinery-to-start-commercial-production-in-april-2026/",
         "src_conf": "medium",
         "src_archived_url": "",
-        "src_url_status": "blocked"
+        "src_url_status": "alive"
       },
       {
         "id": 114,
@@ -2098,6 +2275,22 @@
         "src_url_status": "alive"
       }
     ],
+    "economic-diversification-job-creation": [
+      {
+        "id": 133,
+        "project_id": "economic-diversification-job-creation",
+        "event_type": "financing",
+        "event_date": "2023-05-31",
+        "description": "World Bank board approved US$300M Accelerating Economic Diversification and Job Creation Project",
+        "source_id": 157,
+        "src_title": "Angola to Accelerate Job Creation and Growth in Private Enterprise, with Focus on Lobito Corridor",
+        "src_pub": "World Bank",
+        "src_url": "https://www.worldbank.org/en/news/press-release/2023/06/02/angola-afe-to-accelerate-job-creation-and-growth-in-private-enterprise-with-focus-on-lobito-corridor",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "eseep-energy-transmission": [
       {
         "id": 123,
@@ -2142,6 +2335,22 @@
         "src_url_status": "alive"
       }
     ],
+    "esiap-electricity-access": [
+      {
+        "id": 129,
+        "project_id": "esiap-electricity-access",
+        "event_type": "financing",
+        "event_date": "2021-02-18",
+        "description": "World Bank board approved US$250M (with US$167M AFD) Electricity Sector Improvement and Access Project (ESIAP)",
+        "source_id": 154,
+        "src_title": "World Bank Supports Angola's Electrification with $250 Million",
+        "src_pub": "World Bank",
+        "src_url": "https://www.worldbank.org/en/news/press-release/2021/02/19/world-bank-supports-angolans-electrification-with-250-million",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "esso-angola-filda2022": [
       {
         "id": 51,
@@ -2155,7 +2364,7 @@
         "src_url": "https://www.facebook.com/EssoAngola/posts/a-exxonmobil-participou-na-37-edicao-da-filda-que-decorreu-de-16-a-20-de-julho-/1494175937685687/",
         "src_conf": "low",
         "src_archived_url": "",
-        "src_url_status": "alive"
+        "src_url_status": "blocked"
       }
     ],
     "etu-energias-leao-ouro-2025": [
@@ -2289,6 +2498,22 @@
         "src_title": "Angola pretende ser o maior produtor de grãos em África",
         "src_pub": "MIREX Angola / Embassy of Angola in Türkiye",
         "src_url": "https://turquia.mirex.gov.ao/web/noticias/angola-pretende-ser-o-maior-produtor-de-gr-os-em--frica",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "heprr-health-emergency-preparedness": [
+      {
+        "id": 130,
+        "project_id": "heprr-health-emergency-preparedness",
+        "event_type": "financing",
+        "event_date": "2025-11-21",
+        "description": "World Bank board approved US$250M IBRD for the Angola Health Emergency Preparedness, Response and Resilience Project (HEPRR)",
+        "source_id": 153,
+        "src_title": "World Bank Finances One - Angola (IBRD/IDA portfolio)",
+        "src_pub": "World Bank",
+        "src_url": "https://financesone.worldbank.org/countries/angola",
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -2442,6 +2667,22 @@
         "src_url_status": "alive"
       }
     ],
+    "huila-cunene-interconnection": [
+      {
+        "id": 128,
+        "project_id": "huila-cunene-interconnection",
+        "event_type": "financing",
+        "event_date": "2025-11-21",
+        "description": "World Bank board approved IBRD financing for the Huila-Cunene Interconnection (Southern Transmission Network Expansion / RETRADE); recorded principal US$334M",
+        "source_id": 153,
+        "src_title": "World Bank Finances One - Angola (IBRD/IDA portfolio)",
+        "src_pub": "World Bank",
+        "src_url": "https://financesone.worldbank.org/countries/angola",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "investment-portal-georeferenced": [
       {
         "id": 2,
@@ -2587,6 +2828,22 @@
         "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
         "src_pub": "VerAngola",
         "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "luanda-science-technology-park": [
+      {
+        "id": 134,
+        "project_id": "luanda-science-technology-park",
+        "event_type": "groundbreaking",
+        "event_date": "2023-03",
+        "description": "First stone laid for the Luanda Science and Technology Park; ~30-month construction period",
+        "source_id": 158,
+        "src_title": "Angola Technological Park to Serve as Convergence Point",
+        "src_pub": "FurtherAfrica",
+        "src_url": "https://furtherafrica.com/2023/03/15/angola-technological-park-to-serve-as-convergence-point/",
         "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -2999,7 +3256,7 @@
         "src_url": "https://www.businesswire.com/news/home/20250521277404/en/Maurel-Prom-Start-of-Construction-of-Quilemba-Solar-Photovoltaic-Power-Plant-in-Angola",
         "src_conf": "medium",
         "src_archived_url": "http://web.archive.org/web/20260129220511/https://www.businesswire.com/news/home/20250521277404/en/Maurel-Prom-Start-of-Construction-of-Quilemba-Solar-Photovoltaic-Power-Plant-in-Angola",
-        "src_url_status": "dead"
+        "src_url_status": "blocked"
       }
     ],
     "reclima-water-security": [
@@ -3031,7 +3288,7 @@
         "src_url": "https://www.gov.za/news/media-statements/south-african-companies-urged-invest-angola-15-jul-2022",
         "src_conf": "high",
         "src_archived_url": "http://web.archive.org/web/20260623040035/https://www.gov.za/news/media-statements/south-african-companies-urged-invest-angola-15-jul-2022",
-        "src_url_status": "dead"
+        "src_url_status": "alive"
       }
     ],
     "safcomex-cooking-oil": [
@@ -3045,6 +3302,22 @@
         "src_title": "AIPEX signs six investment project contracts",
         "src_pub": "AIPEX (Invest in Angola)",
         "src_url": "https://investinangola.ao/2024/07/18/aipex-signs-six-investment-project-contracts/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "secondary-cities-support": [
+      {
+        "id": 132,
+        "project_id": "secondary-cities-support",
+        "event_type": "financing",
+        "event_date": "2024-06-20",
+        "description": "World Bank board approved US$300M Angola Secondary Cities Support Program (Program-for-Results)",
+        "source_id": 156,
+        "src_title": "Disclosable Version of the ISR - Angola Secondary Cities Support Program - P181160 - Sequence No : 1",
+        "src_pub": "World Bank",
+        "src_url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099101024220513131",
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -3241,7 +3514,7 @@
         "src_url": "https://www.facebook.com/unitel.ao/posts/915796813924630/",
         "src_conf": "medium",
         "src_archived_url": "",
-        "src_url_status": "alive"
+        "src_url_status": "blocked"
       }
     ],
     "vi-encontro-empresarial-pt-ao": [
@@ -3257,7 +3530,7 @@
         "src_url": "https://luanda.embaixadaportugal.mne.gov.pt/pt/a-embaixada/noticias/vi-encontro-angola-portugal-business-networking-ccipa-2023",
         "src_conf": "high",
         "src_archived_url": "",
-        "src_url_status": "blocked"
+        "src_url_status": "alive"
       },
       {
         "id": 10,
@@ -3271,7 +3544,7 @@
         "src_url": "https://luanda.embaixadaportugal.mne.gov.pt/pt/a-embaixada/noticias/vi-encontro-angola-portugal-business-networking-ccipa-2023",
         "src_conf": "high",
         "src_archived_url": "",
-        "src_url_status": "blocked"
+        "src_url_status": "alive"
       },
       {
         "id": 24,
@@ -3343,6 +3616,15 @@
         "project_id": "africell-aipex-2026",
         "role": "promoter",
         "name": "Africell",
+        "type": "foreign_investor",
+        "country": "USA"
+      }
+    ],
+    "angola-digital-acceleration": [
+      {
+        "project_id": "angola-digital-acceleration",
+        "role": "financier",
+        "name": "World Bank",
         "type": "foreign_investor",
         "country": "USA"
       }
@@ -3598,6 +3880,15 @@
         "country": "Angola"
       }
     ],
+    "economic-diversification-job-creation": [
+      {
+        "project_id": "economic-diversification-job-creation",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
+      }
+    ],
     "eseep-energy-transmission": [
       {
         "project_id": "eseep-energy-transmission",
@@ -3605,6 +3896,15 @@
         "name": "African Development Bank",
         "type": "foreign_investor",
         "country": "Cote d Ivoire"
+      }
+    ],
+    "esiap-electricity-access": [
+      {
+        "project_id": "esiap-electricity-access",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
       }
     ],
     "esso-angola-filda2022": [
@@ -3682,6 +3982,15 @@
         "country": "Angola"
       }
     ],
+    "heprr-health-emergency-preparedness": [
+      {
+        "project_id": "heprr-health-emergency-preparedness",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
+      }
+    ],
     "huambo-investment-promotion-2022": [
       {
         "project_id": "huambo-investment-promotion-2022",
@@ -3707,6 +4016,15 @@
         "name": "Huatong Angola Industry",
         "type": "company",
         "country": "China"
+      }
+    ],
+    "huila-cunene-interconnection": [
+      {
+        "project_id": "huila-cunene-interconnection",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
       }
     ],
     "investment-portal-georeferenced": [
@@ -3766,6 +4084,15 @@
         "name": "Lobito Atlantic Railway (LAR)",
         "type": "company",
         "country": "Angola"
+      }
+    ],
+    "luanda-science-technology-park": [
+      {
+        "project_id": "luanda-science-technology-park",
+        "role": "financier",
+        "name": "African Development Bank",
+        "type": "foreign_investor",
+        "country": "Cote d Ivoire"
       }
     ],
     "montenegro-company-visits": [
@@ -4028,6 +4355,15 @@
         "name": "Safcomex Limitada",
         "type": "company",
         "country": "Angola"
+      }
+    ],
+    "secondary-cities-support": [
+      {
+        "project_id": "secondary-cities-support",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
       }
     ],
     "sonangol-leao-ouro-2022": [
@@ -4595,6 +4931,19 @@
         "src_title": "Huatong Angola Industry conquista três prémios e é a grande vencedora dos AIPEX Awards",
         "src_pub": "VerAngola",
         "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm"
+      }
+    ],
+    "luanda-science-technology-park": [
+      {
+        "id": 111,
+        "project_id": "luanda-science-technology-park",
+        "field": "announced_value",
+        "value": "90000000",
+        "source_id": 159,
+        "observed_at": "2024-09-27",
+        "src_title": "African Development Bank pledges more support for Angola's rapidly reforming economy",
+        "src_pub": "African Development Bank (AfDB)",
+        "src_url": "https://afdb.africa-newsroom.com/press/african-development-bank-pledges-more-support-for-angolas-rapidly-reforming-economy"
       }
     ],
     "montenegro-company-visits": [
@@ -5480,6 +5829,69 @@
       "base": 60,
       "events": 7,
       "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "huila-cunene-interconnection": {
+      "base": 15,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "esiap-electricity-access": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "heprr-health-emergency-preparedness": {
+      "base": 15,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "angola-digital-acceleration": {
+      "base": 15,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "secondary-cities-support": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "economic-diversification-job-creation": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "luanda-science-technology-park": {
+      "base": 40,
+      "events": 8,
+      "evidence": 1,
       "delay": 0,
       "status_penalty": 0,
       "only_announce": 0,

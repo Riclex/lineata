@@ -38,29 +38,39 @@ DB_path = os.path.join(BASE_dir, "db", "investment_tracker.db")
 SOURCES_csv = os.path.join(DATA_dir, "sources.csv")
 
 TIMEOUT = 8
-UA = "Mozilla/5.0 (compatible; FILDA-tracker/1.0; +source-liveness-check)"
+# Realistic browser UA: some outlets (financesone.worldbank.org, FurtherAfrica)
+# bot-flag the bare-bot string and return 401/403/404, mislabeling live pages as
+# dead/blocked. The check should report what a human sees.
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 FILDA-tracker/1.0"
 
 
 def classify(url):
-    """Return (status, http_code). status in {'alive','blocked','dead'}."""
+    """Return (status, http_code). status in {'alive','blocked','dead'}.
+
+    HEAD first as a cheap probe; on ANY HEAD failure (4xx/5xx, connection,
+    timeout) fall through to a real GET. Some servers reject HEAD yet serve
+    GET 200 (e.g. financesone.worldbank.org) — "alive" means what a browser
+    (a GET) sees, so only the GET result decides the status.
+    """
     headers = {"User-Agent": UA}
     for method in ("HEAD", "GET"):
         try:
             req = urllib.request.Request(url, method=method, headers=headers)
             with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
                 return "alive", r.status
-        except urllib.error.HTTPError as e:
-            # 4xx: blocked (exists but access-denied) for 401/403; dead for 404/410.
-            if e.code in (401, 403):
-                return "blocked", e.code
-            if e.code in (404, 410):
-                return "dead", e.code
-            # Other 4xx/5xx: treat as dead (link not usable).
-            return "dead", e.code
-        except (urllib.error.URLError, TimeoutError, ConnectionError, ValueError) as e:
-            # Connection failure / timeout / bad URL — try GET before declaring dead.
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError,
+                ConnectionError, ValueError) as e:
             if method == "HEAD":
                 continue
+            # GET failed too — classify from its error.
+            if isinstance(e, urllib.error.HTTPError):
+                # 4xx: blocked (exists but access-denied) for 401/403; dead for 404/410.
+                if e.code in (401, 403):
+                    return "blocked", e.code
+                if e.code in (404, 410):
+                    return "dead", e.code
+                # Other 4xx/5xx: treat as dead (link not usable).
+                return "dead", e.code
             return "dead", None
     return "dead", None
 
