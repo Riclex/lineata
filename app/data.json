@@ -4768,22 +4768,22 @@
         "project_id": "pt-ao-credit-line-3-25b",
         "field": "status",
         "value": "operational",
-        "source_id": 91,
+        "source_id": 135,
         "observed_at": "2025-07-25",
-        "src_title": "Portugal assinou 23 instrumentos de cooperação com Angola",
-        "src_pub": "Jornal de Negócios",
-        "src_url": "https://www.jornaldenegocios.pt/economia/mundo/africa/angola/detalhe/portugal-assinou-23-instrumentos-de-cooperacao-com-angola-e-reforcou-credito-em-62-desde-julho-2024"
+        "src_title": "Portugal aumenta linha de crédito para investimento em Angola para 3 250 milhões de euros",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc25/comunicacao/noticias/portugal-aumenta-linha-de-credito-para-investimento-em-angola-para-3-250-milhoes-de-euros"
       },
       {
         "id": 9,
         "project_id": "pt-ao-credit-line-3-25b",
         "field": "announced_value",
         "value": "3250000000",
-        "source_id": 91,
+        "source_id": 135,
         "observed_at": "2025-07-25",
-        "src_title": "Portugal assinou 23 instrumentos de cooperação com Angola",
-        "src_pub": "Jornal de Negócios",
-        "src_url": "https://www.jornaldenegocios.pt/economia/mundo/africa/angola/detalhe/portugal-assinou-23-instrumentos-de-cooperacao-com-angola-e-reforcou-credito-em-62-desde-julho-2024"
+        "src_title": "Portugal aumenta linha de crédito para investimento em Angola para 3 250 milhões de euros",
+        "src_pub": "Governo de Portugal",
+        "src_url": "https://portugal.gov.pt/gc25/comunicacao/noticias/portugal-aumenta-linha-de-credito-para-investimento-em-angola-para-3-250-milhoes-de-euros"
       }
     ],
     "sa-angola-investment-2022": [

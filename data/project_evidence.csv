@@ -6,8 +6,8 @@ id,project_id,field,value,source_id,observed_at
 5,linha-verde-investor-visas,status,delayed,67,2024-01-01
 6,pt-ao-credit-line-2-5b,status,operational,36,2024-07-23
 7,pt-ao-credit-line-2-5b,announced_value,2500000000,36,2024-07-23
-8,pt-ao-credit-line-3-25b,status,operational,91,2025-07-25
-9,pt-ao-credit-line-3-25b,announced_value,3250000000,91,2025-07-25
+8,pt-ao-credit-line-3-25b,status,operational,135,2025-07-25
+9,pt-ao-credit-line-3-25b,announced_value,3250000000,135,2025-07-25
 10,chicomba-water-dam,status,under_construction,129,2026-06-13
 11,chicomba-water-dam,announced_value,67248177.95,128,2024-01-01
 12,investment-portal-georeferenced,status,operational,70,2024-07-01
