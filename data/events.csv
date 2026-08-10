@@ -122,5 +122,6 @@ id,project_id,event_type,event_date,description,source_id
 121,mosap3-agricultural-transformation,financing,2022-06-01,"World Bank USD 300M + AFD USD 115M approved; agricultural transformation, 600,000 smallholder target",144
 122,mosap3-agricultural-transformation,expansion,2025-06-01,"16,000 smallholders supported with inputs for 2025-2026 campaign; 13 provinces",145
 123,eseep-energy-transmission,financing,2019-12-01,"AfDB USD 530M approved; energy sector efficiency/expansion, 343 km Huambo-Lubango transmission line",146
-124,eseep-energy-transmission,completion,2023-12-31,"Operational 2023; 343 km 400 kV line, 860,000 pre-paid meters, 400,000 new customers",146
 125,asrp-agriculture-reform,financing,2023-12-13,"AfDB USD 105.19M loan approved; agriculture sector reform, smallholder mechanization/irrigation in 4 provinces",147
+126,eseep-energy-transmission,groundbreaking,2024-06-07,First stone laid in Lubango for the 400 kV Huambo-Lubango line (343 km) + AfDB-financed substation works (USD 220M); target supply 1M+ citizens in Huila and Namibe,148
+127,eseep-energy-transmission,construction,2025-07-18,Gove-Matala 400 kV line + substations ~80% complete; completion expected Oct 2025; will supply Huila and Namibe,149

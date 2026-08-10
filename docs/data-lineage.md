@@ -26,21 +26,21 @@ PUBLISHED CLAIMS (cited back to sources)
 
 ## Source Layer: Where the Data Comes From
 
-### 146 sources in the database, each with a confidence level
+### 148 sources in the database, each with a confidence level
 
-The sources table was rebuilt on 2026-07-25 from the research files, then extended with a targeted web-research pass. It retains the 15 original hand-curated sources (the duplicate `id 11`, which shared source 15's URL, was collapsed into 15), adds 105 sources extracted from the research files — VerAngola, SCM/Ministry of Industry, Forbes Portugal/África Lusófona, Jornal de Angola, Angolan Mining Oil & Gas, RFI, BAI Europa, Sonangol official, AEP, ApexBrasil, Portugal.gov.pt, CIPRA, CIP, Embaixada de Portugal, INACOM, GGPEN, and many more — adds 8 more (ids 122–129) found by direct web search to ground the previously-NULL events, adds 1 (id 130, the VerAngola Jan-2026 Huatong inauguration article) on 2026-07-30 to ground event 30, and adds 1 (id 131, the OPaís 13 Apr 2026 first-export article) on 2026-07-30 to ground event 105 (Huatong's first 1,000-ton aluminum export to the Netherlands). The previous "11+ sources used in research but not entered" gap is closed.
+The sources table was rebuilt on 2026-07-25 from the research files, then extended with a targeted web-research pass. It retains the 15 original hand-curated sources (the duplicate `id 11`, which shared source 15's URL, was collapsed into 15), adds 105 sources extracted from the research files — VerAngola, SCM/Ministry of Industry, Forbes Portugal/África Lusófona, Jornal de Angola, Angolan Mining Oil & Gas, RFI, BAI Europa, Sonangol official, AEP, ApexBrasil, Portugal.gov.pt, CIPRA, CIP, Embaixada de Portugal, INACOM, GGPEN, and many more — adds 8 more (ids 122–129) found by direct web search to ground the previously-NULL events, adds 1 (id 130, the VerAngola Jan-2026 Huatong inauguration article) on 2026-07-30 to ground event 30, and adds 1 (id 131, the OPaís 13 Apr 2026 first-export article) on 2026-07-30 to ground event 105 (Huatong's first 1,000-ton aluminum export to the Netherlands). On 2026-08-10 the 16 metadata-less sources (ids 132–147) were filled with verified titles/publishers/dates (see "Source metadata fill 2026-08-10"), and 2 more sources (ids 148–149, the VerAngola ESEEP re-source articles) were added to ground the ESEEP groundbreaking/construction events. The previous "11+ sources used in research but not entered" gap is closed.
 
 | Confidence | Sources | Notes |
 |-----------|---------|-------|
-| high | ~50 | official outlets, government portals, primary org sites (Sonangol, ANPG, BFA, AIPEX, CIPRA, CIP, Portugal.gov.pt, INACOM, GGPEN, BAI Europa, AEP, ApexBrasil, ETU Energias, Portugal Global/AICEP, Angop) |
-| medium | ~73 | reputable secondary press (VerAngola, RFI, Jornal de Negócios, Diário de Notícias, Expansão, Angop, ECO, DN, Rádio Eclesia, Forbes, 360 Angola, Correio da Kianda, Medafrica Times) |
-| low | 5 | weak/aggregate citations, including 3 publisher-only records with no pinned article URL (see below) |
+| high | 63 | official outlets, government portals, primary org sites (Sonangol, ANPG, BFA, AIPEX, CIPRA, CIP, Portugal.gov.pt, INACOM, GGPEN, BAI Europa, AEP, ApexBrasil, ETU Energias, Portugal Global/AICEP, Angop, World Bank, AfDB) — 9 sources (135, 136, 141–147) regraded medium→high on 2026-08-10 per the documented convention (official/primary outlets grade high) |
+| medium | 71 | reputable secondary press (VerAngola, RFI, Jornal de Negócios, Diário de Notícias, Expansão, ECO, DN, Rádio Eclesia, Forbes, 360 Angola, Correio da Kianda, Medafrica Times, Angola Oil & Gas, Angola Petroleum, Africa Oil & Gas Report, Business Wire) |
+| low | 14 | weak/aggregate citations, including 3 publisher-only records with no pinned article URL (see below) |
 
 ### Event → source linking state (after re-linking + NULL grounding)
 
 | State | Events | Detail |
 |-------|--------|--------|
-| Linked to a specific source | 103 | grounded to a full-URL article or a named publisher |
+| Linked to a specific source | 125 | grounded to a full-URL article or a named publisher |
 | `source_id` NULL | 1 | event 80 (Banco Sol Cartão Multicaixa Empresas) — no grounded FILDA-2025 launch article |
 
 The single remaining NULL event (80) is an honest gap: the research and a web search surfaced only Banco Sol's year-round product pages, not a FILDA-2025 launch article, so the source is left unpinned rather than fabricated. (Event 30, briefly NULL during the 2026-07-30 Huatong fix, was grounded same-day to source 130 — see "Huatong source mis-link corrected 2026-07-30".)
@@ -110,8 +110,8 @@ Three sources carry a named publisher but an empty `url` — the research file a
 |-------|---------|-------|
 | projects | 63 | 5 FILDA editions (2022-2026) + Tier 3: 5 AIPEX-promoted + 1 refinery build + 6 multilateral-funded |
 | organizations | 71 | companies, government, foreign investors, SOEs, multilateral banks |
-| events | 125 | All 63 projects have at least one event |
-| sources | 146 | 105 from research files + 8 from targeted web research + 1 (id 130) Huatong Jan-2026 inauguration + 1 (id 131) Huatong Apr-2026 first export + 1 (id 132) AOG-2025 Block 33/24 dev agreement + 1 (id 133) ANPG $100B pipeline + 1 (id 134) Angola Startup Summit III edition winners + 1 (id 135) Portugal.gov.pt 3.25B credit line + 1 (id 136) AIPEX May-2024 six-investment-contracts signing + 1 (id 137) Quilemba Solar construction start (BusinessWire) + 1 (id 138) Baia Fish inauguration (VerAngola) + 1 (id 139) Cabinda refinery financing (Africa Oil & Gas Report) + 1 (id 140) Cabinda refinery inauguration (Angola Petroleum) + 6 (ids 141-146) World Bank / AfDB project documents (RECLIMA, Bita, PDAC, MOSAP3, ESEEP, ASRP); 124 events linked to a specific source, 1 NULL (see Source Layer) |
+| events | 126 | All 63 projects have at least one event |
+| sources | 148 | 105 from research files + 8 from targeted web research + 1 (id 130) Huatong Jan-2026 inauguration + 1 (id 131) Huatong Apr-2026 first export + 1 (id 132) AOG-2025 Block 33/24 dev agreement + 1 (id 133) ANPG $100B pipeline + 1 (id 134) Angola Startup Summit III edition winners + 1 (id 135) Portugal.gov.pt 3.25B credit line + 1 (id 136) AIPEX May-2024 six-investment-contracts signing + 1 (id 137) Quilemba Solar construction start (BusinessWire) + 1 (id 138) Baia Fish inauguration (VerAngola) + 1 (id 139) Cabinda refinery financing (Africa Oil & Gas Report) + 1 (id 140) Cabinda refinery inauguration (Angola Petroleum) + 6 (ids 141-144, 146-147) World Bank / AfDB project documents (RECLIMA, Bita, PDAC, MOSAP3, ESEEP, ASRP) + 1 (id 145) Angop MOSAP3 article + 2 (ids 148-149) VerAngola ESEEP re-source articles (Jun-2024 first stone, Jul-2025 progress); 125 events linked to a specific source, 1 NULL (see Source Layer) |
 | project_organizations | 97 | 61 of 63 projects have org links (hospital-serum-factory pending — no confirmed investor in the AIPEX announcement) |
 
 ### Coverage — previously a critical gap, now resolved
@@ -141,7 +141,7 @@ Four controls were added so the integrity checks that were once run manually now
 1. **`foreign_key_check` is now an automated gate in `db/load.py`.** After the bulk insert and FK re-enable, the loader runs `PRAGMA foreign_key_check` and fails the load (non-zero exit, violations printed) if any row references a missing parent. The CSV bugs above are the class of defect this now catches on every rebuild, not just once.
 2. **Score-consistency gate in `db/load.py`.** `execution_score` is loaded from `projects.csv` (a snapshot), then recomputed from the loaded data via `calculate_scores.compute_scores` and asserted equal. A stale snapshot fails the load with a per-project diff. This caught a real, broad staleness on first run — 37 score cells in `projects.csv` had drifted from the formula (the CSV had never been refreshed after past `calculate_scores.py` runs) — and they were synced (see #3). The DB now ships only formula-verified scores.
 3. **`db/calculate_scores.py --update-csv`** recomputes scores and rewrites the `execution_score` column in `data/projects.csv`, so the snapshot can be refreshed in one command after any data edit (instead of drifting silently).
-4. **`db/verify_invariants.py`** (34 structural checks) + **`db/verify_snapshot.py`** (auto-generated snapshot + FILDA-only article pin) replaced the old `db/verify.py`. The snapshot is committed as `db/snapshot.json` and regenerated with `--update`. After the v2-2026-07 formula change, 17 operational-without-progress downgrades (2026-08-03), the Tier 1 dataset cleanup, and the Tier 3 cohorts (AIPEX + refinery + multilateral) + source_program schema (2026-08-04), the broadened-DB figures are: 63 tracked / 62 scored, 146 sources / 125 events (124 linked / 1 NULL), avg 43,7 over the 62 scored, distribution 19/14/4/16/9, gov/private 54,0 vs 43,2. The **FILDA-only figures** (51 tracked / 50 scored, avg 43, dist 16/14/1/10/9) are unchanged and are what the published articles cite — `verify_snapshot.check_articles` pins to the FILDA-only avg so adding non-FILDA cohorts doesn't break the article pin. Exits non-zero on any drift.
+4. **`db/verify_invariants.py`** (35 structural checks) + **`db/verify_snapshot.py`** (auto-generated snapshot + FILDA-only article pin) replaced the old `db/verify.py`. The snapshot is committed as `db/snapshot.json` and regenerated with `--update`. After the v2-2026-07 formula change, 17 operational-without-progress downgrades (2026-08-03), the Tier 1 dataset cleanup, the Tier 3 cohorts (AIPEX + refinery + multilateral) + source_program schema (2026-08-04), and the 2026-08-10 data-integrity fixes (ESEEP re-source, announced_value unit normalization, source metadata fill + confidence regrade, safcomex province), the broadened-DB figures are: 63 tracked / 62 scored, 148 sources / 126 events (125 linked / 1 NULL), avg 43,5 over the 62 scored, distribution 19/14/5/15/9, gov/private 54,0 vs 42,9. The **FILDA-only figures** (51 tracked / 50 scored, avg 43, dist 16/14/1/10/9) are unchanged and are what the published articles cite — `verify_snapshot.check_articles` pins to the FILDA-only avg so adding non-FILDA cohorts doesn't break the article pin. Exits non-zero on any drift.
 
 The scoring methodology docs were also reconciled to the code: `docs/scoring-methodology.md` now documents the *actual* evidence-bonus rule (and notes that the previously documented `sources.confidence` weighting is **not** implemented), its worked examples reproduce against the script (83 / 3 / 83), and the stale formula in `docs/data-model.md` was replaced with a pointer to the methodology doc.
 
@@ -362,21 +362,43 @@ Per-project outcomes (2 years on from the May-2024 signing):
 
 Second Tier 3 cohort: six multilateral-funded projects (4 World Bank, 2 AfDB), `source_program = 'multilateral'`, `filda_edition = NULL`. These are the first non-AIPEX/non-refinery non-FILDA projects. Sourced to World Bank / AfDB project documents and press releases (sources 141-146); events added via the audited `update.py add-event`. Added `world-bank` + `afdb` orgs (foreign_investor), linked as `financier` (6 links).
 
-Per-project (all have documented implementation status — these are well-tracked, executing programs):
+Per-project (all have documented implementation status — these are well-tracked, executing programs; scores shown are post-2026-08-10):
 - **reclima-water-security** (Infrastructure/multilateral) — 47/100, `under_construction`: World Bank $300M (IBRD) + AFD $150M climate-resilience/water-security; effective May 2023, satisfactory (World Bank).
-- **bita-water-supply** (Infrastructure/multilateral) — 41/100, `under_construction`: World Bank $500M guarantee for Luanda Bita water (EPAL); effective Sep 2022, construction progressing (World Bank ISR).
-- **pdac-commercial-agriculture** (Agriculture/multilateral) — 63/100, `operational`: World Bank $130M + AFD $100M; 395 business plans, 159 disbursed, 51 credit guarantees, 7,000+ farmers; $34M partially cancelled on lagging infrastructure (World Bank results).
-- **mosap3-agricultural-transformation** (Agriculture/multilateral) — 63/100, `operational`: World Bank $300M + AFD $115M; 16,000 smallholders by Jun 2025; 600,000 target (World Bank; ANGOP).
-- **eseep-energy-transmission** (Energy/multilateral) — 68/100, `operational`: AfDB $530M; 343 km 400 kV Huambo-Lubango line + 860,000 pre-paid meters; operational 2023 (AfDB).
+- **bita-water-supply** (Infrastructure/multilateral) — 42/100, `under_construction`: World Bank $500M guarantee for Luanda Bita water (EPAL); effective Sep 2022, construction progressing (World Bank ISR).
+- **pdac-commercial-agriculture** (Agriculture/multilateral) — 64/100, `operational`: World Bank $130M + AFD $100M; 395 business plans, 159 disbursed, 51 credit guarantees, 7,000+ farmers; $34M partially cancelled on lagging infrastructure (World Bank results).
+- **mosap3-agricultural-transformation** (Agriculture/multilateral) — 64/100, `operational`: World Bank $300M + AFD $115M; 16,000 smallholders by Jun 2025; 600,000 target (World Bank; ANGOP).
+- **eseep-energy-transmission** (Energy/multilateral) — 49/100, `under_construction`: AfDB $530M; 343 km 400 kV Huambo-Lubango line; first stone laid Jun 2024, Gove-Matala line ~80% complete Jul 2025 (VerAngola). The 860,000 pre-paid meters / 400,000 new customers and the 2023 date are program **targets**, not results — see "ESEEP re-source 2026-08-10".
 - **asrp-agriculture-reform** (Agriculture/multilateral) — 67/100, `operational`: AfDB $105.19M agriculture-sector reform; disbursed Jun 2024, implementing (AfDB).
 
 **Figure cascade (63 tracked / 62 scored):** broadened avg 42,16 → 43,71 (42 → 44) — the multilateral cohort **raised** the average (well-documented, executing programs score 41-68), in contrast to the announcement-only AIPEX cohort that lowered it. Distribution 19/14/2/12/9 → 19/14/4/16/9; private avg 41,5 → 43,2 (gov 54,0 unchanged, 3 vs 59); sources 139 → 146; events 115 → 125. Sector averages: Agriculture 22,7 → 35,2 (+pdac, +mosap3, +asrp), Energy 38,9 → 41,8 (+eseep), Infrastructure 36,0 → 39,2 (+reclima, +bita). **FILDA-only figures unchanged** (51/50, avg 43, dist 16/14/1/10/9). No case-study score moved. `verify_invariants` 34/34, 0 known-open warnings.
+
+**Post-2026-08-10 cascade:** the data-integrity fixes moved 4 scores — eseep 68 → 49 (re-source, see below), bita 41 → 42, pdac 63 → 64, mosap3 63 → 64 (confidence regrade of their World Bank/AfDB/Angop sources medium→high). Broadened avg 43,71 → 43,5; distribution 19/14/4/16/9 → 19/14/5/15/9; sources 146 → 148; events 125 → 126 (125 linked / 1 NULL); private avg 43,2 → 42,9 (gov 54,0 unchanged). Sector averages: Energy 41,8 → 39,9 (eseep 68→49), Agriculture 35,2 → 35,4 (pdac/mosap3 +1 each), Infrastructure 39,2 → 39,4 (bita +1). **FILDA-only figures unchanged** (51/50, avg 43, dist 16/14/1/10/9). `verify_invariants` 35/35, 0 known-open warnings.
 
 **Article-pin fix:** adding non-FILDA cohorts moved the broadened avg to 44 while the (FILDA-only) articles cite 43, which would have broken the article pin. Fixed `verify_snapshot.check_articles` to pin the articles to the **FILDA-only** avg (`source_program='FILDA'`) — the articles are FILDA-only by design (a new broadened article is planned once the Tier 3 cohorts are complete). Case-study scores pin directly (the 7 case studies are FILDA projects, unaffected by non-FILDA cohorts). This keeps the health gate green as non-FILDA cohorts are added without touching the articles.
 
 ### 2026-08-04 — Tier 2 external-block research (null result)
 
 Tier 2 research (background subagent, 33 candidates: all scored projects with execution_score < 41 plus any `delayed`/`suspended`) found **0 externally blocked** projects — all are SILENT. The low scores are structural: 26 of 33 are awards, MoUs, participation, or policy statements with no build phase to block; the 7 with plausible build potential (portuguese-investment-zee, banco-sol, linha-verde, safcomex, hospital-serum, ponto-mais, pt-ao-3.25b) showed no public evidence of a judicial/regulatory/disbursement block (absorbed into other programs, progressing, or upgraded). **No `is_externally_blocked` flags set** — setting any without a source would violate the no-fabrication rule. The finding: the database's low scores reflect thin public trails (structural), not hidden external blockers — the `is_externally_blocked` label remains all-0 until a concrete block source surfaces for a specific project.
+
+### 2026-08-10 — data-integrity fixes (final code-review findings)
+
+Five findings from the final code review were fixed. All changes were verified against the actual data first; every source URL is real and was re-fetched (or Wayback-verified) before its metadata was written.
+
+**1. ESEEP re-source (fabricated completion removed).** `eseep-energy-transmission` was `operational` with `actual_completion = 2023` and a completion event (event 124, 2023-12-31) grounded to the AfDB financing-approval press release (source 146). The press release states program **targets** (343 km 400 kV line, 860,000 pre-paid meters, 400,000 new customers, operational 2023) — not results. Two VerAngola articles establish the real timeline: first stone laid 2024-06-07 in Lubango (source 148, added via `update.py add-source`), and the Gove-Matala line ~80% complete as of 2025-07-18 with completion expected Oct 2025 (source 149). Fix: event 124 removed (the `add-event` audit row 100 in `change_log` was neutralized — `target_id` NULLed, note annotated — so the orphan check passes while the original payload is preserved as a historical record); groundbreaking (2024-06-07) and construction (2025-07-18) events added via `update.py add-event`; `status` set to `under_construction` via `update.py set-status`; `actual_completion` cleared; description reworded so the 2023 date and the meter/customer figures read as program targets, not results. Score 68 → 49 (correct — the fabricated operational status inflated it). The AfDB financing event (123, 2019-12-01) is retained — the press release confirms December 2019 approval.
+
+**2. `announced_value` unit normalization.** 12 projects stored millions (e.g. `36.8`) while the rest stored full units (e.g. `150000000.0`); the app's `formatValue` assumes full units. All 12 multiplied by 1,000,000: quilemba 36.8→36,800,000; safcomex 25.0→25,000,000; baia-fish 17.5→17,500,000; hospital-serum 15.0→15,000,000; ponto-mais 10.3→10,300,000; cabinda-refinery-build 473.0→473,000,000; reclima 300.0→300,000,000; bita 500.0→500,000,000; pdac 130.0→130,000,000; mosap3 300.0→300,000,000; eseep 530.0→530,000,000; asrp 105.19→105,190,000. No score impact (announced_value is not a scoring input).
+
+**3. Source metadata fill (ids 132–147).** All 16 sources had empty title/date/publisher/archived_url. Each was re-fetched (Python urllib with the repo UA) and the title/publisher/date written only where verifiable from the page or URL; nothing invented. Dates left empty where the page exposed none: 132 (title says "AOG 2025" — year only), 135 (Portugal.gov.pt), 138 (VerAngola; URL slug suggests Jun-2026 but not confirmed on-page), 144 (World Bank Concept PID), 146 (AfDB; page body says "December 2019" but no day), 147 (AfDB newsroom). Partial dates used where the URL encodes them: 132 `2025`, 139 `2026-03`. Wayback: source 137 (Business Wire, blocked) got an archived_url from the Wayback availability API; sources 139 and 142 had **no** Wayback snapshot (CDX returned 0 rows) — left empty and noted. Source 141's JSON-LD `datePublished` (2026-03-26) is a page-update artifact, not the publish date; the URL slug `/2022/03/30/` (World Bank's press-release URL convention) was used instead.
+
+**4. Confidence regrade (official/primary outlets → high).** The documented convention grades official/primary outlets (government portals, World Bank, AfDB, Angop, AIPEX) as `high`; sources 135, 136, 141–147 were graded `medium`. Regraded to `high`: 135 (Portugal.gov.pt), 136 (AIPEX/Invest in Angola), 141–144 (World Bank), 145 (Angop), 146–147 (AfDB). Secondary outlets (VerAngola, Menos Fios, Angola Oil & Gas, Angola Petroleum, Africa Oil & Gas Report, Business Wire) stay `medium`. Score deltas from the confidence-weighted evidence bonus: bita 41 → 42, pdac 63 → 64, mosap3 63 → 64. (reclima/asrp unchanged — their evidence signals were already at the cap or not confidence-gated.)
+
+**5. safcomex province fix.** `safcomex-cooking-oil` had `province = Bengo`, but its description places it in Icolo e Bengo — a municipality of Luanda (Law 29/11, 2011) until promoted to its own province by Law 14/24 (5 Sep 2024). Set `province = Luanda`, `municipality = Icolo e Bengo`.
+
+**Flagged concerns (out of scope — not silently fixed):**
+- **Source 143 is a MOSAP2 results article, not PDAC.** `pdac-commercial-agriculture` events 119/120 are grounded to source 143 ("Enhancing Food Security and Income for Smallholder Farmers in Angola", 2024-03-01), but that article reports MOSAP2 figures (179,000 farmers), not PDAC results (395 business plans, 159 disbursed, 51 credit guarantees). The grounding appears mis-attributed; fixing requires finding a genuine PDAC results source. Flagged, not changed.
+- **Source 144 is a Concept PID, not an approval document.** `mosap3-agricultural-transformation`'s financing event is grounded to source 144, a World Bank *Concept* Project Information Document (P177305) — a pre-approval planning document, not evidence of approved financing. Flagged, not changed.
+- **Source 141's JSON-LD date is a page-update artifact** (see #3) — the URL-slug date was used instead.
+- **Sources 139 and 142 have no Wayback snapshot** — their archived_url stays empty.
 
 ---
 
@@ -391,15 +413,15 @@ Clamped to [0, 100]
 
 ### Score distribution
 
-Average score: **43.71 over 62 scored projects** broadened (FILDA-only: 42.9 over 50 scored, the figure cited in the published article). Banco Sol is tracked but `evidence_complete = 0` / unscored. Under v2-2026-07 (distinct-type event points + confidence-weighted evidence bonus + 17 operational-without-progress downgrades + 2026-08-04 Tier 1 cleanup + 2026-08-04 Tier 3 AIPEX/refinery/multilateral cohorts).
+Average score: **43.5 over 62 scored projects** broadened (FILDA-only: 42.9 over 50 scored, the figure cited in the published article). Banco Sol is tracked but `evidence_complete = 0` / unscored. Under v2-2026-07 (distinct-type event points + confidence-weighted evidence bonus + 17 operational-without-progress downgrades + 2026-08-04 Tier 1 cleanup + 2026-08-04 Tier 3 AIPEX/refinery/multilateral cohorts + 2026-08-10 data-integrity fixes).
 
 | Range | Count | % | Interpretation |
 |-------|-------|---|----------------|
-| 0-20 | 16 | 32% | No evidence of execution beyond announcement |
-| 21-40 | 12 | 24% | Initial or partial execution |
-| 41-60 | 2 | 4% | Operational but no traceable timeline in sources consulted |
-| 61-80 | 13 | 26% | Substantive execution with verifiable results |
-| 81-100 | 7 | 14% | Strong execution with documented results |
+| 0-20 | 19 | 30.6% | No evidence of execution beyond announcement |
+| 21-40 | 14 | 22.6% | Initial or partial execution |
+| 41-60 | 5 | 8.1% | Operational but no traceable timeline in sources consulted |
+| 61-80 | 15 | 24.2% | Substantive execution with verifiable results |
+| 81-100 | 9 | 14.5% | Strong execution with documented results |
 
 ### Known scoring issues
 
@@ -425,18 +447,18 @@ The table below maps each published claim to the DB source IDs that back it afte
 |-----------------|-------------|----------|------------------------------|------------|
 | 630 participations (2022) | Correio Digital + Menos Fios | research file | — (research-file claim, no single DB row) | medium |
 | 2,348 participations (2026) | VerAngola | research file | — (research-file claim) | high |
-| Average score 43 (FILDA-only, 50 scored) / 44 (broadened, 62 scored) | calculated | projects.execution_score | n/a | formula-derived (FILDA-only avg 42,9; broadened 43,71; Banco Sol unscored) |
+| Average score 43 (FILDA-only, 50 scored) / 43 (broadened, 62 scored) | calculated | projects.execution_score | n/a | formula-derived (FILDA-only avg 42,9; broadened 43,5; Banco Sol unscored) |
 | 63 projects tracked (62 scored) | count | projects | n/a | direct count (evidence_complete) |
-| Distribution table 16/14/1/10/9 (FILDA-only) / 19/14/4/16/9 (broadened) | calculated | projects grouped by score | n/a | formula-derived |
-| Sector table | calculated | projects grouped by sector | n/a | formula-derived (Agriculture 35,2; Energy 41,8; Manufacturing 47,3; Infrastructure 39,2; Technology 57,3; Multi-sector 52,0) |
-| Gov vs private (54,0 vs 43,2 broadened; FILDA-only 54,0 vs 42,2) | calculated | projects by sector | n/a | derived from 62 scored obs (government = `Government` sector, 3 projects; private = other 59) |
+| Distribution table 16/14/1/10/9 (FILDA-only) / 19/14/5/15/9 (broadened) | calculated | projects grouped by score | n/a | formula-derived |
+| Sector table | calculated | projects grouped by sector | n/a | formula-derived (Agriculture 35,4; Energy 39,9; Manufacturing 47,3; Infrastructure 39,4; Technology 57,3; Multi-sector 52,0) |
+| Gov vs private (54,0 vs 42,9 broadened; FILDA-only 54,0 vs 42,2) | calculated | projects by sector | n/a | derived from 62 scored obs (government = `Government` sector, 3 projects; private = other 59) |
 | Huatong score 78 | calculated | projects + events + sources | 15, 54, 125, 130, 131 (16 removed 2026-07-30; event 30 grounded via 130; event 105 Apr-2026 first export grounded via 131 — see Huatong April export) | high |
 | Linha Verde score 3 | calculated | projects + events + sources | 1, 67 | high |
 | Credit line 2.5B score 65 (and successor 3.25B score 8) | calculated | projects + events + sources | 36, 135 (3.25B: 135, relinked from 91) | high (timeline now grounded) |
 | Chicomba score 50 | calculated | projects + events + sources | 38, 128, 129 | high |
 | Participation methodology (direct + indirect) | research file | filda-participation-analysis.md | — (research file) | high (6 sources) |
 
-**Note on the credit-line score:** the earlier version of this table listed "Credit line score 50 / projects (no events)". That is stale — the credit-line projects now have grounded events (the Portugal.gov.pt FILDA-2024 announcement, source 36; the Jornal de Negócios credit-increase article, source 91), so the 2.5B line scores 70 and the 3.25B successor scores 53.
+**Note on the credit-line score:** the earlier version of this table listed "Credit line score 50 / projects (no events)". That is stale — the credit-line projects now have grounded events (the Portugal.gov.pt FILDA-2024 announcement, source 36; the Portugal.gov.pt 3.25B credit-line increase, source 135), so the 2.5B line scores 65 and the 3.25B successor scores 8, as the table row above shows. (A prior draft of this note cited 70/53 and source 91 — that was itself stale: the 3.25B successor was re-linked from source 91 to source 135 during the 2026-07-25 re-linking, and its score is 8, not 53.)
 
 The four illustrative case studies are Huatong, the Portugal–Angola credit line, Chicomba, and Linha Verde. (The Investment Portal is also DB-tracked at score 83, backed by DB sources 1 and 70.)
 
