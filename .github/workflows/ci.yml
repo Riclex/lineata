@@ -24,6 +24,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.14'
+      # verify_invariants.py needs the DB, which is a gitignored build artifact.
+      - name: Build DB from CSV checkpoints
+        run: python db/load.py
       - name: Fast consistency gate
         run: python db/health.py --fast
 
