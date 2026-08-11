@@ -149,8 +149,10 @@ class ClassifyTests(unittest.TestCase):
                          ("alive", 200))
         self.assertEqual(seen, ["HEAD"])  # GET never issued
 
-    def test_401_403_blocked(self):
-        for code in (401, 403):
+    def test_400_401_403_blocked(self):
+        # 400 is access-denied in practice (Facebook returns 400 to bots, 200 to
+        # browsers) — "blocked" means what a human sees, not what the checker got.
+        for code in (400, 401, 403):
             with self.subTest(code=code):
                 self._install(http_error(code))
                 self.assertEqual(

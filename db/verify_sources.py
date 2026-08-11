@@ -64,8 +64,11 @@ def classify(url):
                 continue
             # GET failed too — classify from its error.
             if isinstance(e, urllib.error.HTTPError):
-                # 4xx: blocked (exists but access-denied) for 401/403; dead for 404/410.
-                if e.code in (401, 403):
+                # 4xx: blocked (exists but access-denied) for 400/401/403; dead for 404/410.
+                # 400 is access-denied in practice (e.g. Facebook returns 400 to bots,
+                # 200 to browsers) — "blocked" means what a human sees, not what the
+                # checker got.
+                if e.code in (400, 401, 403):
                     return "blocked", e.code
                 if e.code in (404, 410):
                     return "dead", e.code
