@@ -668,6 +668,52 @@
       "created_at": "2026-08-04"
     },
     {
+      "id": "health-system-performance-strengthening",
+      "title": "Angola Health System Performance Strengthening Project",
+      "sector": "Health",
+      "subsector": "",
+      "description": "World Bank US$110M IBRD loan (P160948) approved 21 Mar 2018 (30-yr maturity, 7-yr grace) to increase utilization and quality of health care services in target provinces and municipalities; complements the later HEPRR (2024) and Global Fund GC7 (2024-2027) health responses",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 110000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 67,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
+      "id": "srep-smallholder-resilience",
+      "title": "Smallholder Resilience Enhancement Project (SREP)",
+      "sector": "Agriculture",
+      "subsector": "Agribusiness",
+      "description": "US$150M family-farming resilience programme co-financed by IFAD (EUR 26.2M / US$29.8M loan), BADEA (US$40M), AFD (US$42M) and the Government of Angola (US$10M); IFAD Executive Board approved Sep 2019 (EB 2019/127/R.27); financing agreement signed 13 Jul 2020 in Luanda (Finance Minister Vera Daves de Sousa + AFD Angola Director Louis-Antoine Souchet); 35 municipalities across 7 provinces (Bengo, Zaire, Uige, Cuanza Norte, Benguela, Cunene, Namibe); targets 218,000 families (~1M people), 4,500 small enterprises, minimum 40% women, 700 irrigable hectares after rehabilitation; 6-year implementation; managed by MINAGRIF via the Agricultural Development Institute (IDA)",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 150000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 67,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "pt-ao-credit-line-2-5b",
       "title": "Portugal-Angola Credit Line EUR 2.5B",
       "sector": "Finance",
@@ -898,6 +944,29 @@
       "created_at": "2026-08-10"
     },
     {
+      "id": "afap2-artisanal-fisheries",
+      "title": "Artisanal Fisheries and Aquaculture Project Phase 2 (AFAP-2)",
+      "sector": "Agriculture",
+      "subsector": "Fisheries",
+      "description": "US$90M IFAD-led project approved by the IFAD Executive Board Sep 2024 (EB 2024/142/R.5/Rev.1): IFAD loans US$42.78M (PBAS) + US$15M (BRAM) + EU US$10M grant + Government US$9.22M; 5 provinces (Bengo, Bie, Cuanza Norte, Malanje, Uige); targets 31,000 vulnerable households (~148,000 people); 8-year implementation to ~Feb 2034; sustainable inland fisheries and small-scale aquaculture, market linkages and climate-resilient infrastructure; builds on AFAP Phase 1 (2015-2023); executed by MINPERMAR",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 90000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "crew-angola-climate-resilience",
       "title": "CREW Angola - Women's Climate Resilience (Cunene)",
       "sector": "Agriculture",
@@ -988,6 +1057,29 @@
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
       "created_at": "2026-08-10"
+    },
+    {
+      "id": "kwenda2-social-protection-human-capital",
+      "title": "Enhancing the Social Protection System for Human Capital and Resilience (Kwenda 2)",
+      "sector": "Multi-sector",
+      "subsector": "",
+      "description": "Kwenda Phase 2 (World Bank P181495): US$400M IBRD loan + US$120M Government of Angola counterpart = US$520M total operation cost; approved 27 Sep 2024; builds on Kwenda Phase 1 (2019, US$320M) which registered 1.5M+ households and delivered cash transfers to 1M+ households (mostly women-led); Phase 2 targets 2.2M households across all 21 provinces to 2029; components: human capital and resilience building (early stimulation, immunization, nutrition, education uptake; US$360M), adaptive cash transfers incl. climate-shock response, productive inclusion, and the national social registry (Cadastro Social Unico); implemented by FAS-IDL and MASFAMU",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 400000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
     },
     {
       "id": "afc-national-road-bridges",
@@ -2247,6 +2339,22 @@
         "src_url_status": "alive"
       }
     ],
+    "afap2-artisanal-fisheries": [
+      {
+        "id": 165,
+        "project_id": "afap2-artisanal-fisheries",
+        "event_type": "financing",
+        "event_date": "2024-09-18",
+        "description": "IFAD Executive Board approved AFAP-2 (EB 2024/142/R.5/Rev.1): IFAD US$42.78M + US$15M loans + EU US$10M grant + Government US$9.22M = US$90M total",
+        "source_id": 188,
+        "src_title": "IFAD Final President Report - Artisanal Fisheries and Aquaculture Project Phase 2 (AFAP-2), Angola (EB 2024/142/R.5/Rev.1)",
+        "src_pub": "IFAD",
+        "src_url": "https://webapps.ifad.org/members/eb/142/docs/EB-2024-142-R-5-Rev-1.pdf",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "afc-national-road-bridges": [
       {
         "id": 159,
@@ -3373,6 +3481,22 @@
         "src_url_status": "alive"
       }
     ],
+    "health-system-performance-strengthening": [
+      {
+        "id": 163,
+        "project_id": "health-system-performance-strengthening",
+        "event_type": "financing",
+        "event_date": "2018-03-21",
+        "description": "World Bank approved US$110M IBRD loan (P160948), 30-yr maturity 7-yr grace, to increase utilization and quality of health care services in target provinces and municipalities",
+        "source_id": 185,
+        "src_title": "Angola - Health System Performance Strengthening Project",
+        "src_pub": "World Bank",
+        "src_url": "https://www.worldbank.org/en/news/loans-credits/2018/03/21/angola-health-system-performance-strengthening-project",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "heprr-health-emergency-preparedness": [
       {
         "id": 130,
@@ -3700,6 +3824,22 @@
         "src_title": "AIPEX assina cinco contratos de intenção no valor total de 330 842 166 USD",
         "src_pub": "AIPEX (Invest in Angola)",
         "src_url": "https://investinangola.ao/pt/2024/07/10/aipex-signs-five-contracts-of-intent-for-a-total-value-of-usd-330-842-166/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "kwenda2-social-protection-human-capital": [
+      {
+        "id": 162,
+        "project_id": "kwenda2-social-protection-human-capital",
+        "event_type": "financing",
+        "event_date": "2024-09-27",
+        "description": "World Bank Board approved Kwenda 2 (P181495): US$400M IBRD loan + US$120M Government counterpart = US$520M total operation cost",
+        "source_id": 183,
+        "src_title": "Angola - Enhancing the Social Protection System for Human Capital and Resilience Project (P181495) - Project Information Document",
+        "src_pub": "World Bank",
+        "src_url": "https://documents1.worldbank.org/curated/en/099062824181051535/txt/P181495-a3f4abfa-401d-4a89-8d86-18d14a871f03.txt",
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -4483,6 +4623,22 @@
         "src_url_status": "n/a"
       }
     ],
+    "srep-smallholder-resilience": [
+      {
+        "id": 164,
+        "project_id": "srep-smallholder-resilience",
+        "event_type": "financing",
+        "event_date": "2020-07-13",
+        "description": "Financing agreement signed in Luanda: IFAD EUR 26.2M + BADEA US$40M + AFD US$42M + Government of Angola US$10M (total US$150M family-farming resilience programme)",
+        "source_id": 186,
+        "src_title": "Assinatura do projecto de apoio a agricultura familiar (SREP Angola)",
+        "src_pub": "AFD",
+        "src_url": "https://www.afd.fr/pt-pt/actualites/communique-de-presse/assinatura-do-projecto-de-apoio-agricultura-familiar",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "ucall-ai-launch": [
       {
         "id": 72,
@@ -4637,6 +4793,22 @@
         "name": "AEP - Associacao Empresarial de Portugal",
         "type": "company",
         "country": "Portugal"
+      }
+    ],
+    "afap2-artisanal-fisheries": [
+      {
+        "project_id": "afap2-artisanal-fisheries",
+        "role": "financier",
+        "name": "European Union (EU)",
+        "type": "foreign_investor",
+        "country": "Belgium"
+      },
+      {
+        "project_id": "afap2-artisanal-fisheries",
+        "role": "financier",
+        "name": "International Fund for Agricultural Development (IFAD)",
+        "type": "foreign_investor",
+        "country": "Italy"
       }
     ],
     "afc-national-road-bridges": [
@@ -5240,6 +5412,15 @@
         "country": "Angola"
       }
     ],
+    "health-system-performance-strengthening": [
+      {
+        "project_id": "health-system-performance-strengthening",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
+      }
+    ],
     "heprr-health-emergency-preparedness": [
       {
         "project_id": "heprr-health-emergency-preparedness",
@@ -5351,6 +5532,15 @@
         "name": "Koll Mob Angola",
         "type": "company",
         "country": "Angola"
+      }
+    ],
+    "kwenda2-social-protection-human-capital": [
+      {
+        "project_id": "kwenda2-social-protection-human-capital",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
       }
     ],
     "linha-verde-investor-visas": [
@@ -5779,6 +5969,29 @@
         "name": "Sonangol",
         "type": "state_owned_enterprise",
         "country": "Angola"
+      }
+    ],
+    "srep-smallholder-resilience": [
+      {
+        "project_id": "srep-smallholder-resilience",
+        "role": "financier",
+        "name": "Agence Francaise de Developpement (AFD)",
+        "type": "foreign_investor",
+        "country": "France"
+      },
+      {
+        "project_id": "srep-smallholder-resilience",
+        "role": "financier",
+        "name": "Arab Bank for Economic Development in Africa (BADEA)",
+        "type": "foreign_investor",
+        "country": "Sudan"
+      },
+      {
+        "project_id": "srep-smallholder-resilience",
+        "role": "financier",
+        "name": "International Fund for Agricultural Development (IFAD)",
+        "type": "foreign_investor",
+        "country": "Italy"
       }
     ],
     "ucall-ai-launch": [
@@ -7518,6 +7731,42 @@
       "version": "v2-2026-07"
     },
     "sfd-catumbela-industrial-phase1": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "kwenda2-social-protection-human-capital": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "health-system-performance-strengthening": {
+      "base": 60,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "srep-smallholder-resilience": {
+      "base": 60,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "afap2-artisanal-fisheries": {
       "base": 40,
       "events": 7,
       "evidence": 0,

@@ -1,6 +1,8 @@
 id,project_id,organization_id,role
 76,aep-delegation-filda2025,aep,promoter
 84,aep-delegation-filda2026,aep,promoter
+156,afap2-artisanal-fisheries,eu,financier
+155,afap2-artisanal-fisheries,ifad,financier
 145,afc-national-road-bridges,afc,financier
 81,africell-aipex-2026,africell,promoter
 105,africell-angola-network,africell,promoter
@@ -74,6 +76,7 @@ id,project_id,organization_id,role
 135,global-fund-gc7-hiv-tb-malaria,undp,partner
 33,grain-production-ambition-2022,gov-angola,promoter
 34,grain-production-ambition-2022,manuel-nunes-junior,promoter
+151,health-system-performance-strengthening,world-bank,financier
 100,heprr-health-emergency-preparedness,world-bank,financier
 42,huambo-investment-promotion-2022,huambo-dev-office,promoter
 77,huatong-aipex-awards-2026,huatong-angola,promoter
@@ -87,6 +90,7 @@ id,project_id,organization_id,role
 144,jica-southern-region-transmission,afdb,financier
 143,jica-southern-region-transmission,jica,financier
 115,koll-mob-furniture,koll-mob,promoter
+150,kwenda2-social-protection-human-capital,world-bank,financier
 1,linha-verde-investor-visas,gov-angola,promoter
 2,linha-verde-investor-visas,ivan-dos-santos,promoter
 108,lobito-atlantic-railway,lobito-atlantic-railway,operator
@@ -139,6 +143,9 @@ id,project_id,organization_id,role
 69,sonangol-leao-ouro-2025,sonangol,promoter
 7,sonangol-sonils-filda2023,sonangol,promoter
 8,sonangol-sonils-filda2023,sonils,operator
+154,srep-smallholder-resilience,afd,financier
+153,srep-smallholder-resilience,badea,financier
+152,srep-smallholder-resilience,ifad,financier
 62,ucall-ai-launch,ucall,promoter
 59,unitel-leao-ouro-2024,unitel,promoter
 19,vi-encontro-empresarial-pt-ao,ccipa,promoter
