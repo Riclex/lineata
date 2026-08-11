@@ -668,6 +668,29 @@
       "created_at": "2026-08-04"
     },
     {
+      "id": "wb-girls-empowerment-learning",
+      "title": "Angola Girls Empowerment and Learning for All Project (WB)",
+      "sector": "Education",
+      "subsector": "",
+      "description": "World Bank US$250M Investment Project Financing (P168699) approved 29 Apr 2021 to empower Angolan youth, especially girls, and reduce learning poverty; components: sexual and reproductive health services and second-chance education reaching 900,000 youth entering secondary school with a registration bonus for girls, 3,000 new/rehabilitated classrooms, teacher training and learning assessments, and project management; implemented by the Ministry of Education; closing 31 Dec 2025",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 250000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 67,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "health-system-performance-strengthening",
       "title": "Angola Health System Performance Strengthening Project",
       "sector": "Health",
@@ -679,6 +702,29 @@
       "coordinates": "",
       "status": "operational",
       "announced_value": 110000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 67,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
+      "id": "afdb-urban-water-supply-sanitation",
+      "title": "Institutional and Sustainability Support to Urban Water Supply and Sanitation Service Delivery Project (AfDB)",
+      "sector": "Infrastructure",
+      "subsector": "Water",
+      "description": "AfDB Board approved 1 Apr 2015 a US$123.77M loan (total project cost US$154.71M, P-AO-E00-005) to strengthen water sector governance and expand water/sanitation access across seven provinces (Cabinda, Cunene, Lunda Norte, Lunda Sul, Namibe, Bengo, Cuanza Sul); 60-month implementation; results documented to 2025: 59,008 household connections reaching 472,000+ people, seven utility companies established, 179 women-run water kiosks, three water quality laboratories (Cunene, Bengo, Sumbe), Sumbe's first wastewater treatment plant, and sanitation investment plans for 11 coastal cities",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 123770000.0,
       "currency": "USD",
       "estimated_jobs": "",
       "expected_completion": "",
@@ -1542,6 +1588,29 @@
       "created_at": "2026-07-23"
     },
     {
+      "id": "eib-clean-coastal-towns",
+      "title": "Angola Clean Coastal Towns Sanitation Project (EIB)",
+      "sector": "Infrastructure",
+      "subsector": "Water & Sanitation",
+      "description": "EIB Board approved 11 Dec 2024 a EUR 120M EIB loan (total project cost EUR 256M) for climate-resilient sanitation infrastructure across nine coastal towns: six EIB-financed (Soyo, N'Zeto, Ambriz, Porto Amboim, Mocamedes, Tombwa) and three co-financed with the African Development Bank (Benguela, Baia Farta, Lobito); components: onsite sanitation, sewers, pumping stations, faecal sludge transfer and wastewater treatment plants, plus capacity building for the National Directorate of Water and provincial utilities; implemented by the Ministry of Energy and Water under the Global Europe NDICI guarantee; complements the tracked AfDB Coastal Towns Inclusive Sanitation Project (4 towns) - distinct EIB financing operation; approved by the Board, not yet signed",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 256000000.0,
+      "currency": "EUR",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 22,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "angola-digital-acceleration",
       "title": "Angola Digital Acceleration Project (PADA)",
       "sector": "Digital",
@@ -1586,6 +1655,29 @@
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
       "created_at": "2026-08-10"
+    },
+    {
+      "id": "us-exim-solar-minigrids-water",
+      "title": "Angola Rural Solar Energy and Water Supply Project (US EXIM)",
+      "sector": "Energy",
+      "subsector": "Solar",
+      "description": "US$1.6B direct loan from the Export-Import Bank of the United States (EXIM) approved by the EXIM Board 18 Jul 2024 under the China and Transformational Exports Program (CTEP) and the Partnership for Global Infrastructure (PGI); finances 65 solar photovoltaic mini-grids with energy storage that power water collection, treatment and purification systems across four southern provinces (Huila, Namibe, Cunene, Cuando Cubango); expected to reach ~252,000 households (~1.5M people) with electricity and potable water; developer Sun Africa, with ING Capital and Omatapalo; supports ~3,100 US jobs; loan approved by the Board but not yet signed as of the release",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 1600000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 22,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
     },
     {
       "id": "huila-cunene-interconnection",
@@ -2366,6 +2458,22 @@
         "src_title": "Angola advances National Road Plan with US$85m support from AFC",
         "src_pub": "Africa Finance Corporation",
         "src_url": "https://www.africafc.org/news-and-insights/news/angola-advances-national-road-plan-with-85m-support-from-afc",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "afdb-urban-water-supply-sanitation": [
+      {
+        "id": 168,
+        "project_id": "afdb-urban-water-supply-sanitation",
+        "event_type": "financing",
+        "event_date": "2015-04-01",
+        "description": "AfDB Board approved a US$123.77M loan (total US$154.71M, P-AO-E00-005) for urban water supply and sanitation across seven provinces; 60-month implementation",
+        "source_id": 192,
+        "src_title": "AfDB Board approves US$123.77 million for Angola Urban Water Project",
+        "src_pub": "Pan African Visions",
+        "src_url": "https://panafricanvisions.com/2015/04/afdb-board-approves-us-123-77-million-for-angola-urban-water-project/",
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -3169,6 +3277,22 @@
         "src_pub": "World Bank",
         "src_url": "https://www.worldbank.org/en/news/press-release/2023/06/02/angola-afe-to-accelerate-job-creation-and-growth-in-private-enterprise-with-focus-on-lobito-corridor",
         "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "eib-clean-coastal-towns": [
+      {
+        "id": 167,
+        "project_id": "eib-clean-coastal-towns",
+        "event_type": "financing",
+        "event_date": "2024-12-11",
+        "description": "EIB Board approved a EUR 120M loan (total cost EUR 256M) for climate-resilient sanitation across nine coastal towns (6 EIB-financed, 3 AfDB-co-financed); Ministry of Energy and Water; Global Europe NDICI guarantee",
+        "source_id": 191,
+        "src_title": "Angola Clean Coastal Towns Sanitation Project (EIB project page)",
+        "src_pub": "European Investment Bank (EIB)",
+        "src_url": "https://www.eib.org/en/projects/all/20230101",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -4685,6 +4809,22 @@
         "src_url_status": "blocked"
       }
     ],
+    "us-exim-solar-minigrids-water": [
+      {
+        "id": 166,
+        "project_id": "us-exim-solar-minigrids-water",
+        "event_type": "financing",
+        "event_date": "2024-07-18",
+        "description": "EXIM Board approved a US$1.6B direct loan for 65 solar mini-grids with storage powering water supply across Huila, Namibe, Cunene and Cuando Cubango; developer Sun Africa with ING Capital and Omatapalo; ~3,100 US jobs; under CTEP and PGI",
+        "source_id": 190,
+        "src_title": "Export-Import Bank of the United States Board of Directors Approves Historic $1.6 Billion Rural Solar Energy and Water Supply Transaction in Angola",
+        "src_pub": "Export-Import Bank of the United States (EXIM)",
+        "src_url": "https://www.exim.gov/news/export-import-bank-united-states-board-directors-approves-historic-16-billion-rural-solar",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "vi-encontro-empresarial-pt-ao": [
       {
         "id": 9,
@@ -4739,6 +4879,22 @@
         "src_pub": "VerAngola",
         "src_url": "https://www.verangola.net/va/pt/072026/eventos/49519/IX-Business-Networking-Angola-Portugal-Conferencias.htm",
         "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "wb-girls-empowerment-learning": [
+      {
+        "id": 169,
+        "project_id": "wb-girls-empowerment-learning",
+        "event_type": "financing",
+        "event_date": "2021-04-29",
+        "description": "World Bank approved US$250M Investment Project Financing (P168699) to empower Angolan girls and reduce learning poverty; 900,000 youth scholarships, 3,000 classrooms; Ministry of Education",
+        "source_id": 194,
+        "src_title": "The World Bank Provides $250 million to Empower Angolan Girls and Tackle Learning Poverty",
+        "src_pub": "World Bank",
+        "src_url": "https://www.worldbank.org/en/news/press-release/2021/04/29/the-world-bank-provides-250-million-to-empower-angolan-girls-and-tackle-learning-poverty",
+        "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -4818,6 +4974,15 @@
         "name": "Africa Finance Corporation (AFC)",
         "type": "foreign_investor",
         "country": "Nigeria"
+      }
+    ],
+    "afdb-urban-water-supply-sanitation": [
+      {
+        "project_id": "afdb-urban-water-supply-sanitation",
+        "role": "financier",
+        "name": "African Development Bank",
+        "type": "foreign_investor",
+        "country": "Cote d Ivoire"
       }
     ],
     "africell-aipex-2026": [
@@ -5242,6 +5407,15 @@
         "name": "World Bank",
         "type": "foreign_investor",
         "country": "USA"
+      }
+    ],
+    "eib-clean-coastal-towns": [
+      {
+        "project_id": "eib-clean-coastal-towns",
+        "role": "financier",
+        "name": "European Investment Bank (EIB)",
+        "type": "foreign_investor",
+        "country": "Luxembourg"
       }
     ],
     "eib-hpv-vaccination-campaign": [
@@ -6012,6 +6186,15 @@
         "country": "Angola"
       }
     ],
+    "us-exim-solar-minigrids-water": [
+      {
+        "project_id": "us-exim-solar-minigrids-water",
+        "role": "financier",
+        "name": "Export-Import Bank of the United States (EXIM)",
+        "type": "foreign_investor",
+        "country": "USA"
+      }
+    ],
     "vi-encontro-empresarial-pt-ao": [
       {
         "project_id": "vi-encontro-empresarial-pt-ao",
@@ -6033,6 +6216,15 @@
         "name": "Ivan dos Santos",
         "type": "government",
         "country": "Angola"
+      }
+    ],
+    "wb-girls-empowerment-learning": [
+      {
+        "project_id": "wb-girls-empowerment-learning",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
       }
     ],
     "wsidp2-water-sector-institutional": [
@@ -7768,6 +7960,42 @@
     },
     "afap2-artisanal-fisheries": {
       "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "us-exim-solar-minigrids-water": {
+      "base": 15,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "eib-clean-coastal-towns": {
+      "base": 15,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "afdb-urban-water-supply-sanitation": {
+      "base": 60,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "wb-girls-empowerment-learning": {
+      "base": 60,
       "events": 7,
       "evidence": 0,
       "delay": 0,

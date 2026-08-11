@@ -4,6 +4,7 @@ id,project_id,organization_id,role
 156,afap2-artisanal-fisheries,eu,financier
 155,afap2-artisanal-fisheries,ifad,financier
 145,afc-national-road-bridges,afc,financier
+159,afdb-urban-water-supply-sanitation,afdb,financier
 81,africell-aipex-2026,africell,promoter
 105,africell-angola-network,africell,promoter
 117,aiaan-airport-concession,corporacion-america-airports,operator
@@ -56,6 +57,7 @@ id,project_id,organization_id,role
 5,digital-infrastructure-pledge,gov-angola,promoter
 6,digital-infrastructure-pledge,joao-lourenco,promoter
 103,economic-diversification-job-creation,world-bank,financier
+158,eib-clean-coastal-towns,european-investment-bank,financier
 132,eib-hpv-vaccination-campaign,european-investment-bank,financier
 133,eib-hpv-vaccination-campaign,minsa,promoter
 128,eravacdep-agricultural-value-chains,afdb,financier
@@ -148,9 +150,11 @@ id,project_id,organization_id,role
 152,srep-smallholder-resilience,ifad,financier
 62,ucall-ai-launch,ucall,promoter
 59,unitel-leao-ouro-2024,unitel,promoter
+157,us-exim-solar-minigrids-water,us-exim,financier
 19,vi-encontro-empresarial-pt-ao,ccipa,promoter
 20,vi-encontro-empresarial-pt-ao,gov-angola,partner
 21,vi-encontro-empresarial-pt-ao,ivan-dos-santos,promoter
+160,wb-girls-empowerment-learning,world-bank,financier
 147,wsidp2-water-sector-institutional,afd,financier
 148,wsidp2-water-sector-institutional,european-investment-bank,financier
 146,wsidp2-water-sector-institutional,world-bank,financier
