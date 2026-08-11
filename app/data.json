@@ -346,6 +346,29 @@
       "created_at": "2026-07-23"
     },
     {
+      "id": "aiaan-airport-concession",
+      "title": "AIAAN Airport Management Concession",
+      "sector": "Infrastructure",
+      "subsector": "Airport",
+      "description": "Concession for operation, management and maintenance of the Dr. António Agostinho Neto International Airport (AIAAN), Icolo e Bengo; awarded 11 Dec 2025 to consortium led by Corporación América Airports (CAAP) with Mota-Engil Engenharia e Construção África; 25-year term renewable +15",
+      "country": "Angola",
+      "province": "Icolo e Bengo",
+      "municipality": "Bom Jesus",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 77,
+      "filda_edition": "",
+      "source_program": "PPP",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "africell-angola-network",
       "title": "Africell Angola Mobile Network",
       "sector": "Telecom",
@@ -369,6 +392,29 @@
       "created_at": "2026-08-11"
     },
     {
+      "id": "cabinda-soyo-terminals-concession",
+      "title": "Cabinda & Soyo Port Terminals Concession (Sogester)",
+      "sector": "Infrastructure",
+      "subsector": "Port",
+      "description": "20-year concession to operate the maritime passenger/cargo terminal of the Port of Cabinda and the river passenger/cargo terminal of the Port of Soyo (Zaire); awarded to Sogester, signed 27 Apr 2026; tender launched Mar 2025 (6 bidders)",
+      "country": "Angola",
+      "province": "Cabinda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 77,
+      "filda_edition": "",
+      "source_program": "PPP",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "lobito-atlantic-railway",
       "title": "Lobito Atlantic Railway Concession",
       "sector": "Infrastructure",
@@ -387,6 +433,29 @@
       "execution_score": 77,
       "filda_edition": "",
       "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
+      "id": "porto-luanda-multipurpose-terminal",
+      "title": "Port of Luanda Multipurpose Terminal Concession (AD Ports)",
+      "sector": "Infrastructure",
+      "subsector": "Port",
+      "description": "20-year concession (extendable +10) to operate and upgrade the Luanda multipurpose terminal; signed 23 Apr 2024 with the Luanda Port Authority; AD Ports Group 81% terminal JV + 90% logistics JV with Unicargas and Multiparques; US$251M committed 2024-2026, up to US$379M over term; container capacity 25k to 350k TEU; redevelopment expected Q3 2026",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "Luanda",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 251000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 77,
+      "filda_edition": "",
+      "source_program": "PPP",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
       "created_at": "2026-08-11"
@@ -1358,6 +1427,29 @@
       "created_at": "2026-07-23"
     },
     {
+      "id": "caio-deep-water-terminal",
+      "title": "Caio Deep-Water Terminal & Free Zone Concession",
+      "sector": "Infrastructure",
+      "subsector": "Port",
+      "description": "Concession for operation, management and maintenance of the Caio deep-water terminal and free zone (Cabinda); international public tender launched 9 Apr 2026; first phase of construction in final stage",
+      "country": "Angola",
+      "province": "Cabinda",
+      "municipality": "Cabinda",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "PPP",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "casais-angola-engenharia",
       "title": "Casais Angola Engineering & Construction",
       "sector": "Infrastructure",
@@ -1586,6 +1678,29 @@
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "corredor-namibe-concession",
+      "title": "Namibe Corridor Concession (CFM + Port of Namibe)",
+      "sector": "Infrastructure",
+      "subsector": "Railway",
+      "description": "Concession for operation, management and maintenance of the Namibe Corridor: Moçâmedes–Menongue railway (CFM, 855 km) and the Port of Namibe; international public tender launched 5 Dec 2025; 30-year term extendable to 50; theoretical capacity 5M t/yr",
+      "country": "Angola",
+      "province": "Namibe",
+      "municipality": "Moçâmedes",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "PPP",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
     },
     {
       "id": "ponto-mais-furniture",
@@ -1920,6 +2035,22 @@
         "src_title": "Africell launches in Angola",
         "src_pub": "Africell",
         "src_url": "https://www.africell.com/news/africell-launches-in-angola/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "aiaan-airport-concession": [
+      {
+        "id": 146,
+        "project_id": "aiaan-airport-concession",
+        "event_type": "completion",
+        "event_date": "2025-12-11",
+        "description": "Concession granted to consortium led by Corporación América Airports (CAAP) with Mota-Engil Engenharia e Construção África; 25-year term renewable +15; 93.25/100 score",
+        "source_id": 167,
+        "src_title": "Corporación América Airports vai assumir gestão do novo hub aéreo de Angola",
+        "src_pub": "Forbes África Lusófona",
+        "src_url": "https://forbesafricalusofona.com/corporacion-america-airports-vai-assumir-gestao-do-novo-hub-aereo-de-angola/",
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -2361,6 +2492,38 @@
         "src_url_status": "alive"
       }
     ],
+    "cabinda-soyo-terminals-concession": [
+      {
+        "id": 149,
+        "project_id": "cabinda-soyo-terminals-concession",
+        "event_type": "completion",
+        "event_date": "2026-04-27",
+        "description": "20-year concession signed with Sogester for the Cabinda maritime and Soyo river passenger/cargo terminals; tender launched Mar 2025 (6 bidders)",
+        "source_id": 170,
+        "src_title": "Angola Concessiona à Sogester Terminais de Cabinda e Soyo Por 20 anos",
+        "src_pub": "Diário Económico",
+        "src_url": "https://www.diarioeconomico.co.mz/2026/04/28/mundo/angola/angola-concessiona-a-sogester-terminais-de-cabinda-e-soyo-por-20-anos/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "caio-deep-water-terminal": [
+      {
+        "id": 150,
+        "project_id": "caio-deep-water-terminal",
+        "event_type": "announcement",
+        "event_date": "2026-04-09",
+        "description": "International public tender launched for the Caio deep-water terminal and free zone concession; first phase of construction in final stage",
+        "source_id": 171,
+        "src_title": "Lançado concurso público internacional para concessão do Terminal de Águas Profundas do Caio",
+        "src_pub": "O País",
+        "src_url": "https://www.opais.ao/economia/lancado-concurso-publico-internacional-para-concessao-do-terminal-de-aguas-profundas-do-caio/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "casais-angola-engenharia": [
       {
         "id": 142,
@@ -2475,6 +2638,22 @@
         "src_pub": "Forbes África Lusófona",
         "src_url": "https://forbesafricalusofona.com/agencia-de-investimento-privado-e-promocao-das-exportacoes-de-angola-assina-tres-acordos-de-cooperacao-com-entidades-portuguesas/",
         "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "corredor-namibe-concession": [
+      {
+        "id": 147,
+        "project_id": "corredor-namibe-concession",
+        "event_type": "announcement",
+        "event_date": "2025-12-05",
+        "description": "International public tender launched for the Namibe Corridor concession (CFM 855 km + Port of Namibe); 30-year term extendable to 50; proposals due 4 May 2026",
+        "source_id": 168,
+        "src_title": "Governo de Angola lança concurso para gestão do Corredor do Namibe",
+        "src_pub": "Jornal Económico",
+        "src_url": "https://jornaleconomico.sapo.pt/noticias/governo-de-angola-lanca-concurso-para-gestao-do-corredor-do-namibe/",
+        "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -3481,6 +3660,22 @@
         "src_url_status": "alive"
       }
     ],
+    "porto-luanda-multipurpose-terminal": [
+      {
+        "id": 148,
+        "project_id": "porto-luanda-multipurpose-terminal",
+        "event_type": "completion",
+        "event_date": "2024-04-23",
+        "description": "20-year concession signed with the Luanda Port Authority (extendable +10); AD Ports Group 81% terminal JV + 90% logistics JV with Unicargas and Multiparques; US51M committed 2024-2026",
+        "source_id": 169,
+        "src_title": "AD Ports Group signs 20-year concession agreement to operate and upgrade the multipurpose port terminal in Angola",
+        "src_pub": "AD Ports Group",
+        "src_url": "https://www.adportsgroup.com/en/news-and-media/2024/04/23/ad-ports-group-agreement-to-operate-and-upgrade-the-multipurpose-port-terminal-in-angola",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "portugal-30-companies-2022": [
       {
         "id": 41,
@@ -4033,6 +4228,29 @@
         "country": "USA"
       }
     ],
+    "aiaan-airport-concession": [
+      {
+        "project_id": "aiaan-airport-concession",
+        "role": "operator",
+        "name": "Corporación América Airports (CAAP)",
+        "type": "foreign_investor",
+        "country": "Luxembourg"
+      },
+      {
+        "project_id": "aiaan-airport-concession",
+        "role": "partner",
+        "name": "Mota-Engil Engenharia e Construção África",
+        "type": "foreign_investor",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "aiaan-airport-concession",
+        "role": "promoter",
+        "name": "Ministry of Transport (MINTRANS)",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
     "angola-digital-acceleration": [
       {
         "project_id": "angola-digital-acceleration",
@@ -4245,6 +4463,31 @@
         "country": "Angola"
       }
     ],
+    "cabinda-soyo-terminals-concession": [
+      {
+        "project_id": "cabinda-soyo-terminals-concession",
+        "role": "operator",
+        "name": "Sogester (Sociedade Gestora de Terminais)",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "cabinda-soyo-terminals-concession",
+        "role": "promoter",
+        "name": "Ministry of Transport (MINTRANS)",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "caio-deep-water-terminal": [
+      {
+        "project_id": "caio-deep-water-terminal",
+        "role": "promoter",
+        "name": "Ministry of Transport (MINTRANS)",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
     "casais-angola-engenharia": [
       {
         "project_id": "casais-angola-engenharia",
@@ -4284,6 +4527,15 @@
         "name": "CIP - Confederacao da Industria Portuguesa",
         "type": "company",
         "country": "Portugal"
+      }
+    ],
+    "corredor-namibe-concession": [
+      {
+        "project_id": "corredor-namibe-concession",
+        "role": "promoter",
+        "name": "Ministry of Transport (MINTRANS)",
+        "type": "government",
+        "country": "Angola"
       }
     ],
     "digital-infrastructure-pledge": [
@@ -4723,6 +4975,36 @@
         "role": "partner",
         "name": "Empresa Portuaria do Lobito - EP",
         "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "porto-luanda-multipurpose-terminal": [
+      {
+        "project_id": "porto-luanda-multipurpose-terminal",
+        "role": "operator",
+        "name": "AD Ports Group",
+        "type": "foreign_investor",
+        "country": "UAE"
+      },
+      {
+        "project_id": "porto-luanda-multipurpose-terminal",
+        "role": "partner",
+        "name": "Multiparques",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "porto-luanda-multipurpose-terminal",
+        "role": "partner",
+        "name": "Unicargas",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "porto-luanda-multipurpose-terminal",
+        "role": "promoter",
+        "name": "Ministry of Transport (MINTRANS)",
+        "type": "government",
         "country": "Angola"
       }
     ],
@@ -6487,6 +6769,51 @@
       "version": "v2-2026-07"
     },
     "fuanda-internacional-silicon": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "aiaan-airport-concession": {
+      "base": 60,
+      "events": 15,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "corredor-namibe-concession": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "porto-luanda-multipurpose-terminal": {
+      "base": 60,
+      "events": 15,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "cabinda-soyo-terminals-concession": {
+      "base": 60,
+      "events": 15,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "caio-deep-water-terminal": {
       "base": 15,
       "events": 3,
       "evidence": 0,

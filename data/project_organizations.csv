@@ -3,6 +3,9 @@ id,project_id,organization_id,role
 84,aep-delegation-filda2026,aep,promoter
 81,africell-aipex-2026,africell,promoter
 105,africell-angola-network,africell,promoter
+117,aiaan-airport-concession,corporacion-america-airports,operator
+119,aiaan-airport-concession,mintrans,promoter
+118,aiaan-airport-concession,mota-engil-africa,partner
 101,angola-digital-acceleration,world-bank,financier
 44,angola-startup-summit-2022,grupo-arena,operator
 43,angola-startup-summit-2022,mep-angola,partner
@@ -29,11 +32,15 @@ id,project_id,organization_id,role
 29,brazil-returns-to-filda,gov-angola,promoter
 82,cabinda-refinery-aipex-2026,cabinda-refinery,promoter
 91,cabinda-refinery-build,cabinda-refinery,operator
+126,cabinda-soyo-terminals-concession,mintrans,promoter
+125,cabinda-soyo-terminals-concession,sogester,operator
+127,caio-deep-water-terminal,mintrans,promoter
 114,casais-angola-engenharia,casais-angola,promoter
 53,chicomba-water-dam,bai-europa,financier
 32,cip-cooperation-pt-ao,aep,partner
 31,cip-cooperation-pt-ao,ccipa,partner
 30,cip-cooperation-pt-ao,cip,promoter
+120,corredor-namibe-concession,mintrans,promoter
 5,digital-infrastructure-pledge,gov-angola,promoter
 6,digital-infrastructure-pledge,joao-lourenco,promoter
 103,economic-diversification-job-creation,world-bank,financier
@@ -86,6 +93,10 @@ id,project_id,organization_id,role
 50,porto-lobito-leao-ouro-2022,porto-lobito,promoter
 111,porto-lobito-terminal,agl,operator
 112,porto-lobito-terminal,porto-lobito,partner
+121,porto-luanda-multipurpose-terminal,ad-ports-group,operator
+124,porto-luanda-multipurpose-terminal,mintrans,promoter
+123,porto-luanda-multipurpose-terminal,multiparques,partner
+122,porto-luanda-multipurpose-terminal,unicargas,partner
 37,portugal-30-companies-2022,aep,promoter
 40,portugal-30-companies-2022,novabase,partner
 38,portugal-30-companies-2022,petrotec,partner
