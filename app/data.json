@@ -346,6 +346,52 @@
       "created_at": "2026-07-23"
     },
     {
+      "id": "africell-angola-network",
+      "title": "Africell Angola Mobile Network",
+      "sector": "Telecom",
+      "subsector": "Broadband",
+      "description": "US$150M+ 5G-ready 4G network, 6M+ subscriber capacity; launched 7 Apr 2022, 14 months after the Feb 2021 licence; 1,000+ jobs (95% Angolan); AIPEX Digital Economy Award 2026",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 150000000.0,
+      "currency": "USD",
+      "estimated_jobs": 1000,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 77,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
+      "id": "lobito-atlantic-railway",
+      "title": "Lobito Atlantic Railway Concession",
+      "sector": "Infrastructure",
+      "subsector": "Railway",
+      "description": "30-yr concession (signed 4 Jul 2023) of the 1,344 km Lobito-Luau corridor; Trafigura 49.5%/Mota-Engil 49.5%/Vecturis 1%; US$455M Angola + up to US$100M DRC; 35 locomotives + 1,555 wagons; AIPEX Regional Development Award 2026",
+      "country": "Angola",
+      "province": "Benguela",
+      "municipality": "Lobito",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 455000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 77,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "cabinda-refinery-build",
       "title": "Cabinda Refinery (Imbono/Gemcorp)",
       "sector": "Energy",
@@ -553,6 +599,29 @@
       "created_at": "2026-08-04"
     },
     {
+      "id": "jardins-yoba-seed-production",
+      "title": "Jardins da Yoba Seed Production",
+      "sector": "Agriculture",
+      "subsector": "Agribusiness",
+      "description": "US$7.49M invested since 2016 in seed production (maize, massango, massambala, potato); Humpata/Chibia (Huila) + Chivemba (Cunene); +US$5.6M expansion planned; AIPEX Agribusiness Award 2026",
+      "country": "Angola",
+      "province": "Huila",
+      "municipality": "Humpata",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 7490000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 60,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "chicomba-water-dam",
       "title": "Chicomba Water Dam Financing",
       "sector": "Infrastructure",
@@ -574,6 +643,29 @@
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "fabrimetal-steel-zee",
+      "title": "Fabrimetal Steel Unit (ZEE Viana)",
+      "sector": "Manufacturing",
+      "subsector": "Steel",
+      "description": "New steel unit at ZEE Viana; capacity 15k->25k t/mo (+66%); launch Jul 2025, production Sept 2025; 800+ workers (90%+ national); export-oriented; AIPEX Job Creation Award 2026",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "Viana",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": 800,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 50,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
     },
     {
       "id": "eseep-energy-transmission",
@@ -1151,6 +1243,29 @@
       "created_at": "2026-08-10"
     },
     {
+      "id": "omatapalo-solar-luanda",
+      "title": "Omatapalo (Metalosul) Solar Luanda",
+      "sector": "Energy",
+      "subsector": "Solar",
+      "description": "~704 MW (official) / 724 MW (Empower Africa) solar installation in Luanda by Metalosul (Omatapalo Group); Enko Impact Credit first close US$100M financing PV panels (Apr 2026); AIPEX Green Investment Award 2026. NOTE: 704 vs 724 MW discrepancy flagged",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 22,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "filda-2023-2-billion-business",
       "title": "FILDA 2023 Expected Business Volume",
       "sector": "Multi-sector",
@@ -1243,6 +1358,52 @@
       "created_at": "2026-07-23"
     },
     {
+      "id": "casais-angola-engenharia",
+      "title": "Casais Angola Engineering & Construction",
+      "sector": "Infrastructure",
+      "subsector": "Infrastructure",
+      "description": "Civil construction and public works (Portugal); US$45,349,166; 1,600 jobs (1,440 national); Luanda + Lobito; AIPEX contract of intent 10 Jul 2024",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 45349166.0,
+      "currency": "USD",
+      "estimated_jobs": 1600,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
+      "id": "esplendor-florestal",
+      "title": "Esplendor Florestal Wood Plantation",
+      "sector": "Agriculture",
+      "subsector": "Agribusiness",
+      "description": "Planting, exploitation and transformation of logs into wood; US$47,182,000; 200 jobs; Benguela + Huambo; AIPEX contract of intent 10 Jul 2024",
+      "country": "Angola",
+      "province": "Benguela",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 47182000.0,
+      "currency": "USD",
+      "estimated_jobs": 200,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "esso-angola-filda2022",
       "title": "ExxonMobil/Esso Angola Participation",
       "sector": "Energy",
@@ -1264,6 +1425,29 @@
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23"
+    },
+    {
+      "id": "fuanda-internacional-silicon",
+      "title": "Fuanda Internacional Silicon Production",
+      "sector": "Manufacturing",
+      "subsector": "Industrial",
+      "description": "Silicon production (Chinese origin); US$20M; 449+ jobs; Bengo; AIPEX contract of intent 10 Jul 2024",
+      "country": "Angola",
+      "province": "Bengo",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 20000000.0,
+      "currency": "USD",
+      "estimated_jobs": 449,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
     },
     {
       "id": "hospital-serum-factory",
@@ -1335,6 +1519,29 @@
       "created_at": "2026-07-23"
     },
     {
+      "id": "koll-mob-furniture",
+      "title": "Koll Mob Angola Furniture Factory",
+      "sector": "Manufacturing",
+      "subsector": "Furniture",
+      "description": "Furniture factory; US$30M; 510 jobs (500 national); Luanda; AIPEX contract of intent 10 Jul 2024",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 30000000.0,
+      "currency": "USD",
+      "estimated_jobs": 510,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "mou-aia-cip-2024",
       "title": "MoU AIA-CIP Industrial Cooperation",
       "sector": "Trade",
@@ -1402,6 +1609,29 @@
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
       "created_at": "2026-08-04"
+    },
+    {
+      "id": "porto-lobito-terminal",
+      "title": "Port of Lobito Multipurpose Terminal",
+      "sector": "Infrastructure",
+      "subsector": "Port",
+      "description": "20-yr management/maintenance/commercial operation of the Multipurpose Container & General Cargo Terminal, Port of Lobito; French investment (Africa Global Logistica/AGL); US$188,311,731; 95 jobs; AIPEX contract of intent 10 Jul 2024",
+      "country": "Angola",
+      "province": "Benguela",
+      "municipality": "Lobito",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 188311731.0,
+      "currency": "USD",
+      "estimated_jobs": 95,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
     },
     {
       "id": "pt-ao-credit-line-3-25b",
@@ -1675,6 +1905,22 @@
         "src_pub": "VerAngola",
         "src_url": "https://www.verangola.net/va/pt/072026/Economia/49508/Huatong-Angola-Industry-conquista-tres-premios-e-e-a-grande-vencedora-dos-AIPEX-Awards.htm",
         "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "africell-angola-network": [
+      {
+        "id": 135,
+        "project_id": "africell-angola-network",
+        "event_type": "completion",
+        "event_date": "2022-04-07",
+        "description": "Commercial launch of 4G network; US50M+ invested, 6M+ subscriber capacity, 1,000+ jobs (95% Angolan)",
+        "source_id": 160,
+        "src_title": "Africell launches in Angola",
+        "src_pub": "Africell",
+        "src_url": "https://www.africell.com/news/africell-launches-in-angola/",
+        "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -2115,6 +2361,22 @@
         "src_url_status": "alive"
       }
     ],
+    "casais-angola-engenharia": [
+      {
+        "id": 142,
+        "project_id": "casais-angola-engenharia",
+        "event_type": "announcement",
+        "event_date": "2024-07-10",
+        "description": "AIPEX contract of intent: civil construction and public works (Portugal); US5,349,166; 1,600 jobs (1,440 national); Luanda + Lobito",
+        "source_id": 165,
+        "src_title": "AIPEX assina cinco contratos de intenção no valor total de 330 842 166 USD",
+        "src_pub": "AIPEX (Invest in Angola)",
+        "src_url": "https://investinangola.ao/pt/2024/07/10/aipex-signs-five-contracts-of-intent-for-a-total-value-of-usd-330-842-166/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "chicomba-water-dam": [
       {
         "id": 103,
@@ -2351,6 +2613,22 @@
         "src_url_status": "alive"
       }
     ],
+    "esplendor-florestal": [
+      {
+        "id": 141,
+        "project_id": "esplendor-florestal",
+        "event_type": "announcement",
+        "event_date": "2024-07-10",
+        "description": "AIPEX contract of intent: wood plantation/exploitation/transformation; US7,182,000; 200 jobs; Benguela + Huambo",
+        "source_id": 165,
+        "src_title": "AIPEX assina cinco contratos de intenção no valor total de 330 842 166 USD",
+        "src_pub": "AIPEX (Invest in Angola)",
+        "src_url": "https://investinangola.ao/pt/2024/07/10/aipex-signs-five-contracts-of-intent-for-a-total-value-of-usd-330-842-166/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "esso-angola-filda2022": [
       {
         "id": 51,
@@ -2427,6 +2705,22 @@
         "src_url_status": "alive"
       }
     ],
+    "fabrimetal-steel-zee": [
+      {
+        "id": 136,
+        "project_id": "fabrimetal-steel-zee",
+        "event_type": "construction",
+        "event_date": "2025-05-09",
+        "description": "New ZEE Viana steel unit announced; capacity 15k->25k t/mo (+66%), launch Jul 2025, production Sept 2025, 800+ workers",
+        "source_id": 161,
+        "src_title": "Fabrimetal projecta aumento de 66% da capacidade de produção de aço com entrada em cena de nova fábrica",
+        "src_pub": "Economia & Mercado",
+        "src_url": "https://www.economiaemercado.com/artigo/fabrimetal-projecta-aumento-de-66-da-capacidade-de-producao-de-aco-com-entrada-em-cena-de-nova-fabrica",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "feito-em-angola-relaunch-2022": [
       {
         "id": 48,
@@ -2483,6 +2777,22 @@
         "src_pub": "RNA",
         "src_url": "https://rna.ao/rna.ao/2023/07/18/filda-abre-hoje-com-a-previsao-de-arrecadar-dois-bilhoes-de-kwanzas-em-negocios/",
         "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "fuanda-internacional-silicon": [
+      {
+        "id": 144,
+        "project_id": "fuanda-internacional-silicon",
+        "event_type": "announcement",
+        "event_date": "2024-07-10",
+        "description": "AIPEX contract of intent: silicon production (Chinese origin); US0M; 449+ jobs; Bengo",
+        "source_id": 165,
+        "src_title": "AIPEX assina cinco contratos de intenção no valor total de 330 842 166 USD",
+        "src_pub": "AIPEX (Invest in Angola)",
+        "src_url": "https://investinangola.ao/pt/2024/07/10/aipex-signs-five-contracts-of-intent-for-a-total-value-of-usd-330-842-166/",
+        "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -2773,6 +3083,52 @@
         "src_url_status": "alive"
       }
     ],
+    "jardins-yoba-seed-production": [
+      {
+        "id": 137,
+        "project_id": "jardins-yoba-seed-production",
+        "event_type": "announcement",
+        "event_date": "2020-07-24",
+        "description": "US.49M invested since 2016 in seed production (maize, massango, massambala, potato); +US.6M expansion planned",
+        "source_id": 162,
+        "src_title": "Jardins da Yoba investe 7,4 milhões de dólares na produção de sementes",
+        "src_pub": "Economia & Mercado",
+        "src_url": "https://www.economiaemercado.com/artigo/jardins-da-yoba-investe-7-4-milhoes-de-dolares-na-producao-de-sementes",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 145,
+        "project_id": "jardins-yoba-seed-production",
+        "event_type": "expansion",
+        "event_date": "2024-05-23",
+        "description": "Expansion into rice production: 'Melhor Arroz' program with UFLA/Epamig/Embrapa; 100 ha planted from Oct 2024, harvest Jan 2025; 2024 declared Year of Rice in Angola",
+        "source_id": 166,
+        "src_title": "Do cerrado para a savana: mineira trabalha com melhoramento de arroz para alimentar população de Angola",
+        "src_pub": "Rádio Itatiaia",
+        "src_url": "https://www.itatiaia.com.br/agro/2024/05/23/do-cerrado-para-a-savana-mineira-trabalha-com-melhoramento-de-arroz-para-alimentar-populacao-de-angola",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "koll-mob-furniture": [
+      {
+        "id": 143,
+        "project_id": "koll-mob-furniture",
+        "event_type": "announcement",
+        "event_date": "2024-07-10",
+        "description": "AIPEX contract of intent: furniture factory; US0M; 510 jobs (500 national); Luanda",
+        "source_id": 165,
+        "src_title": "AIPEX assina cinco contratos de intenção no valor total de 330 842 166 USD",
+        "src_pub": "AIPEX (Invest in Angola)",
+        "src_url": "https://investinangola.ao/pt/2024/07/10/aipex-signs-five-contracts-of-intent-for-a-total-value-of-usd-330-842-166/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "linha-verde-investor-visas": [
       {
         "id": 1,
@@ -2798,6 +3154,22 @@
         "src_title": "Janela Única do Investimento (JUI) Portal",
         "src_pub": "AIPEX",
         "src_url": "https://jui.aipex.gov.ao/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "lobito-atlantic-railway": [
+      {
+        "id": 138,
+        "project_id": "lobito-atlantic-railway",
+        "event_type": "completion",
+        "event_date": "2023-07-04",
+        "description": "30-yr concession signed; US55M Angola + up to US00M DRC; 35 locomotives + 1,555 wagons; 1,344 km Lobito-Luau corridor",
+        "source_id": 163,
+        "src_title": "Governo passa exploração do corredor do Lobito para consórcio Lobito Atlantic Railway",
+        "src_pub": "Expansão",
+        "src_url": "https://expansao.co.ao/economia/detalhe/governo-passa-exploracao-do-corredor-do-lobito-para-consorcio-lobito-atlantic-railway-60540.html",
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -2941,6 +3313,22 @@
         "src_url_status": "alive"
       }
     ],
+    "omatapalo-solar-luanda": [
+      {
+        "id": 139,
+        "project_id": "omatapalo-solar-luanda",
+        "event_type": "financing",
+        "event_date": "2026-04-29",
+        "description": "Enko Impact Credit first close US00M financing PV panels for Luanda solar (704 MW official / 724 MW Empower Africa - discrepancy flagged)",
+        "source_id": 164,
+        "src_title": "Metalosul secures Enko Capital funding for major solar expansion in Angola",
+        "src_pub": "Empower Africa",
+        "src_url": "https://empowerafrica.com/metalosul-secures-enko-capital-funding-for-major-solar-expansion-in-angola/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "omataplo-aipex-2026": [
       {
         "id": 90,
@@ -3073,6 +3461,22 @@
         "src_pub": "Jornal 24 Horas",
         "src_url": "https://jornal24horas.ao/economia/filda-2022porto-do-lobito-vence-premio-de-melhor-participacao-dos-transportes-e-logistica/",
         "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "porto-lobito-terminal": [
+      {
+        "id": 140,
+        "project_id": "porto-lobito-terminal",
+        "event_type": "announcement",
+        "event_date": "2024-07-10",
+        "description": "AIPEX contract of intent: 20-yr operation of Multipurpose Container & General Cargo Terminal; US88,311,731; 95 jobs",
+        "source_id": 165,
+        "src_title": "AIPEX assina cinco contratos de intenção no valor total de 330 842 166 USD",
+        "src_pub": "AIPEX (Invest in Angola)",
+        "src_url": "https://investinangola.ao/pt/2024/07/10/aipex-signs-five-contracts-of-intent-for-a-total-value-of-usd-330-842-166/",
+        "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -3620,6 +4024,15 @@
         "country": "USA"
       }
     ],
+    "africell-angola-network": [
+      {
+        "project_id": "africell-angola-network",
+        "role": "promoter",
+        "name": "Africell",
+        "type": "foreign_investor",
+        "country": "USA"
+      }
+    ],
     "angola-digital-acceleration": [
       {
         "project_id": "angola-digital-acceleration",
@@ -3832,6 +4245,15 @@
         "country": "Angola"
       }
     ],
+    "casais-angola-engenharia": [
+      {
+        "project_id": "casais-angola-engenharia",
+        "role": "promoter",
+        "name": "Casais Angola Engenharia e Construcao SA",
+        "type": "foreign_investor",
+        "country": "Portugal"
+      }
+    ],
     "chicomba-water-dam": [
       {
         "project_id": "chicomba-water-dam",
@@ -3907,6 +4329,15 @@
         "country": "USA"
       }
     ],
+    "esplendor-florestal": [
+      {
+        "project_id": "esplendor-florestal",
+        "role": "promoter",
+        "name": "Esplendor Florestal",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "esso-angola-filda2022": [
       {
         "project_id": "esso-angola-filda2022",
@@ -3928,6 +4359,15 @@
     "fabrimetal-aipex-2026": [
       {
         "project_id": "fabrimetal-aipex-2026",
+        "role": "promoter",
+        "name": "Fabrimetal",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "fabrimetal-steel-zee": [
+      {
+        "project_id": "fabrimetal-steel-zee",
         "role": "promoter",
         "name": "Fabrimetal",
         "type": "company",
@@ -3964,6 +4404,15 @@
         "name": "Ministry of Economy and Planning",
         "type": "government",
         "country": "Angola"
+      }
+    ],
+    "fuanda-internacional-silicon": [
+      {
+        "project_id": "fuanda-internacional-silicon",
+        "role": "promoter",
+        "name": "Fuanda Internacional",
+        "type": "foreign_investor",
+        "country": "China"
       }
     ],
     "grain-production-ambition-2022": [
@@ -4061,6 +4510,24 @@
         "country": "Angola"
       }
     ],
+    "jardins-yoba-seed-production": [
+      {
+        "project_id": "jardins-yoba-seed-production",
+        "role": "promoter",
+        "name": "Jardins da Yoba",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "koll-mob-furniture": [
+      {
+        "project_id": "koll-mob-furniture",
+        "role": "promoter",
+        "name": "Koll Mob Angola",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "linha-verde-investor-visas": [
       {
         "project_id": "linha-verde-investor-visas",
@@ -4074,6 +4541,15 @@
         "role": "promoter",
         "name": "Ivan dos Santos",
         "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "lobito-atlantic-railway": [
+      {
+        "project_id": "lobito-atlantic-railway",
+        "role": "operator",
+        "name": "Lobito Atlantic Railway (LAR)",
+        "type": "company",
         "country": "Angola"
       }
     ],
@@ -4173,6 +4649,22 @@
         "country": "Angola"
       }
     ],
+    "omatapalo-solar-luanda": [
+      {
+        "project_id": "omatapalo-solar-luanda",
+        "role": "operator",
+        "name": "Metalosul",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "omatapalo-solar-luanda",
+        "role": "promoter",
+        "name": "Omataplo",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "omataplo-aipex-2026": [
       {
         "project_id": "omataplo-aipex-2026",
@@ -4213,6 +4705,22 @@
       {
         "project_id": "porto-lobito-leao-ouro-2022",
         "role": "promoter",
+        "name": "Empresa Portuaria do Lobito - EP",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "porto-lobito-terminal": [
+      {
+        "project_id": "porto-lobito-terminal",
+        "role": "operator",
+        "name": "Africa Global Logistica (AGL)",
+        "type": "foreign_investor",
+        "country": "France"
+      },
+      {
+        "project_id": "porto-lobito-terminal",
+        "role": "partner",
         "name": "Empresa Portuaria do Lobito - EP",
         "type": "state_owned_enterprise",
         "country": "Angola"
@@ -5895,6 +6403,96 @@
       "delay": 0,
       "status_penalty": 0,
       "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "africell-angola-network": {
+      "base": 60,
+      "events": 15,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "fabrimetal-steel-zee": {
+      "base": 40,
+      "events": 8,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "jardins-yoba-seed-production": {
+      "base": 60,
+      "events": 13,
+      "evidence": 2,
+      "delay": -15,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "lobito-atlantic-railway": {
+      "base": 60,
+      "events": 15,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "omatapalo-solar-luanda": {
+      "base": 15,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "porto-lobito-terminal": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "esplendor-florestal": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "casais-angola-engenharia": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "koll-mob-furniture": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "fuanda-internacional-silicon": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
       "version": "v2-2026-07"
     }
   }

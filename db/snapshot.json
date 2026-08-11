@@ -1,34 +1,34 @@
 {
   "counts": {
-    "projects": 70,
-    "scored": 69,
+    "projects": 80,
+    "scored": 79,
     "unscored": 1,
     "unscored_ids": [
       "banco-sol-mc-empresas-2025"
     ],
-    "sources": 157,
-    "events": 133,
-    "events_linked": 132,
+    "sources": 164,
+    "events": 144,
+    "events_linked": 143,
     "events_null": 1,
     "null_event_ids": [
       80
     ]
   },
   "aggregate": {
-    "avg_precise": 42.8261,
-    "avg_rounded": 43,
+    "avg_precise": 41.5316,
+    "avg_rounded": 42,
     "distribution": {
-      "0-20": 19,
-      "21-40": 17,
-      "41-60": 9,
-      "61-80": 15,
+      "0-20": 24,
+      "21-40": 18,
+      "41-60": 11,
+      "61-80": 17,
       "81-100": 9
     }
   },
   "sectors": {
     "Agriculture": {
-      "count": 10,
-      "avg": 35.9
+      "count": 12,
+      "avg": 35.6
     },
     "Digital": {
       "count": 2,
@@ -39,8 +39,8 @@
       "avg": 8.0
     },
     "Energy": {
-      "count": 12,
-      "avg": 39.0
+      "count": 13,
+      "avg": 37.7
     },
     "Finance": {
       "count": 6,
@@ -55,16 +55,16 @@
       "avg": 22.0
     },
     "Infrastructure": {
-      "count": 6,
-      "avg": 40.7
+      "count": 9,
+      "avg": 37.4
     },
     "Logistics": {
       "count": 1,
       "avg": 72.0
     },
     "Manufacturing": {
-      "count": 6,
-      "avg": 47.3
+      "count": 9,
+      "avg": 38.9
     },
     "Multi-sector": {
       "count": 9,
@@ -75,8 +75,8 @@
       "avg": 55.6
     },
     "Telecom": {
-      "count": 4,
-      "avg": 35.0
+      "count": 5,
+      "avg": 43.4
     },
     "Trade": {
       "count": 3,
@@ -85,9 +85,9 @@
   },
   "gov_vs_private": {
     "gov_count": 3,
-    "private_count": 66,
+    "private_count": 76,
     "gov_avg": 54.0,
-    "private_avg": 42.3
+    "private_avg": 41.0
   },
   "case_studies": {
     "huatong-angola-industry-awards": 78,
