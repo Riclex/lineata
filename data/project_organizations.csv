@@ -6,6 +6,9 @@ id,project_id,organization_id,role
 117,aiaan-airport-concession,corporacion-america-airports,operator
 119,aiaan-airport-concession,mintrans,promoter
 118,aiaan-airport-concession,mota-engil-africa,partner
+129,amufert-soyo-fertiliser-complex,afreximbank,financier
+131,amufert-soyo-fertiliser-complex,opaia-group,partner
+130,amufert-soyo-fertiliser-complex,sonagas,partner
 101,angola-digital-acceleration,world-bank,financier
 44,angola-startup-summit-2022,grupo-arena,operator
 43,angola-startup-summit-2022,mep-angola,partner
@@ -21,6 +24,7 @@ id,project_id,organization_id,role
 14,anpg-oil-sector-grand-prize,sonangol,partner
 10,anpg-oil-sector-grand-prize,totalenergies,partner
 97,asrp-agriculture-reform,afdb,financier
+140,ayep-youth-employment,afdb,financier
 89,baia-fish-processing,baia-fish,operator
 72,banco-sol-mc-empresas-2025,banco-sol,promoter
 25,banco-sol-virtual-assistant,banco-sol,promoter
@@ -41,9 +45,15 @@ id,project_id,organization_id,role
 31,cip-cooperation-pt-ao,ccipa,partner
 30,cip-cooperation-pt-ao,cip,promoter
 120,corredor-namibe-concession,mintrans,promoter
+139,crew-angola-climate-resilience,adpp-angola,partner
+137,crew-angola-climate-resilience,green-climate-fund,financier
+138,crew-angola-climate-resilience,sahara-sahel-observatory,partner
 5,digital-infrastructure-pledge,gov-angola,promoter
 6,digital-infrastructure-pledge,joao-lourenco,promoter
 103,economic-diversification-job-creation,world-bank,financier
+132,eib-hpv-vaccination-campaign,european-investment-bank,financier
+133,eib-hpv-vaccination-campaign,minsa,promoter
+128,eravacdep-agricultural-value-chains,afdb,financier
 96,eseep-energy-transmission,afdb,financier
 99,esiap-electricity-access,world-bank,financier
 113,esplendor-florestal,esplendor-florestal,promoter
@@ -56,6 +66,9 @@ id,project_id,organization_id,role
 27,filda-2023-2-billion-business,grupo-arena,operator
 26,filda-2023-2-billion-business,mep-angola,promoter
 116,fuanda-internacional-silicon,fuanda-internacional,promoter
+134,global-fund-gc7-hiv-tb-malaria,global-fund,financier
+136,global-fund-gc7-hiv-tb-malaria,minsa,promoter
+135,global-fund-gc7-hiv-tb-malaria,undp,partner
 33,grain-production-ambition-2022,gov-angola,promoter
 34,grain-production-ambition-2022,manuel-nunes-junior,promoter
 100,heprr-health-emergency-preparedness,world-bank,financier

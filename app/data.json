@@ -415,6 +415,29 @@
       "created_at": "2026-08-11"
     },
     {
+      "id": "global-fund-gc7-hiv-tb-malaria",
+      "title": "Global Fund GC7 Grant - HIV/TB/Malaria Response",
+      "sector": "Health",
+      "subsector": "Disease control",
+      "description": "US$126M Global Fund Grant Cycle 7 (GC7) for HIV/AIDS, TB and malaria response; signed 14 May 2024 in Luanda; UNDP Angola principal recipient; implementation Jul 2024-Jun 2027; covers Benguela, Cuanza Sul and Bie (new); 7M people to access services; 52% increase over GC6 (US$83M)",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 126000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2027-06",
+      "actual_completion": "",
+      "execution_score": 77,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "lobito-atlantic-railway",
       "title": "Lobito Atlantic Railway Concession",
       "sector": "Infrastructure",
@@ -433,6 +456,29 @@
       "execution_score": 77,
       "filda_edition": "",
       "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
+      "id": "eib-hpv-vaccination-campaign",
+      "title": "National HPV Vaccination Campaign (EIB/EU)",
+      "sector": "Health",
+      "subsector": "Immunization",
+      "description": "Angola's first national cervical cancer (HPV) vaccination campaign; launched 27 Oct 2025 in Namibe province; targets 2M+ girls aged 9-12; EIB Global EUR 50M financing + EUR 4.5M EU grant (Global Gateway); WHO/UNICEF/UNDP/GAVI support; from 2026 integrated into routine childhood immunisation",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "operational",
+      "announced_value": 50000000.0,
+      "currency": "EUR",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 77,
+      "filda_edition": "",
+      "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
       "created_at": "2026-08-11"
@@ -806,6 +852,29 @@
       "created_at": "2026-08-10"
     },
     {
+      "id": "amufert-soyo-fertiliser-complex",
+      "title": "Amufert Soyo Ammonia & Urea Complex",
+      "sector": "Manufacturing",
+      "subsector": "Fertilizer",
+      "description": "US$2B ammonia and urea complex in Soyo (Zaire); JV of Sonangol P&P Natural Gas (Sonagas) and OPAIA Group; Afreximbank approved US$1.3B loan (announced 12 Nov 2025) as mandated lead arranger; ~1.3M t/yr urea capacity; construction underway, operations expected 2027; aims to cut Angola's >US$120M/yr fertiliser imports",
+      "country": "Angola",
+      "province": "Zaire",
+      "municipality": "Soyo",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 2000000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2027",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "secondary-cities-support",
       "title": "Angola Secondary Cities Support Program",
       "sector": "Infrastructure",
@@ -827,6 +896,29 @@
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
       "created_at": "2026-08-10"
+    },
+    {
+      "id": "crew-angola-climate-resilience",
+      "title": "CREW Angola - Women's Climate Resilience (Cunene)",
+      "sector": "Agriculture",
+      "subsector": "Climate resilience",
+      "description": "CREW Angola (SAP044): Empowering Women Groups to Build Resilience to Climate Impacts in Cunene; US$9.6M GCF grant + US$378k in-kind co-financing; approved by GCF Board 24 Oct 2024, FAA effective 30 Jul 2025, first disbursement US$1.59M 5 Sep 2025; implementing entity Sahara and Sahel Observatory (OSS) with ADPP Angola and Ministry of Environment; 300,000 beneficiaries (60% women); 5 years (2025-2030); Angola's first single-country GCF project",
+      "country": "Angola",
+      "province": "Cunene",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 9616032.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2030-07-30",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
     },
     {
       "id": "esiap-electricity-access",
@@ -1381,6 +1473,29 @@
       "created_at": "2026-07-23"
     },
     {
+      "id": "ayep-youth-employment",
+      "title": "Angola Youth Employment Project (AYEP)",
+      "sector": "Multi-sector",
+      "subsector": "Youth employment",
+      "description": "US$79.08M AfDB loan (64% of US$124.68M total cost; GoA 23.3%, private 0.4%); approved by AfDB Board Jul 2024; 8 provinces (Luanda, Huila, Huambo, Benguela, Cabinda, Cuanza Sul, Bie, Malanje); train 95,000+ young people in digital/TVET for climate-smart agriculture and transport; implementation 2025-2029",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 79080000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "2029",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "bda-financing-filda2025",
       "title": "BDA New Financing Solutions",
       "sector": "Finance",
@@ -1468,6 +1583,29 @@
       "execution_score": 8,
       "filda_edition": "",
       "source_program": "AIPEX",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
+      "id": "eravacdep-agricultural-value-chains",
+      "title": "Eastern Province Agricultural Value Chains Development Project (ERAVACDEP)",
+      "sector": "Agriculture",
+      "subsector": "Agribusiness",
+      "description": "US$210.4M AfDB loan (360angola; afdb.org reports a US$211.4M package: US$190.4M loan + US$20M Rome Process/Mattei Plan + US$1M TSF grant - discrepancy flagged) plus US$100M Government of Angola parallel financing; approved by AfDB Board 13 Nov 2025, loan agreement authorized for signing 7 Apr 2026; 6 eastern provinces (Lunda Norte, Lunda Sul, Moxico, Moxico Leste, Cuando, Cubango); 7,500 direct jobs (at least half women, one-third youth), 1.2M beneficiaries; 5 years (2026-2031); 2,500 ha irrigation rehab, 150,000 ha farmland, 400 km feeder roads, 3,000 farmer field schools, 6 agribusiness centres",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 210400000.0,
+      "currency": "USD",
+      "estimated_jobs": 7500,
+      "expected_completion": "2031",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "",
+      "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
       "created_at": "2026-08-11"
@@ -2056,6 +2194,22 @@
         "src_url_status": "alive"
       }
     ],
+    "amufert-soyo-fertiliser-complex": [
+      {
+        "id": 152,
+        "project_id": "amufert-soyo-fertiliser-complex",
+        "event_type": "financing",
+        "event_date": "2025-11-12",
+        "description": "Afreximbank approves US$1.3B loan for the US$2B Amufert ammonia and urea complex in Soyo (Sonangol P&P Natural Gas + OPAIA Group JV); construction underway, operations expected 2027",
+        "source_id": 173,
+        "src_title": "Afreximbank approves $1.3bn for Angola's Soyo fertiliser plant",
+        "src_pub": "AgriFocus Africa",
+        "src_url": "https://agrifocusafrica.com/2025/11/12/afreximbank-approves-1-3bn-for-angolas-soyo-fertiliser-plant/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "angola-digital-acceleration": [
       {
         "id": 131,
@@ -2229,6 +2383,22 @@
         "src_title": "Angola: African Development Bank approves $105-million loan to improve the productivity of smallholdings and reduce food imports",
         "src_pub": "African Development Bank (AfDB)",
         "src_url": "https://afdb.africa-newsroom.com/press/angola-african-development-bank-approves-105million-loan-to-improve-the-productivity-of-smallholdings-and-reduce-food-imports",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "ayep-youth-employment": [
+      {
+        "id": 156,
+        "project_id": "ayep-youth-employment",
+        "event_type": "announcement",
+        "event_date": "2024-07-29",
+        "description": "AfDB Board approves US$79.08M loan (64% of US$124.68M total) for the Angola Youth Employment Project (AYEP); 8 provinces; 95,000+ young people to be trained; implementation 2025-2029",
+        "source_id": 177,
+        "src_title": "African Development Bank approves $79 million loan to boost Angola's youth employment in agriculture and transportation",
+        "src_pub": "AgriFocus Africa",
+        "src_url": "https://agrifocusafrica.com/2024/07/29/african-development-bank-approves-79-million-loan-to-boost-angolas-youth-employment-in-agriculture-and-transportation/",
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -2658,6 +2828,22 @@
         "src_url_status": "alive"
       }
     ],
+    "crew-angola-climate-resilience": [
+      {
+        "id": 155,
+        "project_id": "crew-angola-climate-resilience",
+        "event_type": "financing",
+        "event_date": "2025-09-05",
+        "description": "First GCF disbursement (US$1.59M) for CREW Angola (SAP044); US$9.6M GCF grant approved 24 Oct 2024, FAA effective 30 Jul 2025; Cunene province; 300,000 beneficiaries",
+        "source_id": 176,
+        "src_title": "SAP044: Empowering Women Groups to Build Resilience to Climate Impacts in the Province of Cunene in South West Angola (CREW Angola)",
+        "src_pub": "Green Climate Fund",
+        "src_url": "https://www.greenclimate.fund/portfolio/projects/sap044",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "digital-infrastructure-pledge": [
       {
         "id": 3,
@@ -2727,6 +2913,38 @@
         "src_title": "Angola to Accelerate Job Creation and Growth in Private Enterprise, with Focus on Lobito Corridor",
         "src_pub": "World Bank",
         "src_url": "https://www.worldbank.org/en/news/press-release/2023/06/02/angola-afe-to-accelerate-job-creation-and-growth-in-private-enterprise-with-focus-on-lobito-corridor",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "eib-hpv-vaccination-campaign": [
+      {
+        "id": 153,
+        "project_id": "eib-hpv-vaccination-campaign",
+        "event_type": "completion",
+        "event_date": "2025-10-27",
+        "description": "National HPV vaccination campaign against cervical cancer launched in Namibe; targets 2M+ girls aged 9-12; EIB Global EUR 50M financing + EUR 4.5M EU grant (Global Gateway)",
+        "source_id": 174,
+        "src_title": "EIB and EU Support Angola's HPV Vaccination Drive to Protect Two Million Girls",
+        "src_pub": "Devdiscourse",
+        "src_url": "https://www.devdiscourse.com/article/business/3677043-eib-and-eu-support-angolas-hpv-vaccination-drive-to-protect-two-million-girls",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "eravacdep-agricultural-value-chains": [
+      {
+        "id": 151,
+        "project_id": "eravacdep-agricultural-value-chains",
+        "event_type": "announcement",
+        "event_date": "2026-04-07",
+        "description": "Loan agreement for the Eastern Province Agricultural Value Chains Development Project (ERAVACDEP) authorized for signing; US$210.4M AfDB loan (afdb.org reports US$211.4M package incl. US$20M Rome Process + US$1M TSF grant - discrepancy flagged); 6 eastern provinces; 7,500 direct jobs; 1.2M beneficiaries",
+        "source_id": 172,
+        "src_title": "Government and AfDB Sign Agreement Worth Over $200 Million to Finance Agricultural Project",
+        "src_pub": "360 Angola",
+        "src_url": "https://360angola.com/economy/finance/government-and-afdb-sign-agreement-worth-over-200-million-to-finance-agricultural-project/",
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -2971,6 +3189,22 @@
         "src_title": "AIPEX assina cinco contratos de intenção no valor total de 330 842 166 USD",
         "src_pub": "AIPEX (Invest in Angola)",
         "src_url": "https://investinangola.ao/pt/2024/07/10/aipex-signs-five-contracts-of-intent-for-a-total-value-of-usd-330-842-166/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "global-fund-gc7-hiv-tb-malaria": [
+      {
+        "id": 154,
+        "project_id": "global-fund-gc7-hiv-tb-malaria",
+        "event_type": "completion",
+        "event_date": "2024-05-14",
+        "description": "US$126M Global Fund GC7 grant signed for HIV/AIDS, TB and malaria response; UNDP principal recipient; implementation Jul 2024-Jun 2027; provinces Benguela, Cuanza Sul, Bie",
+        "source_id": 175,
+        "src_title": "Fundo Global alarga apoio a luta contra malaria, HIV e tuberculose em Angola",
+        "src_pub": "Noticias ao Minuto (Lusa)",
+        "src_url": "https://www.noticiasaominuto.com/mundo/2560590/fundo-global-alarga-apoio-a-luta-contra-malaria-hiv-e-tuberculose-em-angola",
         "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -4251,6 +4485,29 @@
         "country": "Angola"
       }
     ],
+    "amufert-soyo-fertiliser-complex": [
+      {
+        "project_id": "amufert-soyo-fertiliser-complex",
+        "role": "financier",
+        "name": "African Export-Import Bank (Afreximbank)",
+        "type": "foreign_investor",
+        "country": "Egypt"
+      },
+      {
+        "project_id": "amufert-soyo-fertiliser-complex",
+        "role": "partner",
+        "name": "OPAIA Group",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "amufert-soyo-fertiliser-complex",
+        "role": "partner",
+        "name": "Sonangol P&P Natural Gas (Sonagas)",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
     "angola-digital-acceleration": [
       {
         "project_id": "angola-digital-acceleration",
@@ -4360,6 +4617,15 @@
     "asrp-agriculture-reform": [
       {
         "project_id": "asrp-agriculture-reform",
+        "role": "financier",
+        "name": "African Development Bank",
+        "type": "foreign_investor",
+        "country": "Cote d Ivoire"
+      }
+    ],
+    "ayep-youth-employment": [
+      {
+        "project_id": "ayep-youth-employment",
         "role": "financier",
         "name": "African Development Bank",
         "type": "foreign_investor",
@@ -4538,6 +4804,29 @@
         "country": "Angola"
       }
     ],
+    "crew-angola-climate-resilience": [
+      {
+        "project_id": "crew-angola-climate-resilience",
+        "role": "financier",
+        "name": "Green Climate Fund (GCF)",
+        "type": "foreign_investor",
+        "country": "South Korea"
+      },
+      {
+        "project_id": "crew-angola-climate-resilience",
+        "role": "partner",
+        "name": "ADPP Angola",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "crew-angola-climate-resilience",
+        "role": "partner",
+        "name": "Sahara and Sahel Observatory (OSS)",
+        "type": "company",
+        "country": "Tunisia"
+      }
+    ],
     "digital-infrastructure-pledge": [
       {
         "project_id": "digital-infrastructure-pledge",
@@ -4561,6 +4850,31 @@
         "name": "World Bank",
         "type": "foreign_investor",
         "country": "USA"
+      }
+    ],
+    "eib-hpv-vaccination-campaign": [
+      {
+        "project_id": "eib-hpv-vaccination-campaign",
+        "role": "financier",
+        "name": "European Investment Bank (EIB)",
+        "type": "foreign_investor",
+        "country": "Luxembourg"
+      },
+      {
+        "project_id": "eib-hpv-vaccination-campaign",
+        "role": "promoter",
+        "name": "Ministry of Health (MINSA)",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "eravacdep-agricultural-value-chains": [
+      {
+        "project_id": "eravacdep-agricultural-value-chains",
+        "role": "financier",
+        "name": "African Development Bank",
+        "type": "foreign_investor",
+        "country": "Cote d Ivoire"
       }
     ],
     "eseep-energy-transmission": [
@@ -4665,6 +4979,29 @@
         "name": "Fuanda Internacional",
         "type": "foreign_investor",
         "country": "China"
+      }
+    ],
+    "global-fund-gc7-hiv-tb-malaria": [
+      {
+        "project_id": "global-fund-gc7-hiv-tb-malaria",
+        "role": "financier",
+        "name": "The Global Fund to Fight AIDS, Tuberculosis and Malaria",
+        "type": "foreign_investor",
+        "country": "Switzerland"
+      },
+      {
+        "project_id": "global-fund-gc7-hiv-tb-malaria",
+        "role": "partner",
+        "name": "United Nations Development Programme (UNDP)",
+        "type": "foreign_investor",
+        "country": "United States"
+      },
+      {
+        "project_id": "global-fund-gc7-hiv-tb-malaria",
+        "role": "promoter",
+        "name": "Ministry of Health (MINSA)",
+        "type": "government",
+        "country": "Angola"
       }
     ],
     "grain-production-ambition-2022": [
@@ -6814,6 +7151,60 @@
       "version": "v2-2026-07"
     },
     "caio-deep-water-terminal": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "eravacdep-agricultural-value-chains": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "amufert-soyo-fertiliser-complex": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "eib-hpv-vaccination-campaign": {
+      "base": 60,
+      "events": 15,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "global-fund-gc7-hiv-tb-malaria": {
+      "base": 60,
+      "events": 15,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "crew-angola-climate-resilience": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "ayep-youth-employment": {
       "base": 15,
       "events": 3,
       "evidence": 0,
