@@ -921,6 +921,52 @@
       "created_at": "2026-08-11"
     },
     {
+      "id": "sfd-catumbela-industrial-phase1",
+      "title": "Catumbela Industrial Development Project Phase 1 (SFD)",
+      "sector": "Manufacturing",
+      "subsector": "Industrial development",
+      "description": "Saudi Fund for Development US$100M loan (Phase 1) for the Catumbela Industrial Development Project; agreement signed 9 Nov 2023 at the Saudi-Arab-African Economic Conference in Riyadh, part of a 14-agreement US$580M+ package across 12 African nations (SFD CEO Sultan Al-Marshad + Angolan minister); develops Catumbela industrial city (Benguela); NOTE - verangola.net reported a US$110M grant/loan (Aug 2023) vs SFD's US$100M - discrepancy flagged",
+      "country": "Angola",
+      "province": "Benguela",
+      "municipality": "Catumbela",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 100000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
+      "id": "coastal-towns-inclusive-sanitation",
+      "title": "Coastal Towns Inclusive Sanitation Project",
+      "sector": "Infrastructure",
+      "subsector": "Water & sanitation",
+      "description": "US$124.4M AfDB package: US$75M AfDB loan + US$49.4M AGTF (Africa Growing Together Fund, US$2B facility sponsored by the People's Bank of China administered by AfDB); loan agreement signed 3 Oct 2023 in Luanda (Finance Minister Vera Daves de Sousa + AfDB Country Manager Pietro Toigo); coastal towns Benguela, Baia Farta, Catumbela and Lobito serving 1.4M people; sewage reticulation, wastewater and faecal sludge treatment plants, private sector operators, community-led sanitation",
+      "country": "Angola",
+      "province": "Benguela",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 124400000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
       "id": "esiap-electricity-access",
       "title": "Electricity Sector Improvement and Access Project (ESIAP)",
       "sector": "Energy",
@@ -942,6 +988,29 @@
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
       "created_at": "2026-08-10"
+    },
+    {
+      "id": "afc-national-road-bridges",
+      "title": "National Road Bridges Programme (AFC)",
+      "sector": "Infrastructure",
+      "subsector": "Roads",
+      "description": "EUR 85M Africa Finance Corporation sovereign facility (EUR 75M closed and disbursed as of 24 Jul 2025) for construction of 186 priority bridges and critical upgrades to Angola's national road network under the National Development Plan 2023-2027; ~900 direct jobs expected; AFC sole arranger/mandated lead arranger on the commercial tranche, US EXIM leads the ECA tranche, Standard Chartered coordinating bank, Conduril main EPC contractor, Acrow bridge supplier; part of a broader EUR 381.5M package first announced at the Dallas U.S.-Africa Business Summit (May 2024)",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 85000000.0,
+      "currency": "EUR",
+      "estimated_jobs": 900,
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
     },
     {
       "id": "quilemba-solar-park",
@@ -988,6 +1057,52 @@
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
       "created_at": "2026-08-04"
+    },
+    {
+      "id": "wsidp2-water-sector-institutional",
+      "title": "Second Water Sector Institutional Development Project (WSIDP2)",
+      "sector": "Infrastructure",
+      "subsector": "Water",
+      "description": "WSIDP2: World Bank US$350M (IBRD) confirmed effective, co-financed by AFD US$150M and EIB US$100M; rehabilitation/expansion of water supply production and distribution across 7 provincial cities (Uige, Malanje, Ndalatando, Huambo, Kuito, Lubango, Luena); by May 2024 ~94,486 new household connections and ~923 km network laid, 7 of 9 sanitation master plans completed (incl. Luena, bringing piped water to 170,000+ residents); closing extended to 31 Dec 2025; NOTE - WB results brief frames US$350M with AFD/EIB co-financing while WB project documents list IBRD US$200M + US$150M additional financing (split not reconciled)",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 350000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
+    },
+    {
+      "id": "jica-southern-region-transmission",
+      "title": "Southern Region Transmission System Reinforcement (JICA)",
+      "sector": "Energy",
+      "subsector": "Transmission",
+      "description": "JPY 39.105B JICA loan (maximum amount) for the Project for Transmission System Reinforcement in Southern Region; agreement signed 21 Aug 2025 in Yokohama (Finance Minister Vera Daves + JICA President Tanaka Akihiko); 220kV transmission line Nombungo-Namibe via East Lubango substation, 220/60kV East Lubango and Namibe substations, 60kV East Lubango-Arimba distribution line + 60/15kV Arimba substation, demining equipment to clear mines/UXOs along the lines and at substations; co-financed with AfDB under the Accelerated Co-Financing Facility for Africa (ACFA); general untied, 30-yr repayment + 10-yr grace; completion scheduled Mar 2030",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "under_construction",
+      "announced_value": 39105000000.0,
+      "currency": "JPY",
+      "estimated_jobs": "",
+      "expected_completion": "2030-03",
+      "actual_completion": "",
+      "execution_score": 47,
+      "filda_edition": "",
+      "source_program": "multilateral",
+      "last_verified": "2026-08-11",
+      "evidence_complete": 1,
+      "created_at": "2026-08-11"
     },
     {
       "id": "bita-water-supply",
@@ -2132,6 +2247,22 @@
         "src_url_status": "alive"
       }
     ],
+    "afc-national-road-bridges": [
+      {
+        "id": 159,
+        "project_id": "afc-national-road-bridges",
+        "event_type": "financing",
+        "event_date": "2025-07-24",
+        "description": "AFC closes and disburses EUR 75M of an EUR 85M sovereign facility for 186 priority bridges and national road network upgrades (National Development Plan 2023-2027); ~900 direct jobs expected",
+        "source_id": 180,
+        "src_title": "Angola advances National Road Plan with US$85m support from AFC",
+        "src_pub": "Africa Finance Corporation",
+        "src_url": "https://www.africafc.org/news-and-insights/news/angola-advances-national-road-plan-with-85m-support-from-afc",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "africell-aipex-2026": [
       {
         "id": 96,
@@ -2808,6 +2939,22 @@
         "src_pub": "Forbes África Lusófona",
         "src_url": "https://forbesafricalusofona.com/agencia-de-investimento-privado-e-promocao-das-exportacoes-de-angola-assina-tres-acordos-de-cooperacao-com-entidades-portuguesas/",
         "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "coastal-towns-inclusive-sanitation": [
+      {
+        "id": 157,
+        "project_id": "coastal-towns-inclusive-sanitation",
+        "event_type": "financing",
+        "event_date": "2023-10-03",
+        "description": "AfDB US$75M + AGTF US$49.4M loan agreements signed in Luanda (total US$124.4M) for the Coastal Towns Inclusive Sanitation Project; towns Benguela, Baia Farta, Catumbela, Lobito serving 1.4M people; sewage reticulation, wastewater/faecal sludge treatment plants",
+        "source_id": 178,
+        "src_title": "Angola: African Development Bank Group, Angola sign two loan agreements worth US$124.4 million to finance sanitation project for coastal towns",
+        "src_pub": "African Development Bank (APO Group)",
+        "src_url": "https://afdb.africa-newsroom.com/press/angola-african-development-bank-group-angola-sign-two-loan-agreements-worth-1244-million-to-finance-sanitation-project-for-coastal-towns",
+        "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -3526,6 +3673,22 @@
         "src_url_status": "alive"
       }
     ],
+    "jica-southern-region-transmission": [
+      {
+        "id": 158,
+        "project_id": "jica-southern-region-transmission",
+        "event_type": "financing",
+        "event_date": "2025-08-21",
+        "description": "JICA ODA loan agreement signed in Yokohama (JPY 39.105B maximum) for the Project for Transmission System Reinforcement in Southern Region; 220kV Nombungo-Namibe via East Lubango; co-financed with AfDB under ACFA; completion scheduled Mar 2030",
+        "source_id": 179,
+        "src_title": "Signing of Japanese ODA Loan Agreement with Angola - Project for Transmission System Reinforcement in Southern Region",
+        "src_pub": "JICA",
+        "src_url": "https://www.jica.go.jp/english/information/press/2025/20250821_13.html",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "koll-mob-furniture": [
       {
         "id": 143,
@@ -4156,6 +4319,22 @@
         "src_url_status": "alive"
       }
     ],
+    "sfd-catumbela-industrial-phase1": [
+      {
+        "id": 161,
+        "project_id": "sfd-catumbela-industrial-phase1",
+        "event_type": "financing",
+        "event_date": "2023-11-09",
+        "description": "Saudi Fund for Development US$100M loan (Phase 1) signed at the Saudi-Arab-African Economic Conference in Riyadh for the Catumbela Industrial Development Project (Benguela); part of a 14-agreement US$580M+ package; verangola.net reported US$110M - discrepancy flagged",
+        "source_id": 182,
+        "src_title": "Saudi Fund for Development's US$580m Boost to African Infrastructure",
+        "src_pub": "Highways Today",
+        "src_url": "https://highways.today/2023/11/11/saudi-fund-africa/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "sonangol-leao-ouro-2022": [
       {
         "id": 54,
@@ -4408,6 +4587,22 @@
         "src_url_status": "alive"
       }
     ],
+    "wsidp2-water-sector-institutional": [
+      {
+        "id": 160,
+        "project_id": "wsidp2-water-sector-institutional",
+        "event_type": "financing",
+        "event_date": "2019-04-08",
+        "description": "WSIDP2 multi-donor financing confirmed effective (WB US$350M; co-financed by AFD US$150M and EIB US$100M); water sector institutional development across 7 provincial cities (Uige, Malanje, Ndalatando, Huambo, Kuito, Lubango, Luena)",
+        "source_id": 181,
+        "src_title": "Building Water Institutions: Water Supply Services, Regulation and Policy in Angola",
+        "src_pub": "World Bank",
+        "src_url": "https://www.worldbank.org/en/results/2019/04/08/building-water-institutions-in-angola",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "zap-empresas-filda2022": [
       {
         "id": 50,
@@ -4442,6 +4637,15 @@
         "name": "AEP - Associacao Empresarial de Portugal",
         "type": "company",
         "country": "Portugal"
+      }
+    ],
+    "afc-national-road-bridges": [
+      {
+        "project_id": "afc-national-road-bridges",
+        "role": "financier",
+        "name": "Africa Finance Corporation (AFC)",
+        "type": "foreign_investor",
+        "country": "Nigeria"
       }
     ],
     "africell-aipex-2026": [
@@ -4795,6 +4999,22 @@
         "country": "Portugal"
       }
     ],
+    "coastal-towns-inclusive-sanitation": [
+      {
+        "project_id": "coastal-towns-inclusive-sanitation",
+        "role": "financier",
+        "name": "African Development Bank",
+        "type": "foreign_investor",
+        "country": "Cote d Ivoire"
+      },
+      {
+        "project_id": "coastal-towns-inclusive-sanitation",
+        "role": "financier",
+        "name": "Africa Growing Together Fund (AGTF)",
+        "type": "foreign_investor",
+        "country": "China"
+      }
+    ],
     "corredor-namibe-concession": [
       {
         "project_id": "corredor-namibe-concession",
@@ -5106,6 +5326,22 @@
         "name": "Jardins da Yoba",
         "type": "company",
         "country": "Angola"
+      }
+    ],
+    "jica-southern-region-transmission": [
+      {
+        "project_id": "jica-southern-region-transmission",
+        "role": "financier",
+        "name": "African Development Bank",
+        "type": "foreign_investor",
+        "country": "Cote d Ivoire"
+      },
+      {
+        "project_id": "jica-southern-region-transmission",
+        "role": "financier",
+        "name": "Japan International Cooperation Agency (JICA)",
+        "type": "foreign_investor",
+        "country": "Japan"
       }
     ],
     "koll-mob-furniture": [
@@ -5493,6 +5729,15 @@
         "country": "USA"
       }
     ],
+    "sfd-catumbela-industrial-phase1": [
+      {
+        "project_id": "sfd-catumbela-industrial-phase1",
+        "role": "financier",
+        "name": "Saudi Fund for Development (SFD)",
+        "type": "foreign_investor",
+        "country": "Saudi Arabia"
+      }
+    ],
     "sonangol-leao-ouro-2022": [
       {
         "project_id": "sonangol-leao-ouro-2022",
@@ -5575,6 +5820,29 @@
         "name": "Ivan dos Santos",
         "type": "government",
         "country": "Angola"
+      }
+    ],
+    "wsidp2-water-sector-institutional": [
+      {
+        "project_id": "wsidp2-water-sector-institutional",
+        "role": "financier",
+        "name": "Agence Francaise de Developpement (AFD)",
+        "type": "foreign_investor",
+        "country": "France"
+      },
+      {
+        "project_id": "wsidp2-water-sector-institutional",
+        "role": "financier",
+        "name": "European Investment Bank (EIB)",
+        "type": "foreign_investor",
+        "country": "Luxembourg"
+      },
+      {
+        "project_id": "wsidp2-water-sector-institutional",
+        "role": "financier",
+        "name": "World Bank",
+        "type": "foreign_investor",
+        "country": "USA"
       }
     ],
     "zap-empresas-filda2022": [
@@ -7211,6 +7479,51 @@
       "delay": 0,
       "status_penalty": 0,
       "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "coastal-towns-inclusive-sanitation": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "jica-southern-region-transmission": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "afc-national-road-bridges": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "wsidp2-water-sector-institutional": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "sfd-catumbela-industrial-phase1": {
+      "base": 40,
+      "events": 7,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
       "version": "v2-2026-07"
     }
   }

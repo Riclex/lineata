@@ -1,6 +1,7 @@
 id,project_id,organization_id,role
 76,aep-delegation-filda2025,aep,promoter
 84,aep-delegation-filda2026,aep,promoter
+145,afc-national-road-bridges,afc,financier
 81,africell-aipex-2026,africell,promoter
 105,africell-angola-network,africell,promoter
 117,aiaan-airport-concession,corporacion-america-airports,operator
@@ -44,6 +45,8 @@ id,project_id,organization_id,role
 32,cip-cooperation-pt-ao,aep,partner
 31,cip-cooperation-pt-ao,ccipa,partner
 30,cip-cooperation-pt-ao,cip,promoter
+141,coastal-towns-inclusive-sanitation,afdb,financier
+142,coastal-towns-inclusive-sanitation,agtf,financier
 120,corredor-namibe-concession,mintrans,promoter
 139,crew-angola-climate-resilience,adpp-angola,partner
 137,crew-angola-climate-resilience,green-climate-fund,financier
@@ -81,6 +84,8 @@ id,project_id,organization_id,role
 61,iveco-tway-launch,iveco-vecauto,promoter
 83,jardins-yoba-aipex-2026,jardins-yoba,promoter
 107,jardins-yoba-seed-production,jardins-yoba,promoter
+144,jica-southern-region-transmission,afdb,financier
+143,jica-southern-region-transmission,jica,financier
 115,koll-mob-furniture,koll-mob,promoter
 1,linha-verde-investor-visas,gov-angola,promoter
 2,linha-verde-investor-visas,ivan-dos-santos,promoter
@@ -128,6 +133,7 @@ id,project_id,organization_id,role
 36,sa-angola-investment-2022,wesgro,partner
 88,safcomex-cooking-oil,safcomex,operator
 102,secondary-cities-support,world-bank,financier
+149,sfd-catumbela-industrial-phase1,sfd,financier
 51,sonangol-leao-ouro-2022,sonangol,promoter
 58,sonangol-leao-ouro-2024,sonangol,promoter
 69,sonangol-leao-ouro-2025,sonangol,promoter
@@ -138,4 +144,7 @@ id,project_id,organization_id,role
 19,vi-encontro-empresarial-pt-ao,ccipa,promoter
 20,vi-encontro-empresarial-pt-ao,gov-angola,partner
 21,vi-encontro-empresarial-pt-ao,ivan-dos-santos,promoter
+147,wsidp2-water-sector-institutional,afd,financier
+148,wsidp2-water-sector-institutional,european-investment-bank,financier
+146,wsidp2-water-sector-institutional,world-bank,financier
 48,zap-empresas-filda2022,zap,promoter
