@@ -2213,10 +2213,10 @@
       "title": "Safcomex Cooking Oil & Soya Factory",
       "sector": "Agriculture",
       "subsector": "Food processing",
-      "description": "Safcomex soya/cooking-oil/bran factory (150 t/day), Icolo e Bengo; AIPEX-promoted May 2024; expected operational end-2024 (unconfirmed)",
+      "description": "Safcomex soya/cooking-oil/bran factory (150 t/day), Bengo; AIPEX-promoted May 2024; expected operational end-2024 (unconfirmed)",
       "country": "Angola",
-      "province": "Luanda",
-      "municipality": "Icolo e Bengo",
+      "province": "Bengo",
+      "municipality": "",
       "coordinates": "",
       "status": "announced",
       "announced_value": 25000000.0,
@@ -2353,7 +2353,7 @@
       "subsector": "Investment",
       "description": "Portuguese investment in ZEE reached USD 330M. Figure unchanged since 2023, restated at FILDA 2026. No new growth",
       "country": "Angola",
-      "province": "Luanda-Bengo",
+      "province": "",
       "municipality": "",
       "coordinates": "",
       "status": "delayed",
@@ -4159,7 +4159,7 @@
         "project_id": "omatapalo-solar-luanda",
         "event_type": "financing",
         "event_date": "2026-04-29",
-        "description": "Enko Impact Credit first close US00M financing PV panels for Luanda solar (704 MW official / 724 MW Empower Africa - discrepancy flagged)",
+        "description": "Enko Impact Credit first close US$100M (fund size) financing PV panels for Luanda solar (704 MW official / 724 MW Empower Africa - discrepancy flagged)",
         "source_id": 164,
         "src_title": "Metalosul secures Enko Capital funding for major solar expansion in Angola",
         "src_pub": "Empower Africa",
@@ -4557,7 +4557,7 @@
         "project_id": "safcomex-cooking-oil",
         "event_type": "announcement",
         "event_date": "2024-05-17",
-        "description": "AIPEX-signed investment contract (USD 25M, 140 jobs, soya/cooking-oil/bran factory, Icolo e Bengo)",
+        "description": "AIPEX-signed investment contract (USD 25M, 140 jobs, soya/cooking-oil/bran factory, Bengo)",
         "source_id": 136,
         "src_title": "AIPEX signs six investment project contracts",
         "src_pub": "AIPEX (Invest in Angola)",
@@ -5069,12 +5069,26 @@
       {
         "project_id": "angola-startup-summit-2022",
         "role": "partner",
+        "name": "BCI - Banco Comercial e de Investimentos",
+        "type": "company",
+        "country": "Angola"
+      },
+      {
+        "project_id": "angola-startup-summit-2022",
+        "role": "partner",
         "name": "Ministry of Economy and Planning",
         "type": "government",
         "country": "Angola"
       }
     ],
     "angola-startup-summit-2023": [
+      {
+        "project_id": "angola-startup-summit-2023",
+        "role": "partner",
+        "name": "BCI - Banco Comercial e de Investimentos",
+        "type": "company",
+        "country": "Angola"
+      },
       {
         "project_id": "angola-startup-summit-2023",
         "role": "partner",

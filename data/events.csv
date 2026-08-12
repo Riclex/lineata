@@ -105,7 +105,7 @@ id,project_id,event_type,event_date,description,source_id
 104,chicomba-water-dam,groundbreaking,2026-06-13,"Construction launched. 36-month duration. Dam on river Cuvunji, 10.1 hm3 capacity, irrigates 2500 hectares phase 1",129
 105,huatong-angola-industry-awards,expansion,2026-04-10,"First 1,000 tons exported to the Netherlands",131
 106,quilemba-solar-park,announcement,2024-05-17,"AIPEX-signed investment contract (USD 36.8M, 50 jobs, solar PV park, Huila)",136
-107,safcomex-cooking-oil,announcement,2024-05-17,"AIPEX-signed investment contract (USD 25M, 140 jobs, soya/cooking-oil/bran factory, Icolo e Bengo)",136
+107,safcomex-cooking-oil,announcement,2024-05-17,"AIPEX-signed investment contract (USD 25M, 140 jobs, soya/cooking-oil/bran factory, Bengo)",136
 108,baia-fish-processing,announcement,2024-05-17,"AIPEX-signed investment contract (USD 17.5M, 165 jobs, fish catching/processing, Benguela)",136
 109,hospital-serum-factory,announcement,2024-05-17,"AIPEX-signed investment contract (USD 15M, 503 jobs, hospital serum factory, Luanda)",136
 110,ponto-mais-furniture,announcement,2024-05-17,"AIPEX-signed investment contract (USD 10.3M, 77 jobs, furniture factory, Luanda)",136
@@ -136,7 +136,7 @@ id,project_id,event_type,event_date,description,source_id
 136,fabrimetal-steel-zee,construction,2025-05-09,"New ZEE Viana steel unit announced; capacity 15k->25k t/mo (+66%), launch Jul 2025, production Sept 2025, 800+ workers",161
 137,jardins-yoba-seed-production,financing,2020-07-24,"US.49M invested since 2016 in seed production (maize, massango, massambala, potato); +US.6M expansion planned",162
 138,lobito-atlantic-railway,completion,2023-07-04,"30-yr concession signed; US55M Angola + up to US00M DRC; 35 locomotives + 1,555 wagons; 1,344 km Lobito-Luau corridor",163
-139,omatapalo-solar-luanda,financing,2026-04-29,Enko Impact Credit first close US00M financing PV panels for Luanda solar (704 MW official / 724 MW Empower Africa - discrepancy flagged),164
+139,omatapalo-solar-luanda,financing,2026-04-29,Enko Impact Credit first close US$100M (fund size) financing PV panels for Luanda solar (704 MW official / 724 MW Empower Africa - discrepancy flagged),164
 140,porto-lobito-terminal,announcement,2024-07-10,"AIPEX contract of intent: 20-yr operation of Multipurpose Container & General Cargo Terminal; US88,311,731; 95 jobs",165
 141,esplendor-florestal,announcement,2024-07-10,"AIPEX contract of intent: wood plantation/exploitation/transformation; US7,182,000; 200 jobs; Benguela + Huambo",165
 142,casais-angola-engenharia,announcement,2024-07-10,"AIPEX contract of intent: civil construction and public works (Portugal); US5,349,166; 1,600 jobs (1,440 national); Luanda + Lobito",165
