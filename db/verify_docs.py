@@ -10,7 +10,10 @@ score moved to 85). This script scans docs/*.md + README.md for cited numbers
 and compares them to the DB (and, for the contract check count, to the
 verify_invariants.py + verify_snapshot.py reported summaries). It is a best-effort
 regex sweep, not a full contract — a FAIL means a doc cites a number the DB
-contradicts.
+contradicts. The data-lineage.md checks anchor on present-tense phrasing (the
+Source Layer "broadened-DB figures are:" summary, the Scoring Layer avg +
+distribution table, the Gov vs private row) so the historical "Figure cascade"
+entries — which legitimately retain older numbers — can't satisfy them.
 
 Read-only; runs db/verify_invariants.py and db/verify_snapshot.py as subprocesses
 to get the authoritative check count (it does not parse their source, which is
@@ -37,6 +40,9 @@ EXTRACT_README = os.path.join(BASE_dir, "db", "_extract", "README.md")
 SCORING = os.path.join(DOCS, "scoring-methodology.md")
 LINEAGE = os.path.join(DOCS, "data-lineage.md")
 PY = sys.executable
+
+sys.path.insert(0, os.path.join(BASE_dir, "db"))
+from constants import SCORE_BUCKETS, score_distribution  # noqa: E402
 
 
 def read(path):
@@ -125,6 +131,70 @@ def main():
         chk("data-lineage desc 'avg N.NN over the 50 scored'",
             True, True, "docs/data-lineage.md",
             ok=abs(lin_avg - avg_rounded) <= 0.05)
+
+    # --- data-lineage.md present-tense summary (broadened-DB figures) ---
+    # The Source Layer "the broadened-DB figures are:" sentence and the Scoring
+    # Layer section describe the CURRENT dataset; the historical "Figure
+    # cascade" entries deliberately retain older numbers. These checks anchor on
+    # present-tense phrasing, so a stale cascade entry can't satisfy them.
+    dist = score_distribution(
+        r[0] for r in conn.execute(
+            "SELECT execution_score FROM projects WHERE evidence_complete = 1"))
+    dist_str = "/".join(str(dist[label]) for label, _ in SCORE_BUCKETS)
+    priv_avg = conn.execute(
+        "SELECT AVG(execution_score) FROM projects "
+        "WHERE evidence_complete = 1 AND sector != 'Government'").fetchone()[0]
+
+    def comma_float(s):
+        return float(s.replace(",", "."))
+
+    # Source Layer current-state summary sentence (avg 1dp, distribution, gov/private).
+    broad = re.search(
+        r"the broadened-DB figures are:.*?avg (\d+,\d+) over the 103 scored "
+        r"\(rounded \d+\), distribution (\d+/\d+/\d+/\d+/\d+), "
+        r"gov/private 54,0 vs (\d+,\d+)", lineage)
+    if broad:
+        b_avg, b_dist, b_priv = (comma_float(broad.group(1)), broad.group(2),
+                                 comma_float(broad.group(3)))
+        chk("data-lineage 'broadened-DB avg (1dp)'", round(avg, 1), b_avg,
+            "docs/data-lineage.md", ok=abs(b_avg - round(avg, 1)) <= 0.051)
+        chk("data-lineage 'broadened-DB distribution'", dist_str, b_dist,
+            "docs/data-lineage.md")
+        chk("data-lineage 'broadened-DB gov/private priv_avg'",
+            round(priv_avg, 1), b_priv, "docs/data-lineage.md",
+            ok=abs(b_priv - round(priv_avg, 1)) <= 0.051)
+    else:
+        chk("data-lineage 'broadened-DB summary sentence'", None, None,
+            "docs/data-lineage.md")
+
+    # Scoring Layer: bold average over 103 scored (2dp, dot decimal).
+    sl_avg = first_float(
+        lineage, r"Average score: \*\*(\d+\.\d+) over 103 scored projects\*\*")
+    if sl_avg is not None:
+        chk("data-lineage 'Average score NN.NN over 103 scored'",
+            round(avg, 2), sl_avg, "docs/data-lineage.md",
+            ok=abs(sl_avg - round(avg, 2)) <= 0.005)
+    else:
+        chk("data-lineage 'Average score NN.NN over 103 scored'", None, None,
+            "docs/data-lineage.md")
+
+    # Scoring Layer distribution table (rows in SCORE_BUCKETS order).
+    tbl = dict(re.findall(r"^\| (\d+-\d+) \| (\d+) \|", lineage, re.M))
+    for label, _ in SCORE_BUCKETS:
+        n = int(tbl[label]) if label in tbl else None
+        chk(f"data-lineage distribution table '{label}'",
+            dist[label], n, "docs/data-lineage.md")
+
+    # Article Layer: Gov vs private row (broadened private avg).
+    gp = re.search(r"\| Gov vs private \(54,0 vs (\d+,\d+) broadened", lineage)
+    if gp:
+        gp_priv = comma_float(gp.group(1))
+        chk("data-lineage 'Gov vs private broadened priv_avg'",
+            round(priv_avg, 1), gp_priv, "docs/data-lineage.md",
+            ok=abs(gp_priv - round(priv_avg, 1)) <= 0.051)
+    else:
+        chk("data-lineage 'Gov vs private broadened row'", None, None,
+            "docs/data-lineage.md")
 
     # --- scoring-methodology.md worked examples ---
     # Each "### Title (`project-id`)" heading is followed by a
