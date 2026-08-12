@@ -6,7 +6,7 @@
     "unscored_ids": [
       "banco-sol-mc-empresas-2025"
     ],
-    "sources": 192,
+    "sources": 193,
     "events": 168,
     "events_linked": 167,
     "events_null": 1,
@@ -15,20 +15,24 @@
     ]
   },
   "aggregate": {
-    "avg_precise": 43.0388,
+    "avg_precise": 43.0777,
     "avg_rounded": 43,
     "distribution": {
       "0-20": 28,
       "21-40": 20,
-      "41-60": 20,
-      "61-80": 26,
+      "41-60": 19,
+      "61-80": 27,
       "81-100": 9
     }
   },
   "sectors": {
     "Agriculture": {
       "count": 16,
-      "avg": 37.3
+      "avg": 37.5
+    },
+    "Commerce": {
+      "count": 3,
+      "avg": 61.0
     },
     "Digital": {
       "count": 2,
@@ -77,17 +81,13 @@
     "Telecom": {
       "count": 5,
       "avg": 43.4
-    },
-    "Trade": {
-      "count": 3,
-      "avg": 61.0
     }
   },
   "gov_vs_private": {
     "gov_count": 3,
     "private_count": 100,
     "gov_avg": 54.0,
-    "private_avg": 42.7
+    "private_avg": 42.8
   },
   "case_studies": {
     "huatong-angola-industry-awards": 78,
