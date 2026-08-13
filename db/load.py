@@ -160,6 +160,29 @@ def apply_schema(conn):
         conn.executescript(f.read())
 
 
+def has_uncheckpointed_mutations(conn):
+    """True if the live DB has change_log mutations newer than the last CSV
+    checkpoint (db_meta.last_exported_at) — i.e. a rebuild from CSV would
+    SILENTLY LOSE them. Counts only MUTATION_OPS; the load-seed / export-csv
+    checkpoint markers this script and export_csv.py write are NOT mutations
+    and must not trip the guard (else every fresh rebuild would refuse the
+    next one). Returns False for a pre-guard DB (no change_log / db_meta
+    tables) — there is nothing to lose. Extracted from main() so the guard is
+    unit-testable against an in-memory fixture (F19 pattern)."""
+    try:
+        max_cl = conn.execute(
+            "SELECT max(ts) FROM change_log WHERE operation IN "
+            f"({','.join('?' * len(MUTATION_OPS))})",
+            MUTATION_OPS).fetchone()[0]
+        le = conn.execute(
+            "SELECT value FROM db_meta WHERE key='last_exported_at'").fetchone()
+    except sqlite3.OperationalError:
+        # Pre-layer DB (no change_log/db_meta tables yet) — nothing to guard.
+        return False
+    last_export = le[0] if le else None
+    return bool(max_cl and (not last_export or max_cl > last_export))
+
+
 def insert_rows(conn, table, rows):
     cols = COLUMNS[table]
     placeholders = ",".join("?" for _ in cols)
@@ -198,20 +221,10 @@ def main():
     if os.path.exists(DB_path) and not args.force:
         conn_old = sqlite3.connect(DB_path)
         try:
-            max_cl = conn_old.execute(
-                "SELECT max(ts) FROM change_log WHERE operation IN "
-                f"({','.join('?' * len(MUTATION_OPS))})",
-                MUTATION_OPS).fetchone()[0]
-            le = conn_old.execute(
-                "SELECT value FROM db_meta WHERE key='last_exported_at'"
-            ).fetchone()
-            last_export = le[0] if le else None
-        except sqlite3.OperationalError:
-            # Pre-layer DB (no change_log/db_meta tables yet) — nothing to guard.
-            max_cl, last_export = None, None
+            stale = has_uncheckpointed_mutations(conn_old)
         finally:
             conn_old.close()
-        if max_cl and (not last_export or max_cl > last_export):
+        if stale:
             print("[REFUSE] DB has change_log mutations newer than the last CSV "
                   "checkpoint. Rebuilding now would SILENTLY LOSE them. Run "
                   "`python db/export_csv.py --apply` first, or pass --force to "

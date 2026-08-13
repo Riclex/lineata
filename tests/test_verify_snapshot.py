@@ -84,6 +84,43 @@ class CompareSnapshotDriftTests(unittest.TestCase):
         self.assertTrue(any("distribution." in d for d in drift), drift)
 
 
+class BucketSingleSourcingTests(unittest.TestCase):
+    """M4: compare_snapshot must iterate constants.SCORE_BUCKETS, not a hardcoded
+    label list. If SCORE_BUCKETS ever gains a bucket, generation (which uses
+    score_distribution) would include it in the snapshot — but a hardcoded
+    comparison list would silently skip it, leaving that bucket's drift
+    undetected. This test simulates a future bucket by patching SCORE_BUCKETS
+    and asserts a drift in the added bucket is caught.
+    """
+    def test_detects_drift_in_a_bucket_only_score_buckets_knows(self):
+        import constants
+        extra = tuple(constants.SCORE_BUCKETS) + (("test-extra", 999),)
+        conn = make_conn()
+        _add_project(conn, "p1", score=60)
+        orig_vs = vs.SCORE_BUCKETS if hasattr(vs, "SCORE_BUCKETS") else None
+        orig_c = constants.SCORE_BUCKETS
+        try:
+            # Patch BOTH: generation reads constants.score_distribution (which
+            # reads constants.SCORE_BUCKETS), and compare_snapshot must read
+            # vs.SCORE_BUCKETS. Same extra tuple in both so they agree.
+            constants.SCORE_BUCKETS = extra
+            if hasattr(vs, "SCORE_BUCKETS"):
+                vs.SCORE_BUCKETS = extra
+            snap = vs.generate_snapshot(conn)
+            # The added bucket exists in the generated snapshot (count 0)...
+            self.assertIn("test-extra", snap["aggregate"]["distribution"])
+            # ...corrupt ONLY the added bucket in the baseline, so the sole drift
+            # is one a hardcoded 5-label comparison could never see.
+            snap["aggregate"]["distribution"]["test-extra"] = 5
+            drift = vs.compare_snapshot(conn, snap)
+            self.assertTrue(any("test-extra" in d for d in drift),
+                            f"drift in a SCORE_BUCKETS-added bucket not caught: {drift}")
+        finally:
+            constants.SCORE_BUCKETS = orig_c
+            if orig_vs is not None:
+                vs.SCORE_BUCKETS = orig_vs
+
+
 class ArticlePinTests(unittest.TestCase):
     """F4: check_articles is never tested in the existing suite. Pin both
     directions — a missing avg figure is flagged, a present one is accepted.

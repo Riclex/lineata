@@ -159,6 +159,11 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_sources_url ON sources(url) WHERE url != '
 
 -- ============================================================
 -- Views: Aggregated execution metrics
+--
+-- All views filter to evidence_complete = 1 (SCORED projects only). An
+-- unscored project carries execution_score = 0 by convention, not a measured
+-- zero; including it would drag averages down and inflate totals with projects
+-- we don't evidence-track. See docs/data-lineage.md "Event 80".
 -- ============================================================
 
 -- Execution score by organization (promoter/investor)
@@ -175,6 +180,7 @@ SELECT
 FROM organizations o
 JOIN project_organizations po ON po.organization_id = o.id
 JOIN projects p ON p.id = po.project_id
+WHERE p.evidence_complete = 1
 GROUP BY o.id;
 
 -- Execution by sector
@@ -187,7 +193,7 @@ SELECT
     SUM(CASE WHEN status IN ('delayed','suspended') THEN 1 ELSE 0 END) AS delayed,
     ROUND(100.0 * SUM(CASE WHEN status = 'completed' THEN 1 ELSE 0 END) / COUNT(*), 1) AS completion_rate
 FROM projects
-WHERE sector IS NOT NULL
+WHERE sector IS NOT NULL AND evidence_complete = 1
 GROUP BY sector;
 
 -- Execution by province
@@ -200,7 +206,7 @@ SELECT
     SUM(CASE WHEN status IN ('delayed','suspended') THEN 1 ELSE 0 END) AS delayed,
     ROUND(100.0 * SUM(CASE WHEN status = 'completed' THEN 1 ELSE 0 END) / COUNT(*), 1) AS completion_rate
 FROM projects
-WHERE province IS NOT NULL
+WHERE province IS NOT NULL AND evidence_complete = 1
 GROUP BY province;
 
 -- Execution by investor country
@@ -213,7 +219,7 @@ SELECT
 FROM organizations o
 JOIN project_organizations po ON po.organization_id = o.id
 JOIN projects p ON p.id = po.project_id
-WHERE o.country IS NOT NULL
+WHERE o.country IS NOT NULL AND p.evidence_complete = 1
 GROUP BY o.country;
 
 -- ============================================================

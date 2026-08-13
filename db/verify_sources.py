@@ -119,8 +119,11 @@ def main():
         print("(dry run — sources.csv not modified. Re-run with --apply to persist.)")
         return
 
-    # Write back to sources.csv (preserves column order; persists across rebuilds).
+    # --apply: persist re-stamps. DB-first ordering — the live DB + audit log
+    # are written (and committed) BEFORE sources.csv, so a DB failure exits
+    # with the CSV untouched; the CSV write itself is atomic (.tmp + os.replace).
     from datetime import date
+    from export_csv import atomic_write_csv
     today = date.today().isoformat()
     changed_ids = []  # ids whose last_verified / url_status actually changed
     for r in rows:
@@ -131,11 +134,6 @@ def main():
                 r["last_verified"] = today
                 r["url_status"] = new_status
                 changed_ids.append(sid)
-    with open(SOURCES_csv, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
-    print(f"[OK] data/sources.csv updated: {len(changed_ids)} source(s) re-stamped (last_verified={today})")
 
     # Also reflect into the live DB so the same run's DB matches, AND write one
     # change_log 'reverify' row per actually-changed source. This closes the audit
@@ -170,6 +168,11 @@ def main():
         sys.exit(f"[ERR] verify_sources DB write failed: {e}")
     conn.close()
     print(f"[OK] db/investment_tracker.db updated: {n} source(s) re-stamped + audit-logged.")
+
+    # DB committed — now persist to sources.csv atomically (.tmp + os.replace),
+    # so a crash mid-write cannot truncate the source of truth.
+    atomic_write_csv(SOURCES_csv, fieldnames, rows)
+    print(f"[OK] data/sources.csv updated: {len(changed_ids)} source(s) re-stamped (last_verified={today})")
 
 
 if __name__ == "__main__":
