@@ -109,7 +109,7 @@ Three sources carry a named publisher but an empty `url` — the research file a
 | Table | Records | Notes |
 |-------|---------|-------|
 | projects | 104 | 5 FILDA editions (2022-2026) + Tier 3: 5 AIPEX-promoted + 1 refinery build + 32 multilateral-funded + 10 AIPEX 2026 cohort + 5 PPP concessions |
-| organizations | 103 | companies, government, foreign investors, SOEs, multilateral banks |
+| organizations | 93 | companies, government, foreign investors, SOEs, multilateral banks |
 | events | 168 | All 104 projects have at least one event |
 | sources | 193 | 105 from research files + 8 from targeted web research + 1 (id 130) Huatong Jan-2026 inauguration + 1 (id 131) Huatong Apr-2026 first export + 1 (id 132) AOG-2025 Block 33/24 dev agreement + 1 (id 133) ANPG $100B pipeline + 1 (id 134) Angola Startup Summit III edition winners + 1 (id 135) Portugal.gov.pt 3.25B credit line + 1 (id 136) AIPEX May-2024 six-investment-contracts signing + 1 (id 137) Quilemba Solar construction start (BusinessWire) + 1 (id 138) Baia Fish inauguration (VerAngola) + 1 (id 139) Cabinda refinery financing (Africa Oil & Gas Report) + 1 (id 140) Cabinda refinery inauguration (Angola Petroleum) + 6 (ids 141-144, 146-147) World Bank / AfDB project documents (RECLIMA, Bita, PDAC, MOSAP3, ESEEP, ASRP) + 1 (id 145) Angop MOSAP3 article + 2 (ids 148-149) VerAngola ESEEP re-source articles (Jun-2024 first stone, Jul-2025 progress) + 3 (ids 150-152) World Bank sources re-grounding PDAC/MOSAP3 (2018 PDAC press release, RES57949 restructuring paper, 2022 PROTAF-approval blog) + 7 (ids 153-159) grounding the 2026-08-10 Tier 3 multilateral cohort expansion (HCIP, ESIAP, HEPRR, PADA, Secondary Cities, Economic Diversification, Luanda ST Park; 6 official World Bank/AfDB + FurtherAfrica) + 7 (ids 160-166) grounding the 2026-08-11 AIPEX 2026 cohort (Africell launch, Fabrimetal steel unit, Jardins da Yoba seed investment + rice expansion, LAR concession, Metalosul/Enko financing, five contracts of intent) + 5 (ids 167-171) grounding the 2026-08-11 PPP concession cohort (Forbes AIAAN airport concession, Jornal Económico Namibe Corridor tender, AD Ports Group Luanda terminal, Diário Económico Sogester Cabinda/Soyo, OPaís Caio deep-water terminal) + 6 (ids 172-177) grounding the 2026-08-11 multilateral cohort (360 Angola ERAVACDEP, AgriFocus Africa Amufert + AYEP, Devdiscourse EIB/EU HPV, Notícias ao Minuto Global Fund GC7, Green Climate Fund CREW) + 5 (ids 178-182) grounding the 2026-08-11 third multilateral cohort (AfDB/APO Coastal Towns sanitation, JICA southern transmission, AFC road bridges, World Bank WSIDP2 results brief, Highways Today Saudi Fund Catumbela) + 7 (ids 183-189) grounding the 2026-08-11 fourth multilateral cohort (World Bank Kwenda 2 PID, WB cash-transfer feature, WB HSPST loans-credits, AFD SREP signing, IFAD SREP EB report, IFAD AFAP-2 EB report, 360 Angola AFAP-2) + 5 (ids 190-194) grounding the 2026-08-11 fifth multilateral cohort (EXIM US$1.6B rural solar press release, EIB Clean Coastal Towns project page, Pan African Visions AfDB urban-water approval, AfDB urban-water success story, World Bank Girls Empowerment press release) − 1 (id 91, Jornal de Negócios) pruned 2026-08-10 after its last two evidence rows were relinked to id 135; 167 events linked to a specific source, 1 NULL (see Source Layer) |
 | project_organizations | 162 | 103 of 104 projects have org links (hospital-serum-factory pending — no confirmed investor in the AIPEX announcement) |
@@ -624,8 +624,9 @@ with a *current tracked* project**: they are FILDA exhibitors, a bilateral-forum
 participant, an award winner, or a structural parent whose own projects are not
 (yet) tracked in the database. Per the data-discipline rule (flag, don't silently
 fix; no fabricated URLs), no `project_organizations` rows were added — forcing a
-link would have invented an association. The orphans are retained (deletion is
-irreversible and the user's call) and documented here as deletion candidates.
+link would have invented an association. The 10 no-project orphans were
+documented here as deletion candidates; `bai` is retained as a structural parent
+(see Outcome).
 
 ### Per-orphan findings
 
@@ -672,12 +673,23 @@ in 1978):
 
 ### Outcome
 
-No `project_organizations` rows added (no verifiable associations exist). The 11
-orphans are retained and flagged above as deletion candidates for a user decision
-— deleting them is irreversible and is not done unilaterally. `bai` is retained
-by design (structural parent). `hospital-serum-factory`'s promoter remains an
-honest NULL. No published figure moved (org descriptions are not scored or pinned
-by `verify_snapshot`), so `db/snapshot.json` and `app/data.json` are unchanged.
+No `project_organizations` rows were added (no verifiable associations exist).
+**Resolution (2026-08-13, user decision):** the 10 no-project deletion candidates
+were removed from `organizations.csv` — an org with no evidence of a tracked
+project has no place in a table whose purpose is to hold participants of tracked
+projects. `bai` is **retained** by design (structural parent;
+`bai-europa.parent_org_id = bai`, and `bai-europa` is linked to
+`chicomba-water-dam`). `hospital-serum-factory`'s promoter remains an honest NULL.
+The two description corrections applied in the M12 audit commit (`secil-maritima`,
+`ta-cuiar`) are now moot — those org rows were removed — but the research findings
+above stand as the audit record.
+
+After deletion: `organizations` 103 → 93; `project_organizations` unchanged at
+162 (no links were removed — none of the 10 had any); the residual "orphan" count
+is 1 (`bai`, retained). No published score/figure moved (org rows are not scored
+or pinned by `verify_snapshot`), so `db/snapshot.json` and `app/data.json` are
+unchanged. Rebuilt via `load.py` → `export_csv.py --apply`; `health.py --no-network`
+green.
 
 ---
 

@@ -3,7 +3,6 @@ aecipa,AECIPA,company,Angola,,,Angolan oil sector association,2026-07-23
 aep,AEP - Associacao Empresarial de Portugal,company,Portugal,,,"[""Associacao Empresarial de Portugal""]",2026-07-23
 africell,Africell,foreign_investor,USA,,,"Telecom operator, AIPEX Digital Economy 2026",2026-07-23
 aia,Associacao Industrial de Angola,company,Angola,,,Angolan Industrial Association,2026-07-23
-anglobal,Anglobal Group,company,Angola,,,Telecom and industrial solutions,2026-07-23
 anpg,ANPG - Agencia Nacional de Petroleo Gas e Biocombustiveis,state_owned_enterprise,Angola,,"[""Agencia Nacional de Petroleo""]",National Agency for Oil Gas and Biofuels,2026-07-23
 azule-energy,Azule Energy,foreign_investor,Italy,,,"[""BP Angola"",""Eni Angola""]",2026-07-23
 bai,Banco Angolano de Investimentos,company,Angola,,,Angola's first private bank; parent of BAI Europa (99.99% owned),2026-08-04
@@ -13,19 +12,16 @@ bci,BCI - Banco Comercial e de Investimentos,company,Angola,,,"Commercial and in
 bda,BDA - Banco de Desenvolvimento de Angola,state_owned_enterprise,Angola,,,Development Bank of Angola,2026-07-23
 bfa,BFA - Banco de Fomento Angola,company,Angola,,,"[""Banco de Fomento Angola""]",2026-07-23
 cabinda-refinery,Cabinda Refinery / Imbono Gemcorp,company,Angola,,,"Oil refinery project, AIPEX Energy 2026",2026-07-23
-carrinho,Carrinho,company,Angola,,,"Food company, Forum Economic Angola-Portugal",2026-07-23
 ccipa,CCIPA - Camara de Comercio e Industria Portugal-Angola,company,Portugal,,,"[""Camara de Comercio Portugal-Angola""]",2026-07-23
 central-solar-biopio,Central Solar do Biopio,company,Angola,,,Solar power plant visited by PM Montenegro,2026-07-23
 chevron,Chevron,foreign_investor,USA,,,American energy company,2026-07-23
 cip,CIP - Confederacao da Industria Portuguesa,company,Portugal,,,"[""Confederacao da Industria Portuguesa""]",2026-07-23
 dtic-sa,the dtic - Department of Trade Industry and Competition,government,South Africa,,,South African trade and investment promotion,2026-07-23
-emis,EMIS,company,Angola,,,Digital payments solutions,2026-07-23
 equinor,Equinor,foreign_investor,Norway,,,"[""Statoil""]",2026-07-23
 esso-angola,Esso Angola,foreign_investor,USA,exxonmobil,,ExxonMobil Angola subsidiary,2026-07-23
 etu-energias,Etu Energias,company,Angola,,,Angolan energy company,2026-07-23
 exxonmobil,ExxonMobil,foreign_investor,USA,,,American energy company,2026-07-23
 fabrimetal,Fabrimetal,company,Angola,,,"Steel manufacturing, AIPEX Job Creation 2026",2026-07-23
-fundo-garantia-credito,Fundo de Garantia de Credito,state_owned_enterprise,Angola,,,"Credit guarantee fund, Leao de Ouro 2025",2026-07-23
 gov-angola,Government of Angola,government,Angola,,"[""Governo de Angola"",""Estado Angolano""]",Government of Angola,2026-07-23
 grupo-arena,Grupo Arena,company,Angola,,,"[""Eventos Arena""]",2026-07-23
 huambo-dev-office,Gabinete para o Desenvolvimento Economico do Huambo,government,Angola,,,Huambo province economic development office,2026-07-23
@@ -36,13 +32,11 @@ ivan-dos-santos,Ivan dos Santos,government,Angola,gov-angola,,Secretary of State
 iveco-vecauto,IVECO/Vecauto,company,Italy,,,Heavy truck distributor,2026-07-23
 jardins-yoba,Jardins da Yoba,company,Angola,,,"Agribusiness, AIPEX award winner 2026",2026-07-23
 joao-lourenco,Joao Lourenco,government,Angola,gov-angola,,President of Republic of Angolabai,2026-07-23
-lg-electronics,LG Electronics,foreign_investor,South Korea,,,First independent FILDA participation 2024,2026-07-23
 lobito-atlantic-railway,Lobito Atlantic Railway (LAR),company,Angola,,,"Railway operator, AIPEX Regional Development 2026",2026-07-23
 manuel-nunes-junior,Manuel Nunes Junior,government,Angola,,,Ministro de Estado para Coordenacao Economica,2026-07-23
 mario-caetano-joao,Mario Caetano Joao,government,Angola,gov-angola,,Minister of Economy and Planning,2026-07-23
 mashreq-bank,Mashreq Bank,foreign_investor,UAE,,,"UAE bank, BFA strategic partner",2026-07-23
 mep-angola,Ministry of Economy and Planning,government,Angola,gov-angola,,"[""MEP"",""Ministerio da Economia e Planeamento""]",2026-07-23
-nova-agrolider,Nova Agrolider,company,Angola,,,"Agribusiness, Forum Economic Angola-Portugal",2026-07-23
 novabase,Novabase,company,Portugal,,,Portuguese IT company,2026-07-23
 omataplo,Omataplo,company,Angola,,,"Green investment, AIPEX award winner 2026",2026-07-23
 pay4all,Pay4all,company,Angola,,,Digital payments fintech,2026-07-23
@@ -52,13 +46,9 @@ powergol,Powergol,company,Angola,,,Food company visited by PM Montenegro,2026-07
 primavera,Primavera,company,Portugal,,,Portuguese software company,2026-07-23
 quinta-jugais,Quinta dos Jugais,company,Portugal,,,"Portuguese food company, Forum Economic",2026-07-23
 refriango,Refriango,company,Angola,,,Beverage company visited by PM Montenegro,2026-07-23
-secil-maritima,Secil Maritima,company,Angola,,,Maritime transport and cabotage company (Cabinda-Luanda-Soyo route); Luanda-based shipping and logistics. Originally founded by Secil cement (1963); nationalized by the Angolan state (1978).,2026-07-23
 sia-huila,SIA - Sistema de Investimento para o Agronegocio,company,Angola,,,Startup from Huila winning Angola Startup Summit 2023,2026-07-23
 sonangol,Sonangol,state_owned_enterprise,Angola,,"[""Sonangol E.P."",""Petrolifera Nacional""]",National oil company of Angola,2026-07-23
 sonils,SONILS,company,Angola,sonangol,,"[""Sonangol Logistics""]",2026-07-23
-standard-bank-ao,Standard Bank de Angola,company,South Africa,,,Standard Bank Angola operations,2026-07-23
-ta-cuiar,Ta Cuiar,company,Angola,,,E-commerce and online shopping platform (CEO Najib El-Berbari); FILDA debut 2024,2026-07-23
-tis,TIS,company,Angola,,,"Technology solutions, Oracle Financial for SMEs",2026-07-23
 totalenergies,TotalEnergies,foreign_investor,France,,"[""Total""]",French energy company,2026-07-23
 ucall,Ucall,company,Angola,,,AI-powered contact center solutions,2026-07-23
 unitel,Unitel,company,Angola,,,Largest Angolan telecom operator,2026-07-23
