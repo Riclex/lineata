@@ -16,13 +16,18 @@ Endpoints:
     GET /api/facets           — browse counts by sector/province/edition/status
     GET /api/summary          — aggregate stats over the filtered set (+ 'dataset' global figures)
     GET /api/health           — DB row counts + checkpoint status
+    GET /api/leads            — sign-up count + last-capture time (emails are NOT
+                               exposed over the API; read data/leads.csv for them)
+    POST /api/leads           — {email} -> appended to data/leads.csv (operator sink)
 """
 
+import csv
 import json
 import os
 import sys
 import urllib.parse
 from argparse import Namespace
+from datetime import datetime
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 BASE_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,6 +39,10 @@ import query as q
 
 DB_path = os.path.join(BASE_dir, "db", "investment_tracker.db")
 APP_dir = os.path.join(BASE_dir, "app")
+# Runtime capture sink for landing-page sign-ups. This is NOT part of the
+# reproducible CSV->SQLite pipeline — it is gitignored runtime data the operator
+# reads directly (the API exposes only a count, never the email addresses).
+LEADS_path = os.path.join(BASE_dir, "data", "leads.csv")
 
 
 def connect():
@@ -72,6 +81,44 @@ def get_health():
             "score_version": sv[0] if sv else None, "formula_version": SCORE_VERSION}
 
 
+def append_lead(email):
+    """Append a sign-up to data/leads.csv (the operator-visible sink).
+
+    Runtime capture only — leads.csv is gitignored and is NOT part of the
+    reproducible CSV->SQLite pipeline. Returns the new total lead count.
+    """
+    os.makedirs(os.path.dirname(LEADS_path), exist_ok=True)
+    write_header = not os.path.exists(LEADS_path)
+    captured_at = datetime.now().isoformat(timespec="seconds")
+    with open(LEADS_path, "a", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        if write_header:
+            w.writerow(["captured_at", "email"])
+        w.writerow([captured_at, email])
+    with open(LEADS_path, encoding="utf-8") as f:
+        # subtract the header we may have just written
+        return sum(1 for _ in f) - (1 if write_header else 0)
+
+
+def leads_status():
+    """Operator-visible count + last-capture timestamp. The email addresses
+    themselves are never returned over the API — the operator reads
+    data/leads.csv directly for those."""
+    if not os.path.exists(LEADS_path):
+        return {"count": 0, "last_lead_at": None}
+    count = 0
+    last = None
+    with open(LEADS_path, encoding="utf-8") as f:
+        r = csv.reader(f)
+        next(r, None)  # header
+        for row in r:
+            if not row:
+                continue
+            count += 1
+            last = row[0]
+    return {"count": count, "last_lead_at": last}
+
+
 class APIHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=APP_dir, **kwargs)
@@ -103,6 +150,8 @@ class APIHandler(SimpleHTTPRequestHandler):
         try:
             if path == "/api/health":
                 self._send_json(get_health()); return
+            if path == "/api/leads":
+                self._send_json(leads_status()); return
             if path == "/api/facets":
                 conn = connect(); self._send_json(q.facets(conn)); conn.close(); return
             if path == "/api/summary":
@@ -128,10 +177,31 @@ class APIHandler(SimpleHTTPRequestHandler):
             self._send_server_error(e); return
         super().do_GET()
 
+    def do_POST(self):
+        path = urllib.parse.urlparse(self.path).path
+        try:
+            if path == "/api/leads":
+                length = int(self.headers.get("Content-Length", 0) or 0)
+                raw = self.rfile.read(length).decode("utf-8") if length else ""
+                try:
+                    payload = json.loads(raw) if raw else {}
+                except json.JSONDecodeError:
+                    self._send_error(400, "Invalid JSON body"); return
+                email = (payload.get("email") or "").strip()
+                # Lightweight validation — reject obviously-not-email input loud,
+                # rather than silently capturing garbage into the operator's CSV.
+                if not email or "@" not in email or "." not in email:
+                    self._send_error(400, "A valid email is required"); return
+                count = append_lead(email)
+                self._send_json({"ok": True, "count": count}); return
+            self._send_error(404, "Not found"); return
+        except Exception as e:
+            self._send_server_error(e); return
+
     def do_OPTIONS(self):
         self.send_response(204)
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
 

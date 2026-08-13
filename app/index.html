@@ -1011,6 +1011,7 @@
       search: '',
       status: null,
       sector: null,
+      province: null,
       edition: null,
       selectedId: null,
       view: 'all'
@@ -1198,12 +1199,16 @@
           if (p.sector && p.sector.toLowerCase().includes(q)) return true;
           if (p.subsector && p.subsector.toLowerCase().includes(q)) return true;
           if (p.province && p.province.toLowerCase().includes(q)) return true;
-          const orgs = DATA.orgs[p.id] || [];
+          // Live-API mode embeds orgs on each project (p.organizations); the
+          // static data.json fallback keys them by project id in DATA.orgs.
+          // Cover both so org-name search works in either mode.
+          const orgs = p.organizations || DATA.orgs[p.id] || [];
           return orgs.some(o => o.name.toLowerCase().includes(q));
         });
       }
       if (state.status) projects = projects.filter(p => p.status === state.status);
       if (state.sector) projects = projects.filter(p => p.sector === state.sector);
+      if (state.province) projects = projects.filter(p => p.province === state.province);
       if (state.edition) projects = projects.filter(p => p.filda_edition === state.edition);
       return projects;
     }
@@ -1336,7 +1341,9 @@
         tr.addEventListener('click', () => {
           const filter = tr.dataset.filter;
           const value = tr.dataset.value;
-          if (filter === 'sector') { state.sector = value; state.edition = null; }
+          // Aggregate rows are single-select across these three dimensions:
+          // picking one clears the other two so they never stack silently.
+          if (filter === 'sector') { state.sector = value; state.province = null; state.edition = null; }
           else if (filter === 'province') { state.province = value; state.sector = null; state.edition = null; }
           else if (filter === 'edition') { state.edition = value; state.sector = null; state.province = null; }
           state.view = 'all';
@@ -1704,7 +1711,7 @@
         document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
         link.classList.add('active');
         state.view = link.dataset.view;
-        state.status = null; state.sector = null; state.edition = null;
+        state.status = null; state.sector = null; state.province = null; state.edition = null;
         state.selectedId = null;
         syncURL();
         renderFilters();

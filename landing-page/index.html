@@ -540,16 +540,40 @@
       setLang(lang === 'pt' ? 'en' : 'pt');
     });
 
-    // Simple form handler (no backend yet — just visual feedback)
+    // Lead capture — POSTs to the self-hosted API (app/server.py POST /api/leads),
+    // which appends to data/leads.csv so the operator can actually see sign-ups.
+    // (The previous version wrote only to localStorage, which never left the
+    // visitor's browser and was invisible to the operator.)
+    //
+    // LEADS_ENDPOINT points at the API origin. It defaults to same-origin
+    // ('/api/leads'); if the landing page is served from a different host than
+    // the API server, set this to the absolute API URL (e.g.
+    // 'https://api.example.com/api/leads'). When the server is unreachable the
+    // lead falls back to localStorage so it is not lost — but NOTE those
+    // fallback leads stay in the visitor's browser and are not yet
+    // operator-visible until a reconnect-sync is wired.
+    var LEADS_ENDPOINT = '/api/leads';
     document.getElementById('signup-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      var email = this.querySelector('input[type="email"]').value;
-      // Store locally for now — will wire to backend later
-      var leads = JSON.parse(localStorage.getItem('api_leads') || '[]');
-      leads.push({ email: email, date: new Date().toISOString() });
-      localStorage.setItem('api_leads', JSON.stringify(leads));
+      var input = this.querySelector('input[type="email"]');
+      var email = input.value.trim();
+      if (!email) return;
+      fetch(LEADS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      }).then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+      }).catch(function() {
+        // Server unreachable (or rejected) — keep the lead locally so it is not lost.
+        var leads = JSON.parse(localStorage.getItem('api_leads') || '[]');
+        leads.push({ email: email, date: new Date().toISOString() });
+        localStorage.setItem('api_leads', JSON.stringify(leads));
+      });
+      // Optimistic acknowledgement — the lead is either captured server-side or
+      // saved locally, so "we'll be in touch" is true either way.
+      input.value = '';
       document.getElementById('signup-success').style.display = 'block';
-      this.querySelector('input[type="email"]').value = '';
     });
   </script>
 
