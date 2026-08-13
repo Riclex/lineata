@@ -1107,6 +1107,16 @@
         .replace(/'/g, '&#39;');
     }
 
+    // M8: esc() neutralizes quotes/angle brackets but passes a `javascript:` or
+    // `data:` URL through unchanged into an <a href>, where it executes on
+    // click. safe_url collapses any non-http(s)/mailto/relative scheme to '#'
+    // before esc(). Every DB-sourced href (timeline source, archived copy) goes
+    // through safe_url so a poisoned URL field can't become a script vector.
+    function safe_url(u) {
+      if (!u) return '#';
+      return /^(https?:|mailto:|\/|\.\/|\.\.\/)/i.test(String(u)) ? u : '#';
+    }
+
     function scoreClass(score) {
       if (score >= 70) return 'score-high';
       if (score >= 40) return 'score-mid';
@@ -1520,7 +1530,7 @@
                 const liveDead = ust === 'dead' || ust === 'blocked';
                 const href = (liveDead && arch) ? arch : (url || '#');
                 if (pub || title) {
-                  return `<a class="timeline-source" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(title || '')}">
+                  return `<a class="timeline-source" href="${esc(safe_url(href))}" target="_blank" rel="noopener" title="${esc(title || '')}">
                     ${esc(pub || title || 'Source')}
                     ${conf ? `<span class="source-conf source-conf-${esc(conf)}">${esc(conf)}</span>` : ''}
                     ${(liveDead && arch) ? '<span class="source-conf source-conf-archived">archived</span>' : ''}
