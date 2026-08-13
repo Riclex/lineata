@@ -28,13 +28,15 @@ from constants import (MUTATION_OPS, ALLOWED_OPS, looks_like_award,
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "investment_tracker.db")
 
 
-def main():
-    if not os.path.exists(DB_path):
-        print(f"Database not found at {DB_path}. Run `python db/load.py` first.")
-        sys.exit(2)
-
-    conn = sqlite3.connect(DB_path)
-    conn.row_factory = sqlite3.Row
+def run_checks(conn):
+    """Run all structural-invariant checks against `conn`. Returns
+    (checks, warnings): checks is a list of (label, actual, expected, ok);
+    warnings is a list of human-readable warning strings. Pure read — does not
+    close `conn` or exit; main() owns those. Extracted from main() so the
+    verifier is unit-testable against an in-memory fixture (F19: the verifiers
+    had no self-tests, so an inverted predicate was invisible until it
+    false-greened/red against live data).
+    """
     checks = []  # (label, actual, expected, ok)
     warnings = []
 
@@ -192,6 +194,17 @@ def main():
         check(f"data_completeness matches events ({pid})", stored, computed)
     check("all projects data_completeness matches events", len(dc_drift), 0)
 
+    return checks, warnings
+
+
+def main():
+    if not os.path.exists(DB_path):
+        print(f"Database not found at {DB_path}. Run `python db/load.py` first.")
+        sys.exit(2)
+
+    conn = sqlite3.connect(DB_path)
+    conn.row_factory = sqlite3.Row
+    checks, warnings = run_checks(conn)
     conn.close()
 
     # ---- Report ----

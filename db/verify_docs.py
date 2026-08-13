@@ -78,13 +78,16 @@ def verify_check_count():
     return total if total else None
 
 
-def main():
-    if not os.path.exists(DB_path):
-        sys.exit(f"Database not found at {DB_path}. Run `python db/load.py` first.")
-
-    conn = sqlite3.connect(f"file:{DB_path}?mode=ro", uri=True)
-    conn.row_factory = sqlite3.Row
-
+def run_checks(conn, vchk=None):
+    """Run all doc-figure drift checks against `conn`. Returns the `checks`
+    list of (label, ok, expected, actual, location). Reads doc files from the
+    module globals (README, EXTRACT_README, DOCS, LINEAGE, SCORING); if `vchk`
+    is None it calls verify_check_count() (subprocess). Pure read — does not
+    close `conn` or exit; main() owns those. Extracted from main() so the
+    verifier is unit-testable against an in-memory fixture (F19: the verifiers
+    had no self-tests, so an inverted regex or wrong capture group was
+    invisible until it false-greened/red against live data).
+    """
     # Authoritative DB values.
     n_sources = conn.execute("SELECT COUNT(*) FROM sources").fetchone()[0]
     n_events = conn.execute("SELECT COUNT(*) FROM events").fetchone()[0]
@@ -130,7 +133,8 @@ def main():
         "GROUP BY sector"):
         filda_sector[r["sector"]] = r["a"]
 
-    vchk = verify_check_count()
+    if vchk is None:
+        vchk = verify_check_count()
 
     checks = []  # (label, ok, expected, actual, location)
 
@@ -391,6 +395,16 @@ def main():
                     break
         i += 1
 
+    return checks
+
+
+def main():
+    if not os.path.exists(DB_path):
+        sys.exit(f"Database not found at {DB_path}. Run `python db/load.py` first.")
+
+    conn = sqlite3.connect(f"file:{DB_path}?mode=ro", uri=True)
+    conn.row_factory = sqlite3.Row
+    checks = run_checks(conn)
     conn.close()
 
     # --- Report ---
