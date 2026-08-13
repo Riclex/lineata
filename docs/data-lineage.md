@@ -208,6 +208,20 @@ A batch closing the deferred items from the alignment pass. Five changes, each h
 
 **Figure changes (both articles + `verify.py` updated together):** because Banco Sol (score 8) left the scored set and Cabinda (60→55) moved within it, the published figures shifted. The headline average moved **61 → 62** (precise 62.36 over 50 scored; was 61.39 over 51), the distribution **11/1/7/20/12 → 10/1/7/20/12**, the Energy sector **73,9 → 73,1**, the Finance sector **7 @ 38,9 → 6 @ 44,0** (Banco Sol was a Finance "announced" entry), and the private average **61,8 → 62,9** (government 54,3 unchanged). All 7 published case-study scores are unchanged. `verify.py` now also asserts the scored/unscored split (50/1) and that the unscored project is Banco Sol.
 
+### Source-URL archival re-pass — 2026-08-14 (L13)
+
+An operational sourcing pass on the dead/blocked source URLs flagged by the 4-agent evaluation (the original list of 9 ids: 6, 12, 26, 29, 46, 110, 114, 115, 137). `db/_extract/archive_sources.py` was re-run against every source whose `url_status` is `dead`/`blocked` and that has no `archived_url` yet. The Wayback Machine was queried two ways for each — the availability API (`archive.org/wayback/available`) and the CDX index (`web.archive.org/cdx/search/cdx`) — to avoid the availability API's known false-negatives.
+
+**Outcome — 3 already archived, 6 have no Wayback snapshot (no fabricated URLs):**
+
+- **Already carry a real `web.archive.org` snapshot** from the 2026-07-25 pass: sources 6 (AllAfrica/ANGOP), 110 (startupsummit.gov.ao), 137 (BusinessWire — Maurel & Prom / Quilemba Solar). No change.
+- **No Wayback snapshot exists (verified 2026-08-14, both APIs) — `archived_url` left NULL:** sources 12, 26, 29, 46, 114, 115.
+  - 26 (Facebook / EssoAngola) and 46 (Facebook / unitel.ao) — Facebook posts block the Wayback crawler, so none are archived.
+  - 12 and 29 — the same RFI PT article (FILDA 2023); 12's URL is mojibake-corrupted, 29's is clean-but-blocked. archive.org holds no snapshot of either form (queried 29's clean URL for both). A dedup candidate (29 → 12) tracked separately.
+  - 114 (RFI PT, FILDA 2026, dated 2026-07-22) and 115 (PortugalGlobal, FILDA 2026, dated 2026-03) — too recent / not yet crawled by archive.org.
+
+Per the no-fabrication discipline, `archived_url` stays empty for the 6 rather than pointing at an invented or unrelated snapshot. The original `url` remains the canonical citation; `archived_url` is a rot-proof fallback that is only populated when a real, API-verified snapshot exists. This changes no score — `source_id`/`archived_url` are not inputs to the scoring formula. `url_status` is unchanged (the origins are still dead/blocked; only an archive mirror would have made the click-through reachable again, and none exists).
+
 ### Source re-linking applied 2026-07-25
 
 The 80 events previously parked on the generic CIPRA source 15 were re-linked to specific articles, using source-to-event mappings extracted from the research files (see `db/_extract/`). Method: parallel subagents read each `research/*.md` file and returned the full-URL sources plus, per event, the URL grounded in the file text (strict no-fabrication instruction — only map when the file actually supports the link). `db/_extract/consolidate.py` dedups sources by URL, resolves event mappings (one URL per event, confidence-prioritized), keeps the existing hand-curated links (sources 1–14, 16), and retires the bogus generic-15 links.
