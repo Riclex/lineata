@@ -75,6 +75,43 @@ class BuildWhereTests(unittest.TestCase):
         self.assertIn("p.province = ?", where)
         self.assertEqual(params, ["Energy", "Luanda"])
 
+    # M13-tail: the remaining build_where branches H5 did not pin. Each asserts
+    # its clause + params are emitted — a regression that dropped the branch
+    # (e.g. deleting the `if args.status` block) makes the clause vanish and the
+    # test fail, so the filters can't silently stop filtering.
+
+    def test_status_filter(self):
+        where, params, _ = q.build_where(_ns(status="operational"))
+        self.assertIn("p.status = ?", where)
+        self.assertEqual(params, ["operational"])
+
+    def test_edition_filter(self):
+        where, params, _ = q.build_where(_ns(edition="2024"))
+        self.assertIn("p.filda_edition = ?", where)
+        self.assertEqual(params, ["2024"])
+
+    def test_source_program_filter(self):
+        where, params, _ = q.build_where(_ns(source_program="AIPEX"))
+        self.assertIn("p.source_program = ?", where)
+        self.assertEqual(params, ["AIPEX"])
+
+    def test_org_filter_adds_join_and_clause(self):
+        where, params, joins = q.build_where(_ns(org="Sonangol"))
+        # The org filter is the only branch that adds a JOIN — if the branch is
+        # dropped, joins stays "" and the name/id clause is absent.
+        self.assertIn("JOIN project_organizations po", joins)
+        self.assertIn("JOIN organizations o", joins)
+        self.assertIn("(o.name = ? OR o.id = ?)", where)
+        self.assertEqual(params, ["Sonangol", "Sonangol"])
+
+    def test_search_filter(self):
+        where, params, _ = q.build_where(_ns(search="solar"))
+        self.assertIn("p.title LIKE ?", where)
+        self.assertIn("p.sector LIKE ?", where)
+        self.assertIn("p.subsector LIKE ?", where)
+        self.assertIn("p.province LIKE ?", where)
+        self.assertEqual(params, ["%solar%"] * 4)
+
 
 class QueryProjectsTests(unittest.TestCase):
     def test_returns_scored_only_by_default(self):
@@ -98,6 +135,53 @@ class QueryProjectsTests(unittest.TestCase):
         _project(conn, "hi", score=80, ec=1)
         out = q.query_projects(conn, _ns(min_score=50))
         self.assertEqual([p["id"] for p in out], ["hi"])
+
+    # M13-tail end-to-end: each filter actually narrows the listing, not just
+    # emits a clause. A dropped branch returns every project (the filter is a
+    # no-op), so the assertion on the filtered id list fails.
+
+    def test_status_filter_end_to_end(self):
+        conn = make_conn()
+        _project(conn, "op", score=50, ec=1, status="operational")
+        _project(conn, "ann", score=50, ec=1, status="announced")
+        out = q.query_projects(conn, _ns(status="operational"))
+        self.assertEqual([p["id"] for p in out], ["op"])
+
+    def test_edition_filter_end_to_end(self):
+        conn = make_conn()
+        _project(conn, "e24", score=50, ec=1)
+        _project(conn, "e23", score=50, ec=1)
+        conn.execute("UPDATE projects SET filda_edition='2024' WHERE id='e24'")
+        conn.execute("UPDATE projects SET filda_edition='2023' WHERE id='e23'")
+        out = q.query_projects(conn, _ns(edition="2024"))
+        self.assertEqual([p["id"] for p in out], ["e24"])
+
+    def test_source_program_filter_end_to_end(self):
+        conn = make_conn()
+        _project(conn, "fildap", score=50, ec=1, source_program="FILDA")
+        _project(conn, "aipexp", score=50, ec=1, source_program="AIPEX")
+        out = q.query_projects(conn, _ns(source_program="AIPEX"))
+        self.assertEqual([p["id"] for p in out], ["aipexp"])
+
+    def test_org_filter_end_to_end(self):
+        conn = make_conn()
+        _project(conn, "linked", score=50, ec=1)
+        _project(conn, "solo", score=50, ec=1)
+        conn.execute(
+            "INSERT INTO organizations (id, name, type, country) VALUES "
+            "('sonangol', 'Sonangol', 'state_owned_enterprise', 'Angola')")
+        conn.execute(
+            "INSERT INTO project_organizations (project_id, organization_id, role) "
+            "VALUES ('linked', 'sonangol', 'promoter')")
+        out = q.query_projects(conn, _ns(org="Sonangol"))
+        self.assertEqual([p["id"] for p in out], ["linked"])
+
+    def test_search_filter_end_to_end(self):
+        conn = make_conn()
+        _project(conn, "solarproj", score=50, ec=1, sector="Solar")
+        _project(conn, "roadproj", score=50, ec=1, sector="Transport")
+        out = q.query_projects(conn, _ns(search="solar"))
+        self.assertEqual([p["id"] for p in out], ["solarproj"])
 
 
 class ProjectDetailTests(unittest.TestCase):
