@@ -191,7 +191,15 @@ def calculate_evidence_bonus(conn, project):
 
 
 def calculate_delay_penalty(conn, project):
-    """Calculate delay penalty based on years since first announcement."""
+    """Delay penalty from the span between the first announcement and the end
+    anchor (actual_completion, else the latest event date).
+
+    The end anchor is deliberately NOT the wall clock: the score must be a pure
+    function of the data ("the same data always produces the same score" —
+    methodology § Versioning), so a silent project's score does not drift as
+    time passes. Staleness is surfaced separately (status field, event recency,
+    the monitoring/digest layer), not baked into the frozen score.
+    """
     # Get first announcement date
     first_event = conn.execute(
         "SELECT MIN(event_date) FROM events WHERE project_id = ? AND event_date IS NOT NULL",
@@ -201,7 +209,7 @@ def calculate_delay_penalty(conn, project):
     if not first_event:
         return 0
     
-    # Use actual_completion if available, otherwise use latest event or current date
+    # End anchor: actual_completion when set, else the latest event date.
     if project['actual_completion'] and project['actual_completion'].strip():
         end_date = project['actual_completion']
     else:
@@ -209,7 +217,12 @@ def calculate_delay_penalty(conn, project):
             "SELECT MAX(event_date) FROM events WHERE project_id = ? AND event_date IS NOT NULL",
             (project['id'],)
         ).fetchone()[0]
-        end_date = latest_event if latest_event else datetime.now().strftime('%Y-%m-%d')
+        # latest_event is guaranteed non-NULL here: the `if not first_event: return 0`
+        # guard above means >=1 non-NULL event_date exists, so MAX over the same
+        # filter is non-NULL too. Deliberately NO wall-clock fallback — a score must
+        # be a pure function of the data. If this line ever looks reachable, the
+        # guard above changed; fix that instead of reintroducing datetime.now().
+        end_date = latest_event
     
     years = years_between(first_event, end_date)
     

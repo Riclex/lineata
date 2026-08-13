@@ -254,6 +254,32 @@ class DelayPenaltyTests(unittest.TestCase):
         add_event(conn, "p", "completion", "2026-01-01")
         self.assertEqual(self._delay(conn, "p"), -15)
 
+    def test_latest_event_anchor_two_plus_years_minus_10(self):
+        """No actual_completion -> the end anchor is the LATEST event date (not
+        the wall clock): 2024 announcement + 2026 financing -> ~2.4y -> -10."""
+        conn = make_conn()
+        add_project(conn, "p", status="financed")
+        add_event(conn, "p", "announcement", "2024-01-01")
+        add_event(conn, "p", "financing", "2026-06-01")
+        self.assertEqual(self._delay(conn, "p"), -10)
+
+    def test_latest_event_anchor_under_one_year_no_penalty(self):
+        """2024 announcement + 2024 financing -> <1y -> 0."""
+        conn = make_conn()
+        add_project(conn, "p", status="financed")
+        add_event(conn, "p", "announcement", "2024-01-01")
+        add_event(conn, "p", "financing", "2024-06-01")
+        self.assertEqual(self._delay(conn, "p"), 0)
+
+    def test_latest_event_anchor_announcement_only_is_frozen(self):
+        """Announcement-only project -> first == latest event -> 0 delay, and it
+        stays 0 regardless of the wall clock (the score is a pure function of
+        data; staleness is surfaced via status/event recency, not the score)."""
+        conn = make_conn()
+        add_project(conn, "p", status="announced")
+        add_event(conn, "p", "announcement", "2024-01-01")
+        self.assertEqual(self._delay(conn, "p"), 0)
+
 
 class StatusPenaltyTests(unittest.TestCase):
     def _status_pen(self, conn, pid):
