@@ -37,3 +37,6 @@ docs/superpowers/
 research/
 articles/
 coding_rules.txt
+
+# Local Claude Code guidance — kept local only, not published in the repo.
+CLAUDE.md

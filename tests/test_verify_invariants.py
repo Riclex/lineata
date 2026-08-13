@@ -168,6 +168,26 @@ class DriftDetectionTests(unittest.TestCase):
         self.assertTrue(self._failed_matching(conn, "Chicomba groundbreaking"),
                         "Chicomba date drift not caught")
 
+    def test_detects_scored_project_without_source_linked_event(self):
+        """A scored project (evidence_complete=1, score>0) whose events are all
+        source-less must be flagged — the score is only meaningful if a click-
+        through source backs at least one event. This is the drift the
+        'scored project ... has a source-linked event' check exists to catch."""
+        conn = make_clean_fixture()
+        conn.execute(
+            "INSERT INTO projects (id, title, status, sector, execution_score, "
+            "evidence_complete, source_program, data_completeness) "
+            "VALUES ('p-unsourced', 'Unsourced', 'operational', 'Energy', 60, "
+            "1, 'FILDA', 'partial')")
+        # A progress event (so 'operational without progress' stays just a
+        # warning, not a failure) but with NO source_id -> unsourced.
+        conn.execute(
+            "INSERT INTO events (project_id, event_type, event_date, source_id) "
+            "VALUES ('p-unsourced', 'construction', '2024-02-01', NULL)")
+        conn.commit()
+        self.assertTrue(self._failed_matching(conn, "source-linked event"),
+                        "scored-but-unsourced project not caught")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

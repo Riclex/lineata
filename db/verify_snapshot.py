@@ -24,6 +24,9 @@ import os
 import sys
 import sqlite3
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from constants import SCORE_BUCKETS
+
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
@@ -122,7 +125,7 @@ def compare_snapshot(conn, expected):
     eq("aggregate.avg_precise", actual["aggregate"]["avg_precise"],
        expected["aggregate"]["avg_precise"], tol=AVG_TOL)
     eq("aggregate.avg_rounded", actual["aggregate"]["avg_rounded"], expected["aggregate"]["avg_rounded"])
-    for bucket in ("0-20", "21-40", "41-60", "61-80", "81-100"):
+    for bucket, _ in SCORE_BUCKETS:
         eq(f"distribution.{bucket}", actual["aggregate"]["distribution"][bucket],
            expected["aggregate"]["distribution"][bucket])
     for sector, e in expected["sectors"].items():

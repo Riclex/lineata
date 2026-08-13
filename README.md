@@ -35,7 +35,7 @@ That's intelligence.
 - PPP concessions
 - Major foreign investment announcements
 - Chinese-funded projects
-- World Bank, AfDB, IFC
+- Multilateral & DFI: World Bank, AfDB, IFC, EIB, IFAD, AFD, JICA, Africa Finance Corporation, Saudi Fund for Development, Global Fund, Green Climate Fund, US EXIM Bank
 - Press releases & company announcements
 
 ## Data Model
@@ -57,14 +57,14 @@ Title, URL, Date, Publisher, Archived copy, Confidence
 Maintenance is **event-driven**, not a full CSV rebuild. Three modes:
 
 - **Seed (rare):** `python db/load.py` — rebuild `db/investment_tracker.db` from the `data/*.csv` checkpoints. Used for a fresh setup or after a checkpoint refresh. Runs the FK + score-consistency gates. **Refuses** if the live DB has uncheckpointed `change_log` mutations (would silently lose them); pass `--force` to discard.
-- **Append (day-to-day):** `python db/update.py <subcommand> --apply` — append-only mutator. Each call requires a verifiable `--source-url` (no fabrication), recomputes only the affected project's score, and writes one `change_log` audit row. Subcommands: `add-source`, `add-event`, `add-evidence`, `set-status`, `relink` (re-link an existing event/evidence row to a grounded source, or `--clear` to NULL an ungrounded link), `reverify`. Dry-run by default.
+- **Append (day-to-day):** `python db/update.py <subcommand> --apply` — append-only mutator. Each call requires a verifiable `--source-url` (no fabrication), recomputes only the affected project's score, and writes one `change_log` audit row. Subcommands: `add-source`, `add-event`, `add-evidence`, `set-status`, `set-blocked` (flag an external blocker; label-only, no score move), `relink` (re-link an existing event/evidence row to a grounded source, or `--clear` to NULL an ungrounded link), `reverify`, `retype-event`. Dry-run by default.
 - **Checkpoint (after each append session):** `python db/export_csv.py --apply` — refresh `data/*.csv` from the DB so `load.py` can reproduce it, and stamp the `db_meta.last_exported_at` watermark. Exports the computed (formula) score, not the stored column.
 
 The discipline: **always `export_csv.py --apply` after `update.py --apply`** before rebuilding, or the staleness guard will refuse the rebuild.
 
 ## Monitoring
 
-- **`python db/health.py`** — one-command gate: unit tests → round-trip rebuild → structural invariants → snapshot + article pin → source URL liveness → doc-figure drift. Exits non-zero on the first failure, so it can gate a publish. `--fast` (tests + verify_invariants.py only) is for the pre-commit hook; `--no-network` skips URL liveness.
+- **`python db/health.py`** — one-command gate: unit tests → round-trip rebuild → structural invariants → snapshot + article pin → static app JSON sync (`export_app_json.py --check`) → source URL liveness → doc-figure drift. Exits non-zero on the first failure, so it can gate a publish. `--fast` (tests + verify_invariants.py only) is for the pre-commit hook; `--no-network` skips URL liveness.
 - **`python db/verify_invariants.py`** — structural checks that hold for any valid dataset (52 checks): audit-trail integrity, score-version stamp, award/completion guard, evidence gating, status-backed-by-progress, source-program membership. Exit non-zero on failure.
 - **`python db/verify_snapshot.py`** — derives every published figure from the DB and compares to committed `db/snapshot.json`; `--update` regenerates the baseline. Also pins article text to DB figures.
 - **`python db/verify_docs.py`** — scans `docs/*.md` + `README.md` for cited numbers (source/event counts, linked/NULL, avg score, verify_invariants.py check count, scoring-methodology worked examples) and flags any that drift from the DB.
@@ -75,9 +75,9 @@ The discipline: **always `export_csv.py --apply` after `update.py --apply`** bef
 
 ## Phased Rollout
 
-- **Phase 0 (thin slice):** FILDA 2023 — collect every identifiable announcement, trace each one
-- **Phase 1 (5 years):** 2022–2026
-- **Phase 2 (backfill):** 2005–2021
+- **Phase 0 (thin slice):** FILDA 2023 — collect every identifiable announcement, trace each one. *(done)*
+- **Phase 1 (5 years):** 2022–2026, broadened beyond FILDA to AIPEX-promoted investments, the Cabinda refinery, PPP concessions, and multilateral/DFI-financed projects. *(done)*
+- **Phase 2 (backfill):** 2005–2021. *(next)*
 
 ## Product Roadmap
 
@@ -104,7 +104,7 @@ FILDA Investment Tracker/
 │   ├── schema.sql             # SQLite database schema
 │   ├── load.py                # CSV → SQLite loader (fresh rebuild; FK + score gates; staleness guard)
 │   ├── calculate_scores.py    # Execution-score calculator (--update-csv syncs projects.csv)
-│   ├── update.py              # Incremental append-only mutator (add-event/source/evidence, set-status, relink, reverify)
+│   ├── update.py              # Incremental append-only mutator (add-event/source/evidence, set-status, set-blocked, relink, reverify, retype-event)
 │   ├── export_csv.py          # DB → CSV checkpointer (stamps db_meta watermark; recomputes scores)
 │   ├── verify_invariants.py   # Structural invariant verifier (52 checks; exit non-zero on failure)
 │   ├── verify_snapshot.py     # Snapshot drift verifier + article pin (--update regenerates db/snapshot.json)
@@ -117,10 +117,19 @@ FILDA Investment Tracker/
 │   ├── query.py               # Read-only JSON query API (filters: sector/province/org/edition/status/score)
 │   ├── investment_tracker.db  # The database (rebuilt from CSVs)
 │   └── _extract/              # Source-extraction provenance (2026-07-25 re-linking)
-├── tests/
-│   ├── test_calculate_score.py  # Formula unit tests (in-memory DB; run: python -m unittest discover tests)
-│   ├── test_update.py           # update.py integration tests (hermetic, temp DB)
-│   └── test_verify_snapshot.py  # Snapshot generate/compare round-trip tests
+├── tests/                          # Stdlib unittest; run: python -m unittest discover tests
+│   ├── test_calculate_score.py      # Score formula unit tests (in-memory DB)
+│   ├── test_constants.py            # Vocabularies / band + distribution helpers
+│   ├── test_atomic_write.py         # export_csv.atomic_write_csv (.tmp + os.replace)
+│   ├── test_update.py               # update.py integration tests (hermetic temp DB)
+│   ├── test_query.py                # Read-only query layer (build_where, project_detail)
+│   ├── test_load_staleness.py       # load.py staleness guard (uncommitted mutations)
+│   ├── test_views.py                # Aggregate views filter to scored projects
+│   ├── test_server.py               # API server plumbing + leads hardening
+│   ├── test_verify_invariants.py    # Drift self-tests for the invariant verifier
+│   ├── test_verify_snapshot.py      # Snapshot generate/compare + article pin
+│   ├── test_verify_sources.py       # Source-liveness classifier + atomic --apply
+│   └── test_verify_docs.py          # Doc-figure drift verifier self-tests
 ├── data/
 │   ├── projects.csv           # Project records (Phase 0: FILDA 2023)
 │   ├── organizations.csv      # Organization records
@@ -131,6 +140,10 @@ FILDA Investment Tracker/
 │   └── db_meta.csv            # Checkpoint watermark (last_exported_at) + score_version
 ├── scripts/
 │   └── install_hooks.py       # Cross-platform pre-commit hook installer
+├── app/                       # Zero-dependency SPA + JSON API (python app/server.py)
+│   ├── server.py              # Stdlib HTTP server: static app/ + /api/* endpoints
+│   ├── index.html             # Single-page app (filters, project detail, sidebar stats)
+│   └── data.json              # Static fallback dataset (rebuilt by db/export_app_json.py)
 ├── digest/                    # Monthly status-change digest output
 └── landing-page/
     └── index.html             # Demand validation landing page

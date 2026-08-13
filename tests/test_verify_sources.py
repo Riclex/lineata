@@ -191,5 +191,110 @@ class ClassifyTests(unittest.TestCase):
                          ("dead", None))
 
 
+class ApplyAtomicityTests(unittest.TestCase):
+    """H1: under --apply, a DB-write failure must leave sources.csv UNCHANGED.
+
+    The CSV is the source of truth that survives rebuilds; the DB is a derived
+    artifact. Today the code writes the CSV first (non-atomic open(...,'w')),
+    then the DB — so a DB failure leaves an already-mutated CSV on disk, and a
+    crash mid-CSV-write can truncate it. The fix writes the DB first (rollback
+    on failure, exit before touching the CSV) and writes the CSV atomically.
+    This test forces a DB failure and asserts the CSV is pristine afterward.
+    """
+    HEADER = "id,title,url,date,publisher,archived_url,confidence,last_verified,url_status"
+
+    def setUp(self):
+        import tempfile
+        self.tmp = tempfile.mkdtemp()
+        self.csv_path = os.path.join(self.tmp, "sources.csv")
+        with open(self.csv_path, "w", newline="", encoding="utf-8") as f:
+            f.write(self.HEADER + "\n")
+            f.write("1,Source One,https://example.test/a,2020-01-01,Pub,,high,"
+                    "2020-01-01,dead\n")
+            f.write("2,Publisher Only,,2020-01-01,Pub,,high,2020-01-01,n/a\n")
+        # Empty DB file (no `sources` table) -> the UPDATE inside --apply fails.
+        self.db_path = os.path.join(self.tmp, "empty.db")
+        self._orig_csv = verify_sources.SOURCES_csv
+        self._orig_db = verify_sources.DB_path
+        self._orig_classify = verify_sources.classify
+        self._orig_argv = sys.argv
+        verify_sources.SOURCES_csv = self.csv_path
+        verify_sources.DB_path = self.db_path
+        verify_sources.classify = lambda url: ("alive", 200)
+
+    def tearDown(self):
+        verify_sources.SOURCES_csv = self._orig_csv
+        verify_sources.DB_path = self._orig_db
+        verify_sources.classify = self._orig_classify
+        sys.argv = self._orig_argv
+        import shutil
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _row(self, rid):
+        import csv
+        with open(self.csv_path, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                if r["id"] == rid:
+                    return r
+        return None
+
+    def test_db_write_failure_leaves_sources_csv_unchanged(self):
+        import io as _io
+        import contextlib
+        sys.argv = ["verify_sources.py", "--apply"]
+        buf = _io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            with self.assertRaises(SystemExit):
+                verify_sources.main()
+        # The DB write failed (no `sources` table) -> the URL row must still
+        # carry its original stamp, NOT today/alive.
+        row = self._row("1")
+        self.assertIsNotNone(row)
+        self.assertEqual(row["last_verified"], "2020-01-01")
+        self.assertEqual(row["url_status"], "dead")
+
+    def test_db_write_success_persists_to_csv_and_db(self):
+        """GREEN path: when the DB write succeeds, both the DB and the atomic
+        CSV write reflect the new stamp, and a 'reverify' audit row is logged."""
+        import io as _io
+        import contextlib
+        import sqlite3
+        from datetime import date
+        # Build a real DB with the sources + change_log tables and seed it.
+        schema = os.path.join(DB_DIR, "schema.sql")
+        db = sqlite3.connect(self.db_path)
+        with open(schema, encoding="utf-8") as f:
+            db.executescript(f.read())
+        db.execute("DELETE FROM sources")
+        db.execute(
+            "INSERT INTO sources (id, title, url, date, publisher, confidence, "
+            "last_verified, url_status) VALUES (1,'Source One','https://example.test/a',"
+            "'2020-01-01','Pub','high','2020-01-01','dead')")
+        db.execute(
+            "INSERT INTO sources (id, title, url, date, publisher, confidence, "
+            "last_verified, url_status) VALUES (2,'Publisher Only','','2020-01-01',"
+            "'Pub','high','2020-01-01','n/a')")
+        db.commit()
+        db.close()
+        sys.argv = ["verify_sources.py", "--apply"]
+        today = date.today().isoformat()
+        with contextlib.redirect_stdout(_io.StringIO()):
+            verify_sources.main()
+        # CSV reflects the new stamp...
+        row = self._row("1")
+        self.assertEqual(row["last_verified"], today)
+        self.assertEqual(row["url_status"], "alive")
+        # ...and so does the DB, plus one reverify audit row.
+        db = sqlite3.connect(self.db_path)
+        db.row_factory = sqlite3.Row
+        src = db.execute("SELECT last_verified, url_status FROM sources WHERE id=1").fetchone()
+        self.assertEqual(src["last_verified"], today)
+        self.assertEqual(src["url_status"], "alive")
+        n_rev = db.execute(
+            "SELECT COUNT(*) FROM change_log WHERE operation='reverify' AND target_id='1'").fetchone()[0]
+        db.close()
+        self.assertEqual(n_rev, 1)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
