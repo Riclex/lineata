@@ -61,6 +61,21 @@ def header_of(table):
     return FALLBACK_HEADERS.get(table)
 
 
+def atomic_write_csv(path, cols, rows):
+    """Write `rows` (list of dicts keyed by `cols`) to `path` atomically: write
+    to a `path + ".tmp"` sibling, flush/close, then `os.replace` it over the
+    target. `os.replace` is atomic on both POSIX and Windows, so a kill mid-write
+    can never leave a half-written CSV — critical here because the CSVs are the
+    source of truth (the DB is gitignored and rebuilt from them). The .tmp file
+    is gitignored; on success it is gone (replaced)."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=cols)
+        w.writeheader()
+        w.writerows(rows)
+    os.replace(tmp, path)
+
+
 def export_table(conn, table, score_by_id):
     """Write data/<table>.csv from the current DB, preserving the on-disk
     header order. For projects, execution_score is overridden with the computed
@@ -81,10 +96,7 @@ def export_table(conn, table, score_by_id):
         out.append({c: ("" if d[c] is None else d[c]) for c in cols})
 
     path = os.path.join(DATA_dir, f"{table}.csv")
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=cols)
-        w.writeheader()
-        w.writerows(out)
+    atomic_write_csv(path, cols, out)
     return len(out)
 
 
@@ -138,8 +150,21 @@ def main():
     except Exception as e:
         print(f"[warn] could not write backup ({e}) — continuing without it")
 
-    # 1) Stamp the watermark + write the export-csv audit row first, so the
-    #    change_log.csv and db_meta.csv we export below include them.
+    # 1) Export the 6 DATA tables FIRST (atomically). These are the source of
+    #    truth — the DB is gitignored and rebuilt from them. Writing them BEFORE
+    #    stamping the watermark is what closes the silent-data-loss window: if a
+    #    CSV write fails here, the db_meta.last_exported_at watermark is still
+    #    stale, so load.py's staleness guard REFUSES the next rebuild (operator
+    #    re-runs) instead of passing and rebuilding from partial CSVs.
+    DATA_TABLES = [t for t in TABLES if t not in ("change_log", "db_meta")]
+    written = {}
+    for t in DATA_TABLES:
+        written[t] = export_table(conn, t, score_by_id)
+
+    # 2) Only after all 6 data CSVs are durably written, stamp the watermark +
+    #    insert the export-csv audit row. (export-csv is a checkpoint marker,
+    #    excluded from load.py's MUTATION_OPS, so it does not perturb the
+    #    guard's MAX(change_log.ts) computation.)
     conn.execute("BEGIN")
     try:
         conn.execute(
@@ -156,9 +181,10 @@ def main():
         conn.execute("ROLLBACK"); conn.close()
         sys.exit(f"[ERR] failed to stamp watermark: {e}")
 
-    # 2) Export every table. Score column is computed (see export_table).
-    written = {}
-    for t in TABLES:
+    # 3) Export change_log + db_meta LAST (atomically), so they include the new
+    #    export-csv audit row + the fresh watermark. load.py rebuilds the DB's
+    #    watermark from db_meta.csv, so it must carry the fresh value.
+    for t in ("change_log", "db_meta"):
         written[t] = export_table(conn, t, score_by_id)
 
     conn.close()

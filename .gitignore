@@ -16,6 +16,10 @@ data/leads.csv
 __pycache__/
 *.pyc
 
+# Atomic-write temp files (db/export_csv.py + calculate_scores.py write to
+# *.tmp then os.replace; a stray .tmp means a write was interrupted)
+*.tmp
+
 # Test-run SQLite sidecars (tests build/clean tests/_tmp_update.db;
 # the -wal/-shm sidecars can leak and should not be committed)
 tests/_tmp_update.db-wal

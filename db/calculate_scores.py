@@ -331,10 +331,16 @@ def update_projects_csv(score_by_id):
             if row.get("execution_score", "").strip() != new:
                 row["execution_score"] = new
                 changed += 1
-    with open(path, "w", newline="", encoding="utf-8") as f:
+    # Atomic write: write to a .tmp sibling then os.replace over the target,
+    # so a kill mid-write cannot leave a half-written projects.csv. The CSVs
+    # are the source of truth (the DB is gitignored and rebuilt from them),
+    # so truncating-then-writing (open(path, "w")) is a corruption risk.
+    tmp = path + ".tmp"
+    with open(tmp, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
+    os.replace(tmp, path)
     return changed
 
 

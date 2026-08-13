@@ -72,7 +72,7 @@ re-load.
 ## 4. Verify the published figures still match the DB
 
 ```
-python db/verify_invariants.py   # structural checks (29 checks, data-independent)
+python db/verify_invariants.py   # structural checks (52 checks, data-independent)
 python db/verify_snapshot.py     # published-figure pin + article text pin
 ```
 

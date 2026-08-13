@@ -97,6 +97,38 @@ def main():
     filda_avg = conn.execute(
         "SELECT AVG(execution_score) FROM projects "
         "WHERE evidence_complete = 1 AND source_program = 'FILDA'").fetchone()[0]
+    # F5: de-hardcode the "NN scored" and "gov/private NN,N vs NN,N" literals so
+    # the checks hold at any dataset size (the count/gov-avg now come from the DB,
+    # not a baked-in "103" / "54,0"). F7: extra current-state figures the docs cite.
+    n_scored = conn.execute(
+        "SELECT COUNT(*) FROM projects WHERE evidence_complete = 1").fetchone()[0]
+    gov_avg = conn.execute(
+        "SELECT AVG(execution_score) FROM projects "
+        "WHERE evidence_complete = 1 AND sector = 'Government'").fetchone()[0]
+    n_po = conn.execute("SELECT COUNT(*) FROM project_organizations").fetchone()[0]
+    # Edition averages (scored only) — cited in the Limitations #5 prose.
+    def edition_avg(ed):
+        r = conn.execute(
+            "SELECT AVG(execution_score) FROM projects "
+            "WHERE evidence_complete = 1 AND filda_edition = ?", (ed,)).fetchone()
+        return r[0]
+    ed22 = edition_avg("2022")
+    ed26 = edition_avg("2026")
+    # Investment Portal score (Article Layer case-study mention).
+    ip = conn.execute(
+        "SELECT execution_score FROM projects "
+        "WHERE id = 'investment-portal-georeferenced'").fetchone()
+    ip_score = ip[0] if ip else None
+    # FILDA-only sector averages (Article Layer sector-avg line). Store the RAW
+    # average; the check compares the doc's 1-dp value to it with a tolerance
+    # that accepts either nearest rounding (a .5 boundary like 57.25 is valid as
+    # 57,2 or 57,3 — a rounding-convention choice, not drift).
+    filda_sector = {}
+    for r in conn.execute(
+        "SELECT sector, AVG(execution_score) a FROM projects "
+        "WHERE evidence_complete = 1 AND source_program = 'FILDA' "
+        "GROUP BY sector"):
+        filda_sector[r["sector"]] = r["a"]
 
     vchk = verify_check_count()
 
@@ -118,6 +150,14 @@ def main():
         chk("_extract/README 'NN structural invariant checks'", vchk,
             first_int(er, r"# (\d+) structural"), "db/_extract/README.md")
 
+    # --- getting-started.md invariant-count citation (new file coverage) ---
+    gs_path = os.path.join(DOCS, "getting-started.md")
+    if os.path.exists(gs_path):
+        gs = read(gs_path)
+        chk("getting-started 'verify_invariants.py (NN checks)'", vchk,
+            first_int(gs, r"verify_invariants\.py[^\n]*\((\d+) checks"),
+            "docs/getting-started.md")
+
     # --- data-lineage.md cited counts ---
     lineage = read(LINEAGE)
     chk("data-lineage '### NNN sources in the database'", n_sources,
@@ -128,6 +168,9 @@ def main():
         first_int(lineage, r"\| sources \| (\d+) \|"), "docs/data-lineage.md")
     chk("data-lineage 'NN linked / 1 NULL'", n_linked,
         first_int(lineage, r"(\d+) linked / 1 NULL"), "docs/data-lineage.md")
+    chk("data-lineage counts table '| project_organizations | N |'", n_po,
+        first_int(lineage, r"\| project_organizations \| (\d+) \|"),
+        "docs/data-lineage.md")
     lin_avg = first_float(lineage, r"avg (\d+\.\d+) over the 50 scored")
     # Allow the lineage avg to be one- or two-decimal; compare with tolerance.
     if lin_avg is not None:
@@ -151,18 +194,27 @@ def main():
     def comma_float(s):
         return float(s.replace(",", "."))
 
-    # Source Layer current-state summary sentence (avg 1dp, distribution, gov/private).
+    # Source Layer current-state summary sentence (avg 1dp, count, distribution,
+    # gov/private). F5: the scored count and the gov/private averages are captured
+    # as groups and compared to the DB (n_scored / gov_avg / priv_avg) rather than
+    # baked in as "103" / "54,0", so the check holds at any dataset size.
     broad = re.search(
-        r"the broadened-DB figures are:.*?avg (\d+,\d+) over the 103 scored "
+        r"the broadened-DB figures are:.*?avg (\d+,\d+) over the (\d+) scored "
         r"\(rounded \d+\), distribution (\d+/\d+/\d+/\d+/\d+), "
-        r"gov/private 54,0 vs (\d+,\d+)", lineage)
+        r"gov/private (\d+,\d+) vs (\d+,\d+)", lineage)
     if broad:
-        b_avg, b_dist, b_priv = (comma_float(broad.group(1)), broad.group(2),
-                                 comma_float(broad.group(3)))
+        b_avg, b_n, b_dist, b_gov, b_priv = (
+            comma_float(broad.group(1)), int(broad.group(2)), broad.group(3),
+            comma_float(broad.group(4)), comma_float(broad.group(5)))
         chk("data-lineage 'broadened-DB avg (1dp)'", round(avg, 1), b_avg,
             "docs/data-lineage.md", ok=abs(b_avg - round(avg, 1)) <= 0.051)
+        chk("data-lineage 'broadened-DB scored count'", n_scored, b_n,
+            "docs/data-lineage.md")
         chk("data-lineage 'broadened-DB distribution'", dist_str, b_dist,
             "docs/data-lineage.md")
+        chk("data-lineage 'broadened-DB gov/private gov_avg'",
+            round(gov_avg, 1), b_gov, "docs/data-lineage.md",
+            ok=abs(b_gov - round(gov_avg, 1)) <= 0.051)
         chk("data-lineage 'broadened-DB gov/private priv_avg'",
             round(priv_avg, 1), b_priv, "docs/data-lineage.md",
             ok=abs(b_priv - round(priv_avg, 1)) <= 0.051)
@@ -170,15 +222,19 @@ def main():
         chk("data-lineage 'broadened-DB summary sentence'", None, None,
             "docs/data-lineage.md")
 
-    # Scoring Layer: bold average over 103 scored (2dp, dot decimal).
-    sl_avg = first_float(
-        lineage, r"Average score: \*\*(\d+\.\d+) over 103 scored projects\*\*")
-    if sl_avg is not None:
-        chk("data-lineage 'Average score NN.NN over 103 scored'",
+    # Scoring Layer: bold average over NN scored (2dp, dot decimal). F5: the
+    # scored count is captured and compared to n_scored, not hardcoded as 103.
+    sl = re.search(
+        r"Average score: \*\*(\d+\.\d+) over (\d+) scored projects\*\*", lineage)
+    if sl:
+        sl_avg, sl_n = float(sl.group(1)), int(sl.group(2))
+        chk("data-lineage 'Average score NN.NN over NN scored'",
             round(avg, 2), sl_avg, "docs/data-lineage.md",
             ok=abs(sl_avg - round(avg, 2)) <= 0.005)
+        chk("data-lineage 'Average score scored count'", n_scored, sl_n,
+            "docs/data-lineage.md")
     else:
-        chk("data-lineage 'Average score NN.NN over 103 scored'", None, None,
+        chk("data-lineage 'Average score NN.NN over NN scored'", None, None,
             "docs/data-lineage.md")
 
     # Scoring Layer distribution table (rows in SCORE_BUCKETS order).
@@ -200,21 +256,120 @@ def main():
     else:
         chk("data-lineage 'Derived stats avg row'", None, None, "docs/data-lineage.md")
 
-    # Article Layer: Gov vs private row (broadened private avg).
-    gp = re.search(r"\| Gov vs private \(54,0 vs (\d+,\d+) broadened", lineage)
+    # Article Layer: Gov vs private row. F5: both the broadened gov and private
+    # averages (and the FILDA-only pair) are captured as groups and compared to
+    # the DB, not hardcoded as "54,0".
+    filda_priv_avg = conn.execute(
+        "SELECT AVG(execution_score) FROM projects "
+        "WHERE evidence_complete = 1 AND source_program = 'FILDA' "
+        "AND sector != 'Government'").fetchone()[0]
+    gp = re.search(
+        r"\| Gov vs private \((\d+,\d+) vs (\d+,\d+) broadened; "
+        r"FILDA-only (\d+,\d+) vs (\d+,\d+)\)", lineage)
     if gp:
-        gp_priv = comma_float(gp.group(1))
+        gp_gov, gp_priv = comma_float(gp.group(1)), comma_float(gp.group(2))
+        gp_fgov, gp_fpriv = comma_float(gp.group(3)), comma_float(gp.group(4))
+        chk("data-lineage 'Gov vs private broadened gov_avg'",
+            round(gov_avg, 1), gp_gov, "docs/data-lineage.md",
+            ok=abs(gp_gov - round(gov_avg, 1)) <= 0.051)
         chk("data-lineage 'Gov vs private broadened priv_avg'",
             round(priv_avg, 1), gp_priv, "docs/data-lineage.md",
             ok=abs(gp_priv - round(priv_avg, 1)) <= 0.051)
+        chk("data-lineage 'Gov vs private FILDA-only gov_avg'",
+            round(gov_avg, 1), gp_fgov, "docs/data-lineage.md",
+            ok=abs(gp_fgov - round(gov_avg, 1)) <= 0.051)
+        chk("data-lineage 'Gov vs private FILDA-only priv_avg'",
+            round(filda_priv_avg, 1), gp_fpriv, "docs/data-lineage.md",
+            ok=abs(gp_fpriv - round(filda_priv_avg, 1)) <= 0.051)
     else:
-        chk("data-lineage 'Gov vs private broadened row'", None, None,
+        chk("data-lineage 'Gov vs private row'", None, None,
             "docs/data-lineage.md")
+
+    # Article Layer: edition averages (Limitations #5 prose, present-tense).
+    # Compare the doc's 1-dp value to the RAW average with a tolerance that
+    # accepts either nearest rounding (a .5 boundary like 43.25 is valid as 43.2
+    # or 43.3 — convention, not drift); a real drift >= 0.15 still fails.
+    ed = re.search(r"rises by edition \(2022: ([\d.]+) → 2026: ([\d.]+)\)", lineage)
+    if ed:
+        e22, e26 = float(ed.group(1)), float(ed.group(2))
+        chk("data-lineage edition avg 2022",
+            round(ed22, 1) if ed22 is not None else None, e22,
+            "docs/data-lineage.md",
+            ok=(ed22 is not None and abs(e22 - ed22) <= 0.051))
+        chk("data-lineage edition avg 2026",
+            round(ed26, 1) if ed26 is not None else None, e26,
+            "docs/data-lineage.md",
+            ok=(ed26 is not None and abs(e26 - ed26) <= 0.051))
+    else:
+        chk("data-lineage edition avg 2022", None, None, "docs/data-lineage.md")
+        chk("data-lineage edition avg 2026", None, None, "docs/data-lineage.md")
+
+    # Article Layer: Investment Portal case-study score.
+    ip_m = re.search(r"Investment Portal is also DB-tracked at score (\d+)", lineage)
+    if ip_m:
+        chk("data-lineage 'Investment Portal score'", ip_score, int(ip_m.group(1)),
+            "docs/data-lineage.md")
+    else:
+        chk("data-lineage 'Investment Portal score'", None, None,
+            "docs/data-lineage.md")
+
+    # Article Layer: broadened distribution in the claim-traceability table.
+    ad = re.search(
+        r"Distribution table \d+/\d+/\d+/\d+/\d+ \(FILDA-only\) / "
+        r"(\d+/\d+/\d+/\d+/\d+) \(broadened\)", lineage)
+    if ad:
+        chk("data-lineage 'Article-Layer broadened distribution'",
+            dist_str, ad.group(1), "docs/data-lineage.md")
+    else:
+        chk("data-lineage 'Article-Layer broadened distribution'", None, None,
+            "docs/data-lineage.md")
+
+    # Article Layer: six FILDA-only sector averages in the Sector-table row.
+    sec = re.search(
+        r"Agriculture ([\d,]+); Energy ([\d,]+); Manufacturing ([\d,]+); "
+        r"Infrastructure ([\d,]+); Technology ([\d,]+); Multi-sector ([\d,]+)",
+        lineage)
+    if sec:
+        for name, g in (("Agriculture", 1), ("Energy", 2), ("Manufacturing", 3),
+                        ("Infrastructure", 4), ("Technology", 5),
+                        ("Multi-sector", 6)):
+            doc_val = comma_float(sec.group(g))
+            db_val = filda_sector.get(name)
+            chk(f"data-lineage 'Article-Layer sector avg {name}'",
+                round(db_val, 1) if db_val is not None else None, doc_val,
+                "docs/data-lineage.md",
+                ok=(db_val is not None and abs(doc_val - db_val) <= 0.051))
+    else:
+        for name in ("Agriculture", "Energy", "Manufacturing", "Infrastructure",
+                     "Technology", "Multi-sector"):
+            chk(f"data-lineage 'Article-Layer sector avg {name}'", None, None,
+                "docs/data-lineage.md")
 
     # --- scoring-methodology.md worked examples ---
     # Each "### Title (`project-id`)" heading is followed by a
     # "**Score: ... = NN**" line. Compare NN to the DB execution_score for that id.
     scoring = read(SCORING)
+
+    # scoring-methodology.md Limitations #5 also cites the edition averages.
+    # Same rounding-agnostic comparison as the data-lineage edition-avg checks.
+    sed = re.search(
+        r"rises steadily by edition \(2022: ([\d.]+) → 2026: ([\d.]+)\)", scoring)
+    if sed:
+        se22, se26 = float(sed.group(1)), float(sed.group(2))
+        chk("scoring-methodology edition avg 2022",
+            round(ed22, 1) if ed22 is not None else None, se22,
+            "docs/scoring-methodology.md",
+            ok=(ed22 is not None and abs(se22 - ed22) <= 0.051))
+        chk("scoring-methodology edition avg 2026",
+            round(ed26, 1) if ed26 is not None else None, se26,
+            "docs/scoring-methodology.md",
+            ok=(ed26 is not None and abs(se26 - ed26) <= 0.051))
+    else:
+        chk("scoring-methodology edition avg 2022", None, None,
+            "docs/scoring-methodology.md")
+        chk("scoring-methodology edition avg 2026", None, None,
+            "docs/scoring-methodology.md")
+
     lines = scoring.splitlines()
     i = 0
     while i < len(lines):
