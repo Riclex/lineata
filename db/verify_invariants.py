@@ -20,10 +20,10 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from calculate_scores import SCORE_VERSION
+from calculate_scores import SCORE_VERSION, parse_date
 from constants import (MUTATION_OPS, ALLOWED_OPS, looks_like_award,
                        SOURCE_PROGRAMS, EVIDENCE_FIELDS, DATA_COMPLETENESS,
-                       data_completeness)
+                       CASE_STUDIES, data_completeness)
 
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "investment_tracker.db")
 
@@ -134,12 +134,8 @@ def run_checks(conn):
                 f"evidence or a status downgrade (see data-lineage.md)")
 
     # ---- case-study field-level evidence ----
-    case_studies = [
-        "huatong-angola-industry-awards", "linha-verde-investor-visas",
-        "pt-ao-credit-line-2-5b", "pt-ao-credit-line-3-25b", "chicomba-water-dam",
-        "investment-portal-georeferenced", "etu-energias-leao-ouro-2025",
-    ]
-    for pid in case_studies:
+    # CASE_STUDIES is single-sourced from db/constants.py (L6).
+    for pid in CASE_STUDIES:
         n = conn.execute(
             "SELECT COUNT(*) FROM project_evidence WHERE project_id = ?", (pid,)).fetchone()[0]
         check(f"case study {pid} has field-level evidence", n > 0, True)
@@ -156,9 +152,11 @@ def run_checks(conn):
     for pid in unsourced_scored:
         check(f"scored project {pid} has a source-linked event", False, True)
 
-    # ---- Chicomba groundbreaking date (corrected 2026-06-13 per Angop) ----
-    row = conn.execute("SELECT event_date FROM events WHERE id = 104").fetchone()
-    check("Chicomba groundbreaking (event 104) date", row[0] if row else None, "2026-06-13")
+    # ---- Chicomba groundbreaking date pin moved to verify_snapshot.py (L7) ----
+    # It was keyed by autoincrement event id 104 here, which contradicted this
+    # file's "checks hold for ANY valid dataset" docstring and would break if
+    # the id shifted. It now lives in verify_snapshot as
+    # case_study_pins.chicomba_groundbreaking, keyed by the stable project slug.
 
     # ---- source_program in allowed set (Tier 3 coverage expansion) ----
     bad = [(r[0], r[1]) for r in conn.execute(
@@ -174,6 +172,30 @@ def run_checks(conn):
     for pid, f in bad_fields:
         check(f"evidence field {f!r} in allowed set ({pid})", False, True)
     check("all project_evidence fields in allowed set", len(bad_fields), 0)
+
+    # ---- every scoring-relevant date parses (L2) ----
+    # years_between() silently returns 0 on an unparseable date, which maps to
+    # the 0-year delay-penalty bucket (no penalty). A malformed actual_completion
+    # or expected_completion would therefore silently zero a project's delay
+    # penalty. event_date is format-CHECKed at the schema level (schema.sql), so
+    # it cannot enter the DB malformed; actual_completion / expected_completion
+    # are plain TEXT, so this check is the backstop that flags them instead of
+    # letting a value like 'TBD' silently distort the score.
+    bad_dates = []
+    for col in ("actual_completion", "expected_completion"):
+        for r in conn.execute(
+                f"SELECT id, {col} FROM projects "
+                f"WHERE {col} IS NOT NULL AND {col} != ''"):
+            if parse_date(r[1]) is None:
+                bad_dates.append((r[0], col, r[1]))
+    for r in conn.execute(
+            "SELECT id, event_date FROM events "
+            "WHERE event_date IS NOT NULL AND event_date != ''"):
+        if parse_date(r[1]) is None:
+            bad_dates.append((r[0], "event_date", r[1]))
+    for pid, col, val in bad_dates:
+        check(f"{col}={val!r} parses to a valid date ({pid})", False, True)
+    check("all scoring-relevant dates parse", len(bad_dates), 0)
 
     # ---- data_completeness in allowed set + matches events (rec. #10) ----
     bad_dc = [(r[0], r[1]) for r in conn.execute(
@@ -195,6 +217,19 @@ def run_checks(conn):
     check("all projects data_completeness matches events", len(dc_drift), 0)
 
     return checks, warnings
+
+
+def run_all_checks(conn):
+    """Run run_checks and return (n_failed, messages) where messages is a list
+    of human-readable lines, one per FAILED check (warnings are excluded — they
+    are open issues, not build-breakers). Extracted so load.py can run the
+    structural invariants as a build gate (L5) without duplicating the reporting
+    loop, and so health.py can reuse the same summary."""
+    checks, _warnings = run_checks(conn)
+    failed = [c for c in checks if not c[3]]
+    messages = [f"  {label}: expected {expected!r}, got {actual!r}"
+                for label, actual, expected, _ok in failed]
+    return len(failed), messages
 
 
 def main():

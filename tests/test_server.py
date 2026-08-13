@@ -19,6 +19,8 @@ Run:
 import os
 import sys
 import sqlite3
+import threading
+import urllib.parse
 import unittest
 
 APP_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "app")
@@ -176,6 +178,139 @@ class HandleLeadTests(unittest.TestCase):
         # Only the first lead was captured.
         with open(server.LEADS_path, encoding="utf-8") as f:
             self.assertEqual(sum(1 for _ in f) - 1, 1)
+
+
+class IncludeUnscoredParsingTests(unittest.TestCase):
+    """L8: `bool(params.get('include_unscored'))` treats the string 'false' as
+    True (bool('false') is True), so ?include_unscored=false silently INCLUDED
+    unscored projects. _ns must parse the value explicitly."""
+
+    def test_false_string_is_false(self):
+        self.assertFalse(server._ns({"include_unscored": "false"}).include_unscored)
+
+    def test_true_string_is_true(self):
+        self.assertTrue(server._ns({"include_unscored": "true"}).include_unscored)
+
+    def test_truthy_tokens_are_true(self):
+        for v in ("1", "yes", "on", "YES", "True", "true"):
+            self.assertTrue(server._ns({"include_unscored": v}).include_unscored, v)
+
+    def test_falsy_tokens_are_false(self):
+        for v in ("0", "no", "off", "False", "false", ""):
+            self.assertFalse(server._ns({"include_unscored": v}).include_unscored, v)
+
+    def test_absent_is_false(self):
+        self.assertFalse(server._ns({}).include_unscored)
+
+
+class ConcurrentLeadsTests(unittest.TestCase):
+    """M7: under ThreadingHTTPServer, concurrent lead POSTs must all persist and
+    the RateLimiter must not over-admit. The CSV append+count and the limiter's
+    deque dict are guarded by locks so no write is lost and no slot races."""
+
+    def setUp(self):
+        import tempfile
+        self.tmp = tempfile.mkdtemp()
+        self._orig_leads = server.LEADS_path
+        self._orig_allow = server.LEADS_ORIGIN_ALLOWLIST
+        self._orig_rl = server.RATE_LIMITER
+        server.LEADS_path = os.path.join(self.tmp, "leads.csv")
+        server.LEADS_ORIGIN_ALLOWLIST = ()
+
+    def tearDown(self):
+        server.LEADS_path = self._orig_leads
+        server.LEADS_ORIGIN_ALLOWLIST = self._orig_allow
+        server.RATE_LIMITER = self._orig_rl
+        import shutil
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def test_concurrent_leads_all_persist(self):
+        N = 60
+        server.RATE_LIMITER = server.RateLimiter(max_hits=N + 10, window_seconds=60)
+        emails = [f"u{i}@x.com" for i in range(N)]
+        results = []
+        lock = threading.Lock()
+
+        def post(em):
+            st, _ = server.handle_lead(em, "1.1.1.1", None)
+            with lock:
+                results.append(st)
+        threads = [threading.Thread(target=post, args=(em,)) for em in emails]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+        self.assertEqual(sum(1 for s in results if s == 200), N,
+                         f"expected {N} 200s, got {results.count(200)}")
+        with open(server.LEADS_path, encoding="utf-8") as f:
+            self.assertEqual(sum(1 for _ in f) - 1, N)  # all persisted, no lost writes
+
+    def test_rate_limiter_no_over_admission_under_concurrency(self):
+        """max_hits=N and N+overs concurrent same-IP checks: exactly N must
+        succeed (no over-admission from a race between len() and append())."""
+        N, overs = 40, 20
+        rl = server.RateLimiter(max_hits=N, window_seconds=60)
+        now = [0]
+
+        def hit():
+            with threading.Lock():
+                t = now[0]
+                now[0] += 1
+            return rl.check("1.1.1.1", now=t)
+        results = [None] * (N + overs)
+
+        def run(i):
+            results[i] = hit()
+        threads = [threading.Thread(target=run, args=(i,)) for i in range(N + overs)]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+        self.assertEqual(sum(1 for r in results if r), N,
+                         f"over-admitted: {sum(1 for r in results if r)} > {N}")
+
+
+class ProjectDetail404Tests(unittest.TestCase):
+    """L9: /api/projects/<id> for an unknown id must 404 WITHOUT echoing the
+    raw pid back in the body (reflection of URL input). Uses a real
+    ThreadingHTTPServer on an ephemeral port (also a smoke test for M7)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls._orig_connect = server.connect
+
+        def _empty_conn():
+            c = sqlite3.connect(":memory:")
+            c.row_factory = sqlite3.Row
+            with open(SCHEMA_PATH, encoding="utf-8") as f:
+                c.executescript(f.read())
+            return c
+        server.connect = _empty_conn
+        cls.server = server.ThreadingHTTPServer(("127.0.0.1", 0), server.APIHandler)
+        cls.port = cls.server.server_address[1]
+        cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
+        cls.thread.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.server.shutdown()
+        cls.server.server_close()
+        server.connect = cls._orig_connect
+
+    def _get(self, path):
+        import http.client
+        c = http.client.HTTPConnection("127.0.0.1", self.port, timeout=5)
+        c.request("GET", path)
+        r = c.getresponse()
+        body = r.read().decode("utf-8")
+        c.close()
+        return r.status, body
+
+    def test_unknown_project_404_does_not_echo_pid(self):
+        marker = "xss-injection-marker"
+        status, body = self._get(f"/api/projects/{marker}")
+        self.assertEqual(status, 404)
+        self.assertNotIn(marker, body)
 
 
 if __name__ == "__main__":

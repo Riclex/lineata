@@ -39,13 +39,10 @@ DATA_dir = os.path.join(BASE_dir, "data")
 DB_path = os.path.join(BASE_dir, "db", "investment_tracker.db")
 EVIDENCE_csv = os.path.join(DATA_dir, "project_evidence.csv")
 
-# Projects already hand-curated (the 7 published case studies).
-CASE_STUDIES = {
-    "huatong-angola-industry-awards", "linha-verde-investor-visas",
-    "pt-ao-credit-line-2-5b", "pt-ao-credit-line-3-25b",
-    "chicomba-water-dam", "investment-portal-georeferenced",
-    "etu-energias-leao-ouro-2025",
-}
+# Projects already hand-curated (the 7 published case studies) — single-sourced
+# from db/constants.py (L6) so this extractor can never drift from the verifier.
+sys.path.insert(0, os.path.join(BASE_dir, "db"))
+from constants import CASE_STUDIES  # noqa: E402
 
 STATUS_MAP = {
     "completed": ["completion"],

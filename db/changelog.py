@@ -149,15 +149,28 @@ def main():
             print("  (none)")
 
         # ---- Unsourced-event invariant ----
-        null_events = [r[0] for r in conn.execute(
-            "SELECT id FROM events WHERE source_id IS NULL ORDER BY id")]
+        # Pinned by STABLE PROJECT SLUG, not the autoincrement event id [80] it
+        # was keyed by before (L7): ids shift on rebuild, the project slug does
+        # not. Banco Sol (banco-sol-mc-empresas-2025) is the one tracked-but-
+        # unscored project whose single event is unsourced — the "don't score
+        # without click-through evidence" example (see data-lineage.md). The same
+        # pin lives in verify_snapshot as case_study_pins.unsourced_event_project.
+        BANCO_SOL = "banco-sol-mc-empresas-2025"
+        null_rows = conn.execute(
+            "SELECT id, project_id FROM events WHERE source_id IS NULL "
+            "ORDER BY id").fetchall()
+        null_events = [r[0] for r in null_rows]
+        null_projects = sorted({r[1] for r in null_rows})
         print()
         print("Unsourced-event invariant:")
         print("-" * 64)
-        if null_events == [80]:
-            print(f"  {len(null_events)} NULL event(s): {null_events}  ✓ only Banco Sol (as required)")
+        if len(null_events) == 1 and null_projects == [BANCO_SOL]:
+            print(f"  {len(null_events)} NULL event(s): {null_events}  "
+                  f"✓ only Banco Sol ({null_projects[0]}) (as required)")
         else:
-            print(f"  ⚠ {len(null_events)} NULL event(s): {null_events}  (expected [80] — investigate)")
+            print(f"  ⚠ {len(null_events)} NULL event(s): {null_events} "
+                  f"(projects: {null_projects})  "
+                  f"(expected 1, project {BANCO_SOL} — investigate)")
 
     conn.close()
 

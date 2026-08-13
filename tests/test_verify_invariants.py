@@ -25,15 +25,12 @@ DB_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "db")
 sys.path.insert(0, DB_DIR)
 import verify_invariants as vi  # noqa: E402
 from calculate_scores import SCORE_VERSION  # noqa: E402
+from constants import CASE_STUDIES  # noqa: E402  (L6: single-sourced)
 
 SCHEMA = os.path.join(DB_DIR, "schema.sql")
 
-# Must match the case_studies list inside verify_invariants.run_checks.
-CASE_STUDIES = [
-    "huatong-angola-industry-awards", "linha-verde-investor-visas",
-    "pt-ao-credit-line-2-5b", "pt-ao-credit-line-3-25b", "chicomba-water-dam",
-    "investment-portal-georeferenced", "etu-energias-leao-ouro-2025",
-]
+# CASE_STUDIES is imported from db/constants.py (L6); the fixture below uses the
+# same tuple verify_invariants.run_checks iterates.
 
 
 def make_conn():
@@ -68,8 +65,11 @@ def make_clean_fixture():
         conn.execute(
             "INSERT INTO project_evidence (project_id, field, source_id) "
             "VALUES (?, 'status', NULL)", (pid,))
-    # Chicomba groundbreaking (event id 104) — the dated invariant the verifier
-    # pins. Explicit id so it matches the hardcoded "event 104" anchor.
+    # Chicomba groundbreaking (event id 104). L7: the date pin moved from
+    # verify_invariants (keyed by this autoincrement id) to verify_snapshot
+    # (keyed by the stable project slug 'chicomba-water-dam'). The event stays
+    # in the fixture as realistic timeline data; verify_invariants no longer
+    # pins it.
     conn.execute(
         "INSERT INTO events (id, project_id, event_type, event_date, source_id) "
         "VALUES (104, 'chicomba-water-dam', 'groundbreaking', '2026-06-13', 1)")
@@ -161,13 +161,6 @@ class DriftDetectionTests(unittest.TestCase):
         self.assertTrue(self._failed_matching(conn, "data_completeness matches events"),
                         "data_completeness mismatch not caught")
 
-    def test_detects_chicomba_date_drift(self):
-        conn = make_clean_fixture()
-        conn.execute(
-            "UPDATE events SET event_date='2099-01-01' WHERE id=104")
-        self.assertTrue(self._failed_matching(conn, "Chicomba groundbreaking"),
-                        "Chicomba date drift not caught")
-
     def test_detects_scored_project_without_source_linked_event(self):
         """A scored project (evidence_complete=1, score>0) whose events are all
         source-less must be flagged — the score is only meaningful if a click-
@@ -187,6 +180,51 @@ class DriftDetectionTests(unittest.TestCase):
         conn.commit()
         self.assertTrue(self._failed_matching(conn, "source-linked event"),
                         "scored-but-unsourced project not caught")
+
+    def test_detects_unparseable_completion_date(self):
+        """L2: years_between silently returns 0 on an unparseable date, which
+        maps to the 0-year delay-penalty bucket (no penalty). actual_completion
+        / expected_completion are plain TEXT (no schema CHECK), so the verifier
+        is the backstop that flags a malformed value like 'TBD' instead of
+        letting it silently zero the delay penalty."""
+        conn = make_clean_fixture()
+        conn.execute(
+            "INSERT INTO projects (id, title, status, sector, execution_score, "
+            "evidence_complete, source_program, data_completeness, "
+            "actual_completion) VALUES ('p-bad-date', 'Bad Date', 'operational', "
+            "'Energy', 60, 1, 'FILDA', 'partial', 'TBD')")
+        conn.commit()
+        self.assertTrue(self._failed_matching(conn, "dates parse"),
+                        "unparseable actual_completion not caught")
+
+
+class EventDateSchemaCheckTests(unittest.TestCase):
+    """L2: events.event_date is format-CHECKed at the schema level (YYYY,
+    YYYY-MM, or YYYY-MM-DD). A malformed date must be rejected at insert/load
+    time — fail loud at the source instead of silently zeroing the delay
+    penalty downstream."""
+
+    def test_schema_rejects_malformed_event_date(self):
+        conn = make_conn()
+        conn.execute("INSERT INTO projects (id, title) VALUES ('p', 'P')")
+        with self.assertRaises(sqlite3.IntegrityError):
+            conn.execute(
+                "INSERT INTO events (project_id, event_type, event_date) "
+                "VALUES ('p', 'announcement', 'Q1 2026')")
+
+    def test_schema_accepts_partial_dates(self):
+        conn = make_conn()
+        conn.execute("INSERT INTO projects (id, title) VALUES ('p', 'P')")
+        for d in ("2024", "2024-01", "2024-01-15"):
+            conn.execute(
+                "INSERT INTO events (project_id, event_type, event_date) "
+                "VALUES ('p', 'announcement', ?)", (d,))
+        # NULL is allowed (event_date is nullable).
+        conn.execute(
+            "INSERT INTO events (project_id, event_type, event_date) "
+            "VALUES ('p', 'announcement', NULL)")
+        conn.commit()
+        self.assertEqual(conn.execute("SELECT COUNT(*) FROM events").fetchone()[0], 4)
 
 
 if __name__ == "__main__":

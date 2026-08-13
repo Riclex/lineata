@@ -32,12 +32,13 @@ import csv
 import json
 import os
 import sys
+import threading
 import time
 import urllib.parse
 from argparse import Namespace
 from collections import defaultdict, deque
 from datetime import datetime
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
 BASE_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(BASE_dir, "db"))
@@ -53,6 +54,10 @@ APP_dir = os.path.join(BASE_dir, "app")
 # reads directly (the API exposes only a count, never the email addresses).
 LEADS_path = os.path.join(BASE_dir, "data", "leads.csv")
 
+# M7: guards append_lead's header-decide + write + count under
+# ThreadingHTTPServer (concurrent POSTs would otherwise duplicate the header).
+_leads_lock = threading.Lock()
+
 
 def connect():
     if not os.path.exists(DB_path):
@@ -66,6 +71,11 @@ def _ns(params):
     """Build a duck-typed namespace from a query-string dict for query.py."""
     def _int(v):
         return int(v) if v not in (None, "") else None
+    # L8: bool(params.get('include_unscored')) treated the string 'false' as
+    # True (bool('false') is True), so ?include_unscored=false silently INCLUDED
+    # unscored projects. Parse the value explicitly.
+    include_unscored = params.get("include_unscored", "").strip().lower() in (
+        "1", "true", "yes", "on")
     return Namespace(
         sector=params.get("sector"), province=params.get("province"),
         status=params.get("status"),
@@ -73,7 +83,7 @@ def _ns(params):
         org=params.get("org"),
         source_program=params.get("source_program"),
         min_score=_int(params.get("min_score")), max_score=_int(params.get("max_score")),
-        search=params.get("search"), include_unscored=bool(params.get("include_unscored")),
+        search=params.get("search"), include_unscored=include_unscored,
         summary=False, project=None, facets=False,
     )
 
@@ -95,18 +105,24 @@ def append_lead(email):
 
     Runtime capture only — leads.csv is gitignored and is NOT part of the
     reproducible CSV->SQLite pipeline. Returns the new total lead count.
+
+    M7: the header-decide + append + count is guarded by _leads_lock. Under
+    ThreadingHTTPServer, concurrent POSTs would otherwise each see the file as
+    missing and write a header, duplicating it (and skewing the count). The lock
+    makes the check-write-count atomic per submission.
     """
     os.makedirs(os.path.dirname(LEADS_path), exist_ok=True)
-    write_header = not os.path.exists(LEADS_path)
-    captured_at = datetime.now().isoformat(timespec="seconds")
-    with open(LEADS_path, "a", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        if write_header:
-            w.writerow(["captured_at", "email"])
-        w.writerow([captured_at, email])
-    with open(LEADS_path, encoding="utf-8") as f:
-        # subtract the header we may have just written
-        return sum(1 for _ in f) - (1 if write_header else 0)
+    with _leads_lock:
+        write_header = not os.path.exists(LEADS_path)
+        captured_at = datetime.now().isoformat(timespec="seconds")
+        with open(LEADS_path, "a", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            if write_header:
+                w.writerow(["captured_at", "email"])
+            w.writerow([captured_at, email])
+        with open(LEADS_path, encoding="utf-8") as f:
+            # subtract the header we may have just written
+            return sum(1 for _ in f) - (1 if write_header else 0)
 
 
 def leads_status():
@@ -159,28 +175,31 @@ def origin_allowed(origin):
 
 
 class RateLimiter:
-    """Sliding-window per-IP limiter. Plain HTTPServer is single-threaded so
-    the dict is accessed without a lock; switch to ThreadingHTTPServer and
-    guard _hits with a Lock before relying on that."""
+    """Sliding-window per-IP limiter. M7: ThreadingHTTPServer serves requests
+    on multiple threads, so _hits is guarded by a Lock — without it, two
+    concurrent check()s for the same IP can both pass the len() test before
+    either appends, over-admitting past max."""
 
     def __init__(self, max_hits, window_seconds):
         self.max = max_hits
         self.window = window_seconds
         self._hits = defaultdict(deque)
+        self._lock = threading.Lock()
 
     def check(self, ip, now=None):
         """Record a hit for `ip` and return True if under the limit, False if
         at/over it (and do NOT record). Pass `now` for deterministic tests."""
         if now is None:
             now = time.time()
-        dq = self._hits[ip]
-        cutoff = now - self.window
-        while dq and dq[0] < cutoff:
-            dq.popleft()
-        if len(dq) >= self.max:
-            return False
-        dq.append(now)
-        return True
+        with self._lock:
+            dq = self._hits[ip]
+            cutoff = now - self.window
+            while dq and dq[0] < cutoff:
+                dq.popleft()
+            if len(dq) >= self.max:
+                return False
+            dq.append(now)
+            return True
 
 
 def _rate_limiter_from_env():
@@ -262,7 +281,9 @@ class APIHandler(SimpleHTTPRequestHandler):
                 detail = q.project_detail(conn, pid)
                 conn.close()
                 if detail is None:
-                    self._send_error(404, f"Project not found: {pid}")
+                    # L9: do not echo the raw pid back — it is unvalidated URL
+                    # input, and reflecting it is an injection/reflection vector.
+                    self._send_error(404, "Project not found")
                 else:
                     self._send_json(detail)
                 return
@@ -310,7 +331,7 @@ def main():
     args = parser.parse_args()
     if not os.path.exists(DB_path):
         sys.exit(f"Database not found at {DB_path}. Run `python db/load.py` first.")
-    server = HTTPServer(("0.0.0.0", args.port), APIHandler)
+    server = ThreadingHTTPServer(("0.0.0.0", args.port), APIHandler)
     print(f"FILDA Investment Tracker — API server")
     print(f"  Static files : {'disabled' if args.db_only else 'app/'}")
     print(f"  API base     : http://localhost:{args.port}/api/")

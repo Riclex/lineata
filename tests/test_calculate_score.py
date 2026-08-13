@@ -28,6 +28,7 @@ import unittest
 DB_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "db")
 sys.path.insert(0, DB_DIR)
 from calculate_scores import calculate_score, SCORE_VERSION  # noqa: E402
+import calculate_scores as cs  # noqa: E402
 
 SCHEMA_PATH = os.path.join(DB_DIR, "schema.sql")
 
@@ -340,6 +341,59 @@ class ClampAndVersionTests(unittest.TestCase):
         add_event(conn, "p", "announcement", "2024-01-01")
         _, b = score(conn, "p")
         self.assertEqual(b["version"], SCORE_VERSION)
+
+
+class ReportSummaryTests(unittest.TestCase):
+    """L1: the score-report summary (avg/median/range/distribution) divides and
+    indexes over the `scored` list with no empty guard. If every tracked project
+    is evidence_complete=0 (unscored), `scored` is empty and the report crashes
+    with ZeroDivisionError / IndexError / ValueError instead of printing. These
+    tests pin the extracted `print_summary(scores)` so an all-unscored dataset
+    reports gracefully and a normal dataset still prints the stats."""
+
+    def _scores(self, *specs):
+        # specs: (pid, title, score, status, breakdown)
+        return [(p, t, s, st, b) for (p, t, s, st, b) in specs]
+
+    def test_all_unscored_does_not_raise(self):
+        import contextlib
+        import io
+        scores = self._scores(
+            ("p1", "P1", 0, "operational", {"unscored": True}),
+            ("p2", "P2", 0, "announced", {"unscored": True}),
+        )
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            cs.print_summary(scores)  # must not raise
+        out = buf.getvalue()
+        self.assertIn("Projects tracked: 2", out)
+        self.assertIn("scored: 0", out)
+        # The crash-prone stats are skipped, not attempted on an empty list.
+        self.assertNotIn("Average score", out)
+
+    def test_empty_scores_does_not_raise(self):
+        import contextlib
+        import io
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            cs.print_summary([])  # no projects at all
+        self.assertIn("scored: 0", buf.getvalue())
+
+    def test_normal_dataset_prints_avg_median_range(self):
+        import contextlib
+        import io
+        scores = self._scores(
+            ("p1", "P1", 60, "operational", {}),
+            ("p2", "P2", 80, "completed", {}),
+        )
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            cs.print_summary(scores)
+        out = buf.getvalue()
+        self.assertIn("Average score", out)
+        self.assertIn("Median score", out)
+        self.assertIn("Score range", out)
+        self.assertIn("Distribution", out)
 
 
 if __name__ == "__main__":

@@ -25,7 +25,7 @@ import sys
 import sqlite3
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from constants import SCORE_BUCKETS
+from constants import SCORE_BUCKETS, CASE_STUDIES
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -37,11 +37,7 @@ BASE_dir = os.path.dirname(DB_dir)
 ARTICLES_dir = os.path.join(BASE_dir, "articles")
 AVG_TOL = 0.05
 
-CASE_STUDIES = [
-    "huatong-angola-industry-awards", "linha-verde-investor-visas",
-    "pt-ao-credit-line-2-5b", "pt-ao-credit-line-3-25b", "chicomba-water-dam",
-    "investment-portal-georeferenced", "etu-energias-leao-ouro-2025",
-]
+# CASE_STUDIES is single-sourced from db/constants.py (L6).
 
 
 def _distribution(scores):
@@ -97,6 +93,23 @@ def generate_snapshot(conn):
         row = conn.execute(
             "SELECT execution_score FROM projects WHERE id = ?", (pid,)).fetchone()
         snap["case_studies"][pid] = row[0] if row else None
+
+    # Data-specific pins keyed by STABLE PROJECT SLUG, not autoincrement event
+    # ids (L7). These are the two pins that previously lived in verify_invariants
+    # (event 104 date) and changelog.py (event [80]) — both contradicted the
+    # "checks hold for ANY valid dataset" claim and would break if the ids
+    # shifted. Their home is here (the designated place for data-specific
+    # figures), keyed by slug so they survive re-numbering.
+    snap["case_study_pins"] = {}
+    row = conn.execute(
+        "SELECT event_date FROM events WHERE project_id='chicomba-water-dam' "
+        "AND event_type='groundbreaking' ORDER BY id LIMIT 1").fetchone()
+    snap["case_study_pins"]["chicomba_groundbreaking"] = row[0] if row else None
+    unsourced = conn.execute(
+        "SELECT project_id FROM events WHERE source_id IS NULL").fetchall()
+    snap["case_study_pins"]["unsourced_event_count"] = len(unsourced)
+    snap["case_study_pins"]["unsourced_event_project"] = (
+        unsourced[0][0] if len(unsourced) == 1 else None)
     return snap
 
 
@@ -148,6 +161,19 @@ def compare_snapshot(conn, expected):
        expected["gov_vs_private"]["private_avg"], tol=AVG_TOL)
     for pid in CASE_STUDIES:
         eq(f"case_study {pid}", actual["case_studies"].get(pid), expected["case_studies"].get(pid))
+    # L7: data-specific pins keyed by stable project slug. .get() with a
+    # sentinel so a stale baseline predating the pins reports drift instead of
+    # crashing with KeyError.
+    exp_pins = expected.get("case_study_pins", {})
+    eq("case_study_pins.chicomba_groundbreaking",
+       actual["case_study_pins"]["chicomba_groundbreaking"],
+       exp_pins.get("chicomba_groundbreaking", "__MISSING__"))
+    eq("case_study_pins.unsourced_event_project",
+       actual["case_study_pins"]["unsourced_event_project"],
+       exp_pins.get("unsourced_event_project", "__MISSING__"))
+    eq("case_study_pins.unsourced_event_count",
+       actual["case_study_pins"]["unsourced_event_count"],
+       exp_pins.get("unsourced_event_count", "__MISSING__"))
     return drifts
 
 

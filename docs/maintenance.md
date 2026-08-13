@@ -23,6 +23,9 @@ publish.
 ## After every incremental update session (manual)
 
     python db/update.py <cmd> --apply     # append mutations
+    #   <cmd> is one of:
+    #     add-source  add-event  add-evidence  set-status
+    #     set-blocked relink  reverify  retype-event
     python db/export_csv.py --apply       # checkpoint CSVs + stamp watermark
     python db/verify_snapshot.py --update # regenerate db/snapshot.json, commit it
     python db/load.py                     # confirm the round-trip still rebuilds

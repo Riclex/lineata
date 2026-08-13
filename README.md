@@ -99,9 +99,11 @@ FILDA Investment Tracker/
 │   ├── methodology.md         # Plain-language execution methodology (for readers of the analyses)
 │   ├── scoring-methodology.md # Execution-score formula, weights, worked examples, versioning
 │   ├── data-lineage.md        # Provenance narrative: where every source/link/fix came from
+│   ├── going-public.md        # Pre-push content review checklist (this repo is public — review tracked files before every push)
 │   └── maintenance.md         # Maintenance cadence (every commit, before publish, after updates, monthly)
 ├── db/
 │   ├── schema.sql             # SQLite database schema
+│   ├── constants.py           # Single source of truth for controlled vocabularies (MUTATION_OPS, SCORE_BUCKETS, EVENT_TYPES, etc.)
 │   ├── load.py                # CSV → SQLite loader (fresh rebuild; FK + score gates; staleness guard)
 │   ├── calculate_scores.py    # Execution-score calculator (--update-csv syncs projects.csv)
 │   ├── update.py              # Incremental append-only mutator (add-event/source/evidence, set-status, set-blocked, relink, reverify, retype-event)
@@ -113,8 +115,10 @@ FILDA Investment Tracker/
 │   ├── verify_docs.py         # Doc-figure drift detector (scans docs/*.md + README for stale cited numbers)
 │   ├── health.py              # One-command consistency gate (tests → load → invariants → snapshot → sources → docs); --fast for pre-commit
 │   ├── changelog.py            # Read-only change_log audit digest (checkpoint status, score movers, new sources, invariants)
+│   ├── audit.py               # Shared audit-trail writer (log_change; single impl of the change_log write, breaks a circular import)
 │   ├── digest.py              # Monthly status-change digest (markdown, email-ready)
 │   ├── query.py               # Read-only JSON query API (filters: sector/province/org/edition/status/score)
+│   ├── export_app_json.py     # Regenerate app/data.json (static fallback) from the DB; --check for CI sync
 │   ├── investment_tracker.db  # The database (rebuilt from CSVs)
 │   └── _extract/              # Source-extraction provenance (2026-07-25 re-linking)
 ├── tests/                          # Stdlib unittest; run: python -m unittest discover tests

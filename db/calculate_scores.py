@@ -120,6 +120,20 @@ def calculate_event_points(conn, project_id):
 # click-through evidence" at the signal level.
 CONFIDENCE_MULT = {'high': 1.0, 'medium': 0.5, 'low': 0.0}
 
+# L6: the scoring dicts must key exactly onto the centralized vocabularies in
+# constants.py — a weight edit that drops or adds a vocab member without
+# updating the other side fails loud at import time (test_constants pins this
+# too). Asserted at module load so any consumer import surfaces the drift.
+from constants import (EVENT_TYPES as _EVENT_TYPES, STATUS_TYPES as _STATUS_TYPES,
+                       CONFIDENCE_LEVELS as _CONFIDENCE_LEVELS)  # noqa: E402
+assert set(BASE_SCORES) == set(_STATUS_TYPES), (
+    f"BASE_SCORES keys {set(BASE_SCORES)} != STATUS_TYPES {set(_STATUS_TYPES)}")
+assert set(EVENT_POINTS) == set(_EVENT_TYPES), (
+    f"EVENT_POINTS keys {set(EVENT_POINTS)} != EVENT_TYPES {set(_EVENT_TYPES)}")
+assert set(CONFIDENCE_MULT) == set(_CONFIDENCE_LEVELS), (
+    f"CONFIDENCE_MULT keys {set(CONFIDENCE_MULT)} != "
+    f"CONFIDENCE_LEVELS {set(_CONFIDENCE_LEVELS)}")
+
 
 def _source_confidence(conn, source_id):
     """Confidence of a source_id, or 0.0 if NULL/missing/unknown."""
@@ -344,6 +358,45 @@ def update_projects_csv(score_by_id):
     return changed
 
 
+def print_summary(scores):
+    """Print the score-report summary stats (tracked/scored/unscored counts,
+    average, median, range, distribution).
+
+    `scores` is the list of (pid, title, score, status, breakdown) tuples built
+    in main(). Published figures cover SCORED projects only
+    (evidence_complete=1); tracked-but-unscored projects (score 0, no click-
+    through evidence) are excluded from the headline average.
+
+    Extracted from main() so the empty-`scored` edge case is unit-testable. If
+    every tracked project is unscored (or the DB has no projects), `scored` is
+    empty and the avg/median/min/max below would crash with
+    ZeroDivisionError / IndexError / ValueError — guard against that and report
+    gracefully instead of crashing the whole report."""
+    scored = [s for s in scores if not s[4].get('unscored')]
+    unscored = [s for s in scores if s[4].get('unscored')]
+    print(f"\n{'='*75}")
+    print(f"Projects tracked: {len(scores)}  |  scored: {len(scored)}  |  "
+          f"unscored (no evidence): {len(unscored)}")
+    if unscored:
+        print(f"  unscored: {', '.join(s[0] for s in unscored)}")
+    if not scored:
+        print("No scored projects — nothing to summarize.")
+        return
+    avg = sum(s[2] for s in scored) / len(scored)
+    print(f"Average score (scored only): {avg:.1f}")
+    print(f"Median score: {sorted(s[2] for s in scored)[len(scored)//2]}")
+    print(f"Score range: {min(s[2] for s in scored)} - {max(s[2] for s in scored)}")
+
+    # Distribution
+    from constants import score_distribution
+    buckets = score_distribution(s[2] for s in scored)
+
+    print(f"\nDistribution:")
+    for bucket, count in buckets.items():
+        bar = '#' * count
+        print(f"  {bucket:>7}: {count:2d} {bar}")
+
+
 def main():
     parser = argparse.ArgumentParser(description='Calculate execution scores')
     parser.add_argument('--dry', action='store_true', help='Calculate without updating DB or CSV')
@@ -382,26 +435,7 @@ def main():
     # (evidence_complete = 1). Tracked-but-unscored projects (score 0, no
     # click-through evidence) are kept in the DB but excluded from the
     # headline average so unverified claims never move the published number.
-    scored = [s for s in scores if not s[4].get('unscored')]
-    unscored = [s for s in scores if s[4].get('unscored')]
-    avg = sum(s[2] for s in scored) / len(scored)
-    print(f"\n{'='*75}")
-    print(f"Projects tracked: {len(scores)}  |  scored: {len(scored)}  |  "
-          f"unscored (no evidence): {len(unscored)}")
-    if unscored:
-        print(f"  unscored: {', '.join(s[0] for s in unscored)}")
-    print(f"Average score (scored only): {avg:.1f}")
-    print(f"Median score: {sorted(s[2] for s in scored)[len(scored)//2]}")
-    print(f"Score range: {min(s[2] for s in scored)} - {max(s[2] for s in scored)}")
-
-    # Distribution
-    from constants import score_distribution
-    buckets = score_distribution(s[2] for s in scored)
-
-    print(f"\nDistribution:")
-    for bucket, count in buckets.items():
-        bar = '#' * count
-        print(f"  {bucket:>7}: {count:2d} {bar}")
+    print_summary(scores)
 
     if args.dry:
         print(f"\n(dry run — database and CSV not updated)")
