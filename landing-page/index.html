@@ -323,6 +323,24 @@
     }
     footer a:hover { color: var(--text); }
 
+    /* Language toggle (PT/EN) */
+    .lang-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 100;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+    .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
     /* Responsive */
     @media (max-width: 600px) {
       .hero h1 { font-size: 30px; }
@@ -333,15 +351,17 @@
 </head>
 <body>
 
+  <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
+
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <span class="hero-badge">COMING SOON</span>
-      <h1>Find out what happened to every major <span class="highlight">investment announced in Angola</span> since 2005.</h1>
-      <p>Every FILDA announcement. Every AIPEX commitment. Every government project. Traced from announcement to operation — or to silence.</p>
+      <span class="hero-badge" data-en="COMING SOON" data-pt="EM BREVE">COMING SOON</span>
+      <h1 data-html data-en="Find out what happened to every major <span class=&quot;highlight&quot;>investment announced in Angola</span> since 2022." data-pt="Descubra o que aconteceu a cada grande <span class=&quot;highlight&quot;>investimento anunciado em Angola</span> desde 2022.">Find out what happened to every major <span class="highlight">investment announced in Angola</span> since 2022.</h1>
+      <p data-en="Every FILDA announcement. Every AIPEX commitment. Every government project. Traced from announcement to operation — or to silence." data-pt="Cada anúncio da FILDA. Cada compromisso da AIPEX. Cada projeto do governo. Acompanhado do anúncio à operação — ou ao silêncio.">Every FILDA announcement. Every AIPEX commitment. Every government project. Traced from announcement to operation — or to silence.</p>
       <div class="cta-row">
-        <a href="#notify" class="btn btn-primary">Get Early Access</a>
-        <a href="#example" class="btn btn-secondary">See an Example</a>
+        <a href="#notify" class="btn btn-primary" data-en="Get Early Access" data-pt="Obter Acesso Antecipado">Get Early Access</a>
+        <a href="#example" class="btn btn-secondary" data-en="See an Example" data-pt="Ver um Exemplo">See an Example</a>
       </div>
     </div>
   </section>
@@ -349,70 +369,55 @@
   <!-- SAMPLE METRICS -->
   <section class="metrics" id="metrics">
     <div class="container">
-      <h2>What you'll be able to ask</h2>
+      <h2 data-en="What you'll be able to ask" data-pt="O que poderá perguntar">What you'll be able to ask</h2>
       <div class="metrics-grid">
         <div class="metric-card">
-          <div class="metric-value accent" id="m-announcements">1,200+</div>
-          <div class="metric-label">Tracked announcements</div>
+          <div class="metric-value accent">104</div>
+          <div class="metric-label" data-en="Projects tracked" data-pt="Projetos acompanhados">Projects tracked</div>
         </div>
         <div class="metric-card">
-          <div class="metric-value green" id="m-completed">—</div>
-          <div class="metric-label">Completed</div>
+          <div class="metric-value green">6</div>
+          <div class="metric-label" data-en="Completed" data-pt="Concluídos">Completed</div>
         </div>
         <div class="metric-card">
-          <div class="metric-value yellow" id="m-delayed">—</div>
-          <div class="metric-label">Delayed</div>
+          <div class="metric-value yellow">2</div>
+          <div class="metric-label" data-en="Delayed" data-pt="Atrasados">Delayed</div>
         </div>
         <div class="metric-card">
-          <div class="metric-value red" id="m-cancelled">—</div>
-          <div class="metric-label">Cancelled</div>
+          <div class="metric-value red">0</div>
+          <div class="metric-label" data-en="Cancelled" data-pt="Cancelados">Cancelled</div>
         </div>
       </div>
-      <p class="metrics-note">Metrics updated as data collection progresses. Phase 0 (FILDA 2023) in progress.</p>
+      <p class="metrics-note" data-en="Live figures from the current database — FILDA 2022–2026 plus AIPEX, PPP and multilateral projects. Updated August 2026." data-pt="Números reais da base de dados atual — FILDA 2022–2026 e projetos AIPEX, PPP e multilaterais. Atualizado em agosto de 2026.">Live figures from the current database — FILDA 2022–2026 plus AIPEX, PPP and multilateral projects. Updated August 2026.</p>
     </div>
   </section>
 
   <!-- EXAMPLE TIMELINE -->
   <section class="example" id="example">
     <div class="container">
-      <h2>Every project becomes a timeline</h2>
-      <p class="intro">Not just "what was announced" — but what actually happened. Here's a sample project profile:</p>
-      <div class="timeline-project">Luanda Glass Factory</div>
+      <h2 data-en="Every project becomes a timeline" data-pt="Cada projeto torna-se uma linha do tempo">Every project becomes a timeline</h2>
+      <p class="intro" data-en="Not just "what was announced" — but what actually happened. Here's a real project profile:" data-pt="Não apenas "o que foi anunciado" — mas o que realmente aconteceu. Aqui está um perfil de projeto real:">Not just "what was announced" — but what actually happened. Here's a real project profile:</p>
+      <div class="timeline-project" data-en="Cabinda Refinery" data-pt="Refinaria de Cabinda">Cabinda Refinery</div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-year">2012</div>
-          <div class="timeline-event">Announced at FILDA</div>
+          <div class="timeline-year">2022</div>
+          <div class="timeline-event" data-en="Financing secured — Gemcorp + AFC + Afreximbank (USD 473M)" data-pt="Financiamento garantido — Gemcorp + AFC + Afreximbank (USD 473M)">Financing secured — Gemcorp + AFC + Afreximbank (USD 473M)</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-year">2013</div>
-          <div class="timeline-event">MoU signed</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2014</div>
-          <div class="timeline-event">Construction started</div>
-        </div>
-        <div class="timeline-item red">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2015</div>
-          <div class="timeline-event">Funding suspended</div>
-        </div>
-        <div class="timeline-item red">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2018</div>
-          <div class="timeline-event">Chinese partner exited</div>
-        </div>
-        <div class="timeline-item yellow">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2021</div>
-          <div class="timeline-event">Project restarted</div>
+          <div class="timeline-year">2022</div>
+          <div class="timeline-event" data-en="Phase 1 construction began" data-pt="Construção da Fase 1 iniciada">Phase 1 construction began</div>
         </div>
         <div class="timeline-item green">
           <div class="timeline-dot"></div>
           <div class="timeline-year">2025</div>
-          <div class="timeline-event">Operating at 35% capacity</div>
+          <div class="timeline-event" data-en="Phase 1 (30,000 bpd) inaugurated" data-pt="Fase 1 (30.000 barris/dia) inaugurada">Phase 1 (30,000 bpd) inaugurated</div>
+        </div>
+        <div class="timeline-item yellow">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2026</div>
+          <div class="timeline-event" data-en="AIPEX Energy award at FILDA 2026" data-pt="Prémio de Energia AIPEX na FILDA 2026">AIPEX Energy award at FILDA 2026</div>
         </div>
       </div>
     </div>
@@ -421,31 +426,31 @@
   <!-- AUDIENCE -->
   <section class="audience">
     <div class="container">
-      <h2>Who needs this?</h2>
+      <h2 data-en="Who needs this?" data-pt="Quem precisa disto?">Who needs this?</h2>
       <div class="audience-grid">
         <div class="audience-card">
-          <h3>Foreign Investors</h3>
-          <p>Before investing, know if your local partner has delivered before. Which sectors actually execute. Which provinces have the highest completion rates.</p>
+          <h3 data-en="Foreign Investors" data-pt="Investidores Estrangeiros">Foreign Investors</h3>
+          <p data-en="Before investing, know if your local partner has delivered before. Which sectors actually execute. Which provinces have the highest completion rates." data-pt="Antes de investir, saiba se o seu parceiro local já entregou antes. Que setores realmente executam. Que províncias têm as maiores taxas de conclusão.">Before investing, know if your local partner has delivered before. Which sectors actually execute. Which provinces have the highest completion rates.</p>
         </div>
         <div class="audience-card">
-          <h3>Consulting Firms</h3>
-          <p>EY, Deloitte, KPMG, PwC, and local advisors produce Angola market reports. This database shortens research from weeks to minutes.</p>
+          <h3 data-en="Consulting Firms" data-pt="Firmas de Consultoria">Consulting Firms</h3>
+          <p data-en="EY, Deloitte, KPMG, PwC, and local advisors produce Angola market reports. This database shortens research from weeks to minutes." data-pt="EY, Deloitte, KPMG, PwC e consultores locais produzem relatórios de mercado de Angola. Esta base de dados encurta a pesquisa de semanas para minutos.">EY, Deloitte, KPMG, PwC, and local advisors produce Angola market reports. This database shortens research from weeks to minutes.</p>
         </div>
         <div class="audience-card">
-          <h3>Banks & Lenders</h3>
-          <p>Credit intelligence: "Show every $20M+ manufacturing project announced since 2010 and whether it was completed."</p>
+          <h3 data-en="Banks & Lenders" data-pt="Bancos e Financiadores">Banks & Lenders</h3>
+          <p data-en="Credit intelligence: "Show every $20M+ manufacturing project announced since 2010 and whether it was completed."" data-pt="Inteligência de crédito: "Mostre cada projeto industrial de $20M+ anunciado desde 2010 e se foi concluído."">Credit intelligence: "Show every $20M+ manufacturing project announced since 2010 and whether it was completed."</p>
         </div>
         <div class="audience-card">
-          <h3>Export Agencies</h3>
-          <p>Trade missions from Portugal, Brazil, Turkey, China, South Africa want to know which sectors turn announcements into operations.</p>
+          <h3 data-en="Export Agencies" data-pt="Agências de Exportação">Export Agencies</h3>
+          <p data-en="Trade missions from Portugal, Brazil, Turkey, China, South Africa want to know which sectors turn announcements into operations." data-pt="Missões comerciais de Portugal, Brasil, Turquia, China, África do Sul querem saber que setores transformam anúncios em operações.">Trade missions from Portugal, Brazil, Turkey, China, South Africa want to know which sectors turn announcements into operations.</p>
         </div>
         <div class="audience-card">
-          <h3>Journalists</h3>
-          <p>Every FILDA produces "$300 million announced" headlines. Few revisit those claims. This is a fact-checking resource.</p>
+          <h3 data-en="Journalists" data-pt="Jornalistas">Journalists</h3>
+          <p data-en="Every FILDA produces "$300 million announced" headlines. Few revisit those claims. This is a fact-checking resource." data-pt="Cada FILDA gera manchetes de "$300 milhões anunciados". Poucos revisitam essas afirmações. Este é um recurso de verificação de factos.">Every FILDA produces "$300 million announced" headlines. Few revisit those claims. This is a fact-checking resource.</p>
         </div>
         <div class="audience-card">
-          <h3>Researchers</h3>
-          <p>Development economists study why projects succeed or fail. Surprisingly little structured data exists for Angola.</p>
+          <h3 data-en="Researchers" data-pt="Investigadores">Researchers</h3>
+          <p data-en="Development economists study why projects succeed or fail. Surprisingly little structured data exists for Angola." data-pt="Economistas do desenvolvimento estudam por que os projetos têm sucesso ou falham. Surpreendentemente, existe pouca dados estruturados para Angola.">Development economists study why projects succeed or fail. Surprisingly little structured data exists for Angola.</p>
         </div>
       </div>
     </div>
@@ -454,10 +459,10 @@
   <!-- KEY QUESTION -->
   <section class="question">
     <div class="container">
-      <h2>"If this database existed today, would it save you research time or improve your due diligence?"</h2>
-      <p>If the answer is yes, leave your email. You'll be first to know when it's live.</p>
+      <h2 data-en="&quot;If this database existed today, would it save you research time or improve your due diligence?&quot;" data-pt="&quot;Se esta base de dados existisse hoje, poupar-lhe-ia tempo de pesquisa ou melhoraria a sua due diligence?&quot;">"If this database existed today, would it save you research time or improve your due diligence?"</h2>
+      <p data-en="If the answer is yes, leave your email. You'll be first to know when it's live." data-pt="Se a resposta for sim, deixe o seu email. Será o primeiro a saber quando estiver disponível.">If the answer is yes, leave your email. You'll be first to know when it's live.</p>
       <div class="cta-row">
-        <a href="#notify" class="btn btn-primary">Yes, Notify Me</a>
+        <a href="#notify" class="btn btn-primary" data-en="Yes, Notify Me" data-pt="Sim, Notifique-me">Yes, Notify Me</a>
       </div>
     </div>
   </section>
@@ -465,25 +470,76 @@
   <!-- SIGNUP FORM -->
   <section class="signup" id="notify">
     <div class="container">
-      <h2>Get Early Access</h2>
-      <p>We'll email you when the database launches. No spam, just updates.</p>
+      <h2 data-en="Get Early Access" data-pt="Obter Acesso Antecipado">Get Early Access</h2>
+      <p data-en="We'll email you when the database launches. No spam, just updates." data-pt="Enviaremos um email quando a base de dados for lançada. Sem spam, apenas atualizações.">We'll email you when the database launches. No spam, just updates.</p>
       <form class="signup-form" id="signup-form">
-        <input type="email" name="email" placeholder="your@email.com" required>
-        <button type="submit">Notify Me</button>
+        <input type="email" name="email" placeholder="your@email.com" data-pt-placeholder="o.seu@email.com" required>
+        <button type="submit" data-en="Notify Me" data-pt="Notificar-me">Notify Me</button>
       </form>
-      <div class="signup-note">You can unsubscribe at any time.</div>
-      <div class="signup-success" id="signup-success">✓ Thanks! We'll be in touch.</div>
+      <div class="signup-note" data-en="You can unsubscribe at any time." data-pt="Pode cancelar a subscrição a qualquer momento.">You can unsubscribe at any time.</div>
+      <div class="signup-success" id="signup-success" data-en="✓ Thanks! We'll be in touch." data-pt="✓ Obrigado! Entraremos em contacto.">✓ Thanks! We'll be in touch.</div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>Angola Project Intelligence · Investment Execution Database · <a href="#">Contact</a></p>
+      <p>Angola Project Intelligence · Investment Execution Database · <a href="https://github.com/Riclex/lineata" target="_blank" rel="noopener" data-en="Contact" data-pt="Contacto">Contact</a></p>
     </div>
   </footer>
 
   <script>
+    // --- Language toggle (PT/EN) ---
+    // Default is PT (European Portuguese, 1990 orthographic agreement).
+    // Every translatable element carries data-en / data-pt; elements whose
+    // value is markup (the hero h1) also carry data-html.
+    var I18N = {
+      en: {
+        title: 'Angola Project Intelligence — Find out what happened to every major investment announced in Angola',
+        description: 'A database that answers: Who actually delivers in Angola? Track every major investment announcement from FILDA, AIPEX, and government sources — and see what actually happened.'
+      },
+      pt: {
+        title: 'Inteligência de Projetos de Angola — Descubra o que aconteceu a cada grande investimento anunciado em Angola',
+        description: 'Uma base de dados que responde: quem realmente entrega em Angola? Acompanhe cada grande anúncio de investimento da FILDA, AIPEX e fontes governamentais — e veja o que realmente aconteceu.'
+      }
+    };
+
+    function setLang(lang) {
+      var t = I18N[lang];
+      document.title = t.title;
+      var meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute('content', t.description);
+      document.querySelectorAll('[data-en]').forEach(function(el) {
+        var text = el.getAttribute('data-' + lang);
+        if (text === null) return;
+        if (el.hasAttribute('data-html')) {
+          el.innerHTML = text;
+        } else {
+          el.textContent = text;
+        }
+      });
+      // Email placeholder is an attribute, not text content.
+      var email = document.querySelector('.signup-form input[type="email"]');
+      if (email) {
+        var ph = email.getAttribute('data-pt-placeholder');
+        email.setAttribute('placeholder', (lang === 'pt' && ph) ? ph : 'your@email.com');
+      }
+      var toggle = document.getElementById('lang-toggle');
+      if (toggle) {
+        toggle.textContent = lang === 'pt' ? 'EN' : 'PT';
+        toggle.setAttribute('aria-label', lang === 'pt' ? 'Switch language' : 'Mudar idioma');
+      }
+      try { localStorage.setItem('lp_lang', lang); } catch (e) {}
+    }
+
+    var savedLang = null;
+    try { savedLang = localStorage.getItem('lp_lang'); } catch (e) {}
+    var lang = (savedLang === 'en' || savedLang === 'pt') ? savedLang : 'pt';
+    setLang(lang);
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+      setLang(lang === 'pt' ? 'en' : 'pt');
+    });
+
     // Simple form handler (no backend yet — just visual feedback)
     document.getElementById('signup-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -495,9 +551,6 @@
       document.getElementById('signup-success').style.display = 'block';
       this.querySelector('input[type="email"]').value = '';
     });
-
-    // Placeholder metrics — will be replaced with real data as collection progresses
-    // m-announcements, m-completed, m-delayed, m-cancelled
   </script>
 
 </body>

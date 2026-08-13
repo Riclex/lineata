@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Angola Investment Execution Database</title>
   <meta name="description" content="Who actually delivers in Angola? Track every major investment announcement and see what actually happened.">
+  <script>
+    // Apply the saved theme before first paint so the page doesn't flash dark.
+    try { if (localStorage.getItem('app_theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -31,6 +35,7 @@
       --amber:        #d4932c;
       --amber-dim:    rgba(212, 147, 44, 0.15);
       --blue:         #5b8cc9;
+      --blue-dim:     rgba(91, 140, 201, 0.2);
 
       --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
       --font-body:    'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -40,6 +45,32 @@
       --radius-md: 10px;
       --radius-lg: 14px;
       --shadow-panel: 0 0 0 1px var(--border), 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    /* Light theme — same token names, light values. Applied via
+       <html data-theme="light"> (toggle in the topbar, persisted in
+       localStorage). Dark remains the default. */
+    :root[data-theme="light"] {
+      --bg:           #f4f6f9;
+      --surface:      #ffffff;
+      --surface2:     #eef1f5;
+      --border:       #dde3ea;
+      --border-vis:   #c6d0db;
+      --text:         #1b2432;
+      --text-dim:     #5a6a7e;
+      --text-muted:   #8b98a9;
+      --accent:       #a06a10;
+      --accent-warm:  #8f5e0e;
+      --accent-glow:  rgba(160, 106, 16, 0.10);
+      --green:        #2e8b4f;
+      --green-dim:    rgba(46, 139, 79, 0.12);
+      --red:          #c0392b;
+      --red-dim:      rgba(192, 57, 43, 0.10);
+      --amber:        #a06a10;
+      --amber-dim:    rgba(160, 106, 16, 0.12);
+      --blue:         #3a6ea5;
+      --blue-dim:     rgba(58, 110, 165, 0.12);
+      --shadow-panel: 0 0 0 1px var(--border), 0 8px 32px rgba(20, 30, 45, 0.12);
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,6 +106,7 @@
       height: 100vh;
       overflow-y: auto;
     }
+    .sidebar-backdrop { display: none; }  /* shown only in the mobile drawer */
 
     .sidebar-brand {
       font-family: var(--font-display);
@@ -139,10 +171,47 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      min-width: 0;
+    }
+    .nav-toggle {
+      display: none;  /* shown below 1024px (mobile drawer) */
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .nav-toggle:hover { background: var(--surface2); }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 16px;
+      line-height: 1;
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--text); background: var(--surface2); }
     .search-wrap {
       position: relative;
       max-width: 560px;
+      flex: 1;
     }
     .search-wrap input {
       width: 100%;
@@ -333,7 +402,7 @@
       font-weight: 500;
     }
     .status-completed, .status-operational { background: var(--green-dim); color: var(--green); }
-    .status-under_construction { background: var(--blue); color: #fff; background: rgba(91, 140, 201, 0.2); }
+    .status-under_construction { background: var(--blue-dim); color: var(--blue); }
     .status-delayed, .status-suspended { background: var(--amber-dim); color: var(--amber); }
     .status-announced { background: var(--surface2); color: var(--text-dim); }
     .status-cancelled { background: var(--red-dim); color: var(--red); }
@@ -352,7 +421,7 @@
       text-transform: uppercase;
     }
     .band-DELIVERED { background: var(--green-dim); color: var(--green); }
-    .band-IN_PROGRESS { background: rgba(91, 140, 201, 0.2); color: #5b8cc9; }
+    .band-IN_PROGRESS { background: var(--blue-dim); color: var(--blue); }
     .band-STALLED { background: var(--amber-dim); color: var(--amber); }
     .band-SILENT { background: var(--red-dim); color: var(--red); }
     .band-UNCONFIRMED { background: var(--surface2); color: var(--text-muted); }
@@ -741,7 +810,31 @@
 
     /* --- Responsive --- */
     @media (max-width: 1024px) {
-      .sidebar { display: none; }
+      .nav-toggle { display: block; }
+      /* The sidebar becomes a slide-in drawer (opened by the hamburger). */
+      .sidebar {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 100;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
+      }
+      .sidebar.open { transform: translateX(0); }
+      .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 90;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+      .sidebar-backdrop.open { opacity: 1; pointer-events: auto; }
       .detail-panel { width: 100vw; }
       .project-row .col-sector,
       .project-row .col-edition { display: none; }
@@ -766,6 +859,7 @@
       .detail-panel { transition: none; }
       .detail-overlay { transition: none; }
       .score-bar-fill { transition: none; }
+      .sidebar, .sidebar-backdrop { transition: none; }
     }
 
     /* --- Keyboard focus --- */
@@ -806,11 +900,15 @@
     <main class="main">
       <!-- Search -->
       <div class="topbar">
-        <div class="search-wrap">
-          <span class="search-icon">⌕</span>
-          <input type="text" id="search" placeholder="Search projects, companies, sectors..." autofocus>
-          <span class="search-shortcut">/</span>
+        <div class="topbar-left">
+          <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">☰</button>
+          <div class="search-wrap">
+            <span class="search-icon">⌕</span>
+            <input type="text" id="search" placeholder="Search projects, companies, sectors..." autofocus>
+            <span class="search-shortcut">/</span>
+          </div>
         </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle light/dark theme">◐</button>
       </div>
 
       <!-- Filters -->
@@ -830,6 +928,9 @@
       <div class="project-list" id="project-list"></div>
     </main>
   </div>
+
+  <!-- Mobile nav backdrop (drawer) -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
 
   <!-- Detail overlay -->
   <div class="detail-overlay" id="detail-overlay"></div>
@@ -914,6 +1015,34 @@
       selectedId: null,
       view: 'all'
     };
+
+    // ============================================================
+    // UI CONTROLS (theme toggle + mobile nav drawer)
+    // ============================================================
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+        if (next === 'light') document.documentElement.dataset.theme = 'light';
+        else delete document.documentElement.dataset.theme;
+        try { localStorage.setItem('app_theme', next); } catch (e) {}
+      });
+    }
+
+    const navToggle = document.getElementById('nav-toggle');
+    const sidebarEl = document.querySelector('.sidebar');
+    const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+    function closeNav() {
+      if (sidebarEl) sidebarEl.classList.remove('open');
+      if (sidebarBackdrop) sidebarBackdrop.classList.remove('open');
+    }
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        sidebarEl.classList.toggle('open');
+        sidebarBackdrop.classList.toggle('open');
+      });
+      sidebarBackdrop.addEventListener('click', closeNav);
+    }
 
     // ============================================================
     // URL ROUTING (hash-based)
@@ -1580,6 +1709,7 @@
         syncURL();
         renderFilters();
         renderList();
+        closeNav();  // mobile drawer: dismiss after choosing a view
       });
     }
 
