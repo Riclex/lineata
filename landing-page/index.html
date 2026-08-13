@@ -372,23 +372,23 @@
       <h2 data-en="What you'll be able to ask" data-pt="O que poderá perguntar">What you'll be able to ask</h2>
       <div class="metrics-grid">
         <div class="metric-card">
-          <div class="metric-value accent">104</div>
+          <div class="metric-value accent" id="stat-tracked">104</div>
           <div class="metric-label" data-en="Projects tracked" data-pt="Projetos acompanhados">Projects tracked</div>
         </div>
         <div class="metric-card">
-          <div class="metric-value green">6</div>
+          <div class="metric-value green" id="stat-completed">6</div>
           <div class="metric-label" data-en="Completed" data-pt="Concluídos">Completed</div>
         </div>
         <div class="metric-card">
-          <div class="metric-value yellow">2</div>
+          <div class="metric-value yellow" id="stat-delayed">2</div>
           <div class="metric-label" data-en="Delayed" data-pt="Atrasados">Delayed</div>
         </div>
         <div class="metric-card">
-          <div class="metric-value red">0</div>
+          <div class="metric-value red" id="stat-cancelled">0</div>
           <div class="metric-label" data-en="Cancelled" data-pt="Cancelados">Cancelled</div>
         </div>
       </div>
-      <p class="metrics-note" data-en="Live figures from the current database — FILDA 2022–2026 plus AIPEX, PPP and multilateral projects. Updated August 2026." data-pt="Números reais da base de dados atual — FILDA 2022–2026 e projetos AIPEX, PPP e multilaterais. Atualizado em agosto de 2026.">Live figures from the current database — FILDA 2022–2026 plus AIPEX, PPP and multilateral projects. Updated August 2026.</p>
+      <p class="metrics-note" id="metrics-note" data-en="Live figures from the current database — FILDA 2022–2026 plus AIPEX, PPP and multilateral projects. Updated August 2026." data-pt="Números reais da base de dados atual — FILDA 2022–2026 e projetos AIPEX, PPP e multilaterais. Atualizado em agosto de 2026." data-en-live="Live figures from the live database — FILDA 2022–2026 plus AIPEX, PPP and multilateral projects. ● Live." data-pt-live="Números reais da base de dados ao vivo — FILDA 2022–2026 e projetos AIPEX, PPP e multilaterais. ● Ao vivo.">Live figures from the current database — FILDA 2022–2026 plus AIPEX, PPP and multilateral projects. Updated August 2026.</p>
     </div>
   </section>
 
@@ -488,6 +488,8 @@
     </div>
   </footer>
 
+  <!-- M5/M6: pure helpers (window.LandingLogic) — unit-tested under Node. -->
+  <script src="landing-logic.js"></script>
   <script>
     // --- Language toggle (PT/EN) ---
     // Default is PT (European Portuguese, 1990 orthographic agreement).
@@ -549,9 +551,9 @@
     // ('/api/leads'); if the landing page is served from a different host than
     // the API server, set this to the absolute API URL (e.g.
     // 'https://api.example.com/api/leads'). When the server is unreachable the
-    // lead falls back to localStorage so it is not lost — but NOTE those
-    // fallback leads stay in the visitor's browser and are not yet
-    // operator-visible until a reconnect-sync is wired.
+    // lead falls back to localStorage so it is not lost; drainQueuedLeads()
+    // (M6, below) re-posts queued leads on the next load / when connectivity
+    // returns, so they eventually become operator-visible.
     var LEADS_ENDPOINT = '/api/leads';
     document.getElementById('signup-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -575,6 +577,63 @@
       input.value = '';
       document.getElementById('signup-success').style.display = 'block';
     });
+
+    // --- M5: live metric cards ---
+    // The cards ship with hardcoded values (currently correct) so the page
+    // never shows blanks; on load we try to refresh them from the live API and
+    // flip the note to a "Live" label. If the API is unreachable (landing opened
+    // standalone, or server down), the hardcoded values stand — no stale claim
+    // of liveness. The count-mapping logic is unit-tested in landing-logic.js
+    // (parseSummaryMetrics); only the fetch + DOM write live here.
+    var SUMMARY_ENDPOINT = '/api/summary';
+    function loadLiveStats() {
+      fetch(SUMMARY_ENDPOINT + '?include_unscored=true', { headers: { 'Accept': 'application/json' } })
+        .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+        .then(function (resp) {
+          var m = LandingLogic.parseSummaryMetrics(resp && resp.by_status, resp && resp.dataset);
+          // Only overwrite when we got a real tracked figure — a 0 from a
+          // malformed response would otherwise erase the correct hardcoded value.
+          if (!m.tracked) return;
+          document.getElementById('stat-tracked').textContent = m.tracked;
+          document.getElementById('stat-completed').textContent = m.completed;
+          document.getElementById('stat-delayed').textContent = m.delayed;
+          document.getElementById('stat-cancelled').textContent = m.cancelled;
+          // Swap the note to the "Live" variant in the current language.
+          var note = document.getElementById('metrics-note');
+          var liveText = note.getAttribute('data-' + lang + '-live');
+          if (liveText) note.textContent = liveText;
+        })
+        .catch(function () { /* API unreachable — keep the hardcoded fallback */ });
+    }
+
+    // --- M6: re-sync queued leads ---
+    // Leads captured while the server was unreachable are queued in
+    // localStorage['api_leads']. On load (and when connectivity returns) we
+    // re-post them so they become operator-visible. The partitioning logic is
+    // unit-tested in landing-logic.js (drainLeadQueue); only the fetch + localStorage
+    // plumbing lives here.
+    function postLead(lead) {
+      return fetch(LEADS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: lead.email })
+      }).then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return true; });
+    }
+    function drainQueuedLeads() {
+      var queue;
+      try { queue = JSON.parse(localStorage.getItem('api_leads') || '[]'); } catch (e) { queue = []; }
+      if (!queue.length) return;
+      LandingLogic.drainLeadQueue(queue, postLead).then(function (out) {
+        try {
+          if (out.remaining.length) localStorage.setItem('api_leads', JSON.stringify(out.remaining));
+          else localStorage.removeItem('api_leads');
+        } catch (e) {}
+      });
+    }
+
+    loadLiveStats();
+    drainQueuedLeads();
+    window.addEventListener('online', drainQueuedLeads);
   </script>
 
 </body>
