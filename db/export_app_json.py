@@ -25,11 +25,12 @@ Reproduces the exact shape app/index.html consumes:
 
 Run after any DB mutation (db/update.py) so the static fallback never drifts
 from the live DB — the file was previously hand-maintained, which left it stale
-after edits. Read-only w.r.t. the DB; writes only app/data.json.
+after edits. Read-only w.r.t. the DB; writes app/data.json (fetch-able on http)
+and app/data.js (a <script>-loadable mirror for file://, where fetch is blocked).
 
 Usage:
-    python db/export_app_json.py          # write app/data.json
-    python db/export_app_json.py --check   # exit 1 if out of sync (CI guard)
+    python db/export_app_json.py          # write app/data.json + app/data.js
+    python db/export_app_json.py --check   # exit 1 if either is out of sync (CI guard)
 """
 
 import json
@@ -45,6 +46,23 @@ from query import dataset_stats  # same sidebar figures as /api/summary
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_path = os.path.join(BASE, "db", "investment_tracker.db")
 OUT_path = os.path.join(BASE, "app", "data.json")
+# L11: a <script>-loadable mirror of data.json. Browsers block fetch() on the
+# file: protocol, so when the app is opened directly from disk the fallback
+# loads this via <script src="data.js"> and reads window.__STATIC_DATA. The JSON
+# payload is identical to data.json — only the wrapping differs.
+OUT_JS_path = os.path.join(BASE, "app", "data.js")
+JS_PREFIX = "window.__STATIC_DATA = "
+JS_SUFFIX = ";\n"
+
+
+def data_js_body(json_body):
+    """Wrap a JSON string into a valid JS assignment loadable by a <script> tag.
+
+    `json_body` is the exact string written to data.json (json.dumps output), so
+    the two files carry byte-identical payloads — data.js is just data.json with
+    a `window.__STATIC_DATA = ` prefix and a `;\\n` suffix.
+    """
+    return JS_PREFIX + json_body + JS_SUFFIX
 
 # Flat project fields the app reads. Includes description / coordinates /
 # created_at — the detail view reads these; db/query.py's PROJECT_SELECT is
@@ -137,30 +155,42 @@ def build(conn):
             "stats": dataset_stats(conn)}
 
 
-def main():
-    check = "--check" in sys.argv
+def main(argv=None):
+    if argv is None:
+        argv = sys.argv[1:]
+    check = "--check" in argv
     if not os.path.exists(DB_path):
         sys.exit(f"Database not found at {DB_path}. Run `python db/load.py` first.")
     conn = sqlite3.connect(f"file:{DB_path}?mode=ro", uri=True)
     data = build(conn)
     conn.close()
     body = json.dumps(data, ensure_ascii=False, indent=2)
+    js_body = data_js_body(body)
 
     if check:
+        # Guard both static-fallback files. A stale data.js would silently serve
+        # a frozen dataset on file:// with no CI signal, so it is checked on the
+        # same footing as data.json.
         existing = open(OUT_path, encoding="utf-8").read() if os.path.exists(OUT_path) else None
-        if existing is not None and existing.rstrip() == body.rstrip():
-            print("[OK] app/data.json is in sync with the DB")
+        existing_js = open(OUT_JS_path, encoding="utf-8").read() if os.path.exists(OUT_JS_path) else None
+        json_ok = existing is not None and existing.rstrip() == body.rstrip()
+        js_ok = existing_js is not None and existing_js.rstrip() == js_body.rstrip()
+        if json_ok and js_ok:
+            print("[OK] app/data.json and app/data.js are in sync with the DB")
             return
-        print("[FAIL] app/data.json is out of sync with the DB "
+        print("[FAIL] app/data.json or app/data.js is out of sync with the DB "
               "— run `python db/export_app_json.py`")
         sys.exit(1)
 
     with open(OUT_path, "w", encoding="utf-8") as f:
         f.write(body)
+    with open(OUT_JS_path, "w", encoding="utf-8") as f:
+        f.write(js_body)
     print(f"[OK] wrote {OUT_path}: {len(data['projects'])} projects, "
           f"{sum(len(v) for v in data['events'].values())} events, "
           f"{len(data['orgs'])} org-groups, {len(data['evidence'])} evidence-groups, "
           f"{len(data['breakdowns'])} breakdowns")
+    print(f"[OK] wrote {OUT_JS_path} (file:// <script> fallback mirror)")
 
 
 if __name__ == "__main__":

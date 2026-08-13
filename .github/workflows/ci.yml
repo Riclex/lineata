@@ -49,6 +49,21 @@ jobs:
       - name: Full health gate (no network)
         run: python db/health.py --no-network
 
+  js-tests:
+    name: JS unit tests (node:test)
+    runs-on: ubuntu-latest
+    # Pure-logic front-end tests (app-logic.js, landing-logic.js) run with
+    # Node's built-in test runner — no npm install, no package.json deps. The
+    # product stays stdlib-Python-only; this is dev-time-only verification of
+    # the decision/math logic extracted from the inline SPA/landing JS.
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Run JS pure-logic tests
+        run: node --test test/js/*.test.js
+
   url-liveness:
     name: Source URL liveness (scheduled)
     runs-on: ubuntu-latest
