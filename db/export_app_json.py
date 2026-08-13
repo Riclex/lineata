@@ -5,10 +5,12 @@ when the live API (app/server.py) is unavailable (e.g. the page is opened as
 file:// without the server running).
 
 Reproduces the exact shape app/index.html consumes:
-  {projects, events, orgs, evidence, breakdowns}
+  {projects, events, orgs, evidence, breakdowns, stats}
   - projects  : scored projects only (evidence_complete = 1), sorted by score
-                DESC then title — mirrors /api/projects. Flat (organizations
-                are NOT attached; they live in the `orgs` dict).
+                DESC then title — mirrors /api/projects. Each project carries
+                execution_band (same derivation as /api/projects) so the static
+                fallback's band badges work without the live API. Flat
+                (organizations are NOT attached; they live in the `orgs` dict).
   - events    : dict keyed by project_id, over ALL projects (incl. tracked-but-
                 unscored, which still has a timeline). Each event carries its
                 source's src_* fields (now incl. src_archived_url + src_url_status
@@ -16,6 +18,10 @@ Reproduces the exact shape app/index.html consumes:
   - orgs      : dict keyed by project_id, over ALL projects.
   - evidence  : dict keyed by project_id, over projects that have field evidence.
   - breakdowns: scored projects only (unscored has no formula breakdown).
+  - stats     : global dataset figures for the sidebar (tracked/scored/sources/
+                events/avg_score/editions) — same source as /api/summary's
+                'dataset' key (db/query.py dataset_stats), so the static and
+                live modes show identical numbers.
 
 Run after any DB mutation (db/update.py) so the static fallback never drifts
 from the live DB — the file was previously hand-maintained, which left it stale
@@ -33,6 +39,8 @@ import sqlite3
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from calculate_scores import compute_scores  # db/calculate_scores.py
+from constants import execution_band  # same band derivation as /api/projects
+from query import dataset_stats  # same sidebar figures as /api/summary
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_path = os.path.join(BASE, "db", "investment_tracker.db")
@@ -70,6 +78,8 @@ def build(conn):
     for r in prows:
         d = _clean({c: r[c] for c in PROJECT_COLS})
         d["execution_score"] = score_by_id[r["id"]][0]
+        d["execution_band"] = execution_band(
+            r["status"], d["execution_score"], r["evidence_complete"])
         projects.append(d)
 
     # events: all projects, keyed by pid, ordered by event_date (as the app shows).
@@ -123,7 +133,8 @@ def build(conn):
         }
 
     return {"projects": projects, "events": events, "orgs": orgs,
-            "evidence": evidence, "breakdowns": breakdowns}
+            "evidence": evidence, "breakdowns": breakdowns,
+            "stats": dataset_stats(conn)}
 
 
 def main():

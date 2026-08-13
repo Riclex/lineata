@@ -356,6 +356,7 @@
     .band-STALLED { background: var(--amber-dim); color: var(--amber); }
     .band-SILENT { background: var(--red-dim); color: var(--red); }
     .band-UNCONFIRMED { background: var(--surface2); color: var(--text-muted); }
+    .band-missing { background: var(--surface2); color: var(--text-muted); }
 
     /* --- Empty state --- */
     .empty-state {
@@ -792,12 +793,12 @@
         <li><a href="#" data-view="edition"><span class="nav-icon">◉</span> By Edition</a></li>
       </ul>
       <div class="sidebar-stats">
-        <div class="sidebar-stat"><span class="label">Projects tracked</span><span class="value">51</span></div>
-        <div class="sidebar-stat"><span class="label">Scored (with evidence)</span><span class="value">50</span></div>
-        <div class="sidebar-stat"><span class="label">Sources</span><span class="value">130</span></div>
-        <div class="sidebar-stat"><span class="label">Events</span><span class="value">105</span></div>
-        <div class="sidebar-stat"><span class="label">Avg score</span><span class="value">62.4</span></div>
-        <div class="sidebar-stat"><span class="label">Editions</span><span class="value">2022–2026</span></div>
+        <div class="sidebar-stat"><span class="label">Projects tracked</span><span class="value" id="stat-tracked">–</span></div>
+        <div class="sidebar-stat"><span class="label">Scored (with evidence)</span><span class="value" id="stat-scored">–</span></div>
+        <div class="sidebar-stat"><span class="label">Sources</span><span class="value" id="stat-sources">–</span></div>
+        <div class="sidebar-stat"><span class="label">Events</span><span class="value" id="stat-events">–</span></div>
+        <div class="sidebar-stat"><span class="label">Avg score</span><span class="value" id="stat-avg">–</span></div>
+        <div class="sidebar-stat"><span class="label">Editions</span><span class="value" id="stat-editions">–</span></div>
       </div>
     </aside>
 
@@ -844,7 +845,7 @@
     // DATA LOADING
     // ============================================================
     const API_BASE = '/api';
-    let DATA = { projects: [], events: {}, orgs: {}, evidence: {}, breakdowns: {} };
+    let DATA = { projects: [], events: {}, orgs: {}, evidence: {}, breakdowns: {}, stats: null };
     let FACETS = null;
 
     async function apiFetch(path) {
@@ -856,12 +857,14 @@
     async function loadData() {
       try {
         // Try live API first
-        const [projects, facets] = await Promise.all([
+        const [projects, facets, summary] = await Promise.all([
           apiFetch('/projects'),
-          apiFetch('/facets')
+          apiFetch('/facets'),
+          apiFetch('/summary').catch(() => null)
         ]);
         DATA.projects = projects;
         FACETS = facets;
+        DATA.stats = (summary && summary.dataset) || null;
         init();
       } catch (e) {
         // Fall back to static data.json
@@ -874,7 +877,8 @@
             events: staticData.events || {},
             orgs: staticData.orgs || {},
             evidence: staticData.evidence || {},
-            breakdowns: staticData.breakdowns || {}
+            breakdowns: staticData.breakdowns || {},
+            stats: staticData.stats || null
           };
           init();
         } catch (e2) {
@@ -998,9 +1002,35 @@
         DELIVERED: 'Delivered', IN_PROGRESS: 'In Progress',
         STALLED: 'Stalled', SILENT: 'Silent', UNCONFIRMED: 'Unconfirmed'
       };
-      return map[b] || b;
+      return (b && map[b]) || b || '—';
     }
-    function bandCssClass(b) { return 'band-' + b; }
+    function bandCssClass(b) { return b ? 'band-' + b : 'band-missing'; }
+
+    function renderSidebarStats() {
+      const set = (id, v) => {
+        const el = document.getElementById(id);
+        if (el && v != null && v !== '') el.textContent = v;
+      };
+      const s = DATA.stats;
+      if (s) {
+        set('stat-tracked', s.tracked); set('stat-scored', s.scored);
+        set('stat-sources', s.sources); set('stat-events', s.events);
+        set('stat-avg', s.avg_score); set('stat-editions', s.editions);
+        return;
+      }
+      // Defensive fallback for an older data.json: derive what's computable
+      // from the loaded projects; tracked/sources stay "–" (not in the payload).
+      set('stat-scored', DATA.projects.length);
+      const nEv = Object.values(DATA.events || {}).reduce((n, a) => n + a.length, 0);
+      set('stat-events', nEv || null);
+      if (DATA.projects.length) {
+        const avg = DATA.projects.reduce(
+          (a, p) => a + (Number(p.execution_score) || 0), 0) / DATA.projects.length;
+        set('stat-avg', avg.toFixed(1));
+        const eds = [...new Set(DATA.projects.map(p => p.filda_edition).filter(Boolean))].sort();
+        if (eds.length) set('stat-editions', `${eds[0]}–${eds[eds.length - 1]}`);
+      }
+    }
 
     function formatValue(v, currency) {
       if (v == null) return null;
@@ -1450,6 +1480,7 @@
       const activeLink = document.querySelector(`.sidebar-nav a[data-view="${state.view}"]`);
       if (activeLink) activeLink.classList.add('active');
 
+      renderSidebarStats();
       renderFilters();
       renderList();
 

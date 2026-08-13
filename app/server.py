@@ -14,7 +14,7 @@ Endpoints:
     GET /api/projects         — list all scored projects (supports query.py filters)
     GET /api/projects/<id>    — full detail for one project (timeline, orgs, evidence, breakdown)
     GET /api/facets           — browse counts by sector/province/edition/status
-    GET /api/summary          — aggregate stats over the filtered set
+    GET /api/summary          — aggregate stats over the filtered set (+ 'dataset' global figures)
     GET /api/health           — DB row counts + checkpoint status
 """
 
@@ -53,6 +53,7 @@ def _ns(params):
         status=params.get("status"),
         edition=str(params.get("edition")) if params.get("edition") else None,
         org=params.get("org"),
+        source_program=params.get("source_program"),
         min_score=_int(params.get("min_score")), max_score=_int(params.get("max_score")),
         search=params.get("search"), include_unscored=bool(params.get("include_unscored")),
         summary=False, project=None, facets=False,
@@ -105,7 +106,10 @@ class APIHandler(SimpleHTTPRequestHandler):
             if path == "/api/facets":
                 conn = connect(); self._send_json(q.facets(conn)); conn.close(); return
             if path == "/api/summary":
-                conn = connect(); self._send_json(q.summary(conn, _ns(params))); conn.close(); return
+                conn = connect()
+                resp = q.summary(conn, _ns(params))
+                resp["dataset"] = q.dataset_stats(conn)  # global sidebar figures
+                self._send_json(resp); conn.close(); return
             if path == "/api/projects":
                 conn = connect(); self._send_json(q.query_projects(conn, _ns(params))); conn.close(); return
             if path.startswith("/api/projects/"):

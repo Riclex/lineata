@@ -136,6 +136,27 @@ def query_projects(conn, args):
     return out
 
 
+def dataset_stats(conn):
+    """Global dataset figures for the app sidebar — one source of truth used
+    by both the live API (/api/summary -> 'dataset') and the static fallback
+    (app/data.json 'stats'), so the two modes can never disagree and the
+    sidebar can stop hardcoding figures that silently go stale."""
+    tracked = conn.execute("SELECT COUNT(*) FROM projects").fetchone()[0]
+    scored = conn.execute(
+        "SELECT COUNT(*) FROM projects WHERE evidence_complete = 1").fetchone()[0]
+    sources = conn.execute("SELECT COUNT(*) FROM sources").fetchone()[0]
+    events = conn.execute("SELECT COUNT(*) FROM events").fetchone()[0]
+    avg_score = conn.execute(
+        "SELECT ROUND(AVG(execution_score), 1) FROM projects "
+        "WHERE evidence_complete = 1").fetchone()[0]
+    lo, hi = conn.execute(
+        "SELECT MIN(filda_edition), MAX(filda_edition) FROM projects "
+        "WHERE filda_edition IS NOT NULL AND filda_edition != ''").fetchone()
+    return {"tracked": tracked, "scored": scored, "sources": sources,
+            "events": events, "avg_score": avg_score,
+            "editions": f"{lo}–{hi}" if lo and hi else None}
+
+
 def summary(conn, args):
     where, params, joins = build_where(args)
     base = f"FROM projects p{joins}{where}"

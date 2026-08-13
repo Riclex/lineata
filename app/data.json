@@ -21,7 +21,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
     },
     {
       "id": "vi-encontro-empresarial-pt-ao",
@@ -44,7 +45,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
     },
     {
       "id": "angola-startup-summit-2023",
@@ -67,7 +69,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
     },
     {
       "id": "aep-delegation-filda2025",
@@ -90,7 +93,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
     },
     {
       "id": "montenegro-company-visits",
@@ -113,7 +117,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
     },
     {
       "id": "aep-delegation-filda2026",
@@ -136,7 +141,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
     },
     {
       "id": "portugal-30-companies-2022",
@@ -159,7 +165,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
     },
     {
       "id": "huatong-aipex-awards-2026",
@@ -182,7 +189,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
     },
     {
       "id": "investment-portal-georeferenced",
@@ -205,7 +213,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
     },
     {
       "id": "bfa-mashreq-partnership",
@@ -228,7 +237,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "cip-cooperation-pt-ao",
@@ -251,7 +261,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "pt-ao-bilateral-2024",
@@ -274,7 +285,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "feito-em-angola-relaunch-2022",
@@ -297,7 +309,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "huatong-angola-industry-awards",
@@ -320,7 +333,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "iveco-tway-launch",
@@ -343,7 +357,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "aiaan-airport-concession",
@@ -366,7 +381,8 @@
       "source_program": "PPP",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "africell-angola-network",
@@ -389,7 +405,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "cabinda-soyo-terminals-concession",
@@ -412,7 +429,8 @@
       "source_program": "PPP",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "global-fund-gc7-hiv-tb-malaria",
@@ -435,7 +453,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "lobito-atlantic-railway",
@@ -458,7 +477,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "eib-hpv-vaccination-campaign",
@@ -481,7 +501,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "porto-luanda-multipurpose-terminal",
@@ -504,7 +525,8 @@
       "source_program": "PPP",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "cabinda-refinery-build",
@@ -527,7 +549,8 @@
       "source_program": "refinery",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "digital-infrastructure-pledge",
@@ -550,7 +573,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "anpg-oil-sector-grand-prize",
@@ -573,7 +597,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "sonangol-sonils-filda2023",
@@ -596,7 +621,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "mosap3-agricultural-transformation",
@@ -619,7 +645,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "baia-fish-processing",
@@ -642,7 +669,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "asrp-agriculture-reform",
@@ -665,7 +693,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "wb-girls-empowerment-learning",
@@ -688,7 +717,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "health-system-performance-strengthening",
@@ -711,7 +741,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "afdb-urban-water-supply-sanitation",
@@ -734,7 +765,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "srep-smallholder-resilience",
@@ -757,7 +789,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "pt-ao-credit-line-2-5b",
@@ -780,7 +813,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "pdac-commercial-agriculture",
@@ -803,7 +837,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "jardins-yoba-seed-production",
@@ -826,7 +861,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "chicomba-water-dam",
@@ -849,7 +885,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "fabrimetal-steel-zee",
@@ -872,7 +909,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "eseep-energy-transmission",
@@ -895,7 +933,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "luanda-science-technology-park",
@@ -918,7 +957,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
-      "created_at": "2026-08-10"
+      "created_at": "2026-08-10",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "economic-diversification-job-creation",
@@ -941,7 +981,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
-      "created_at": "2026-08-10"
+      "created_at": "2026-08-10",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "amufert-soyo-fertiliser-complex",
@@ -964,7 +1005,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "secondary-cities-support",
@@ -987,7 +1029,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
-      "created_at": "2026-08-10"
+      "created_at": "2026-08-10",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "afap2-artisanal-fisheries",
@@ -1010,7 +1053,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "crew-angola-climate-resilience",
@@ -1033,7 +1077,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "sfd-catumbela-industrial-phase1",
@@ -1056,7 +1101,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "coastal-towns-inclusive-sanitation",
@@ -1079,7 +1125,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "esiap-electricity-access",
@@ -1102,7 +1149,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
-      "created_at": "2026-08-10"
+      "created_at": "2026-08-10",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "kwenda2-social-protection-human-capital",
@@ -1125,7 +1173,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "afc-national-road-bridges",
@@ -1148,7 +1197,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "quilemba-solar-park",
@@ -1171,7 +1221,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "reclima-water-security",
@@ -1194,7 +1245,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "wsidp2-water-sector-institutional",
@@ -1217,7 +1269,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "jica-southern-region-transmission",
@@ -1240,7 +1293,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "bita-water-supply",
@@ -1263,7 +1317,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "IN_PROGRESS"
     },
     {
       "id": "brazil-returns-to-filda",
@@ -1286,7 +1341,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "etu-energias-leao-ouro-2025",
@@ -1309,7 +1365,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "pay4all-leao-ouro-2024",
@@ -1332,7 +1389,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "sonangol-leao-ouro-2024",
@@ -1355,7 +1413,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "sonangol-leao-ouro-2025",
@@ -1378,7 +1437,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "africell-aipex-2026",
@@ -1401,7 +1461,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "cabinda-refinery-aipex-2026",
@@ -1424,7 +1485,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "fabrimetal-aipex-2026",
@@ -1447,7 +1509,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "jardins-yoba-aipex-2026",
@@ -1470,7 +1533,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "lobito-atlantic-railway-aipex",
@@ -1493,7 +1557,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "omataplo-aipex-2026",
@@ -1516,7 +1581,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "porto-lobito-leao-ouro-2022",
@@ -1539,7 +1605,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "unitel-leao-ouro-2024",
@@ -1562,7 +1629,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "sonangol-leao-ouro-2022",
@@ -1585,7 +1653,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "eib-clean-coastal-towns",
@@ -1608,7 +1677,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "angola-digital-acceleration",
@@ -1631,7 +1701,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
-      "created_at": "2026-08-10"
+      "created_at": "2026-08-10",
+      "execution_band": "SILENT"
     },
     {
       "id": "heprr-health-emergency-preparedness",
@@ -1654,7 +1725,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
-      "created_at": "2026-08-10"
+      "created_at": "2026-08-10",
+      "execution_band": "SILENT"
     },
     {
       "id": "us-exim-solar-minigrids-water",
@@ -1677,7 +1749,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "huila-cunene-interconnection",
@@ -1700,7 +1773,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-10",
       "evidence_complete": 1,
-      "created_at": "2026-08-10"
+      "created_at": "2026-08-10",
+      "execution_band": "SILENT"
     },
     {
       "id": "omatapalo-solar-luanda",
@@ -1723,7 +1797,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "filda-2023-2-billion-business",
@@ -1746,7 +1821,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "grain-production-ambition-2022",
@@ -1769,7 +1845,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "ayep-youth-employment",
@@ -1792,7 +1869,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "bda-financing-filda2025",
@@ -1815,7 +1893,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "bfa-30th-anniversary-filda",
@@ -1838,7 +1917,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "caio-deep-water-terminal",
@@ -1861,7 +1941,8 @@
       "source_program": "PPP",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "casais-angola-engenharia",
@@ -1884,7 +1965,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "eravacdep-agricultural-value-chains",
@@ -1907,7 +1989,8 @@
       "source_program": "multilateral",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "esplendor-florestal",
@@ -1930,7 +2013,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "esso-angola-filda2022",
@@ -1953,7 +2037,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "fuanda-internacional-silicon",
@@ -1976,7 +2061,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "hospital-serum-factory",
@@ -1999,7 +2085,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "SILENT"
     },
     {
       "id": "huambo-investment-promotion-2022",
@@ -2022,7 +2109,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "prosil-isptec-2022",
@@ -2045,7 +2133,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "koll-mob-furniture",
@@ -2068,7 +2157,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "mou-aia-cip-2024",
@@ -2091,7 +2181,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "mou-idii-ualgarve",
@@ -2114,7 +2205,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "corredor-namibe-concession",
@@ -2137,7 +2229,8 @@
       "source_program": "PPP",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "ponto-mais-furniture",
@@ -2160,7 +2253,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "SILENT"
     },
     {
       "id": "porto-lobito-terminal",
@@ -2183,7 +2277,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
-      "created_at": "2026-08-11"
+      "created_at": "2026-08-11",
+      "execution_band": "SILENT"
     },
     {
       "id": "pt-ao-credit-line-3-25b",
@@ -2206,7 +2301,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "safcomex-cooking-oil",
@@ -2229,7 +2325,8 @@
       "source_program": "AIPEX",
       "last_verified": "2026-08-04",
       "evidence_complete": 1,
-      "created_at": "2026-08-04"
+      "created_at": "2026-08-04",
+      "execution_band": "SILENT"
     },
     {
       "id": "sa-angola-investment-2022",
@@ -2252,7 +2349,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "ucall-ai-launch",
@@ -2275,7 +2373,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "zap-empresas-filda2022",
@@ -2298,7 +2397,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "linha-verde-investor-visas",
@@ -2321,7 +2421,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "STALLED"
     },
     {
       "id": "banco-sol-virtual-assistant",
@@ -2344,7 +2445,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "SILENT"
     },
     {
       "id": "portuguese-investment-zee-330m",
@@ -2367,7 +2469,8 @@
       "source_program": "FILDA",
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
-      "created_at": "2026-07-23"
+      "created_at": "2026-07-23",
+      "execution_band": "STALLED"
     }
   ],
   "events": {
@@ -8017,5 +8120,13 @@
       "only_announce": 0,
       "version": "v2-2026-07"
     }
+  },
+  "stats": {
+    "tracked": 104,
+    "scored": 103,
+    "sources": 193,
+    "events": 168,
+    "avg_score": 43.1,
+    "editions": "2022–2026"
   }
 }

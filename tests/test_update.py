@@ -51,11 +51,14 @@ class UpdateTests(unittest.TestCase):
     def tearDown(self):
         update.classify = self._orig
         os.environ.pop("FILDA_DB_PATH", None)
-        try:
-            if os.path.exists(self.tmp):
-                os.remove(self.tmp)
-        except PermissionError:
-            pass  # Windows may still hold a lock briefly
+        # Remove the DB plus its WAL sidecars (-shm/-wal) — on Windows SQLite
+        # leaves these behind and they were leaking into tests/ after every run.
+        for suffix in ("", "-shm", "-wal"):
+            try:
+                if os.path.exists(self.tmp + suffix):
+                    os.remove(self.tmp + suffix)
+            except PermissionError:
+                pass  # Windows may still hold a lock briefly
 
     def _count(self, table, where=""):
         conn = sqlite3.connect(f"file:{self.tmp}?mode=ro", uri=True)
