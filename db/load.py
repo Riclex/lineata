@@ -190,6 +190,20 @@ def insert_rows(conn, table, rows):
     conn.executemany(sql, rows)
 
 
+def run_invariant_gate(conn):
+    """Gate 4: run the structural invariants from verify_invariants against the
+    freshly loaded DB. Returns (failed, messages). The FK + score + data_
+    completeness gates above catch load-time corruption, but NOT the structural
+    invariants (award/completion guard, source_program membership, evidence-
+    field vocab, unsourced-scored, date-parse). A bad source_program or evidence
+    field would otherwise load silently and only surface if someone ran
+    health.py — this gate fails loud at build time (L5). Extracted so it is
+    unit-testable against an in-memory fixture (F19 pattern)."""
+    import verify_invariants as vi
+    n_failed, messages = vi.run_all_checks(conn)
+    return (n_failed > 0), messages
+
+
 def main():
     parser = argparse.ArgumentParser(description="Rebuild the SQLite database from CSVs")
     parser.add_argument("--dry", action="store_true", help="Validate and count without writing")
@@ -364,6 +378,25 @@ def main():
             else:
                 n_proj = conn.execute("SELECT COUNT(*) FROM projects").fetchone()[0]
                 print(f"  data_completeness consistency: OK ({n_proj} projects match the events)")
+
+        # --- Integrity gate 4: structural invariants (L5) ---
+        # The FK/score/data_completeness gates above catch load-time corruption,
+        # but not the structural invariants (award/completion guard, source_
+        # program membership, evidence-field vocab, unsourced-scored, date-
+        # parse). A bad source_program or evidence field would otherwise load
+        # silently and only surface if someone ran health.py. Run the same
+        # verifier health.py uses so a rebuild fails loud at build time.
+        if not failed:
+            inv_failed, inv_messages = run_invariant_gate(conn)
+            if inv_failed:
+                failed = True
+                print("\n[FAIL] Structural invariant violations:")
+                for m in inv_messages:
+                    print(m)
+                print("\nRun `python db/verify_invariants.py` for the full report, "
+                      "fix the data, and re-run load.py.")
+            else:
+                print("  structural invariants: OK")
     finally:
         conn.close()
 

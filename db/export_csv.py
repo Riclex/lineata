@@ -83,6 +83,22 @@ def export_table(conn, table, score_by_id):
     cols = header_of(table)
     if not cols:
         raise RuntimeError(f"no header known for table {table!r}")
+    # Validate the on-disk header against the actual DB columns before
+    # interpolating it into SQL. load.py validates its input CSV header against
+    # an exact COLUMNS list; this is the symmetric fail-fast on the export side.
+    # Without it, a renamed/shortened disk header silently mis-maps: SQLite's
+    # DQS fallback treats a non-existent double-quoted "column" as the string
+    # literal of that name, so `SELECT "bogus_col" FROM t` returns the constant
+    # 'bogus_col' for every row instead of erroring — a silent CSV corruption
+    # that load.py would then canonize on the next rebuild.
+    db_cols = {r[1] for r in conn.execute(f'PRAGMA table_info("{table}")')}
+    unknown = [c for c in cols if c not in db_cols]
+    if unknown:
+        raise ValueError(
+            f"data/{table}.csv header has columns not in the DB schema: "
+            f"{unknown}. DB columns: {sorted(db_cols)}. "
+            f"Fix the CSV header (or rebuild it from a fresh export) before "
+            f"checkpointing — a stale header silently corrupts the export.")
     select_cols = ", ".join(f'"{c}"' for c in cols)
     rows = conn.execute(f'SELECT {select_cols} FROM "{table}"').fetchall()
 

@@ -102,7 +102,11 @@ CREATE TABLE IF NOT EXISTS events (
                     'construction', 'delay', 'suspension', 'restart',
                     'completion', 'expansion', 'closure', 'ownership_change'
                 )),
-    event_date  TEXT,  -- YYYY-MM-DD, YYYY-MM, or YYYY
+    event_date  TEXT  -- YYYY-MM-DD, YYYY-MM, or YYYY (format enforced below)
+                CHECK (event_date IS NULL
+                       OR event_date GLOB '[0-9][0-9][0-9][0-9]'
+                       OR event_date GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]'
+                       OR event_date GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
     description TEXT,
     source_id   INTEGER REFERENCES sources(id),
     created_at  TEXT DEFAULT (datetime('now'))
@@ -259,7 +263,12 @@ END;
 CREATE TABLE IF NOT EXISTS change_log (
     id            INTEGER PRIMARY KEY AUTOINCREMENT,
     ts            TEXT NOT NULL DEFAULT (datetime('now')),
-    operation     TEXT NOT NULL,   -- 'add-source'|'add-event'|'add-evidence'|'set-status'|'relink-event'|'relink-evidence'|'reverify'|'retype-event'|'export-csv'|'load-seed'
+    operation     TEXT NOT NULL   -- the 11 ops in constants.ALLOWED_OPS (MUTATION_OPS + export-csv + load-seed)
+                 CHECK (operation IN (
+                     'add-source', 'add-event', 'add-evidence', 'set-status',
+                     'relink-event', 'relink-evidence', 'reverify', 'retype-event',
+                     'set-blocked', 'export-csv', 'load-seed'
+                 )),
     target_table  TEXT NOT NULL,   -- 'sources'|'events'|'project_evidence'|'projects'|'db_meta'
     target_id     TEXT,            -- row id of the target (TEXT covers both TEXT and INTEGER PKs)
     payload_json  TEXT,            -- JSON snapshot of what was written/changed

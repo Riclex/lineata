@@ -44,7 +44,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from verify_sources import classify          # db/verify_sources.py:41 — stdlib urllib only
 from calculate_scores import calculate_score  # db/calculate_scores.py:181 — single-project recompute
 from audit import log_change                 # db/audit.py — shared change_log writer
-from constants import ADDABLE_EVIDENCE_FIELDS  # db/constants.py — single-sourced add-evidence vocabulary
+from constants import (  # db/constants.py — single-sourced vocabularies (L6)
+    ADDABLE_EVIDENCE_FIELDS, EVENT_TYPES, STATUS_TYPES, CONFIDENCE_LEVELS,
+)
 
 BASE_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_DB_path = os.path.join(BASE_dir, "db", "investment_tracker.db")
@@ -55,21 +57,14 @@ def db_path():
     leave the env var unset and get the default on-disk database."""
     return os.environ.get("FILDA_DB_PATH", DEFAULT_DB_path)
 
-# CHECK-list values mirrored from db/schema.sql so we validate before INSERT.
-EVENT_TYPES = {
-    'announcement', 'mou', 'financing', 'groundbreaking', 'construction',
-    'delay', 'suspension', 'restart', 'completion', 'expansion', 'closure',
-    'ownership_change',
-}
-STATUS_TYPES = {
-    'announced', 'mou_signed', 'financed', 'under_construction', 'delayed',
-    'suspended', 'restarted', 'operational', 'completed', 'cancelled', 'unknown',
-}
-# add-evidence field vocabulary: single-sourced from db/constants.py
-# (ADDABLE_EVIDENCE_FIELDS — the four fields backing project columns; the
-# outcome tags stay out of the CLI until the v3 evidence-bonus wiring lands).
+# CHECK-list values single-sourced from db/constants.py (L6) — the same tuples
+# the schema CHECK constraints enforce at load time, so CLI validation can never
+# drift from the schema. EVENT_TYPES / STATUS_TYPES / CONFIDENCE_LEVELS are
+# imported; EVIDENCE_FIELDS is the addable subset (ADDABLE_EVIDENCE_FIELDS).
 EVIDENCE_FIELDS = set(ADDABLE_EVIDENCE_FIELDS)
-CONFIDENCE_LEVELS = {'high', 'medium', 'low'}
+EVENT_TYPES = set(EVENT_TYPES)
+STATUS_TYPES = set(STATUS_TYPES)
+CONFIDENCE_LEVELS = set(CONFIDENCE_LEVELS)
 
 # set-status -> the event_type that records the same transition (only inserted
 # when --date is given). operational/unknown have no natural event.

@@ -121,6 +121,50 @@ class BucketSingleSourcingTests(unittest.TestCase):
                 vs.SCORE_BUCKETS = orig_vs
 
 
+class CaseStudyPinTests(unittest.TestCase):
+    """L7: data-specific pins (the Chicomba groundbreaking date, the Banco Sol
+    unsourced-event example) were keyed by autoincrement event ids in
+    verify_invariants (event 104) and changelog.py (event [80]) — both break if
+    the ids shift. They now live here, keyed by STABLE PROJECT SLUG, as
+    snapshot pins. These tests prove compare_snapshot catches drift in each."""
+
+    def test_detects_chicomba_groundbreaking_date_drift(self):
+        conn = make_conn()
+        _add_project(conn, "chicomba-water-dam", score=60)
+        conn.execute(
+            "INSERT INTO events (project_id, event_type, event_date) "
+            "VALUES ('chicomba-water-dam', 'groundbreaking', '2026-06-13')")
+        snap = vs.generate_snapshot(conn)
+        self.assertEqual(snap["case_study_pins"]["chicomba_groundbreaking"],
+                         "2026-06-13")
+        conn.execute(
+            "UPDATE events SET event_date='2099-01-01' "
+            "WHERE project_id='chicomba-water-dam' AND event_type='groundbreaking'")
+        drift = vs.compare_snapshot(conn, snap)
+        self.assertTrue(any("chicomba_groundbreaking" in d for d in drift), drift)
+
+    def test_detects_unsourced_event_pin_drift(self):
+        conn = make_conn()
+        _add_project(conn, "banco-sol", score=0, ec=0)
+        conn.execute(
+            "INSERT INTO events (project_id, event_type, event_date, source_id) "
+            "VALUES ('banco-sol', 'announcement', '2023-07-01', NULL)")
+        snap = vs.generate_snapshot(conn)
+        self.assertEqual(snap["case_study_pins"]["unsourced_event_project"],
+                         "banco-sol")
+        self.assertEqual(snap["case_study_pins"]["unsourced_event_count"], 1)
+        # A second unsourced event -> count drifts and the project becomes
+        # ambiguous (None), so the project pin drifts too.
+        conn.execute(
+            "INSERT INTO projects (id, title, status, execution_score, "
+            "evidence_complete) VALUES ('other-proj', 'Other', 'announced', 0, 0)")
+        conn.execute(
+            "INSERT INTO events (project_id, event_type, event_date, source_id) "
+            "VALUES ('other-proj', 'announcement', '2024-01-01', NULL)")
+        drift = vs.compare_snapshot(conn, snap)
+        self.assertTrue(any("unsourced_event" in d for d in drift), drift)
+
+
 class ArticlePinTests(unittest.TestCase):
     """F4: check_articles is never tested in the existing suite. Pin both
     directions — a missing avg figure is flagged, a present one is accepted.

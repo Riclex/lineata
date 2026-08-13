@@ -117,7 +117,7 @@ Append-only audit trail of every incremental mutation made through `db/update.py
 |--------|------|-------------|
 | id | INTEGER (PK) | |
 | ts | TEXT | Timestamp (defaults to now) |
-| operation | TEXT | 'add-source' \| 'add-event' \| 'add-evidence' \| 'set-status' \| 'relink-event' \| 'relink-evidence' \| 'reverify' \| 'export-csv' \| 'load-seed' |
+| operation | TEXT | 'add-source' \| 'add-event' \| 'add-evidence' \| 'set-status' \| 'relink-event' \| 'relink-evidence' \| 'reverify' \| 'retype-event' \| 'set-blocked' \| 'export-csv' \| 'load-seed' — the 11 ops in `constants.ALLOWED_OPS` (`MUTATION_OPS` + the two checkpoint markers); enforced by a schema CHECK |
 | target_table | TEXT | 'sources' \| 'events' \| 'project_evidence' \| 'projects' \| 'db_meta' |
 | target_id | TEXT | Row id of the target (TEXT covers both TEXT and INTEGER PKs) |
 | payload_json | TEXT | JSON snapshot of what was written/changed |

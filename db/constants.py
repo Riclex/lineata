@@ -44,6 +44,38 @@ MUTATION_OPS = (
 # (these are NOT mutations -- they record rebuilds/checkpoints, not data edits).
 ALLOWED_OPS = MUTATION_OPS + ("export-csv", "load-seed")
 
+# --- Controlled vocabularies mirrored from schema.sql CHECK constraints (L6) ---
+# These four enums are enforced at load time by the schema CHECK constraints
+# (events.event_type, projects.status, sources.confidence) and duplicated inline
+# in several Python modules (update.py's validation sets, calculate_scores'
+# BASE_SCORES/EVENT_POINTS/CONFIDENCE_MULT keys, the CASE_STUDIES list in
+# verify_invariants/verify_snapshot/expand_evidence). Single-sourcing them here
+# kills the drift risk: every Python consumer imports the same tuple, and
+# test_constants parses the schema CHECK literals back out and asserts they
+# match. The schema CHECKs stay static SQL (SQL can't import Python) — they are
+# the load-time enforcement layer; these tuples are the Python-time vocabulary.
+EVENT_TYPES = (
+    "announcement", "mou", "financing", "groundbreaking", "construction",
+    "delay", "suspension", "restart", "completion", "expansion", "closure",
+    "ownership_change",
+)
+STATUS_TYPES = (
+    "announced", "mou_signed", "financed", "under_construction", "delayed",
+    "suspended", "restarted", "operational", "completed", "cancelled", "unknown",
+)
+CONFIDENCE_LEVELS = ("high", "medium", "low")
+
+# The 7 published case studies — projects with hand-curated field-level
+# evidence. Pinned by verify_invariants (each must have project_evidence rows)
+# and by verify_snapshot. Single-sourced here so the three consumers that
+# duplicated the slug list (verify_invariants, verify_snapshot, expand_evidence)
+# can never drift.
+CASE_STUDIES = (
+    "huatong-angola-industry-awards", "linha-verde-investor-visas",
+    "pt-ao-credit-line-2-5b", "pt-ao-credit-line-3-25b", "chicomba-water-dam",
+    "investment-portal-georeferenced", "etu-energias-leao-ouro-2025",
+)
+
 
 # Event descriptions that indicate a recognition/award, not a real project
 # completion. Used by db/verify_invariants.py Check A to forbid award events typed

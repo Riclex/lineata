@@ -97,5 +97,10 @@
     "chicomba-water-dam": 50,
     "investment-portal-georeferenced": 81,
     "etu-energias-leao-ouro-2025": 30
+  },
+  "case_study_pins": {
+    "chicomba_groundbreaking": "2026-06-13",
+    "unsourced_event_count": 1,
+    "unsourced_event_project": "banco-sol-mc-empresas-2025"
   }
 }
