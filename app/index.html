@@ -872,6 +872,47 @@
       outline-offset: -2px;
       border-radius: var(--radius-sm);
     }
+
+    /* L12: cached-data banner — shown only when serving the static fallback. */
+    .cached-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      margin: 0 0 12px;
+      background: var(--amber-dim);
+      border: 1px solid var(--amber);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .cached-banner[hidden] { display: none; }
+    .cached-banner-icon { color: var(--amber); font-size: 16px; flex: none; }
+    .cached-banner-close {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+      flex: none;
+    }
+    .cached-banner-close:hover { color: var(--text); }
+
+    /* L10: the detail panel is a modal dialog — focusable elements get a
+       visible focus ring so keyboard users can track the focus trap. */
+    .detail-panel:focus-visible {
+      outline: none;
+    }
+    .detail-close:focus-visible,
+    .detail-content :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
   </style>
 </head>
 <body>
@@ -898,6 +939,13 @@
 
     <!-- MAIN -->
     <main class="main">
+      <!-- L12: shown only when the live API is unavailable and the app is
+           serving the static fallback (data.json / data.js) instead. -->
+      <div class="cached-banner" id="cached-banner" hidden>
+        <span class="cached-banner-icon">⧗</span>
+        <span>Showing cached data — the live API is unavailable. Figures reflect the last export, not real-time state.</span>
+        <button class="cached-banner-close" id="cached-banner-close" aria-label="Dismiss cached-data notice">×</button>
+      </div>
       <!-- Search -->
       <div class="topbar">
         <div class="topbar-left">
@@ -935,12 +983,17 @@
   <!-- Detail overlay -->
   <div class="detail-overlay" id="detail-overlay"></div>
 
-  <!-- Detail panel -->
-  <div class="detail-panel" id="detail-panel">
+  <!-- Detail panel (L10: modal dialog — aria-modal, focus trap, focus restore) -->
+  <div class="detail-panel" id="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title" tabindex="-1">
     <button class="detail-close" id="detail-close" aria-label="Close detail panel">×</button>
     <div class="detail-content" id="detail-content"></div>
   </div>
 
+  <!-- L10/L11/L12: pure helpers (window.AppLogic) — unit-tested under Node. -->
+  <script src="app-logic.js"></script>
+  <!-- L11: static-fallback dataset, <script>-loadable on file:// (fetch is
+       blocked there). Defines window.__STATIC_DATA; read only as a fallback. -->
+  <script src="data.js"></script>
   <script>
     // ============================================================
     // DATA LOADING
@@ -948,6 +1001,9 @@
     const API_BASE = '/api';
     let DATA = { projects: [], events: {}, orgs: {}, evidence: {}, breakdowns: {}, stats: null };
     let FACETS = null;
+    // L10: the element that had focus before the detail dialog opened, so we can
+    // return focus to it on close (a modal that strands focus is an a11y bug).
+    let detailReturnFocus = null;
 
     async function apiFetch(path) {
       const res = await fetch(API_BASE + path);
@@ -968,11 +1024,22 @@
         DATA.stats = (summary && summary.dataset) || null;
         init();
       } catch (e) {
-        // Fall back to static data.json
+        // Live API unavailable — serve the static fallback. On http(s) we can
+        // fetch('data.json'); on file: browsers block fetch, so we read the
+        // <script>-loaded window.__STATIC_DATA (data.js) instead. The pure
+        // protocol decision is unit-tested in app-logic.js (staticLoadMethod).
         console.warn('API unavailable, falling back to static data:', e.message);
+        const method = AppLogic.staticLoadMethod(location.protocol);
         try {
-          const res = await fetch('data.json');
-          const staticData = await res.json();
+          let staticData;
+          if (method === 'fetch') {
+            const res = await fetch('data.json');
+            staticData = await res.json();
+          } else {
+            // file:// — data.js was loaded by a <script> tag in <head>.
+            if (!window.__STATIC_DATA) throw new Error('static data not embedded');
+            staticData = window.__STATIC_DATA;
+          }
           DATA = {
             projects: staticData.projects,
             events: staticData.events || {},
@@ -981,12 +1048,21 @@
             breakdowns: staticData.breakdowns || {},
             stats: staticData.stats || null
           };
+          // L12: surface that this is cached, not live. The pure predicate
+          // (isStaticFallback) is unit-tested in app-logic.js.
+          if (AppLogic.isStaticFallback({ apiOk: false })) showCachedBanner();
           init();
         } catch (e2) {
           document.getElementById('project-list').innerHTML =
             `<div class="empty-state"><div class="empty-icon">!</div><h3>Could not load data</h3><p>${esc(e2.message)}</p></div>`;
         }
       }
+    }
+
+    // L12: reveal the cached-data banner (shown only on the static fallback).
+    function showCachedBanner() {
+      const banner = document.getElementById('cached-banner');
+      if (banner) banner.hidden = false;
     }
 
     async function loadProjectDetail(projectId) {
@@ -1434,7 +1510,7 @@
       document.getElementById('detail-content').innerHTML = `
         <div class="detail-header">
           <span class="back-link" id="detail-back">← Back to all projects</span>
-          <h1 class="detail-title">${esc(p.title)}</h1>
+          <h1 class="detail-title" id="detail-title">${esc(p.title)}</h1>
           <div class="detail-subtitle">
             ${p.sector ? `<span>${esc(p.sector)}${p.subsector ? ' · ' + esc(p.subsector) : ''}</span>` : ''}
             ${p.province ? `<span>${esc(p.province)}${p.municipality ? ', ' + esc(p.municipality) : ''}</span>` : ''}
@@ -1589,14 +1665,25 @@
       if (!project) return;
       state.selectedId = projectId;
 
+      // L10: remember where focus was so closeDetail can return it.
+      detailReturnFocus = document.activeElement;
+
       // Show panel immediately with basic data, then enrich
-      document.getElementById('detail-panel').classList.add('open');
+      const panel = document.getElementById('detail-panel');
+      panel.classList.add('open');
       document.getElementById('detail-overlay').classList.add('open');
       document.body.style.overflow = 'hidden';
       renderDetail(project);
       renderList();
 
       syncURL();
+
+      // L10: move focus into the dialog (the close button is the first
+      // focusable element). setTimeout lets the open transition apply first.
+      setTimeout(() => {
+        const closeBtn = document.getElementById('detail-close');
+        if (closeBtn) closeBtn.focus();
+      }, 0);
 
       // Fetch full detail in the background
       const detail = await loadProjectDetail(projectId);
@@ -1612,6 +1699,22 @@
       document.body.style.overflow = '';
       syncURL();
       renderList();
+      // L10: return focus to the element that opened the dialog.
+      if (detailReturnFocus && typeof detailReturnFocus.focus === 'function') {
+        detailReturnFocus.focus();
+        detailReturnFocus = null;
+      }
+    }
+
+    // L10: collect the dialog's focusable elements in DOM order, for the
+    // Tab/Shift+Tab focus trap. The close button plus any focusable children
+    // rendered inside detail-content (links, buttons) are all in scope.
+    function detailFocusables() {
+      const panel = document.getElementById('detail-panel');
+      if (!panel) return [];
+      return Array.from(panel.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )).filter(el => !el.disabled && el.offsetParent !== null);
     }
 
     // ============================================================
@@ -1672,6 +1775,20 @@
         if (e.key === 'Escape') {
           if (state.selectedId) { closeDetail(); }
         }
+        // L10: focus trap — when the detail dialog is open, Tab/Shift+Tab cycle
+        // among its focusable elements instead of escaping to the page behind.
+        // The wrap-around index math is unit-tested in app-logic.js
+        // (nextFocusTarget); here we only apply it to the live DOM.
+        if (state.selectedId && e.key === 'Tab') {
+          const focusables = detailFocusables();
+          if (focusables.length === 0) return;
+          const idx = focusables.indexOf(document.activeElement);
+          const next = AppLogic.nextFocusTarget(focusables, idx, e.shiftKey);
+          if (next >= 0) {
+            e.preventDefault();
+            focusables[next].focus();
+          }
+        }
       });
 
       // Filter chips
@@ -1709,6 +1826,11 @@
       // Detail close
       document.getElementById('detail-close').addEventListener('click', closeDetail);
       document.getElementById('detail-overlay').addEventListener('click', closeDetail);
+      // L12: cached-data banner dismiss
+      const bannerClose = document.getElementById('cached-banner-close');
+      if (bannerClose) bannerClose.addEventListener('click', () => {
+        document.getElementById('cached-banner').hidden = true;
+      });
       document.getElementById('detail-content').addEventListener('click', e => {
         if (e.target.id === 'detail-back') closeDetail();
       });
