@@ -39,7 +39,7 @@ python db/_extract/archive_sources.py --apply  # writes sources.archived_url (Wa
 python db/load.py                            # rebuild db/investment_tracker.db (FK + score-consistency gates)
 python db/calculate_scores.py --update-csv   # repopulate execution_score AND sync data/projects.csv
 python db/verify_sources.py --apply          # URL liveness → stamps sources.last_verified + url_status
-python db/verify_invariants.py               # 49 structural invariant checks (+ known-open-issue warnings)
+python db/verify_invariants.py               # 52 structural invariant checks (+ known-open-issue warnings)
 python db/verify_snapshot.py                 # snapshot drift + article pin
 python db/query.py --summary                 # read-only JSON access layer (workflow-integration leg)
 ```

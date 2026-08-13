@@ -5,12 +5,20 @@ CSV -> SQLite loader for the Angola Investment Execution Database.
 Rebuilds db/investment_tracker.db from schema.sql and the CSV files in data/.
 Idempotent: running it again produces the same database.
 
+Pre-load gate (in load_csv, before the DB is touched): every CSV's header must
+match COLUMNS exactly and every data row must have the same field count as the
+header — a reordered/renamed column or a short row fails fast instead of
+silently mis-mapping values (the 2026-08 filda_edition shift bug).
+
 Integrity gates (run after the load, with foreign_keys re-enabled):
   1. PRAGMA foreign_key_check — fails the load on any dangling FK.
   2. execution_score consistency — recomputes scores from the loaded data and
      asserts they match the snapshot stored in projects.csv. A mismatch means
      the CSV snapshot is stale; run `python db/calculate_scores.py --update-csv`
      to sync it, then re-load.
+  3. data_completeness consistency — recomputes the timeline-completeness label
+     from the loaded events and asserts it matches the snapshot stored in
+     projects.csv (mirrors gate 2; see constants.data_completeness).
 
 Usage:
     python db/load.py            # rebuild the database from CSVs (with integrity gates)
@@ -27,7 +35,7 @@ import argparse
 # snapshot in projects.csv against the formula on every rebuild.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from calculate_scores import compute_scores, SCORE_VERSION
-from constants import MUTATION_OPS  # staleness-guard op set (single source of truth)
+from constants import MUTATION_OPS, data_completeness  # staleness-guard op set + data_completeness derivation
 
 BASE_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_dir = os.path.join(BASE_dir, "data")
@@ -50,7 +58,10 @@ TABLES = [
 
 # Columns written from each CSV, in file order. created_at is loaded from CSV
 # so first-seen timestamps survive rebuilds (only updated_at is left to
-# SQLite's DEFAULT datetime('now')).
+# SQLite's DEFAULT datetime('now')). This is ALSO the expected on-disk header
+# (load_csv validates against it), so it must match data/<table>.csv exactly —
+# including is_externally_blocked, which export_csv.py round-trips and which a
+# rebuild would otherwise silently drop (DB default 0).
 COLUMNS = {
     "sources": ["id", "title", "url", "date", "publisher", "archived_url",
                 "confidence", "last_verified", "url_status"],
@@ -59,7 +70,8 @@ COLUMNS = {
         "municipality", "coordinates", "status", "announced_value", "currency",
         "estimated_jobs", "expected_completion", "actual_completion",
         "execution_score", "filda_edition", "source_program", "last_verified",
-        "evidence_complete", "created_at",
+        "created_at", "evidence_complete", "is_externally_blocked",
+        "data_completeness",
     ],
     "organizations": ["id", "name", "type", "country", "parent_org_id", "aliases",
                       "description", "created_at"],
@@ -74,7 +86,8 @@ COLUMNS = {
 # Columns that are REAL/INTEGER; empty string -> NULL for these so type
 # constraints and aggregations behave correctly.
 NUMERIC_COLUMNS = {
-    "projects": {"announced_value", "estimated_jobs", "execution_score", "evidence_complete"},
+    "projects": {"announced_value", "estimated_jobs", "execution_score",
+                 "evidence_complete", "is_externally_blocked"},
     "project_organizations": {"id"},
     "events": {"id", "source_id"},
     "sources": {"id"},
@@ -107,15 +120,38 @@ def clean(row, table):
 
 
 def load_csv(table):
-    """Read a CSV file and return a list of cleaned row tuples."""
+    """Read a CSV file and return a list of cleaned row tuples.
+
+    Validates the on-disk header against COLUMNS (exact order) and every data
+    row's field count against the header, so a reordered/renamed column or a
+    row with the wrong number of fields fails fast instead of silently
+    mis-mapping values. The 2026-08 filda_edition bug was exactly this class:
+    a manually appended row missing the empty filda_edition column shifted
+    every later value left by one, and the score-consistency gate only caught
+    it downstream (5 projects scored 0). This check surfaces it at the source.
+    """
     path = os.path.join(DATA_dir, f"{table}.csv")
     if not os.path.exists(path):
         raise FileNotFoundError(f"Missing data file: {path}")
+    expected = COLUMNS[table]
     rows = []
     with open(path, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            rows.append(tuple(clean(row, table)))
+        reader = csv.reader(f)
+        header = next(reader, None)
+        if header != expected:
+            raise ValueError(
+                f"{table}.csv header mismatch:\n"
+                f"  expected {len(expected)} cols: {expected}\n"
+                f"  found    {len(header) if header is not None else 0} cols: {header}")
+        for lineno, row in enumerate(reader, start=2):
+            if not row:
+                continue  # blank line (DictReader also skips these)
+            if len(row) != len(expected):
+                raise ValueError(
+                    f"{table}.csv line {lineno}: {len(row)} fields, expected "
+                    f"{len(expected)} — a missing column shifts every later "
+                    f"value left by one (see the filda_edition bug).")
+            rows.append(tuple(clean(dict(zip(expected, row)), table)))
     return rows
 
 
@@ -291,6 +327,30 @@ def main():
                     "('load-seed', 'db_meta', NULL, ?, NULL, 'fresh rebuild from CSV')",
                     (json.dumps({"tables": counts}),))
                 conn.commit()
+
+        # --- Integrity gate 3: data_completeness consistency ---
+        # data_completeness is loaded from projects.csv (a snapshot). Recompute
+        # it from the loaded events and assert equality, so a stale snapshot can
+        # never silently ship (mirrors the execution_score gate above).
+        if not failed:
+            dc_drift = []
+            for pid, stored in conn.execute(
+                    "SELECT id, data_completeness FROM projects"):
+                types = {e[0] for e in conn.execute(
+                    "SELECT event_type FROM events WHERE project_id = ?", (pid,))}
+                computed = data_completeness(types)
+                if stored != computed:
+                    dc_drift.append((pid, stored, computed))
+            if dc_drift:
+                failed = True
+                print("\n[FAIL] data_completeness in projects.csv is stale vs the events:")
+                print(f"  {'project_id':<42}{'csv':>18}{'computed':>18}")
+                for pid, csv_dc, comp_dc in dc_drift:
+                    print(f"  {pid:<42}{str(csv_dc):>18}{comp_dc:>18}")
+                print("\nRecompute the column from events and re-run load.py.")
+            else:
+                n_proj = conn.execute("SELECT COUNT(*) FROM projects").fetchone()[0]
+                print(f"  data_completeness consistency: OK ({n_proj} projects match the events)")
     finally:
         conn.close()
 

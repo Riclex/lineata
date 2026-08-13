@@ -119,6 +119,29 @@ EXECUTION_BANDS = ("UNCONFIRMED", "STALLED", "DELIVERED", "IN_PROGRESS", "SILENT
 SOURCE_PROGRAMS = ("FILDA", "AIPEX", "refinery", "PPP", "multilateral")
 
 
+# project_evidence.field controlled vocabulary. The four in-use fields back
+# project fields directly (status, announced_value, actual_completion,
+# estimated_jobs); the four outcome tags let a human record a verified outcome
+# (jobs created, production started, exports documented, awards won) with a
+# source, instead of inferring it from event types. Enforced by
+# verify_invariants.py (the column is plain TEXT; the invariant checker is the
+# backstop, same as SOURCE_PROGRAMS). Wiring the outcome tags into the evidence
+# bonus is a deliberate future v3 scoring change — see data-lineage.md
+# recommendation #9 and scoring issue #4.
+#
+# ADDABLE_EVIDENCE_FIELDS is the subset db/update.py add-evidence accepts today
+# (the four fields that back project columns directly); the outcome tags are
+# deliberately NOT CLI-addable until the v3 evidence-bonus wiring lands.
+# update.py imports this set rather than duplicating a literal, so the CLI
+# vocabulary can never drift from the invariant vocabulary.
+ADDABLE_EVIDENCE_FIELDS = (
+    "status", "announced_value", "actual_completion", "estimated_jobs",
+)
+EVIDENCE_FIELDS = ADDABLE_EVIDENCE_FIELDS + (
+    "jobs_verified", "production_started", "exports_documented", "awards_won",
+)
+
+
 def execution_band(status, score, evidence_complete):
     """Derive the coarse execution-band label from existing project fields.
 
@@ -149,3 +172,30 @@ def band_distribution(rows):
     for status, score, evidence_complete in rows:
         dist[execution_band(status, score, evidence_complete)] += 1
     return dist
+
+
+# data_completeness — how much of a project's timeline is recorded. Derived
+# mechanically from the event-type set (no judgment, no storage of the
+# derivation): announcement_only = no progress events, partial = progress but
+# no completion, full = a completion event. Single-sourced here so load.py's
+# consistency gate and verify_invariants.py's drift check share one definition.
+DATA_COMPLETENESS = ("announcement_only", "partial", "full")
+
+# Event types that move a project past the announcement-only stage.
+PROGRESS_EVENTS = ("financing", "groundbreaking", "construction", "expansion", "restart")
+
+
+def data_completeness(event_types):
+    """Derive the timeline-completeness label from a project's event types.
+
+    Pure function of the event-type set:
+      announcement_only : no progress events (only announcement/mou/delay/...)
+      partial           : has progress events but no completion
+      full              : has a completion event
+    """
+    types = set(event_types)
+    if "completion" in types:
+        return "full"
+    if types & set(PROGRESS_EVENTS):
+        return "partial"
+    return "announcement_only"

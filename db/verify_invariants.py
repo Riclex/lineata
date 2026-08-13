@@ -21,7 +21,9 @@ if hasattr(sys.stdout, "reconfigure"):
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from calculate_scores import SCORE_VERSION
-from constants import MUTATION_OPS, ALLOWED_OPS, looks_like_award, SOURCE_PROGRAMS
+from constants import (MUTATION_OPS, ALLOWED_OPS, looks_like_award,
+                       SOURCE_PROGRAMS, EVIDENCE_FIELDS, DATA_COMPLETENESS,
+                       data_completeness)
 
 DB_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "investment_tracker.db")
 
@@ -162,6 +164,33 @@ def main():
     for pid, sp in bad:
         check(f"source_program {sp!r} in allowed set ({pid})", False, True)
     check("all projects source_program in allowed set", len(bad), 0)
+
+    # ---- project_evidence.field in controlled vocabulary (rec. #9) ----
+    bad_fields = [(r[0], r[1]) for r in conn.execute(
+        "SELECT project_id, field FROM project_evidence")
+        if r[1] not in EVIDENCE_FIELDS]
+    for pid, f in bad_fields:
+        check(f"evidence field {f!r} in allowed set ({pid})", False, True)
+    check("all project_evidence fields in allowed set", len(bad_fields), 0)
+
+    # ---- data_completeness in allowed set + matches events (rec. #10) ----
+    bad_dc = [(r[0], r[1]) for r in conn.execute(
+        "SELECT id, data_completeness FROM projects")
+        if r[1] not in DATA_COMPLETENESS]
+    for pid, dc in bad_dc:
+        check(f"data_completeness {dc!r} in allowed set ({pid})", False, True)
+    check("all projects data_completeness in allowed set", len(bad_dc), 0)
+
+    dc_drift = []
+    for r in conn.execute("SELECT id, data_completeness FROM projects"):
+        types = {e[0] for e in conn.execute(
+            "SELECT event_type FROM events WHERE project_id = ?", (r[0],))}
+        computed = data_completeness(types)
+        if r[1] != computed:
+            dc_drift.append((r[0], r[1], computed))
+    for pid, stored, computed in dc_drift:
+        check(f"data_completeness matches events ({pid})", stored, computed)
+    check("all projects data_completeness matches events", len(dc_drift), 0)
 
     conn.close()
 

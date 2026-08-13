@@ -44,6 +44,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from verify_sources import classify          # db/verify_sources.py:41 — stdlib urllib only
 from calculate_scores import calculate_score  # db/calculate_scores.py:181 — single-project recompute
 from audit import log_change                 # db/audit.py — shared change_log writer
+from constants import ADDABLE_EVIDENCE_FIELDS  # db/constants.py — single-sourced add-evidence vocabulary
 
 BASE_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_DB_path = os.path.join(BASE_dir, "db", "investment_tracker.db")
@@ -64,7 +65,10 @@ STATUS_TYPES = {
     'announced', 'mou_signed', 'financed', 'under_construction', 'delayed',
     'suspended', 'restarted', 'operational', 'completed', 'cancelled', 'unknown',
 }
-EVIDENCE_FIELDS = {'status', 'announced_value', 'estimated_jobs', 'actual_completion'}
+# add-evidence field vocabulary: single-sourced from db/constants.py
+# (ADDABLE_EVIDENCE_FIELDS — the four fields backing project columns; the
+# outcome tags stay out of the CLI until the v3 evidence-bonus wiring lands).
+EVIDENCE_FIELDS = set(ADDABLE_EVIDENCE_FIELDS)
 CONFIDENCE_LEVELS = {'high', 'medium', 'low'}
 
 # set-status -> the event_type that records the same transition (only inserted

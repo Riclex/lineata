@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS projects (
     last_verified       TEXT,  -- YYYY-MM-DD a human last checked this project's status against sources
     evidence_complete   INTEGER DEFAULT 1,  -- 0 = tracked but NOT scored (no click-through evidence; see data-lineage.md "Event 80")
     is_externally_blocked INTEGER DEFAULT 0,  -- label only (Gap 2): 1 = stalled by an external force (judicial/regulatory/disbursement), not underperformance; does NOT affect the score
+    data_completeness   TEXT,  -- announcement_only | partial | full — how much of the timeline is recorded; derived from events by load.py (see constants.data_completeness), drift-checked by verify_invariants.py
     created_at          TEXT DEFAULT (datetime('now')),
     updated_at          TEXT DEFAULT (datetime('now'))
 );

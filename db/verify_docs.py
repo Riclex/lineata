@@ -94,6 +94,9 @@ def main():
         "SELECT AVG(execution_score) FROM projects WHERE evidence_complete = 1"
     ).fetchone()[0]
     avg_rounded = round(avg, 4)
+    filda_avg = conn.execute(
+        "SELECT AVG(execution_score) FROM projects "
+        "WHERE evidence_complete = 1 AND source_program = 'FILDA'").fetchone()[0]
 
     vchk = verify_check_count()
 
@@ -184,6 +187,18 @@ def main():
         n = int(tbl[label]) if label in tbl else None
         chk(f"data-lineage distribution table '{label}'",
             dist[label], n, "docs/data-lineage.md")
+
+    # Derived statistics table (present-tense): "Average score (FILDA-only 43 /
+    # broadened 43)" row — both are the rounded current averages.
+    ds = re.search(r"\| Average score \(FILDA-only (\d+) / broadened (\d+)\) \|",
+                   lineage)
+    if ds:
+        chk("data-lineage 'Derived stats avg FILDA-only'", round(filda_avg),
+            int(ds.group(1)), "docs/data-lineage.md")
+        chk("data-lineage 'Derived stats avg broadened'", round(avg),
+            int(ds.group(2)), "docs/data-lineage.md")
+    else:
+        chk("data-lineage 'Derived stats avg row'", None, None, "docs/data-lineage.md")
 
     # Article Layer: Gov vs private row (broadened private avg).
     gp = re.search(r"\| Gov vs private \(54,0 vs (\d+,\d+) broadened", lineage)
