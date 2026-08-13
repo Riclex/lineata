@@ -612,6 +612,75 @@ scores → events / `project_evidence` → `sources.id`.
 
 ---
 
+## 2026-08-13 — Orphan organization audit (M12)
+
+The 4-agent evaluation flagged 11 organizations present in `organizations.csv` with
+no `project_organizations` row (no link to any tracked project), plus the
+`hospital-serum-factory` project with no linked organization. The chosen fix was
+"research and link them" — source-grounded associations only, no fabricated links.
+
+A web-research pass on each orphan found that **none has a verifiable association
+with a *current tracked* project**: they are FILDA exhibitors, a bilateral-forum
+participant, an award winner, or a structural parent whose own projects are not
+(yet) tracked in the database. Per the data-discipline rule (flag, don't silently
+fix; no fabricated URLs), no `project_organizations` rows were added — forcing a
+link would have invented an association. The orphans are retained (deletion is
+irreversible and the user's call) and documented here as deletion candidates.
+
+### Per-orphan findings
+
+| Org (id) | What it is (source) | Tracked-project link? | Outcome |
+|----------|---------------------|-----------------------|---------|
+| `bai` | Banco Angolano de Investimentos — parent of BAI Europa (99.99% owned). BAI Europa is already linked to `chicomba-water-dam` as financier (source 38 / event 59); that source names the *subsidiary* BAI Europa, not the parent. | No — the parent is not named in the Chicomba source. | **Retain** as a structural parent (`bai-europa.parent_org_id = bai`). Not a deletion candidate: it exists to hold the subsidiary relationship, not to be a project participant. |
+| `fundo-garantia-credito` | Won the Leão de Ouro 2025 in Financial Services at FILDA 2025 (Forbes África Lusófona, search-confirmed). | No — its *own* award is not a tracked project (the tracked 2025 award projects are Sonangol/ETU/ANPG, different categories). | Deletion candidate (award-winner org, no tracked project). |
+| `carrinho` | Reported by VerAngola as a participant in the Fórum Económico Angola-Portugal (Jul 2024, PM Montenegro's visit). VerAngola page 403-blocked, not independently re-verified; the AICEP/portugalglobal forum page names no companies. | No — the forum is not tracked as a distinct project (`montenegro-company-visits` covers company *visits*, not the forum). | Deletion candidate (forum participant, no tracked project). |
+| `nova-agrolider` | Same Fórum Económico Angola-Portugal 2024 participant (same sourcing caveat as `carrinho`). | No — same as above. | Deletion candidate. |
+| `lg-electronics` | Debuted independently at FILDA 2024 (consumer-electronics stand; Negócios de Angola, search-confirmed). Part of a Korean delegation that explored the Lobito Corridor (Oct 2024) — exploratory, not an announced project. | No — no announced LG investment project is tracked; the Lobito Corridor link is exploratory only. | Deletion candidate (FILDA exhibitor, no tracked project). |
+| `standard-bank-ao` | Standard Bank de Angola exhibited at FILDA 2024; financed ANTOSC's 24 telecom towers (2.45B Kz, Diário dos Negócios, search-confirmed) — a real investment, but ANTOSC/the tower project is not tracked. | No — the financed project is not tracked. | Deletion candidate (FILDA exhibitor / financier of a non-tracked project). |
+| `anglobal` | Anglobal Group — telecom engineering + renewables; at FILDA presented Antosc wholesale fiber, RAN sharing, edge datacenters, Galvostahl galvanizing (Forbes África Lusófona, search-confirmed). | No — Anglobal's/Antosc's own projects are not tracked. | Deletion candidate (FILDA exhibitor, no tracked project). |
+| `emis` | Empresa Interbancária de Serviços — runs Kwik / Multicaixa; "Cidadão Digital" project (Angop, search-confirmed). | No — Kwik/Cidadão Digital are not tracked projects. | Deletion candidate. |
+| `tis` | TISTECH Angola — Oracle Financial integrator; FILDA 2024 exhibitor (marcasemaccao / tis.ao, search-confirmed). | No — no TIS project is tracked. | Deletion candidate. |
+| `secil-maritima` | **Description corrected** (see below): maritime transport & cabotage company, not construction materials. Runs the Cabotagem Norte project (Cabinda–Luanda–Soyo). | No — the cabotage project is not tracked; no tracked port/PPP project matches. | Deletion candidate (description fixed; no tracked project). |
+| `ta-cuiar` | **Description corrected** (see below): e-commerce / online shopping platform (CEO Najib El-Berbari), not food/catering; FILDA 2024 debut (marcasemaccao, WebFetch-verified). | No — no Ta Cuiar project is tracked. | Deletion candidate (description fixed; no tracked project). |
+
+### Unlinked project
+
+`hospital-serum-factory` (AIPEX, announced 2024-05-17) — its announcement event
+(109) is already grounded by source 136 (the AIPEX "six investment project
+contracts" article, investinangola.ao). That source names the serum-factory
+project ($15M, 503 jobs, Luanda) but **does not name the promoter**. No other
+source surfaced the operating company (the separate VitalFlow €80M and Thera
+pharma projects are explicitly *not* this project). The promoter is therefore
+left NULL — an honest gap, not a fabricated org link.
+
+### Description corrections applied (organizations.csv)
+
+Two org descriptions were clearly wrong and were corrected against primary
+sources (a third field — `secil-maritima.country` Portugal→Angola — was also
+corrected: the company is Luanda-HQ'd and was nationalized by the Angolan state
+in 1978):
+
+- `secil-maritima`: "Construction materials" → "Maritime transport and cabotage
+  company (Cabinda–Luanda–Soyo route); Luanda-based shipping and logistics.
+  Originally founded by Secil cement (1963); nationalized by the Angolan state
+  (1978)." Grounded in the company's own site, `secilmaritima.co.ao/sobre-a-secil/`
+  (WebFetch-verified: maritime transport, HQ Luanda).
+- `ta-cuiar`: "Food/catering, FILDA debut 2024" → "E-commerce and online shopping
+  platform (CEO Najib El-Berbari); FILDA debut 2024." Grounded in
+  `marcasemaccao.com/2024/07/25/a-estreia-da-ta-cuiar-na-filda/` (WebFetch-verified:
+  "plataforma de vendas online").
+
+### Outcome
+
+No `project_organizations` rows added (no verifiable associations exist). The 11
+orphans are retained and flagged above as deletion candidates for a user decision
+— deleting them is irreversible and is not done unilaterally. `bai` is retained
+by design (structural parent). `hospital-serum-factory`'s promoter remains an
+honest NULL. No published figure moved (org descriptions are not scored or pinned
+by `verify_snapshot`), so `db/snapshot.json` and `app/data.json` are unchanged.
+
+---
+
 ## Recommendations
 
 ### Done
