@@ -20,8 +20,8 @@ jobs:
     name: Fast gate (tests + invariants)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.14'
       # verify_invariants.py needs the DB, which is a gitignored build artifact.
@@ -36,8 +36,8 @@ jobs:
     # Only run the full gate (which needs the DB built) on the default branch.
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.14'
       - name: Build DB from CSV checkpoints
@@ -51,8 +51,8 @@ jobs:
     # Only the weekly scheduled run does a live URL sweep; PRs skip the network.
     if: github.event_name == 'schedule'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.14'
       - name: Build DB
