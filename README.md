@@ -1,4 +1,4 @@
-# Angola Investment Execution Database
+# Investment Execution Database
 
 A PitchBook for announced investments in Angola. Tracks what actually happened to projects announced at FILDA and other sources — not just what was announced.
 
@@ -41,13 +41,13 @@ That's intelligence.
 ## Data Model
 
 ### Projects
-id, title, sector, subsector, description, country, province, municipality, coordinates, status, announced_value, currency, estimated_jobs, expected_completion, actual_completion, execution_score, evidence_complete, is_externally_blocked, execution_band (derived)
+id, title, sector, subsector, description, country, province, municipality, coordinates, status, announced_value, currency, estimated_jobs, expected_completion, actual_completion, execution_score, evidence_complete, is_externally_blocked, filda_edition, source_program, last_verified, data_completeness, execution_band (derived)
 
 ### Organizations
 Company, Government entity, State-owned enterprise, Foreign investor, Contractor, Financier
 
 ### Events
-Announcement, MoU, Financing, Groundbreaking, Construction, Delay, Suspension, Restart, Completion, Expansion, Closure
+Announcement, MoU, Financing, Groundbreaking, Construction, Delay, Suspension, Restart, Completion, Expansion, Closure, Ownership change
 
 ### Sources
 Title, URL, Date, Publisher, Archived copy, Confidence
@@ -135,7 +135,7 @@ FILDA Investment Tracker/
 │   ├── test_verify_sources.py       # Source-liveness classifier + atomic --apply
 │   └── test_verify_docs.py          # Doc-figure drift verifier self-tests
 ├── data/
-│   ├── projects.csv           # Project records (Phase 0: FILDA 2023)
+│   ├── projects.csv           # Project records (FILDA 2022–2026 + AIPEX/PPP/multilateral/refinery channels)
 │   ├── organizations.csv      # Organization records
 │   ├── events.csv             # Event timeline records
 │   ├── sources.csv            # Source/reference records (+ last_verified, url_status)
