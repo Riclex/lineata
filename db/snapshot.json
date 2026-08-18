@@ -1,38 +1,42 @@
 {
   "counts": {
-    "projects": 108,
-    "scored": 107,
+    "projects": 129,
+    "scored": 128,
     "unscored": 1,
     "unscored_ids": [
       "banco-sol-mc-empresas-2025"
     ],
-    "sources": 196,
-    "events": 176,
-    "events_linked": 175,
+    "sources": 201,
+    "events": 216,
+    "events_linked": 215,
     "events_null": 1,
     "null_event_ids": [
       80
     ]
   },
   "aggregate": {
-    "avg_precise": 43.1308,
-    "avg_rounded": 43,
+    "avg_precise": 41.4219,
+    "avg_rounded": 41,
     "distribution": {
-      "0-20": 28,
-      "21-40": 23,
+      "0-20": 30,
+      "21-40": 40,
       "41-60": 19,
       "61-80": 27,
-      "81-100": 10
+      "81-100": 12
     }
   },
   "sectors": {
     "Agriculture": {
-      "count": 16,
-      "avg": 37.5
+      "count": 17,
+      "avg": 37.0
     },
     "Commerce": {
       "count": 3,
       "avg": 61.0
+    },
+    "Construction": {
+      "count": 1,
+      "avg": 29.0
     },
     "Digital": {
       "count": 2,
@@ -43,12 +47,16 @@
       "avg": 37.5
     },
     "Energy": {
-      "count": 17,
-      "avg": 36.4
+      "count": 18,
+      "avg": 36.0
     },
     "Finance": {
-      "count": 6,
-      "avg": 28.2
+      "count": 9,
+      "avg": 23.8
+    },
+    "Food & Beverage": {
+      "count": 2,
+      "avg": 29.0
     },
     "Government": {
       "count": 3,
@@ -59,35 +67,51 @@
       "avg": 60.8
     },
     "Infrastructure": {
-      "count": 19,
-      "avg": 42.8
+      "count": 20,
+      "avg": 42.1
     },
     "Logistics": {
       "count": 1,
       "avg": 72.0
     },
     "Manufacturing": {
-      "count": 11,
-      "avg": 40.4
+      "count": 15,
+      "avg": 37.3
+    },
+    "Media": {
+      "count": 1,
+      "avg": 29.0
+    },
+    "Mining": {
+      "count": 1,
+      "avg": 29.0
     },
     "Multi-sector": {
-      "count": 12,
-      "avg": 50.6
+      "count": 14,
+      "avg": 56.1
+    },
+    "Public services": {
+      "count": 1,
+      "avg": 29.0
     },
     "Technology": {
       "count": 5,
       "avg": 55.6
     },
     "Telecom": {
-      "count": 6,
-      "avg": 41.0
+      "count": 8,
+      "avg": 38.0
+    },
+    "Trade": {
+      "count": 1,
+      "avg": 29.0
     }
   },
   "gov_vs_private": {
     "gov_count": 3,
-    "private_count": 104,
+    "private_count": 125,
     "gov_avg": 54.0,
-    "private_avg": 42.8
+    "private_avg": 41.1
   },
   "case_studies": {
     "huatong-angola-industry-awards": 78,

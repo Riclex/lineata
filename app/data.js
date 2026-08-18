@@ -145,6 +145,30 @@ window.__STATIC_DATA = {
       "execution_band": "DELIVERED"
     },
     {
+      "id": "germany-delegation-filda2019",
+      "title": "Germany Delegation FILDA 2019",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "Germany returned to FILDA after 3 editions with 11 companies (machine-building tech architecture electrotechnical energy environmental protection transport food processing tourism waste tech); GTAI context; won Melhor Participacao Internacional at the 2019 gala",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "completed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 89,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "DELIVERED"
+    },
+    {
       "id": "portugal-30-companies-2022",
       "title": "Portugal 30-Company Delegation FILDA 2022",
       "sector": "Multi-sector",
@@ -166,6 +190,30 @@ window.__STATIC_DATA = {
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23",
+      "execution_band": "DELIVERED"
+    },
+    {
+      "id": "portugal-delegation-filda2019",
+      "title": "Portugal Delegation FILDA 2019 (Dia de Portugal)",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "Portugal as guest country at FILDA 2019 with about 3 dozen companies; AEP-organized delegation under Portugal 2020/Compete 2020 with AICEP; Dia de Portugal on 10 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "completed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 89,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
       "execution_band": "DELIVERED"
     },
     {
@@ -1513,6 +1561,30 @@ window.__STATIC_DATA = {
       "execution_band": "SILENT"
     },
     {
+      "id": "adinova-leao-ouro-2019",
+      "title": "ADINOVA Melhor Comercio e Servicos 2019",
+      "sector": "Trade",
+      "subsector": "Services",
+      "description": "ADINOVA won Best Commerce and Services (Melhor Comercio e Servicos) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
       "id": "africell-aipex-2026",
       "title": "Africell AIPEX Digital Economy Award",
       "sector": "Telecom",
@@ -1534,6 +1606,102 @@ window.__STATIC_DATA = {
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "anglobal-leao-ouro-2019",
+      "title": "Anglobal Grande Premio Leao de Ouro 2019",
+      "sector": "Telecom",
+      "subsector": "Energy services",
+      "description": "Anglobal won the Grand Prize (Grande Premio Leao de Ouro) at the FILDA 2019 gala on 13 Jul 2019; 2nd Leao de Ouro for the telecom and energy services company; CEO Victor Lima",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "biaggio-leao-ouro-2019",
+      "title": "Biaggio Melhor Participacao Alimentacao 2019",
+      "sector": "Food & Beverage",
+      "subsector": "Food",
+      "description": "Biaggio won Best Food Participation (Melhor Participacao Alimentacao) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "bluemater-leao-ouro-2019",
+      "title": "Bluemater Melhor Produtos Inovadores 2019",
+      "sector": "Manufacturing",
+      "subsector": "Innovation",
+      "description": "Bluemater won Best Innovative Products (Melhor Produtos Inovadores) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "cwormann-leao-ouro-2019",
+      "title": "C.Wormann Melhor Maquinas e Equipamentos 2019",
+      "sector": "Manufacturing",
+      "subsector": "Machinery",
+      "description": "C.Wormann won Best Machines and Equipment (Melhor Maquinas e Equipamentos) at the FILDA 2019 gala on 13 Jul 2019; noted for equipment made in Angola",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
       "execution_band": "SILENT"
     },
     {
@@ -1561,6 +1729,30 @@ window.__STATIC_DATA = {
       "execution_band": "SILENT"
     },
     {
+      "id": "emis-leao-ouro-2019",
+      "title": "EMIS Melhor Banca e Servicos Financeiros 2019",
+      "sector": "Finance",
+      "subsector": "Banking",
+      "description": "EMIS won Best Banking and Financial Services (Melhor Banca e Servicos Financeiros) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
       "id": "fabrimetal-aipex-2026",
       "title": "Fabrimetal AIPEX Job Creation Award",
       "sector": "Manufacturing",
@@ -1582,6 +1774,30 @@ window.__STATIC_DATA = {
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "diside-leao-ouro-2019",
+      "title": "Grupo DISIDE Melhor Agricultura e Pesca 2019",
+      "sector": "Agriculture",
+      "subsector": "Fisheries",
+      "description": "Grupo DISIDE won Best Agriculture and Fisheries (Melhor Agricultura e Pesca) at the FILDA 2019 gala on 13 Jul 2019; Solmar e Kikovo brands",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
       "execution_band": "SILENT"
     },
     {
@@ -1609,6 +1825,30 @@ window.__STATIC_DATA = {
       "execution_band": "SILENT"
     },
     {
+      "id": "las-kasas-leao-ouro-2019",
+      "title": "Las Kasas Melhor Mobiliario e Decoracao 2019",
+      "sector": "Manufacturing",
+      "subsector": "Furniture",
+      "description": "Las Kasas won Best Furniture and Decoration (Melhor Mobiliario e Decoracao) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
       "id": "lobito-atlantic-railway-aipex",
       "title": "Lobito Atlantic Railway AIPEX Regional Development",
       "sector": "Infrastructure",
@@ -1630,6 +1870,30 @@ window.__STATIC_DATA = {
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "oec-leao-ouro-2019",
+      "title": "OEC Odebrecht Melhor Construcao e Materiais 2019",
+      "sector": "Construction",
+      "subsector": "Materials",
+      "description": "OEC (Odebrecht Engenharia e Construcao) won Best Construction and Materials (Melhor Construcao e Materiais) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
       "execution_band": "SILENT"
     },
     {
@@ -1657,6 +1921,30 @@ window.__STATIC_DATA = {
       "execution_band": "SILENT"
     },
     {
+      "id": "porto-de-luanda-leao-ouro-2019",
+      "title": "Porto de Luanda Melhor Transporte e Logistica 2019",
+      "sector": "Infrastructure",
+      "subsector": "Port",
+      "description": "Empresa Portuaria de Luanda won Best Transport and Logistics (Melhor Transporte e Logistica) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "Luanda",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
       "id": "porto-lobito-leao-ouro-2022",
       "title": "Porto do Lobito Leao de Ouro Transport 2022",
       "sector": "Infrastructure",
@@ -1678,6 +1966,126 @@ window.__STATIC_DATA = {
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "prodel-leao-ouro-2019",
+      "title": "Prodel Melhor Energia e Aguas 2019",
+      "sector": "Energy",
+      "subsector": "Water",
+      "description": "Prodel (public electricity production company) won Best Energy and Water (Melhor Energia e Aguas) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "siac-leao-ouro-2019",
+      "title": "SIAC Melhor Servicos de Utilidade Publica 2019",
+      "sector": "Public services",
+      "subsector": "",
+      "description": "SIAC (Servico Integrado de Atendimento ao Cidadao) won Best Public-Utility Services (Melhor Servicos de Utilidade Publica) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "sodiam-leao-ouro-2019",
+      "title": "SODIAM Melhor Entidade de Empresas Publicas 2019",
+      "sector": "Mining",
+      "subsector": "State enterprise",
+      "description": "SODIAM E.P. won Best Public-Company Entity (Melhor Entidade de Empresas Publicas) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "sodiba-leao-ouro-2019",
+      "title": "SODIBA Melhor Participacao de Bebidas 2019",
+      "sector": "Food & Beverage",
+      "subsector": "Beverages",
+      "description": "SODIBA won Best Beverages Participation (Melhor Participacao de Bebidas) at the FILDA 2019 gala on 13 Jul 2019; owner of the Luandina beer brand",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "suave-leao-ouro-2019",
+      "title": "Suave Melhor Industria e Producao Nacional 2019",
+      "sector": "Manufacturing",
+      "subsector": "Consumer goods",
+      "description": "Suave won Best National Industry and Production (Melhor Industria e Producao Nacional) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
       "execution_band": "SILENT"
     },
     {
@@ -1726,6 +2134,54 @@ window.__STATIC_DATA = {
       "last_verified": "2026-08-17",
       "evidence_complete": 1,
       "created_at": "2026-08-17",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "unitel-leao-ouro-2019",
+      "title": "Unitel Melhor Telecomunicacoes e Tecnologia 2019",
+      "sector": "Telecom",
+      "subsector": "Digital",
+      "description": "Unitel won Best Telecom and Technology (Melhor Telecomunicacoes e Tecnologia) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "zap-leao-ouro-2019",
+      "title": "ZAP Melhor Activacao de Marcas 2019",
+      "sector": "Media",
+      "subsector": "Telecom",
+      "description": "ZAP won Best Brand Activation (Melhor Activacao de Marcas) at the FILDA 2019 gala on 13 Jul 2019",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
       "execution_band": "SILENT"
     },
     {
@@ -1993,6 +2449,30 @@ window.__STATIC_DATA = {
       "execution_band": "SILENT"
     },
     {
+      "id": "bda-credit-line-2019",
+      "title": "BDA US$1000M Private Sector Credit Line",
+      "sector": "Finance",
+      "subsector": "Banking",
+      "description": "BDA private-sector credit line of US$1000M announced by Manuel Nunes Junior at the FILDA 2019 International Conference on Economic Development Financing; Deutsche Bank financing with sovereign guarantees operationalized by BDA",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": 1000000000.0,
+      "currency": "USD",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
+      "execution_band": "SILENT"
+    },
+    {
       "id": "bfa-30th-anniversary-filda",
       "title": "BFA 30th Anniversary at FILDA",
       "sector": "Finance",
@@ -2062,6 +2542,30 @@ window.__STATIC_DATA = {
       "last_verified": "2026-08-11",
       "evidence_complete": 1,
       "created_at": "2026-08-11",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "compacto-lusofono-angola-2019",
+      "title": "Compacto Lusofono Angola (Lusophone Compact)",
+      "sector": "Finance",
+      "subsector": "Development financing",
+      "description": "Lusophone Country-Specific Compact signed 10 Jul 2019 at FILDA; financing platform combining AfDB loans with SOFID guarantees; US$1M maximum investment per entrepreneur; Angola the 3rd PALOP signatory",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 8,
+      "filda_edition": "2019",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-18",
+      "evidence_complete": 1,
+      "created_at": "2026-08-18",
       "execution_band": "SILENT"
     },
     {
@@ -2570,6 +3074,36 @@ window.__STATIC_DATA = {
     }
   ],
   "events": {
+    "adinova-leao-ouro-2019": [
+      {
+        "id": 204,
+        "project_id": "adinova-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "ADINOVA participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 205,
+        "project_id": "adinova-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "ADINOVA won best Commerce & Services at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "aep-delegation-filda2025": [
       {
         "id": 84,
@@ -2752,6 +3286,36 @@ window.__STATIC_DATA = {
         "src_pub": "AgriFocus Africa",
         "src_url": "https://agrifocusafrica.com/2025/11/12/afreximbank-approves-1-3bn-for-angolas-soyo-fertiliser-plant/",
         "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "anglobal-leao-ouro-2019": [
+      {
+        "id": 178,
+        "project_id": "anglobal-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Anglobal participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 179,
+        "project_id": "anglobal-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "Anglobal won the Grande Prémio Leão de Ouro at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -3042,6 +3606,22 @@ window.__STATIC_DATA = {
         "src_url_status": "n/a"
       }
     ],
+    "bda-credit-line-2019": [
+      {
+        "id": 216,
+        "project_id": "bda-credit-line-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "BDA announced a US$1,000M private-sector credit line (Deutsche Bank financing) at the FILDA 2019 financing conference",
+        "source_id": 199,
+        "src_title": "Crédito ao setor privado angolano conta com financiamento de 1.000 milhões de dólares",
+        "src_pub": "Observador (Lusa dispatch)",
+        "src_url": "https://observador.pt/2019/07/10/credito-ao-setor-privado-angolano-conta-com-financiamento-de-1-000-milhoes-de-dolares/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "bda-financing-filda2025": [
       {
         "id": 81,
@@ -3104,6 +3684,36 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "biaggio-leao-ouro-2019": [
+      {
+        "id": 192,
+        "project_id": "biaggio-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Biaggio participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 193,
+        "project_id": "biaggio-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "Biaggio won best Food Participation at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "bita-water-supply": [
       {
         "id": 117,
@@ -3130,6 +3740,36 @@ window.__STATIC_DATA = {
         "src_pub": "World Bank",
         "src_url": "https://documents1.worldbank.org/curated/en/099122725095529077/pdf/P163610-9e90a2df-8e18-415b-aaed-7bedbd674c07.pdf",
         "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "bluemater-leao-ouro-2019": [
+      {
+        "id": 196,
+        "project_id": "bluemater-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Bluemater participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 197,
+        "project_id": "bluemater-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "Bluemater won best Innovative Products at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -3404,6 +4044,22 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "compacto-lusofono-angola-2019": [
+      {
+        "id": 217,
+        "project_id": "compacto-lusofono-angola-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Angola signed the Compacto Lusófono (AfDB + Portugal/SOFID guarantees) at FILDA 2019",
+        "source_id": 200,
+        "src_title": "Angola assina Compacto Lusófono avaliado em 1 milhão de dólares na 35ª edição da FILDA 2019",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/angola-assina-compacto-lusofono-avaliado-em-1-milhao-de-dolares-na-35a-edicao-da-filda-2019/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "corredor-namibe-concession": [
       {
         "id": 147,
@@ -3432,6 +4088,36 @@ window.__STATIC_DATA = {
         "src_pub": "Green Climate Fund",
         "src_url": "https://www.greenclimate.fund/portfolio/projects/sap044",
         "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "cwormann-leao-ouro-2019": [
+      {
+        "id": 210,
+        "project_id": "cwormann-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "C.Wormann participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 211,
+        "project_id": "cwormann-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "C.Wormann won best Machines & Equipment at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -3494,6 +4180,36 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "diside-leao-ouro-2019": [
+      {
+        "id": 194,
+        "project_id": "diside-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Grupo DISIDE participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 195,
+        "project_id": "diside-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "Grupo DISIDE won best Agriculture & Fisheries at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "economic-diversification-job-creation": [
       {
         "id": 133,
@@ -3538,6 +4254,36 @@ window.__STATIC_DATA = {
         "src_pub": "Devdiscourse",
         "src_url": "https://www.devdiscourse.com/article/business/3677043-eib-and-eu-support-angolas-hpv-vaccination-drive-to-protect-two-million-girls",
         "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "emis-leao-ouro-2019": [
+      {
+        "id": 202,
+        "project_id": "emis-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "EMIS participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 203,
+        "project_id": "emis-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "EMIS won best Banking & Financial Services at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -3798,6 +4544,36 @@ window.__STATIC_DATA = {
         "src_pub": "AIPEX (Invest in Angola)",
         "src_url": "https://investinangola.ao/pt/2024/07/10/aipex-signs-five-contracts-of-intent-for-a-total-value-of-usd-330-842-166/",
         "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "germany-delegation-filda2019": [
+      {
+        "id": 214,
+        "project_id": "germany-delegation-filda2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Germany/GTAI organized the German company delegation to FILDA 2019",
+        "source_id": 203,
+        "src_title": "Angola: Alemanha está de regresso à FILDA",
+        "src_pub": "DW (Deutsche Welle)",
+        "src_url": "https://www.dw.com/pt-002/angola-alemanha-est%C3%A1-de-regresso-%C3%A0-filda/a-49533481",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 215,
+        "project_id": "germany-delegation-filda2019",
+        "event_type": "completion",
+        "event_date": "2019-07-13",
+        "description": "the German company delegation completed participation at FILDA 2019",
+        "source_id": 203,
+        "src_title": "Angola: Alemanha está de regresso à FILDA",
+        "src_pub": "DW (Deutsche Welle)",
+        "src_url": "https://www.dw.com/pt-002/angola-alemanha-est%C3%A1-de-regresso-%C3%A0-filda/a-49533481",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -4198,6 +4974,36 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "las-kasas-leao-ouro-2019": [
+      {
+        "id": 198,
+        "project_id": "las-kasas-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Las Kasas participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 199,
+        "project_id": "las-kasas-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "Las Kasas won best Furniture & Decoration at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "linha-verde-investor-visas": [
       {
         "id": 1,
@@ -4382,6 +5188,36 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "oec-leao-ouro-2019": [
+      {
+        "id": 200,
+        "project_id": "oec-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "OEC (Odebrecht) participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 201,
+        "project_id": "oec-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "OEC (Odebrecht) won best Construction & Materials at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "omatapalo-solar-luanda": [
       {
         "id": 139,
@@ -4504,6 +5340,36 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "porto-de-luanda-leao-ouro-2019": [
+      {
+        "id": 182,
+        "project_id": "porto-de-luanda-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Porto de Luanda participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 183,
+        "project_id": "porto-de-luanda-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "Porto de Luanda won best Transport & Logistics at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "porto-lobito-leao-ouro-2022": [
       {
         "id": 52,
@@ -4596,6 +5462,36 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "portugal-delegation-filda2019": [
+      {
+        "id": 212,
+        "project_id": "portugal-delegation-filda2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-07",
+        "description": "AEP organized the Portuguese company delegation to FILDA 2019",
+        "source_id": 202,
+        "src_title": "Tudo quanto vier na rede",
+        "src_pub": "Jornal Folha 8",
+        "src_url": "https://jornalf8.net/2019/tudo-quanto-vier-na-rede/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 213,
+        "project_id": "portugal-delegation-filda2019",
+        "event_type": "completion",
+        "event_date": "2019-07-13",
+        "description": "the Portuguese company delegation completed participation at FILDA 2019",
+        "source_id": 202,
+        "src_title": "Tudo quanto vier na rede",
+        "src_pub": "Jornal Folha 8",
+        "src_url": "https://jornalf8.net/2019/tudo-quanto-vier-na-rede/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "portugal-delegation-filda2021": [
       {
         "id": 176,
@@ -4651,6 +5547,36 @@ window.__STATIC_DATA = {
         "src_title": "Investimento português na ZEE atinge USD 330 milhões",
         "src_pub": "Angonoticias/Angop",
         "src_url": "https://www.angonoticias.com/Artigos/item/82396/investimento-portugues-na-zee-atinge-usd-330-milhoes",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "prodel-leao-ouro-2019": [
+      {
+        "id": 186,
+        "project_id": "prodel-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Prodel participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 187,
+        "project_id": "prodel-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "Prodel won best Energy & Water at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
         "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
@@ -4858,6 +5784,96 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "siac-leao-ouro-2019": [
+      {
+        "id": 208,
+        "project_id": "siac-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "SIAC participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 209,
+        "project_id": "siac-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "SIAC won best Public-Utility Services at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "sodiam-leao-ouro-2019": [
+      {
+        "id": 184,
+        "project_id": "sodiam-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "SODIAM participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 185,
+        "project_id": "sodiam-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "SODIAM won best Public-Company Entity at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "sodiba-leao-ouro-2019": [
+      {
+        "id": 190,
+        "project_id": "sodiba-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "SODIBA participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 191,
+        "project_id": "sodiba-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "SODIBA won best Beverages Participation at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "sonangol-leao-ouro-2021": [
       {
         "id": 172,
@@ -5052,6 +6068,36 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "suave-leao-ouro-2019": [
+      {
+        "id": 188,
+        "project_id": "suave-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Suave participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 189,
+        "project_id": "suave-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "Suave won best National Industry & Production at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "ucall-ai-launch": [
       {
         "id": 72,
@@ -5064,6 +6110,36 @@ window.__STATIC_DATA = {
         "src_pub": "Marcas em Acção",
         "src_url": "https://marcasemaccao.com/2024/07/26/marcas-em-accao-na-filda-2024/",
         "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "unitel-leao-ouro-2019": [
+      {
+        "id": 180,
+        "project_id": "unitel-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "Unitel participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 181,
+        "project_id": "unitel-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "Unitel won best Telecom & Technology at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -5249,9 +6325,48 @@ window.__STATIC_DATA = {
         "src_archived_url": "",
         "src_url_status": "alive"
       }
+    ],
+    "zap-leao-ouro-2019": [
+      {
+        "id": 206,
+        "project_id": "zap-leao-ouro-2019",
+        "event_type": "announcement",
+        "event_date": "2019-07-10",
+        "description": "ZAP participated in FILDA 2019",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 207,
+        "project_id": "zap-leao-ouro-2019",
+        "event_type": "expansion",
+        "event_date": "2019-07-13",
+        "description": "ZAP won best Brand Activation at the FILDA 2019 gala",
+        "source_id": 201,
+        "src_title": "FILDA 2019: Anglobal vence Leão de Ouro e mais expositores foram premiados",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/filda-2019-anglobal-vence-leao-de-ouro-e-mais-expositores-foram-premiados/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
     ]
   },
   "orgs": {
+    "adinova-leao-ouro-2019": [
+      {
+        "project_id": "adinova-leao-ouro-2019",
+        "role": "promoter",
+        "name": "ADINOVA",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "aep-delegation-filda2025": [
       {
         "project_id": "aep-delegation-filda2025",
@@ -5365,6 +6480,15 @@ window.__STATIC_DATA = {
         "role": "partner",
         "name": "Sonangol P&P Natural Gas (Sonagas)",
         "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "anglobal-leao-ouro-2019": [
+      {
+        "project_id": "anglobal-leao-ouro-2019",
+        "role": "promoter",
+        "name": "Anglobal",
+        "type": "company",
         "country": "Angola"
       }
     ],
@@ -5542,6 +6666,15 @@ window.__STATIC_DATA = {
         "country": "Angola"
       }
     ],
+    "bda-credit-line-2019": [
+      {
+        "project_id": "bda-credit-line-2019",
+        "role": "promoter",
+        "name": "BDA - Banco de Desenvolvimento de Angola",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
     "bda-financing-filda2025": [
       {
         "project_id": "bda-financing-filda2025",
@@ -5576,6 +6709,15 @@ window.__STATIC_DATA = {
         "country": "Angola"
       }
     ],
+    "biaggio-leao-ouro-2019": [
+      {
+        "project_id": "biaggio-leao-ouro-2019",
+        "role": "promoter",
+        "name": "Biaggio",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "bita-water-supply": [
       {
         "project_id": "bita-water-supply",
@@ -5583,6 +6725,15 @@ window.__STATIC_DATA = {
         "name": "World Bank",
         "type": "foreign_investor",
         "country": "USA"
+      }
+    ],
+    "bluemater-leao-ouro-2019": [
+      {
+        "project_id": "bluemater-leao-ouro-2019",
+        "role": "promoter",
+        "name": "Bluemater",
+        "type": "company",
+        "country": "Angola"
       }
     ],
     "brazil-returns-to-filda": [
@@ -5694,6 +6845,29 @@ window.__STATIC_DATA = {
         "country": "China"
       }
     ],
+    "compacto-lusofono-angola-2019": [
+      {
+        "project_id": "compacto-lusofono-angola-2019",
+        "role": "financier",
+        "name": "African Development Bank",
+        "type": "foreign_investor",
+        "country": "Cote d Ivoire"
+      },
+      {
+        "project_id": "compacto-lusofono-angola-2019",
+        "role": "financier",
+        "name": "SOFID - Sociedade de Investimento e Promocao de Exportacoes",
+        "type": "state_owned_enterprise",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "compacto-lusofono-angola-2019",
+        "role": "promoter",
+        "name": "Ministry of Economy and Planning",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
     "corredor-namibe-concession": [
       {
         "project_id": "corredor-namibe-concession",
@@ -5726,6 +6900,15 @@ window.__STATIC_DATA = {
         "country": "Tunisia"
       }
     ],
+    "cwormann-leao-ouro-2019": [
+      {
+        "project_id": "cwormann-leao-ouro-2019",
+        "role": "promoter",
+        "name": "C.Wormann",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "digital-infrastructure-pledge": [
       {
         "project_id": "digital-infrastructure-pledge",
@@ -5739,6 +6922,15 @@ window.__STATIC_DATA = {
         "role": "promoter",
         "name": "Joao Lourenco",
         "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "diside-leao-ouro-2019": [
+      {
+        "project_id": "diside-leao-ouro-2019",
+        "role": "promoter",
+        "name": "Grupo DISIDE",
+        "type": "company",
         "country": "Angola"
       }
     ],
@@ -5773,6 +6965,15 @@ window.__STATIC_DATA = {
         "role": "promoter",
         "name": "Ministry of Health (MINSA)",
         "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "emis-leao-ouro-2019": [
+      {
+        "project_id": "emis-leao-ouro-2019",
+        "role": "promoter",
+        "name": "EMIS",
+        "type": "company",
         "country": "Angola"
       }
     ],
@@ -5887,6 +7088,15 @@ window.__STATIC_DATA = {
         "name": "Fuanda Internacional",
         "type": "foreign_investor",
         "country": "China"
+      }
+    ],
+    "germany-delegation-filda2019": [
+      {
+        "project_id": "germany-delegation-filda2019",
+        "role": "promoter",
+        "name": "Germany Trade and Invest (GTAI)",
+        "type": "government",
+        "country": "Germany"
       }
     ],
     "global-fund-gc7-hiv-tb-malaria": [
@@ -6059,6 +7269,15 @@ window.__STATIC_DATA = {
         "country": "USA"
       }
     ],
+    "las-kasas-leao-ouro-2019": [
+      {
+        "project_id": "las-kasas-leao-ouro-2019",
+        "role": "promoter",
+        "name": "Las Kasas",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "linha-verde-investor-visas": [
       {
         "project_id": "linha-verde-investor-visas",
@@ -6180,6 +7399,15 @@ window.__STATIC_DATA = {
         "country": "Angola"
       }
     ],
+    "oec-leao-ouro-2019": [
+      {
+        "project_id": "oec-leao-ouro-2019",
+        "role": "promoter",
+        "name": "OEC (Odebrecht Engenharia e Construcao)",
+        "type": "foreign_investor",
+        "country": "Brazil"
+      }
+    ],
     "omatapalo-solar-luanda": [
       {
         "project_id": "omatapalo-solar-luanda",
@@ -6229,6 +7457,15 @@ window.__STATIC_DATA = {
         "role": "operator",
         "name": "Ponto Mais (Casa Nova group)",
         "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "porto-de-luanda-leao-ouro-2019": [
+      {
+        "project_id": "porto-de-luanda-leao-ouro-2019",
+        "role": "promoter",
+        "name": "Empresa Portuaria de Luanda",
+        "type": "state_owned_enterprise",
         "country": "Angola"
       }
     ],
@@ -6324,6 +7561,22 @@ window.__STATIC_DATA = {
         "country": "Portugal"
       }
     ],
+    "portugal-delegation-filda2019": [
+      {
+        "project_id": "portugal-delegation-filda2019",
+        "role": "promoter",
+        "name": "AEP - Associacao Empresarial de Portugal",
+        "type": "company",
+        "country": "Portugal"
+      },
+      {
+        "project_id": "portugal-delegation-filda2019",
+        "role": "promoter",
+        "name": "AICEP - Agencia para o Investimento e Comercio Externo de Portugal",
+        "type": "government",
+        "country": "Portugal"
+      }
+    ],
     "portugal-delegation-filda2021": [
       {
         "project_id": "portugal-delegation-filda2021",
@@ -6340,6 +7593,15 @@ window.__STATIC_DATA = {
         "name": "CCIPA - Camara de Comercio e Industria Portugal-Angola",
         "type": "company",
         "country": "Portugal"
+      }
+    ],
+    "prodel-leao-ouro-2019": [
+      {
+        "project_id": "prodel-leao-ouro-2019",
+        "role": "promoter",
+        "name": "Prodel (Empresa Publica de Producao de Electricidade)",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
       }
     ],
     "prosil-isptec-2022": [
@@ -6453,6 +7715,33 @@ window.__STATIC_DATA = {
         "country": "Saudi Arabia"
       }
     ],
+    "siac-leao-ouro-2019": [
+      {
+        "project_id": "siac-leao-ouro-2019",
+        "role": "promoter",
+        "name": "SIAC (Servico Integrado de Atendimento ao Cidadao)",
+        "type": "government",
+        "country": "Angola"
+      }
+    ],
+    "sodiam-leao-ouro-2019": [
+      {
+        "project_id": "sodiam-leao-ouro-2019",
+        "role": "promoter",
+        "name": "SODIAM E.P.",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
+    "sodiba-leao-ouro-2019": [
+      {
+        "project_id": "sodiba-leao-ouro-2019",
+        "role": "promoter",
+        "name": "SODIBA",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "sonangol-leao-ouro-2021": [
       {
         "project_id": "sonangol-leao-ouro-2021",
@@ -6528,11 +7817,29 @@ window.__STATIC_DATA = {
         "country": "Italy"
       }
     ],
+    "suave-leao-ouro-2019": [
+      {
+        "project_id": "suave-leao-ouro-2019",
+        "role": "promoter",
+        "name": "Suave",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
     "ucall-ai-launch": [
       {
         "project_id": "ucall-ai-launch",
         "role": "promoter",
         "name": "Ucall",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "unitel-leao-ouro-2019": [
+      {
+        "project_id": "unitel-leao-ouro-2019",
+        "role": "promoter",
+        "name": "Unitel",
         "type": "company",
         "country": "Angola"
       }
@@ -6622,6 +7929,15 @@ window.__STATIC_DATA = {
     "zap-empresas-filda2022": [
       {
         "project_id": "zap-empresas-filda2022",
+        "role": "promoter",
+        "name": "ZAP",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "zap-leao-ouro-2019": [
+      {
+        "project_id": "zap-leao-ouro-2019",
         "role": "promoter",
         "name": "ZAP",
         "type": "company",
@@ -8407,14 +9723,203 @@ window.__STATIC_DATA = {
       "status_penalty": 0,
       "only_announce": 0,
       "version": "v2-2026-07"
+    },
+    "bda-credit-line-2019": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "compacto-lusofono-angola-2019": {
+      "base": 15,
+      "events": 3,
+      "evidence": 0,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": -10,
+      "version": "v2-2026-07"
+    },
+    "anglobal-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "unitel-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "porto-de-luanda-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "sodiam-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "prodel-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "suave-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "sodiba-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "biaggio-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "diside-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "bluemater-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "las-kasas-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "oec-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "emis-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "adinova-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "zap-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "siac-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "cwormann-leao-ouro-2019": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "portugal-delegation-filda2019": {
+      "base": 70,
+      "events": 18,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "germany-delegation-filda2019": {
+      "base": 70,
+      "events": 18,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
     }
   },
   "stats": {
-    "tracked": 108,
-    "scored": 107,
-    "sources": 196,
-    "events": 176,
-    "avg_score": 43.1,
-    "editions": "2021–2026"
+    "tracked": 129,
+    "scored": 128,
+    "sources": 201,
+    "events": 216,
+    "avg_score": 41.4,
+    "editions": "2019–2026"
   }
 };
