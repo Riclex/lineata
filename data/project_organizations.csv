@@ -20,6 +20,7 @@ id,project_id,organization_id,role
 162,angola-startup-summit-2023,bci,partner
 23,angola-startup-summit-2023,mep-angola,partner
 22,angola-startup-summit-2023,sia-huila,promoter
+163,anpg-leao-ouro-2021,anpg,promoter
 17,anpg-oil-sector-grand-prize,aecipa,partner
 9,anpg-oil-sector-grand-prize,anpg,promoter
 12,anpg-oil-sector-grand-prize,azule-energy,partner
@@ -128,6 +129,7 @@ id,project_id,organization_id,role
 38,portugal-30-companies-2022,petrotec,partner
 41,portugal-30-companies-2022,primavera,partner
 39,portugal-30-companies-2022,quinta-jugais,partner
+166,portugal-delegation-filda2021,aicep,promoter
 18,portuguese-investment-zee-330m,ccipa,financier
 45,prosil-isptec-2022,isptec,promoter
 52,pt-ao-bilateral-2024,gov-angola,promoter
@@ -142,6 +144,7 @@ id,project_id,organization_id,role
 88,safcomex-cooking-oil,safcomex,operator
 102,secondary-cities-support,world-bank,financier
 149,sfd-catumbela-industrial-phase1,sfd,financier
+164,sonangol-leao-ouro-2021,sonangol,promoter
 51,sonangol-leao-ouro-2022,sonangol,promoter
 58,sonangol-leao-ouro-2024,sonangol,promoter
 69,sonangol-leao-ouro-2025,sonangol,promoter
@@ -151,6 +154,7 @@ id,project_id,organization_id,role
 153,srep-smallholder-resilience,badea,financier
 152,srep-smallholder-resilience,ifad,financier
 62,ucall-ai-launch,ucall,promoter
+165,unitel-leao-ouro-2021,unitel,promoter
 59,unitel-leao-ouro-2024,unitel,promoter
 157,us-exim-solar-minigrids-water,us-exim,financier
 19,vi-encontro-empresarial-pt-ao,ccipa,promoter

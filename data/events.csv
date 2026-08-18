@@ -167,3 +167,11 @@ id,project_id,event_type,event_date,description,source_id
 167,eib-clean-coastal-towns,financing,2024-12-11,"EIB Board approved a EUR 120M loan (total cost EUR 256M) for climate-resilient sanitation across nine coastal towns (6 EIB-financed, 3 AfDB-co-financed); Ministry of Energy and Water; Global Europe NDICI guarantee",191
 168,afdb-urban-water-supply-sanitation,financing,2015-04-01,"AfDB Board approved a US$123.77M loan (total US$154.71M, P-AO-E00-005) for urban water supply and sanitation across seven provinces; 60-month implementation",192
 169,wb-girls-empowerment-learning,financing,2021-04-29,"World Bank approved US$250M Investment Project Financing (P168699) to empower Angolan girls and reduce learning poverty; 900,000 youth scholarships, 3,000 classrooms; Ministry of Education",194
+170,anpg-leao-ouro-2021,announcement,2021-12-01,ANPG participated in FILDA 2021 with the unified oil-sector 'corredor dos petróleos' stand,196
+171,anpg-leao-ouro-2021,expansion,2021-12-04,ANPG won the Grand Prize (Leão de Ouro) at the FILDA 2021 gala,196
+172,sonangol-leao-ouro-2021,announcement,2021-12-01,Sonangol participated in FILDA 2021,196
+173,sonangol-leao-ouro-2021,expansion,2021-12-04,Sonangol won best participation in the Oil and Gas sector at FILDA 2021,196
+174,unitel-leao-ouro-2021,announcement,2021-12-01,Unitel participated in FILDA 2021 with a 252 m² stand,197
+175,unitel-leao-ouro-2021,expansion,2021-12-04,Unitel won best telecom company at FILDA 2021,197
+176,portugal-delegation-filda2021,announcement,2021-12-02,AICEP organized the joint Portuguese presence (~10 companies) at FILDA 2021,198
+177,portugal-delegation-filda2021,completion,2021-12-04,Portuguese delegation completed participation at FILDA 2021,198

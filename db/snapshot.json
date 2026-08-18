@@ -1,28 +1,28 @@
 {
   "counts": {
-    "projects": 104,
-    "scored": 103,
+    "projects": 108,
+    "scored": 107,
     "unscored": 1,
     "unscored_ids": [
       "banco-sol-mc-empresas-2025"
     ],
-    "sources": 193,
-    "events": 168,
-    "events_linked": 167,
+    "sources": 196,
+    "events": 176,
+    "events_linked": 175,
     "events_null": 1,
     "null_event_ids": [
       80
     ]
   },
   "aggregate": {
-    "avg_precise": 43.0777,
+    "avg_precise": 43.1308,
     "avg_rounded": 43,
     "distribution": {
       "0-20": 28,
-      "21-40": 20,
+      "21-40": 23,
       "41-60": 19,
       "61-80": 27,
-      "81-100": 9
+      "81-100": 10
     }
   },
   "sectors": {
@@ -43,8 +43,8 @@
       "avg": 37.5
     },
     "Energy": {
-      "count": 15,
-      "avg": 37.3
+      "count": 17,
+      "avg": 36.4
     },
     "Finance": {
       "count": 6,
@@ -71,21 +71,21 @@
       "avg": 40.4
     },
     "Multi-sector": {
-      "count": 11,
-      "avg": 47.1
+      "count": 12,
+      "avg": 50.6
     },
     "Technology": {
       "count": 5,
       "avg": 55.6
     },
     "Telecom": {
-      "count": 5,
-      "avg": 43.4
+      "count": 6,
+      "avg": 41.0
     }
   },
   "gov_vs_private": {
     "gov_count": 3,
-    "private_count": 100,
+    "private_count": 104,
     "gov_avg": 54.0,
     "private_avg": 42.8
   },

@@ -169,6 +169,30 @@ window.__STATIC_DATA = {
       "execution_band": "DELIVERED"
     },
     {
+      "id": "portugal-delegation-filda2021",
+      "title": "Portugal/AICEP Delegation FILDA 2021",
+      "sector": "Multi-sector",
+      "subsector": "Trade",
+      "description": "AICEP organized a joint Portuguese presence (~10 companies) at FILDA 2021; Portugal was the largest international delegation (17 companies).",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "completed",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 89,
+      "filda_edition": "2021",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-17",
+      "evidence_complete": 1,
+      "created_at": "2026-08-17",
+      "execution_band": "DELIVERED"
+    },
+    {
       "id": "huatong-aipex-awards-2026",
       "title": "Huatong AIPEX Awards 2026 (3 Awards)",
       "sector": "Manufacturing",
@@ -1321,6 +1345,30 @@ window.__STATIC_DATA = {
       "execution_band": "IN_PROGRESS"
     },
     {
+      "id": "anpg-leao-ouro-2021",
+      "title": "ANPG Grande Prémio Leão de Ouro 2021",
+      "sector": "Energy",
+      "subsector": "Oil & Gas",
+      "description": "ANPG won the Grand Prize (Leão de Ouro) at the FILDA 2021 gala, 4 Dec 2021, via the unified oil-sector stand.",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 30,
+      "filda_edition": "2021",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-17",
+      "evidence_complete": 1,
+      "created_at": "2026-08-17",
+      "execution_band": "SILENT"
+    },
+    {
       "id": "brazil-returns-to-filda",
       "title": "Brazil Returns to FILDA",
       "sector": "Multi-sector",
@@ -1438,6 +1486,30 @@ window.__STATIC_DATA = {
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "sonangol-leao-ouro-2021",
+      "title": "Sonangol Melhor Participação Petróleo e Gás 2021",
+      "sector": "Energy",
+      "subsector": "Oil & Gas",
+      "description": "Sonangol won Best Oil & Gas Participation (Melhor Participação Petróleo e Gás) at the FILDA 2021 gala, 4 Dec 2021.",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 30,
+      "filda_edition": "2021",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-17",
+      "evidence_complete": 1,
+      "created_at": "2026-08-17",
       "execution_band": "SILENT"
     },
     {
@@ -1630,6 +1702,30 @@ window.__STATIC_DATA = {
       "last_verified": "2026-07-25",
       "evidence_complete": 1,
       "created_at": "2026-07-23",
+      "execution_band": "SILENT"
+    },
+    {
+      "id": "unitel-leao-ouro-2021",
+      "title": "Unitel Melhor Empresa de Telecomunicações 2021",
+      "sector": "Telecom",
+      "subsector": "Digital",
+      "description": "Unitel was distinguished as Best Telecom Company (Melhor Empresa de Telecomunicações) at FILDA 2021.",
+      "country": "Angola",
+      "province": "",
+      "municipality": "",
+      "coordinates": "",
+      "status": "announced",
+      "announced_value": "",
+      "currency": "",
+      "estimated_jobs": "",
+      "expected_completion": "",
+      "actual_completion": "",
+      "execution_score": 29,
+      "filda_edition": "2021",
+      "source_program": "FILDA",
+      "last_verified": "2026-08-17",
+      "evidence_complete": 1,
+      "created_at": "2026-08-17",
       "execution_band": "SILENT"
     },
     {
@@ -2760,6 +2856,36 @@ window.__STATIC_DATA = {
         "src_pub": "Menos Fios",
         "src_url": "https://www.menosfios.com/angola-startup-summit-conheca-as-startups-vencedoras-do-evento/",
         "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "anpg-leao-ouro-2021": [
+      {
+        "id": 170,
+        "project_id": "anpg-leao-ouro-2021",
+        "event_type": "announcement",
+        "event_date": "2021-12-01",
+        "description": "ANPG participated in FILDA 2021 with the unified oil-sector 'corredor dos petróleos' stand",
+        "source_id": 196,
+        "src_title": "ANPG arrebata Leão de Ouro, o maior galardão da FILDA",
+        "src_pub": "ANPG (press release)",
+        "src_url": "https://anpg.co.ao/noticias/anpg-arrebata-leao-de-ouro-o-maior-galardao-da-filda/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 171,
+        "project_id": "anpg-leao-ouro-2021",
+        "event_type": "expansion",
+        "event_date": "2021-12-04",
+        "description": "ANPG won the Grand Prize (Leão de Ouro) at the FILDA 2021 gala",
+        "source_id": 196,
+        "src_title": "ANPG arrebata Leão de Ouro, o maior galardão da FILDA",
+        "src_pub": "ANPG (press release)",
+        "src_url": "https://anpg.co.ao/noticias/anpg-arrebata-leao-de-ouro-o-maior-galardao-da-filda/",
+        "src_conf": "high",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -4470,6 +4596,36 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "portugal-delegation-filda2021": [
+      {
+        "id": 176,
+        "project_id": "portugal-delegation-filda2021",
+        "event_type": "announcement",
+        "event_date": "2021-12-02",
+        "description": "AICEP organized the joint Portuguese presence (~10 companies) at FILDA 2021",
+        "source_id": 198,
+        "src_title": "Empresas portuguesas resistem à crise e reinventam-se no mercado angolano",
+        "src_pub": "Voz de Angola",
+        "src_url": "https://vozdeangola.com/economia/item/6683-empresas-portuguesas-resistem-%C3%A0-crise-e-reinventam-se-no-mercado-angolano",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 177,
+        "project_id": "portugal-delegation-filda2021",
+        "event_type": "completion",
+        "event_date": "2021-12-04",
+        "description": "Portuguese delegation completed participation at FILDA 2021",
+        "source_id": 198,
+        "src_title": "Empresas portuguesas resistem à crise e reinventam-se no mercado angolano",
+        "src_pub": "Voz de Angola",
+        "src_url": "https://vozdeangola.com/economia/item/6683-empresas-portuguesas-resistem-%C3%A0-crise-e-reinventam-se-no-mercado-angolano",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "portuguese-investment-zee-330m": [
       {
         "id": 8,
@@ -4702,6 +4858,36 @@ window.__STATIC_DATA = {
         "src_url_status": "alive"
       }
     ],
+    "sonangol-leao-ouro-2021": [
+      {
+        "id": 172,
+        "project_id": "sonangol-leao-ouro-2021",
+        "event_type": "announcement",
+        "event_date": "2021-12-01",
+        "description": "Sonangol participated in FILDA 2021",
+        "source_id": 196,
+        "src_title": "ANPG arrebata Leão de Ouro, o maior galardão da FILDA",
+        "src_pub": "ANPG (press release)",
+        "src_url": "https://anpg.co.ao/noticias/anpg-arrebata-leao-de-ouro-o-maior-galardao-da-filda/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 173,
+        "project_id": "sonangol-leao-ouro-2021",
+        "event_type": "expansion",
+        "event_date": "2021-12-04",
+        "description": "Sonangol won best participation in the Oil and Gas sector at FILDA 2021",
+        "source_id": 196,
+        "src_title": "ANPG arrebata Leão de Ouro, o maior galardão da FILDA",
+        "src_pub": "ANPG (press release)",
+        "src_url": "https://anpg.co.ao/noticias/anpg-arrebata-leao-de-ouro-o-maior-galardao-da-filda/",
+        "src_conf": "high",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
     "sonangol-leao-ouro-2022": [
       {
         "id": 54,
@@ -4878,6 +5064,36 @@ window.__STATIC_DATA = {
         "src_pub": "Marcas em Acção",
         "src_url": "https://marcasemaccao.com/2024/07/26/marcas-em-accao-na-filda-2024/",
         "src_conf": "low",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      }
+    ],
+    "unitel-leao-ouro-2021": [
+      {
+        "id": 174,
+        "project_id": "unitel-leao-ouro-2021",
+        "event_type": "announcement",
+        "event_date": "2021-12-01",
+        "description": "Unitel participated in FILDA 2021 with a 252 m² stand",
+        "source_id": 197,
+        "src_title": "Unitel distinguida como melhor empresa de telecomunicações na FILDA 2021",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/tech/unitel-distinguida-como-melhor-empresa-de-telecomunicacoes-na-filda-2021/",
+        "src_conf": "medium",
+        "src_archived_url": "",
+        "src_url_status": "alive"
+      },
+      {
+        "id": 175,
+        "project_id": "unitel-leao-ouro-2021",
+        "event_type": "expansion",
+        "event_date": "2021-12-04",
+        "description": "Unitel won best telecom company at FILDA 2021",
+        "source_id": 197,
+        "src_title": "Unitel distinguida como melhor empresa de telecomunicações na FILDA 2021",
+        "src_pub": "AngoRussia",
+        "src_url": "https://angorussia.com/tech/unitel-distinguida-como-melhor-empresa-de-telecomunicacoes-na-filda-2021/",
+        "src_conf": "medium",
         "src_archived_url": "",
         "src_url_status": "alive"
       }
@@ -5204,6 +5420,15 @@ window.__STATIC_DATA = {
         "role": "promoter",
         "name": "SIA - Sistema de Investimento para o Agronegocio",
         "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "anpg-leao-ouro-2021": [
+      {
+        "project_id": "anpg-leao-ouro-2021",
+        "role": "promoter",
+        "name": "ANPG - Agencia Nacional de Petroleo Gas e Biocombustiveis",
+        "type": "state_owned_enterprise",
         "country": "Angola"
       }
     ],
@@ -6099,6 +6324,15 @@ window.__STATIC_DATA = {
         "country": "Portugal"
       }
     ],
+    "portugal-delegation-filda2021": [
+      {
+        "project_id": "portugal-delegation-filda2021",
+        "role": "promoter",
+        "name": "AICEP - Agencia para o Investimento e Comercio Externo de Portugal",
+        "type": "government",
+        "country": "Portugal"
+      }
+    ],
     "portuguese-investment-zee-330m": [
       {
         "project_id": "portuguese-investment-zee-330m",
@@ -6219,6 +6453,15 @@ window.__STATIC_DATA = {
         "country": "Saudi Arabia"
       }
     ],
+    "sonangol-leao-ouro-2021": [
+      {
+        "project_id": "sonangol-leao-ouro-2021",
+        "role": "promoter",
+        "name": "Sonangol",
+        "type": "state_owned_enterprise",
+        "country": "Angola"
+      }
+    ],
     "sonangol-leao-ouro-2022": [
       {
         "project_id": "sonangol-leao-ouro-2022",
@@ -6290,6 +6533,15 @@ window.__STATIC_DATA = {
         "project_id": "ucall-ai-launch",
         "role": "promoter",
         "name": "Ucall",
+        "type": "company",
+        "country": "Angola"
+      }
+    ],
+    "unitel-leao-ouro-2021": [
+      {
+        "project_id": "unitel-leao-ouro-2021",
+        "role": "promoter",
+        "name": "Unitel",
         "type": "company",
         "country": "Angola"
       }
@@ -8119,14 +8371,50 @@ window.__STATIC_DATA = {
       "status_penalty": 0,
       "only_announce": 0,
       "version": "v2-2026-07"
+    },
+    "anpg-leao-ouro-2021": {
+      "base": 15,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "sonangol-leao-ouro-2021": {
+      "base": 15,
+      "events": 13,
+      "evidence": 2,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "unitel-leao-ouro-2021": {
+      "base": 15,
+      "events": 13,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
+    },
+    "portugal-delegation-filda2021": {
+      "base": 70,
+      "events": 18,
+      "evidence": 1,
+      "delay": 0,
+      "status_penalty": 0,
+      "only_announce": 0,
+      "version": "v2-2026-07"
     }
   },
   "stats": {
-    "tracked": 104,
-    "scored": 103,
-    "sources": 193,
-    "events": 168,
+    "tracked": 108,
+    "scored": 107,
+    "sources": 196,
+    "events": 176,
     "avg_score": 43.1,
-    "editions": "2022–2026"
+    "editions": "2021–2026"
   }
 };
